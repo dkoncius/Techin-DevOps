@@ -1,0 +1,2 @@
+# Skriptai visada su LF eilučių pabaiga (WSL/Linux/Mac)
+*.sh text eol=lf

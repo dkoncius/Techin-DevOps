@@ -1,0 +1,7 @@
+_saltiniai/
+.env
+*.tfstate*
+*.tfvars
+.terraform/
+kubeconfig*
+.DS_Store
