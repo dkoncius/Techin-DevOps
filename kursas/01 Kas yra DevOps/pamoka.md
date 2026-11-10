@@ -7,7 +7,7 @@ Data: 2026-11-11 (trečiadienis)
 Visa paskaita telpa į 3 val.: teorija ir darbas gyvai ~90 min. plius pertrauka ~15 min., savarankiškos užduotys ~1 val. 15 min. (likęs laikas yra rezervas).
 
 1. Prisistatymas (~5 min): dėstytojas prisistato per skaidres `apie-mane-skaidres.html` (šalia šio failo): kas esu, stack ir įrankiai, projektai, su kuo dirbau, GitHub ir LinkedIn
-2. Apklausa ir susipažinimas (~10 min), žodžiu, be formos:
+2. Apklausa ir susipažinimas (~10 min): paskutinė `apie-mane-skaidres` skaidrė „Susipažinkime“; kiekvienas atsako pristatydamasis, o dėstytojas užrašo Google lentelėje:
    1. Rankų pakėlimas: Windows ar Mac?
    2. Rankų pakėlimas: ar kompiuteris asmeninis (ne mokyklos ar darbo)? Tai svarbu dėl administratoriaus teisių diegiant WSL
    3. Rankų pakėlimas: ar veikia Ubuntu (WSL) Windows arba Terminalas Mac?
@@ -167,7 +167,7 @@ Patikrinta: visa klasės ir užduoties Git eiga (`git init`, commit, šaka, `mer
 
 ### Apklausa ir susipažinimas
 
-Žodinė, ~10 min., be formos. Rankų pakėlimus skaičiuokite ir užsirašykite (rezultatas reikalingas 02 pamokai). Klausimai ir ką daryti pagal atsakymus:
+Žodinė, ~10 min. Atsakymus užrašykite Google lentelėje (rezultatas reikalingas 02 pamokai); klausimai rodomi paskutinėje apie-mane skaidrėje. Klausimai ir ką daryti pagal atsakymus:
 
 1. Windows ar Mac? Jei Windows daugiau nei pusė, 02 ir 03 demonstruokite WSL terminale ir primename `~/devops` (ne `/mnt/c`) ir CRLF klaidas; jei Mac dauguma, rodykite Terminale, o WSL klaidas minėkite trumpai.
 2. Ar kompiuteris asmeninis (ne mokyklos ar darbo)? Mokyklos kompiuteriuose tikėtina, kad nėra administratoriaus teisių, todėl `wsl --install` gali nepavykti. Tiems, kas atsakė „ne“, iškart priminkite skyrių „Jei WSL nepavyko“ `README.md`.

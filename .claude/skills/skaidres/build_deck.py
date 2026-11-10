@@ -32,6 +32,7 @@ FONTS = ("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&"
 
 def inline(text):
     t = html.escape(text, quote=False)
+    t = t.replace(" // ", "<br>")
     t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
     t = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", t)
     t = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2" target="_blank" rel="noopener">\1</a>', t)
@@ -79,6 +80,10 @@ def parse_slide(kind, title, lines, warnings, idx, deco=""):
     eyebrow_txt = EYEBROWS[kind]
     i, n = 0, len(lines)
     para = []
+    path_mode = False
+    hero_below = False
+    hero_side = False
+    tiles_mode = False
 
     def flush():
         nonlocal para
@@ -136,6 +141,10 @@ def parse_slide(kind, title, lines, warnings, idx, deco=""):
             flush(); notes.append(s[len("Pastaba:"):].strip()); i += 1
         elif s.startswith("# "):
             flush(); body.append(f'<p class="big">{inline(s[2:])}</p>'); i += 1
+        elif s.startswith("@plokštelės"):
+            flush(); tiles_mode = True; i += 1
+        elif s.startswith("@kelias"):
+            flush(); path_mode = True; i += 1
         elif s.startswith((":: ", "+:: ")):
             flush()
             cards = []
@@ -153,7 +162,7 @@ def parse_slide(kind, title, lines, warnings, idx, deco=""):
                 cards.append(f'<div class="{cls}"{attr}><div class="card__icon">{html.escape(icon)}</div>'
                              f'<p class="card__title">{inline(title_c)}</p><p class="card__text">{inline(text_c)}</p></div>')
                 i += 1
-            body.append('<div class="cards">' + "".join(cards) + "</div>")
+            body.append(f'<div class="cards{" cards--path" if path_mode else ""}{" cards--tiles" if tiles_mode else ""}">' + "".join(cards) + "</div>")
         elif s.startswith(">>"):
             flush()
             reveal = s.startswith(">>+")
@@ -181,12 +190,28 @@ def parse_slide(kind, title, lines, warnings, idx, deco=""):
             i += 1
         elif s.startswith("@nuotrauka:"):
             flush()
-            img = OUT_DIR / s.split(":", 1)[1].strip()
+            spec = [x.strip() for x in s.split(":", 1)[1].split("|")]
+            img = OUT_DIR / spec[0]
             if img.exists():
                 b64 = base64.b64encode(img.read_bytes()).decode()
-                art_svg = f'<img class="photo" alt="" src="data:image/jpeg;base64,{b64}">'
+                png = img.suffix.lower() == ".png" or "didelė" in spec[1:] or "apačioje" in spec[1:] or "dešinėje" in spec[1:]
+                hero_side = "dešinėje" in spec[1:]
+                hero_below = "apačioje" in spec[1:]
+                art_svg = (f'<img class="photo{" photo--diagram" if png else ""}" alt="" '
+                           f'src="data:image/{ {".png": "png", ".gif": "gif"}.get(img.suffix.lower(), "jpeg") };base64,{b64}">')
             else:
                 warnings.append(f"skaidrė {idx}: nerastas paveikslėlis {img.name}")
+            i += 1
+        elif s.startswith("@video:"):
+            flush()
+            vid = s.split(":", 1)[1].strip()
+            m = re.search(r"(?:youtu\.be/|v=|embed/)([\w-]{11})", vid) or re.fullmatch(r"([\w-]{11})", vid)
+            if m:
+                body.append('<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/'
+                            + m.group(1) + '?rel=0" title="Video" loading="lazy" allowfullscreen '
+                            'allow="accelerometer; encrypted-media; picture-in-picture; fullscreen"></iframe></div>')
+            else:
+                warnings.append(f"skaidrė {idx}: neatpažintas YouTube adresas „{vid}“")
             i += 1
         elif s.startswith("@iliustracija:"):
             flush()
@@ -231,8 +256,18 @@ def parse_slide(kind, title, lines, warnings, idx, deco=""):
     cls = f"slide slide--{kind}" + (" slide--center" if kind in CENTER else "")
     note_attr = html.escape(" ".join(notes), quote=True)
     content = "".join(body)
-    if art_svg:
+    if art_svg and hero_side:
+        pass
+    elif art_svg and "photo--diagram" in art_svg and hero_below:
+        content = f'{content}<div class="hero hero--below">{art_svg}</div>'
+    elif art_svg and "photo--diagram" in art_svg:
+        content = f'<div class="hero">{art_svg}</div>{content}'
+    elif art_svg:
         content = f'<div class="split"><div class="split__text">{content}</div><div class="split__art">{art_svg}</div></div>'
+    if art_svg and hero_side:
+        sect = (f'<section class="{cls} slide--side" data-i="{idx}" data-notes="{note_attr}"><div class="side">'
+                f'<div class="side__text">{head}{content}</div><div class="side__art">{art_svg}</div></div></section>')
+        return sect, step, uses_mermaid
     sect = f'<section class="{cls}" data-i="{idx}" data-notes="{note_attr}">{head}{content}</section>'
     return sect, step, uses_mermaid
 
@@ -330,6 +365,10 @@ def build(src: Path):
         raise SystemExit("Nėra nė vienos skaidrės (eilutė „=== tipas | antraštė“).")
     if len(sections) - task_slides > MAX_SLIDES:
         warnings.append(f"{len(sections) - task_slides} skaidrių (be užduočių) (rekomenduojama iki {MAX_SLIDES})")
+    for n_, sec in enumerate(sections, 1):
+        kd = re.search(r'class="slide slide--(\S+)', sec)
+        if kd and kd.group(1) != "titulinė":
+            sections[n_ - 1] = sec.replace(">", f'><span class="slide__num">{n_}</span>', 1)
     css = (HERE / "deck.css").read_text(encoding="utf-8")
     js = (HERE / "deck.js").read_text(encoding="utf-8")
     doc = f"""<!doctype html>

@@ -36,3 +36,11 @@ Pastaba: ~2 min. Parodykite vieną projektą gyvai ir paminėkite, kad kiekvien�
 :: | LTKT | [ltkt.lt](https://www.ltkt.lt)
 :: | Dabar | Partneriai integruojant įmonėse automatizacijos procesus: [krei.lt](https://krei.lt)
 Pastaba: ~2 min. Pabrėžkite, kad dabartinis darbas (procesų automatizavimas) yra artimas DevOps minčiai: tas pats kelias kiekvieną kartą, be rankinio darbo.
+
+=== tekstas | Susipažinkime: pristatykite save
+1. Vardas ir ko tikitės iš kurso
+2. Windows ar Mac, ir ar kompiuteris asmeninis (ne mokyklos ar darbo)
+3. Ar veikia Ubuntu (WSL) arba Terminalas Mac
+4. Ar turite GitHub paskyrą
+5. Patirtis nuo 1 iki 5: Git, Linux, Python, Docker
+Pastaba: ~10 min. Kiekvienas studentas atsako į visus penkis klausimus pristatydamasis, o dėstytojas atsakymus užsirašo Google lentelėje (eilutė kiekvienam studentui). Rezultatai reikalingi 02 pamokai: kiek Windows ir kiek Mac, kam gali nepavykti `wsl --install` dėl administratoriaus teisių, kam trūksta GitHub paskyros. Docker nepažįsta, tai tikėtina. Skaičiuokite greitai, neaiškinkite, ką daryti pagal atsakymus, tai vėliau.

@@ -12,10 +12,12 @@ Telefone atsiranda programos atnaujinimas. Kūrėjas jį parašė prieš kelias 
 Pastaba: ~3 min. Leiskite spėlioti: kas testuoja, kas paleidžia, kas pastebi klaidą.
 
 === tekstas | DevOps = Dev + Ops
-:: | Dev (Development) | Kūrėjai: rašo kodą, kuria naujas funkcijas. Nori keisti greitai
-:: | Ops (Operations) | Administratoriai: paleidžia ir prižiūri serverius. Nori, kad viskas veiktų stabiliai
-- **DevOps** = abi pusės dirba kaip viena komanda
-Pastaba: ~3 min. Paklauskite, ką kiekviena pusė nori ir kodėl tie norai prieštarauja: Dev nori kuo daugiau pakeitimų, Ops nori kuo mažiau netikėtumų, nes kiekvienas pakeitimas gali sugadinti veikiančią sistemą.
+@nuotrauka: devops-kilpa.png
+Pastaba: ~4 min. Dev: kūrėjai, rašo kodą ir nori keisti greitai. Ops: administratoriai, paleidžia ir prižiūri, nori stabilumo. DevOps = abi pusės dirba kaip viena komanda. Iliustracija: begalybės kilpa (Plan, Code, Build, Test, Release, Deploy, Operate, Monitor), šaltinis Dynatrace. Parodykite, kad Dev ir Ops yra viena kilpa, o stebėsena grįžta į planavimą. Paklauskite, ką kiekviena pusė nori ir kodėl tie norai prieštarauja: Dev nori kuo daugiau pakeitimų, Ops nori kuo mažiau netikėtumų, nes kiekvienas pakeitimas gali sugadinti veikiančią sistemą.
+
+=== kita | Pažiūrėkime: DevOps per 5 minutes
+@video: https://youtu.be/Xrgk023l4lI
+Pastaba: ~7 min. Simplilearn „DevOps In 5 Minutes“, angliškai (įjunkite subtitrus, jei reikia). Žiūrėkite kartu, paskui 2 klausimai: ką video vadina Dev, o ką Ops pusėmis? Kuo „bendra atsakomybė“ skiriasi nuo senos sienos tarp komandų? Jei nėra interneto, atidarykite https://youtu.be/Xrgk023l4lI. Spustelėjus grotuvą rodyklės klavišai gali nebeperjungti skaidrių: paspauskite už grotuvo ribų.
 
 === schema | Taip buvo anksčiau: siena tarp Dev ir Ops
 ```excalidraw
@@ -30,15 +32,6 @@ arrow ops -> klaida
 arrow klaida -> dev | kaltinimai
 ```
 Pastaba: ~3 min. Pasakykite situaciją: kūrėjas perduoda kodą, kuris jo kompiuteryje veikė; serveryje neveikia; Dev sako „pas mane veikia“, Ops sako „jūsų kodas blogas“. Niekas nežino, kas kaltas, o vartotojai laukia.
-
-=== tekstas | Kodėl atsirado DevOps
-:: | Retas leidimas | Dideli pakeitimai kartą per kelis mėnesius: sunku surasti, kas sugedo
-:: | Rankinis darbas | Kiekvienas diegimas kitoks, klaidos kartojasi
-:: | Skirtingi tikslai | Dev nori greičio, Ops nori stabilumo: abi pusės traukia į skirtingas puses
-:: | Pas mane veikia | Skiriasi aplinkos, niekas nebūna atsakingas
-- Sprendimas: bendra atsakomybė ir **automatizavimas**, tas pats kelias kiekvieną kartą
-- Tikslas: dažni maži pakeitimai, o ne retas didelis
-Pastaba: ~5 min. Pabrėžkite, kad DevOps nėra įrankis ar pareigos, o darbo būdas ir kultūra. Įrankius (Docker, Actions, Kubernetes) matysime per kursą, o jie reikalingi tam, kad tas pats kelias kiekvieną kartą būtų vienodas.
 
 === schema | Kodo kelias nuo kūrėjo iki vartotojo
 ```excalidraw
@@ -61,42 +54,71 @@ arrow stebesena -> kodas | grįžtamasis ryšys
 Pastaba: ~5 min. Kitas pavyzdys nei mokinių: mobilios programos atnaujinimas. Kurso pabaigoje visa grandinė veiks automatiškai.
 
 === tekstas | Ką daro DevOps inžinierius
-:: | Automatizuoja | Testai, paketavimas ir diegimas vyksta be rankinio darbo
-:: | Stebi | Mato, ar programa gyva ir greita
-:: | Taiso | Randa, kas sugedo, ir kaip to išvengti
-:: | Bendradarbiauja | Šaltinio kodas, peržiūros ir aiškūs procesai
+@plokštelės
++:: Kodas | Automatizuoja | Testai, paketavimas ir diegimas vyksta be rankinio darbo
++:: Stebėsena | Stebi | Mato, ar programa gyva ir greita
++:: Gedimai | Taiso | Randa, kas sugedo, ir kaip to išvengti
++:: Komanda | Bendradarbiauja | Šaltinio kodas, peržiūros ir aiškūs procesai
 Pastaba: ~5 min. Parodykite roadmap.sh/devops ir pažymėkite, kurią dalį apims kursas.
 
-=== schema | Kur eisime per metus
+=== tekstas | DevOps kelias
+@kelias
++:: 1 | Nėra vieno kelio | Skirtingos įmonės naudoja skirtingus įrankius, o žmonės į DevOps ateina iš skirtingų vietų
++:: 2 | Dažna klaida | Per daug koncentruotis į konkrečius įrankius ir vieną „teisingą“ kelią
++:: 3 | Kas lieka | Įrankiai keičiasi kas keletą metų, o principai (automatizavimas, bendra atsakomybė, grįžtamasis ryšys) išlieka
+Pastaba: ~5 min. Atidarykite roadmap.sh/devops ir parodykite visą diagramą: tai ir yra „DevOps kelias“. Pažymėkite kurso dalis (Linux ir Git, Docker, CI/CD, Kubernetes, Azure) ir pasakykite, kad visko išmokti iš karto nereikia, o diagrama yra žemėlapis, ne sąrašas. Paklauskite: kiek čia įrankių, kurių dar nėra girdėję? Tada paspauskite, kad pamatytų, jog net kelias nėra vienas: kiekvienoje srityje yra keli įrankiai tam pačiam darbui.
+
+=== schema | DevOps specialybė skyla
 ```excalidraw
-file: kurso-zemelapis
-box linux | Linux ir Git | 0,0 | blue
-box docker | Docker | 1,0 | purple
-box actions | GitHub Actions | 2,0 | green
-box k8s | Kubernetes | 3,0 | yellow
-box azure | Azure | 3,1 | orange
-box iac | Terraform / Bicep\ninfrastruktūra kaip kodas | 2,1 | pink | 1.1,1
-arrow linux -> docker
-arrow docker -> actions
-arrow actions -> k8s
-arrow k8s -> azure
-arrow iac -> azure
-note Vienas projektas visą kursą | 0.3,1.3
+file: specialybes-skyla
+box web | Webmaster\n~2000 m. | 0,0 | gray
+box fe | Frontend | 1.3,-0.5 | blue
+box be | Backend | 2.6,-0.5 | green
+box ux | UX / UI | 3.9,-0.5 | pink
+box devops | DevOps\ntoday | 0,1.5 | orange
+box cloud | Debesų\ninžinierius | 1.3,1 | teal
+box platform | Platformų\ninžinierius | 2.6,1 | purple
+box sre | SRE | 3.9,1 | yellow
+box sec | DevSecOps | 1.3,2 | gray
+box mlops | MLOps | 2.6,2 | blue
+arrow web -> fe
+arrow web -> be
+arrow web -> ux
+arrow devops -> cloud
+arrow devops -> platform
+arrow devops -> sre
+arrow devops -> sec
+arrow devops -> mlops
 ```
-Pastaba: ~3 min. Kurso projektas: Flask + MySQL; 02 pamokoje susikursite savo kopiją. Atsiskaitymai: 2026-11-30 ir 2026-12-17.
+DevOps yra labai plati sritis. Kaip prieš 25 metų „webmaster“ darė viską apie svetainę, o vėliau jis suskilo, taip dabar iš DevOps atsiranda atskiros specialybės.
+Pastaba: ~4 min. 2000-ųjų webmaster'is vienas darė dizainą, HTML, serverį ir duomenų bazę; vėliau atsirado frontend, backend, UX/UI. Dabar tas pats vyksta su DevOps: debesų inžinierius (Azure, AWS), platformų inžinierius (kuria vidinę platformą kitiems programuotojams), SRE (patikimumas ir incidentai), DevSecOps (saugumas procese), MLOps (DI modelių paleidimas). Yra ir kitų, pvz. release ar build inžinierius, FinOps (debesų kaštai). Šiame kurse gausite bendrą pagrindą, o specializuotis galėsite vėliau.
 
-=== tekstas | DI taisyklės
-:: | Galima | Paaiškinti klaidą, pasiūlyti komandą
-:: | Būtina | Paleisti, perskaityti rezultatą, patikrinti dokumentacijoje
-:: | Niekada | Į DI ar į Git nekelti slaptažodžių, raktų, tokenų, `.env`
-Pastaba: ~3 min. Primename, kad atsiskaityme DI nenaudojama.
+=== schema | Įrankiai keičiasi, principai ne
+@nuotrauka: devops-irankiai.jpeg | didelė
+Pastaba: ~4 min. Įrankiai keičiasi ir programuotojams, ir DevOps, o filosofija ir principai, pagal kuriuos veikia sistemos ir verslai, nesikeičia: kodėl svarbiau už kaip. Iliustracija rodo, kiek įrankių yra tik vienoje kilpoje; šaltinis nenurodytas. Paklauskite, kiek jų pažįsta, ir kad nė vieno iš jų mokytis iš anksto nereikia. Pavyzdys: prieš 10 metų Jenkins, šiandien GitHub Actions, rytoj kažkas kito, bet idėja ta pati: automatiškai patikrinti ir paleisti kodą. Panašiai su programuotojais: karkasai keičiasi, o duomenų, tinklo ir saugumo principai ne. Verslui visada reikia to paties: greito, patikimo ir saugaus pristatymo vartotojui. Kas supranta kodėl, tas per savaitę perpranta naują įrankį; kas išmoko tik komandas, pasimeta pasikeitus įrankiui.
 
-=== tekstas | Git: keturi žodžiai
-:: | Repozitorija | Aplankas, kurio istoriją saugo Git
-:: | Commit | Išsaugotas pakeitimų taškas
-:: | Šaka (branch) | Atskira darbo linija, `main` lieka nepaliesta
-:: | GitHub | Nuotolinė repozitorijos kopija, kurią mato kiti
-Pastaba: ~2 min. Tik prisiminti: Git jau mokėjote. Repozitorijos Public: jokių slaptažodžių, raktų, `.env`.
+=== pagalvokime
+DI jau moka rašyti kodą ir komandas.
+# Kam mokytis DevOps, jei DI gali padaryti darbą?
+@nuotrauka: kodel-devops.gif | dešinėje
+Pastaba: ~3 min. Diskusija: leiskite studentams atsakyti patiems, paprašykite 2–3 nuomonių prieš rodydami kitą skaidrę. Nekomentuokite, kol neišgirsite skirtingų požiūrių.
+
+=== tekstas | Kam mokytis DevOps?
+@plokštelės
++:: 01 | Prieiga | Kas turi teisę paleisti į serverį ir keisti produkciją
++:: 02 | Taisyklės | Kur laikomi slaptažodžiai, kas tvirtina pakeitimus, kokių saugumo reikalavimų laikomasi
++:: 03 | Atsakomybė | Kas atsako, kai sugenda, ir kas supranta, ką DI parašė
++ DI gali parašyti komandą, bet jūs turite suprasti, ką ji daro, ir pasakyti, ar ją saugu paleisti
+Pastaba: ~3 min. Formuluotė dar tikslinama. Darbas yra ne tik jį atlikti, bet ir prieiga bei taisyklės. Susiekite su skaidre „DI taisyklės“: naudok, patikrink, pataisyk.
+
+=== tekstas | Neapsaugotas raktas kainuoja tūkstančius
+@plokštelės
++:: Japonija | ~60 000 $ per 13 val. | **Kas įvyko:** „Firebase“ ir „Gemini“ programos API raktas liko naršyklės kode be apribojimų; užpuolikas jį pasiėmė ir naudojo „Gemini“. // **Kaina:** ~60 000 $ (~9 mln. jenų). // **DevOps:** raktas apribotas pagal API ir svetainę, užklausos per backend, biudžeto įspėjimas ir limitas.
++:: Projektas po „Gemini“ įjungimo | ~54 000 € per 13 val. | **Kas įvyko:** įjungus „Gemini“ senas „Firebase“ naršyklės raktas be apribojimų gavo prieigą ir prie jo. // **Kaina:** ~54 000 €, „Google“ pagal pranešimus korekcijos neatliko. // **DevOps:** raktų auditas prieš įjungiant naują paslaugą, apribojimai kiekvienam raktui, išlaidų įspėjimai.
++:: Seni „Google“ raktai | ~67 000 $ per kelias valandas | **Kas įvyko:** prieš kelerius metus „Firebase“ automatiškai sukurtas raktas liko viešas ir neapribotas. // **Kaina:** ~67 000 $. // **DevOps:** reguliarus raktų sąrašo peržiūrėjimas, nenaudojamų raktų šalinimas, slaptų duomenų paieška kode.
++:: Startuolis | ~82 000 $ per ~48 val. | **Kas įvyko:** pranešama apie kompromituotą debesies prieigą (antrinis šaltinis, detalių nėra). // **Kaina:** ~82 000 $. // **DevOps:** išlaidų riba ir įspėjimai, minimalios teisės, raktų rotacija, greitas incidento atsakas.
++ Slaptas raktas, apribojimai ir išlaidų riba yra DevOps darbas, o DI to už jus nepadarys
+Pastaba: ~3 min. Visi atvejai yra pranešti internete (DEV Community, „Cybernews“, „Google“ kūrėjų forumas), ne patikrinti pirminiais šaltiniais, todėl sakykite „pranešama“. Sumos apytikslės. Bendra priežastis: „Google“ API raktai pagal numatytuosius nustatymus neribojami, o „Firebase“ naršyklės raktai viešai matomi. 40 000 $ tikslaus atvejo nerasta. Klauskite studentų, kaip to išvengti: riboti raktą pagal API ir svetainę, kviesti per backend, biudžeto įspėjimai ir limitai, rotuoti raktus. Susiekite su „DI taisyklės“: DI gali įdėti raktą tiesiai į kodą, jei nepatikrinsite.
 
 === demonstracija | Nuo aplanko iki GitHub
 ```bash
