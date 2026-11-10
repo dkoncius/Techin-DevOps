@@ -29,7 +29,7 @@ description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paska
 11. Datos po 2027-01-01 orientacinės: mokinių medžiagoje jų nerašyk kaip patvirtintų.
 
 ## Skyrius „Užduotys“ (pamoka.md)
-1. Antraštė `## Užduotys`, tada eilutė: `Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje arba klauskite LLM, ir užsirašykite, kas padėjo. Nuorodos yra pamoka.md. Komandos yra skyriuje „Komandos“: žiūrėkite tik įstrigę.` Nekartoti po kiekvienos užduoties, atskirų „Pagalba“ blokų nėra. Dėstytojas užduotis skelbia Teams'e po vieną: po įvado eilutė, kad užduotis skelbiamos po vieną (pirma demonstracija, tada darbas).
+1. Antraštė `## Užduotys`, tada eilutė: `Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo (1 etape dirbtinio intelekto užduotyse nenaudojame; DI leidžiamas nuo Docker etapo, žr. di-kurse). Nuorodos yra pamoka.md. Komandos yra skyriuje „Komandos“: žiūrėkite tik įstrigę.` Nekartoti po kiekvienos užduoties, atskirų „Pagalba“ blokų nėra. Dėstytojas užduotis skelbia Teams'e po vieną: po įvado eilutė, kad užduotis skelbiamos po vieną (pirma demonstracija, tada darbas).
 2. Kiekviena užduotis: `### 1️⃣ <Pavadinimas>` (2️⃣, 3️⃣ ...), po antraštės vienas numeruotas sąrašas. Laiko užduotyje nerašyti (laikas yra `pamoka.md` ir sprendimų README).
 3. Pirmas punktas: `**Tikslas:** <vienas sakinys>`. Toliau vienas punktas yra vienas patikrinamas darbas, be komandų (komandos tik skyriuje „Komandos“), trumpais sakiniais; kur tinka, pavadinti įrankį ar temą.
 4. Papildomi darbai tame pačiame sąraše: `**Papildomai:** ...` (ne daugiau kaip 1 punktas užduotyje).
@@ -38,7 +38,8 @@ description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paska
 7. Kai pamoka moko PR, pateikimas yra PR nuoroda į mokinio `devops-projektas` kopiją; kitu atveju galima ekrano nuotrauka ar repozitorijos nuoroda.
 8. Paprastai 3–5 trumpos užduotys, kurių suma telpa į pamokos užduočių laiką (~1,25–2,5 val.).
 9. Kiekvienoje pamokoje bent viena užduotis pagal oficialią dokumentaciją; darbe pažymėta „(pagal oficialią dokumentaciją; žingsnių čia nėra, tik tikslas)“.
-10. `**Pavyzdys:**` tik jei tikrai padeda: vienas kodo blokas ar nuoroda. Netikra išvestis pažymėta „pavyzdinė išvestis“.
+10. Žingsniai yra atominiai ir sunumeruoti pagal eilę: vienas veiksmas, nurodyti visi pavadinimai (aplankai, failai, šakos, commit žinutės), bet be komandų ir atsakymų. Pirmas punktas `**Tikslas:**` (jį skaito skaidrių generatorius). Užduotys studentams kartu kopijuojamos į `uzduotys/N-uzduotis.md` (Teams) su papildomais failais (pvz. komandų PDF).
+11. `**Pavyzdys:**` tik jei tikrai padeda: vienas kodo blokas ar nuoroda. Netikra išvestis pažymėta „pavyzdinė išvestis“.
 
 ## Skyrius „Komandos“ (pamoka.md)
 1. `## Komandos`, pirma eilutė „Žiūrėkite tik įstrigę. Numeriai atitinka užduoties žingsnius.“

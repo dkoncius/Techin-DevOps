@@ -40,7 +40,7 @@ Skaidrės skiriamos eilute `=== tipas | Antraštė` (trečias laukas, jei yra, i
 | `> 🏨 tekstas` | kalbos debesėlis su analogija; `+>` atsiranda paspaudus |
 | `@iliustracija: pastatas` | SVG iliustracija dešinėje: `pastatas` (IP + portai), `knyga` (DNS), `laiškas` (užklausa/atsakymas), `serveris`, `raktas` (privatus/viešas), `šaka` (Git) |
 | ```` ```output ```` … | žalias „pavyzdinė išvestis“ langas (`output+` atsiranda paspaudus) |
-| `@uzduotys: auto` (skaidrėje `=== uzduotys \| Užduotys`); `@uzduotys: auto, be sąrašo` praleidžia apžvalgos skaidrę ir palieka tik po vieną skaidrę užduočiai | **užduotys iš `pamoka.md` skyriaus „Užduotys“**: viena apžvalgos skaidrė su kortelėmis (pavadinimas + tikslas) ir po vieną skaidrę kiekvienai užduočiai su sunumeruotais žingsniais. Tekstas imamas tiesiai iš `pamoka.md`, todėl jis visada sutampa su Teams. Komandų nerodo (jos „Komandos“ skyriuje). Šios skaidrės neįskaičiuojamos į 14 skaidrių ribą |
+| `@uzduotys: auto` (skaidrėje `=== uzduotys \| Užduotys`); `@uzduotys: auto, be sąrašo` praleidžia apžvalgos skaidrę ir palieka tik po vieną skaidrę užduočiai; `@uzduotys: auto, tik sąrašas` palieka tik apžvalgos skaidrę (kai žingsniai netelpa ir pilnos užduotys keliamos per Teams) | **užduotys iš `pamoka.md` skyriaus „Užduotys“**: viena apžvalgos skaidrė su kortelėmis (pavadinimas + tikslas) ir po vieną skaidrę kiekvienai užduočiai su sunumeruotais žingsniais. Tekstas imamas tiesiai iš `pamoka.md`, todėl jis visada sutampa su Teams. Komandų nerodo (jos „Komandos“ skyriuje). Šios skaidrės neįskaičiuojamos į 14 skaidrių ribą |
 | `Pastaba: ...` | pastaba dėstytojui (rodoma klavišu N), lietuviškai |
 
 Titulinėje skaidrėje pirma pastraipa tampa eyebrow (pvz. „05 pamoka · 1 etapas“), `- punktai` yra tikslai.
