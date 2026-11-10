@@ -5,7 +5,7 @@ description: Naudok, kai reikia sukurti DevOps pamokos (kursas/NN .../pamoka.md)
 
 # Pamoka → skaidrių planas (`skaidres.md`)
 
-Dvi dalys: (1) **šis skillas** parašo `kursas/<NN Pavadinimas>/skaidres.md`; (2) skillas `skaidres` jį paverčia į `skaidres.html`. Skaidrės skirtos **teorijai ir dėstytojo demonstracijai** padengti. Užduotys studentams skelbiamos Teams'e po vieną; skaidrėse jos rodomos tik kaip priminimas (`@uzduotys: auto`), kad klasė matytų žingsnius dirbdama.
+Dvi dalys: (1) **šis skillas** parašo `kursas/<NN Pavadinimas>/skaidres.md`; (2) skillas `skaidres` jį paverčia į `skaidres.html`. Kai pamoka turi kelis rinkinius, juos numeruok pagal rodymo tvarką (`1-apie-mane.md`, `2-apie-kursa.md`, `3-skaidres.md`), o paveikslus laikyk `nuotraukos/`; pamokos `pamoka.md` tik nurodo skaidrių numerius ir nuorodas, o dėstytojo tekstas rašomas skaidrių `Pastaba:` eilutėse, ne `pamoka.md`. Skaidrės skirtos **teorijai ir dėstytojo demonstracijai** padengti. Užduotys studentams skelbiamos Teams'e po vieną; skaidrėse jos rodomos tik kaip priminimas (`@uzduotys: auto`), kad klasė matytų žingsnius dirbdama.
 
 Šaltinis tiesos yra `pamoka.md` (klasės darbas, schemos, „Kaip rodyti klasėje“, „Dažna klaida“). Skaidrės jo nekeičia ir neprieštarauja.
 
