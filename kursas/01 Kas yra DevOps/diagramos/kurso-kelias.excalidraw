@@ -4,7 +4,7 @@
   "source": "https://excalidraw.com",
   "elements": [
     {
-      "id": "7c3b5f7bf4eb4075",
+      "id": "cd655dbb74ae4071",
       "type": "rectangle",
       "x": 0.0,
       "y": 0.0,
@@ -30,11 +30,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "3f6c54976cfd4172"
+          "id": "d489834023a844d0"
         },
         {
           "type": "arrow",
-          "id": "8101a7768965417c"
+          "id": "f805f82cd58c41d9"
         }
       ],
       "updated": 1,
@@ -42,7 +42,7 @@
       "locked": false
     },
     {
-      "id": "3f6c54976cfd4172",
+      "id": "d489834023a844d0",
       "type": "text",
       "x": 10.0,
       "y": 30.0,
@@ -72,13 +72,13 @@
       "text": "Linux ir Git",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "7c3b5f7bf4eb4075",
+      "containerId": "cd655dbb74ae4071",
       "originalText": "Linux ir Git",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "f3d35555cbb64091",
+      "id": "2d87ffd7e0e84291",
       "type": "rectangle",
       "x": 300.0,
       "y": 0.0,
@@ -104,15 +104,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "f5b8184217a74079"
+          "id": "a6d0ef1f59824c72"
         },
         {
           "type": "arrow",
-          "id": "8101a7768965417c"
+          "id": "f805f82cd58c41d9"
         },
         {
           "type": "arrow",
-          "id": "3c8b8fed970e4309"
+          "id": "09643ab2e1fe48fb"
         }
       ],
       "updated": 1,
@@ -120,7 +120,7 @@
       "locked": false
     },
     {
-      "id": "f5b8184217a74079",
+      "id": "a6d0ef1f59824c72",
       "type": "text",
       "x": 310.0,
       "y": 30.0,
@@ -150,13 +150,13 @@
       "text": "Docker",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "f3d35555cbb64091",
+      "containerId": "2d87ffd7e0e84291",
       "originalText": "Docker",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "78d4a9cf61ff47cd",
+      "id": "b638fcd38a8a478b",
       "type": "rectangle",
       "x": 600.0,
       "y": 0.0,
@@ -182,15 +182,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "f0d073e71a02440e"
+          "id": "e12a8c9af24d428d"
         },
         {
           "type": "arrow",
-          "id": "3c8b8fed970e4309"
+          "id": "09643ab2e1fe48fb"
         },
         {
           "type": "arrow",
-          "id": "282e089056a54fec"
+          "id": "2e3b9b7d5a8c4aff"
         }
       ],
       "updated": 1,
@@ -198,7 +198,7 @@
       "locked": false
     },
     {
-      "id": "f0d073e71a02440e",
+      "id": "e12a8c9af24d428d",
       "type": "text",
       "x": 610.0,
       "y": 30.0,
@@ -228,13 +228,13 @@
       "text": "GitHub Actions",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "78d4a9cf61ff47cd",
+      "containerId": "b638fcd38a8a478b",
       "originalText": "GitHub Actions",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "2db5c2587cfc43a0",
+      "id": "5139328e9e3f46a4",
       "type": "rectangle",
       "x": 900.0,
       "y": 0.0,
@@ -260,15 +260,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "a1f61221deaa4156"
+          "id": "6c66ed3f31b34468"
         },
         {
           "type": "arrow",
-          "id": "282e089056a54fec"
+          "id": "2e3b9b7d5a8c4aff"
         },
         {
           "type": "arrow",
-          "id": "2c0d18a7431940f0"
+          "id": "acc7f01a53d1484e"
         }
       ],
       "updated": 1,
@@ -276,7 +276,7 @@
       "locked": false
     },
     {
-      "id": "a1f61221deaa4156",
+      "id": "6c66ed3f31b34468",
       "type": "text",
       "x": 910.0,
       "y": 30.0,
@@ -306,13 +306,13 @@
       "text": "Kubernetes\npagrindai",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "2db5c2587cfc43a0",
+      "containerId": "5139328e9e3f46a4",
       "originalText": "Kubernetes\npagrindai",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "444e052cd8c14d1a",
+      "id": "6e18f0c5167f4dba",
       "type": "rectangle",
       "x": 900.0,
       "y": 190.0,
@@ -338,15 +338,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "bbfb8ab2d4e24662"
+          "id": "ddac672c11494781"
         },
         {
           "type": "arrow",
-          "id": "2c0d18a7431940f0"
+          "id": "acc7f01a53d1484e"
         },
         {
           "type": "arrow",
-          "id": "af34edd445154ab4"
+          "id": "b73186ec37f04584"
         }
       ],
       "updated": 1,
@@ -354,7 +354,7 @@
       "locked": false
     },
     {
-      "id": "bbfb8ab2d4e24662",
+      "id": "ddac672c11494781",
       "type": "text",
       "x": 910.0,
       "y": 220.0,
@@ -384,13 +384,13 @@
       "text": "Kubernetes\npraktikoje",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "444e052cd8c14d1a",
+      "containerId": "6e18f0c5167f4dba",
       "originalText": "Kubernetes\npraktikoje",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "27c887bffeb54f76",
+      "id": "43efd490f2c0475e",
       "type": "rectangle",
       "x": 600.0,
       "y": 190.0,
@@ -416,15 +416,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "d9c78b22b8e345da"
+          "id": "181932e9c73c4121"
         },
         {
           "type": "arrow",
-          "id": "af34edd445154ab4"
+          "id": "b73186ec37f04584"
         },
         {
           "type": "arrow",
-          "id": "8259db6917da4629"
+          "id": "306157ae31e44a69"
         }
       ],
       "updated": 1,
@@ -432,7 +432,7 @@
       "locked": false
     },
     {
-      "id": "d9c78b22b8e345da",
+      "id": "181932e9c73c4121",
       "type": "text",
       "x": 610.0,
       "y": 220.0,
@@ -462,13 +462,13 @@
       "text": "Azure",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "27c887bffeb54f76",
+      "containerId": "43efd490f2c0475e",
       "originalText": "Azure",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "688350c4cd6949cd",
+      "id": "336d6f496fea4d18",
       "type": "rectangle",
       "x": 300.0,
       "y": 190.0,
@@ -494,11 +494,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "25d6b60f361540d0"
+          "id": "fa8d993e079f4df9"
         },
         {
           "type": "arrow",
-          "id": "8259db6917da4629"
+          "id": "306157ae31e44a69"
         }
       ],
       "updated": 1,
@@ -506,7 +506,7 @@
       "locked": false
     },
     {
-      "id": "25d6b60f361540d0",
+      "id": "fa8d993e079f4df9",
       "type": "text",
       "x": 310.0,
       "y": 220.0,
@@ -536,13 +536,13 @@
       "text": "Pilnas pipeline\nir projektas",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "688350c4cd6949cd",
+      "containerId": "336d6f496fea4d18",
       "originalText": "Pilnas pipeline\nir projektas",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "8101a7768965417c",
+      "id": "f805f82cd58c41d9",
       "type": "arrow",
       "x": 240.0,
       "y": 50.0,
@@ -581,12 +581,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "7c3b5f7bf4eb4075",
+        "elementId": "cd655dbb74ae4071",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "f3d35555cbb64091",
+        "elementId": "2d87ffd7e0e84291",
         "focus": 0,
         "gap": 4
       },
@@ -594,7 +594,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "3c8b8fed970e4309",
+      "id": "09643ab2e1fe48fb",
       "type": "arrow",
       "x": 540.0,
       "y": 50.0,
@@ -633,12 +633,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "f3d35555cbb64091",
+        "elementId": "2d87ffd7e0e84291",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "78d4a9cf61ff47cd",
+        "elementId": "b638fcd38a8a478b",
         "focus": 0,
         "gap": 4
       },
@@ -646,7 +646,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "282e089056a54fec",
+      "id": "2e3b9b7d5a8c4aff",
       "type": "arrow",
       "x": 840.0,
       "y": 50.0,
@@ -685,12 +685,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "78d4a9cf61ff47cd",
+        "elementId": "b638fcd38a8a478b",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "2db5c2587cfc43a0",
+        "elementId": "5139328e9e3f46a4",
         "focus": 0,
         "gap": 4
       },
@@ -698,7 +698,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "2c0d18a7431940f0",
+      "id": "acc7f01a53d1484e",
       "type": "arrow",
       "x": 1020.0,
       "y": 100.0,
@@ -737,12 +737,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "2db5c2587cfc43a0",
+        "elementId": "5139328e9e3f46a4",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "444e052cd8c14d1a",
+        "elementId": "6e18f0c5167f4dba",
         "focus": 0,
         "gap": 4
       },
@@ -750,7 +750,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "af34edd445154ab4",
+      "id": "b73186ec37f04584",
       "type": "arrow",
       "x": 900.0,
       "y": 240.0,
@@ -789,12 +789,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "444e052cd8c14d1a",
+        "elementId": "6e18f0c5167f4dba",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "27c887bffeb54f76",
+        "elementId": "43efd490f2c0475e",
         "focus": 0,
         "gap": 4
       },
@@ -802,7 +802,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "8259db6917da4629",
+      "id": "306157ae31e44a69",
       "type": "arrow",
       "x": 600.0,
       "y": 240.0,
@@ -841,12 +841,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "27c887bffeb54f76",
+        "elementId": "43efd490f2c0475e",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "688350c4cd6949cd",
+        "elementId": "336d6f496fea4d18",
         "focus": 0,
         "gap": 4
       },

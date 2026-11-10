@@ -4,76 +4,21 @@ Data: 2026-11-11 (trečiadienis)
 
 ## Klasės darbas
 
-Visa paskaita telpa į 3 val.: teorija ir darbas gyvai ~90 min. plius pertrauka ~15 min., savarankiškos užduotys ~1 val. 15 min. (likęs laikas yra rezervas).
+3 val. Skaidrėse **N** rodo pastabas.
 
-1. Prisistatymas (~5 min): dėstytojas prisistato per skaidres `apie-mane-skaidres.html` (šalia šio failo): kas esu, stack ir įrankiai, projektai, su kuo dirbau, GitHub ir LinkedIn
-2. Apklausa ir susipažinimas (~10 min): paskutinė `apie-mane-skaidres` skaidrė „Susipažinkime“; kiekvienas atsako pristatydamasis, o dėstytojas užrašo Google lentelėje:
-   1. Rankų pakėlimas: Windows ar Mac?
-   2. Rankų pakėlimas: ar kompiuteris asmeninis (ne mokyklos ar darbo)? Tai svarbu dėl administratoriaus teisių diegiant WSL
-   3. Rankų pakėlimas: ar veikia Ubuntu (WSL) Windows arba Terminalas Mac?
-   4. Rankų pakėlimas: ar turite GitHub paskyrą?
-   5. Patirtis 1–5 pirštais (1 – nieko, 5 – laisvai), keturis kartus: Git, Linux, Python, Docker
-   6. Susipažinimas: 3–4 savanoriai pasako vardą ir ko tikisi iš kurso
-3. Kurso eiga ir kaip dirbsime (~10 min):
-   1. 80 paskaitų, 7 etapai, po kiekvieno atsiskaitymas (testas + praktika); patvirtinti atsiskaitymai: 2026-11-30 ir 2026-12-17
-   2. Kasdienių užduočių dėstytojas netikrina: pamokos pradžioje parodo sprendimą gyvai, jūs darote užduotis, kitą kartą aptariame, kas liko neaišku
-   3. Kas savaitę `git pull` iš `devops-kursas` (žr. `README.md`)
-   4. Diegimas fone (jums nieko iš anksto nesiunčiama, aplinka ruošiama pamokoje): kol dėstytojas pasakoja 3 ir 4 punktus (~30 min), Windows studentai PowerShell kaip administratorius paleidžia `wsl --install`, Mac studentai terminale paleidžia `xcode-select --install`
-   5. DI taisyklės: ką galima (paaiškinti klaidą, pasiūlyti komandą); kaip tikrinti (paleisti, perskaityti, patikrinti dokumentacijoje); ko niekada nekelti į DI ar į Git (slaptažodžių, raktų, tokenų, `.env`)
-4. Kas yra DevOps (~20 min):
-   1. Kodo kelias nuo kūrėjo iki vartotojo: kodas → versijų kontrolė → testai → paketavimas → diegimas → stebėsena → grįžtamasis ryšys
-   2. Kodėl atsirado: kūrėjai nori keisti greitai, administratoriai nori stabilumo; DevOps juos sujungia automatizavimu
-   3. Ką daro DevOps inžinierius ir kur matysime tai per metus: Linux ir Git → Docker → GitHub Actions → Kubernetes → Azure
-   4. [roadmap.sh/devops](https://roadmap.sh/devops) (~5 min): visas kelias vienoje diagramoje; parodyti, kurią dalį apims kursas, o ne aiškinti kiekvieną langelį
-   5. Kurso projektas: vienas Python (Flask) web API su MySQL, kurį visą kursą pakeisime, supakuosime ir paleisime; savo kopiją jo susikursite 02 pamokoje
-5. Pertrauka (~15 min): Windows studentai perkrauna kompiuterį ir vieną kartą paleidžia Ubuntu (sukuria vartotoją); Mac studentai patikrina, ar baigėsi `xcode-select` diegimas
-6. Aplinkos patikra (~10 min) po pertraukos, pagal `README.md` skyrių „Aplinka“:
-   1. Visi paleidžia `git --version` ir `gh auth status`
-   2. Kam dar trūksta WSL ar `gh`, tas diegia dabar (kam trūksta GitHub paskyros, susikuria), likusieji tęsia. Jei WSL nepavyksta, žr. `README.md` skyrių „Jei WSL nepavyko“
-   3. Git vardas ir el. paštas (`user.name`, `user.email`; el. paštui galima GitHub „noreply“ adresas: GitHub Settings → Emails) ir numatytoji šaka `main` (`init.defaultBranch`). Jei dar neprisijungta, `gh auth login` (HTTPS); GitHub paprasto slaptažodžio nebepriima
-   4. Visi kurso failai laikomi vienoje vietoje: aplankas `~/devops`, ne `/mnt/c` ir (Mac) ne `Desktop` ar `Documents`
-7. Git per užduotis (~30 min): užduotys skelbiamos po vieną Teams'e. Prieš kiekvieną dėstytojas gyvai parodo kitu pavyzdžiu (`a.txt`, `b.txt`, šaka `bugFix`), tada jūs darote savo (`pastabos.txt`, `idejos.txt`, šaka `papildymas`) ir gavę patvirtinimą ar baigę gaunate kitą. Komandos yra skyriuje „Komandos“. Pradžia yra **greitas pakartojimas** to, ką jau mokėjote, todėl daug nesiaiškiname; daugiau laiko šakoms
-   1. Keturi žodžiai (~2 min, tik prisiminti): **repozitorija** (aplankas, kurio istoriją saugo Git), **commit** (išsaugotas pakeitimų taškas), **šaka (branch)** (atskira darbo linija, `main` lieka nepaliesta), **GitHub** (nuotolinė repozitorijos kopija, kurią mato kiti)
-   2. Demonstracija ir Užduotis 1 „Nuo aplanko iki GitHub“ (~8 min, pakartojimas): aplankas, du failai, commit, `gh repo create`; repozitorijos yra **Public**: jokių slaptažodžių, raktų, `.env`
-   3. Demonstracija ir Užduotis 2 „Šaka ir sujungimas“ (~20 min, naujiena): šaka, pakeitimas, `main` pokytis, `merge`, `branch -d`, `push`, `git log --oneline --graph --all`
-   4. Užduotis 3 „DevOps dokumentas ir `/health`“ skelbiama po 8 punkto (~1 val.)
-   5. Nuorodos: [GitHub Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world), [Learn Git Branching](https://learngitbranching.js.org/), [Pro Git knyga](https://git-scm.com/book/en/v2)
-8. Python kodo skaitymas (~5 min): dėstytojas atidaro [`app.py` šablone](https://github.com/dkoncius/devops-projektas-starter-template/blob/main/app.py) naršyklėje ir randa maršrutą `/health`; ką jis grąžina ir kam reikalingas, jūs išsiaiškinate Užduotyje 3 (žr. skyrių „Schemos“ ir skyrių „Užduotys“)
-9. Kita paskaita: Linux terminalas: navigacija, failai, teisės; pradėsime nuo savo `devops-projektas` susikūrimo iš šablono
+1. Prisistatymas (~5 min): [1-apie-mane](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/1-apie-mane.html), 1–4 skaidrės
+2. Susipažinkime (~10 min): [1-apie-mane](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/1-apie-mane.html), 5 skaidrė; atsakymus užrašyti [Google lentelėje](https://docs.google.com/spreadsheets/d/1K_lsp3dnYaUWD2iWq_jCH5XMv4ZkYzXnXAclkF0Y7mA/edit?gid=0#gid=0)
+3. Terminalas (~5 min): [1-apie-mane](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/1-apie-mane.html), 6 skaidrė (`wsl --install` / `xcode-select --install`)
+4. Kurso eiga (~10 min): [2-apie-kursa](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/2-apie-kursa.html); vertinimo procentų nesakyti, jie nepatvirtinti
+5. Kas yra DevOps (~20 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/3-skaidres.html), 1–13 skaidrės; [roadmap.sh/devops](https://roadmap.sh/devops)
+6. Pertrauka (~15 min): Windows perkrauna ir vieną kartą paleidžia Ubuntu; Mac patikrina `xcode-select`
+7. Aplinkos patikra (~10 min): `README.md` skyrius „Aplinka“; jei WSL nepavyksta, „Jei WSL nepavyko“ (turi būti išspręsta prieš 02 pamoką)
+8. Git per užduotis (~30 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/3-skaidres.html), 14–16 skaidrės; Užduotys 1 ir 2; užduotys skelbiamos po vieną Teams'e
+9. `/health` (~5 min): [`app.py`](https://github.com/dkoncius/devops-projektas-starter-template/blob/main/app.py) naršyklėje
+10. Užduotis 3 (~70 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/3-skaidres.html), 17–20 skaidrės
+11. Kita paskaita: Linux terminalas
 
-## Schemos
-
-Kodo kelias nuo kūrėjo iki vartotojo (kurso pabaigoje visa grandinė veiks automatiškai):
-
-```mermaid
-flowchart TD
-    kodas[Kodas jūsų kompiuteryje] --> git[Git šaka ir Pull Request]
-    git --> testai[Testai]
-    testai --> pak[Paketavimas į image]
-    pak --> diegimas[Diegimas į serverį]
-    diegimas --> vartotojas[Vartotojas]
-    vartotojas --> stebesena[Stebėsena ir grįžtamasis ryšys]
-    stebesena --> kodas
-```
-
-Git šaka ir sujungimas (šios pamokos pavyzdys):
-
-```mermaid
-flowchart TD
-    c1[commit: du failai] --> c2[commit: main pokytis]
-    c1 --> c3[commit: bugFix pataisa]
-    c2 --> m[merge: bugFix į main]
-    c3 --> m
-    m --> gh[git push į GitHub]
-```
-
-Python ištrauka skaitymo užduočiai (tokia pati kaip projekto `app.py`):
-
-```python
-@app.route("/health")
-def health():
-    return {"status": "ok"}, 200
-```
+Nuorodos: [GitHub Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world), [Learn Git Branching](https://learngitbranching.js.org/), [Pro Git](https://git-scm.com/book/en/v2)
 
 ## Užduotys
 
@@ -164,55 +109,6 @@ Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, t
 ## Sprendimas (dėstytojui)
 
 Patikrinta: visa klasės ir užduoties Git eiga (`git init`, commit, šaka, `merge`, `push`) paleista macOS (bash 3.2) su laikina nuotoline repozitorija vietoj GitHub. Nepatikrinta: `gh repo create` ir GitHub dalis (reali paskyra, Public, `GH007` dėl privataus el. pašto) bei WSL2 Ubuntu; daroma ranka prieš pamoką.
-
-### Apklausa ir susipažinimas
-
-Žodinė, ~10 min. Atsakymus užrašykite Google lentelėje (rezultatas reikalingas 02 pamokai); klausimai rodomi paskutinėje apie-mane skaidrėje. Klausimai ir ką daryti pagal atsakymus:
-
-1. Windows ar Mac? Jei Windows daugiau nei pusė, 02 ir 03 demonstruokite WSL terminale ir primename `~/devops` (ne `/mnt/c`) ir CRLF klaidas; jei Mac dauguma, rodykite Terminale, o WSL klaidas minėkite trumpai.
-2. Ar kompiuteris asmeninis (ne mokyklos ar darbo)? Mokyklos kompiuteriuose tikėtina, kad nėra administratoriaus teisių, todėl `wsl --install` gali nepavykti. Tiems, kas atsakė „ne“, iškart priminkite skyrių „Jei WSL nepavyko“ `README.md`.
-3. Ar veikia Ubuntu (WSL) / Terminalas? Kas atsakė „ne“ ar „nežinau“, tam skirkite diegimo laiką aplinkos patikros metu (~10 min); jei „ne“ daugiau nei ~5 žmonės, apsvarstykite 5 min. bendrą WSL diegimo parodymą visai grupei.
-4. Ar turite GitHub paskyrą? Kas neturi, susikuria ją aplinkos patikros metu (~5 min.), kol kiti tvarkosi; jei neturinčių daug, paprašykite jų tai padaryti jau pertraukoje.
-5. Patirtis 1–5 pirštais (Git, Linux, Python, Docker):
-   1. Git daug 1–2: GitHub gyvai dalį eikite lėčiau, daugiau laiko šakai ir PR, poromis „stipresnis su silpnesniu“.
-   2. Linux daug 1–2: 02 pamokoje daugiau demonstracijos laiko, užduotį galima pradėti klasėje.
-   3. Python daug 1–2: `/health` aiškinti eilutė po eilutės (dekoratorius, žodynas, kodas 200).
-   4. Docker nepažįsta, tai tikėtina: nieko keisti nereikia, Docker prasideda 11 pamokoje.
-6. Susipažinimas: 3–4 savanoriai pasako vardą ir ko tikisi. Užsirašykite 3–4 dažniausias lūkesčių temas ir atsakykite į jas 02 pamokos pradžioje arba artimiausioje pertraukoje.
-
-Pastabos 02 pamokai pagal apklausos rezultatus (tik užrašyti, pamokos nekeisti). Jei kas liko su Git Bash be WSL, tai išspręsti prieš 02. Jei Windows daug, pridėti rodymą WSL terminale; jei Linux patirtis žema, skirti daugiau laiko failų ir teisių demonstracijai; jei daug neturi `gh` ar GitHub, pradėti 02 trumpu prisijungimo pasitikrinimu.
-
-### Kaip rodyti klasėje
-
-Šios pamokos pradžioje praeitos pamokos sprendimo nėra. Studentams niekas iš anksto nesiunčiama: visa aplinka ruošiama pamokoje. Pamoka telpa į 3 val.: ~90 min. gyvai plius ~15 min. pertrauka, užduotys ~1 val. 15 min.
-
-Pavyzdinė laiko juosta (pradžia 17:30):
-
-| Laikas | Trukmė | Kas |
-|---|---|---|
-| 17:30 | 5 min | Prisistatymas |
-| 17:35 | 10 min | Apklausa ir susipažinimas |
-| 17:45 | 10 min | Kurso eiga, DI taisyklės; **Windows paleidžia `wsl --install`, Mac `xcode-select --install`** |
-| 17:55 | 20 min | Kas yra DevOps (roadmap.sh ~5 min.; diegimas vyksta fone) |
-| ~18:15 | ~15 min | Pertrauka: Windows perkrauna ir vieną kartą paleidžia Ubuntu; Mac patikrina diegimą |
-| ~18:30 | 10 min | Aplinkos patikra, `git config`, `~/devops` |
-| ~18:40 | 30 min | Git per užduotis: demonstracija + Užduotis 1 ir 2 (Teams) |
-| ~19:10 | 5 min | `/health` skaitymas |
-| ~19:15 | ~1 val. 15 min | Užduotis 3 (iki ~20:30; rezervas iki 20:40) |
-
-1. (~5 min) Prisistatymas: atidarykite `apie-mane-skaidres.html` ir pereikite 4 skaidres (pastabos dėstytojui: klavišas N).
-2. (~10 min) Apklausa ir susipažinimas (žr. skyrių aukščiau). Dažna klaida: klausimai skaitomi per ilgai; rodykite juos lentoje ir klauskite greitai.
-3. (~10 min) Kurso eiga: 80 paskaitų, 7 etapai, atsiskaitymai 2026-11-30 ir 2026-12-17, `git pull` iš `devops-kursas`, sprendimas kitos pamokos pradžioje, DI taisyklės. Vertinimo procentų nesakykite: jie nepatvirtinti. Šio žingsnio pabaigoje paprašykite Windows studentų PowerShell kaip administratoriui paleisti `wsl --install`, o Mac studentų `xcode-select --install`. Dažna klaida (Windows): PowerShell paleista ne kaip administratorius; arba virtualizacija išjungta BIOS (tada `wsl --install` nepasileis).
-4. (~20 min) Kas yra DevOps: schema „kodas → vartotojas“ iš `pamoka.md`; kitas pavyzdys nei mokinių (mokiniai rašo apie `/health`; rodykite, kur lūžta mobilios programos atnaujinimas). roadmap.sh/devops: ~5 min.: parodykite visą diagramą, pažymėkite kurso etapus (Linux ir Git, Docker, CI/CD, Kubernetes, Azure) ir kad visko nereikia išmokti iš karto; nekalbėkite apie kiekvieną langelį. Diegimas tuo metu vyksta fone.
-5. (~15 min) Pertrauka: Windows studentai perkrauna ir vieną kartą paleidžia Ubuntu (sukuria vartotoją ir slaptažodį; slaptažodžio niekam nerodyti). Mac patikrina `xcode-select` diegimą.
-6. (~10 min) Aplinkos patikra: visi paleidžia `git --version` ir `gh auth status`; kas neturi GitHub paskyros, susikuria; kam trūksta `gh`, įdiegia pagal `README.md` (oficiali GitHub CLI dokumentacija). Tada visi: `git config --global user.name`, `user.email` (galima GitHub „noreply“ adresas), **`git config --global init.defaultBranch main`**, `mkdir -p ~/devops`. Dažna klaida: Windows studentas dirba PowerShell arba yra `/mnt/c`; WSL po `wsl --install` dar neperkrautas; Mac `Desktop` (iCloud).
-   1. Atsarginis variantas, jei WSL negalima (pvz. kompiuteris be administratoriaus teisių ar be virtualizacijos): 01 pamokai pakanka Git for Windows (Git Bash); instrukcija studentui yra `README.md` skyriuje „Jei WSL nepavyko“. Jis tinka `git`, `gh`, šakai ir `merge`. Dažna klaida: studentas lieka Git Bash be sprendimo; **WSL klausimas turi būti išspręstas prieš 02 pamoką**, nes 02–03 komandos tikrinamos Ubuntu/Mac.
-7. (~30 min) Git per užduotis. Užduotis skelbiate po vieną Teams'e: prieš kiekvieną parodote gyvai savo pavyzdžiu, mokiniai daro savo, baigę gauna kitą. Jūsų pavyzdys: `a.txt`, `b.txt`, šaka `bugFix`; mokinių: `pastabos.txt`, `idejos.txt`, šaka `papildymas`. Komandos studentams yra skyriuje „Komandos“. Pradžia yra pakartojimas (jie `init/add/commit/push` jau moka), todėl nesustokite ties paaiškinimais; ties šakomis lėčiau.
-   1. (~2 min) Keturi žodžiai (repozitorija, commit, šaka, GitHub) tik prisiminti.
-   2. (~8 min) Demonstracija ir Užduotis 1: `mkdir -p ~/devops/git-bandymas`, `cd`, `git init`, du failai, `git status`, `git add .`, `git commit -m`, `gh repo create git-bandymas --public --source . --push`, repozitorijos atidarymas naršyklėje, `git remote -v`. Priminkite: Public, jokių slaptažodžių, raktų, `.env`. Dažna klaida: `git commit` be `git add` („nothing added to commit“); Git klausia `user.name`, jei nenustatyta; šaka vadinasi `master` (neįrašytas `init.defaultBranch`: `git branch -m main`); `gh` neprisijungęs (`gh auth login`); push atmestas dėl privataus el. pašto (`GH007`): `user.email` pakeisti į GitHub „noreply“ ir padaryti naują commit'ą; komanda paleista ne aplanke su `.git`.
-   3. (~20 min) Demonstracija ir Užduotis 2: `git switch -c bugFix`, pakeitimas `a.txt`, `git commit -am`, `git switch main` (parodykite, kad `a.txt` vėl senas), dar vienas commit `main` šakoje, `git merge bugFix -m "..."`, `git branch -d bugFix`, `git push`, `git log --oneline --graph --all`. Dažna klaida: `git merge` be `-m` atidaro vim; šakos pavadinime tarpas; `git commit -am` neįtraukia naujų (neseklomų) failų.
-8. (~5 min) `/health` skaitymas: atidarykite šablono `app.py` naršyklėje, raskite maršrutą ir paaiškinkite, ką grąžina. Mokiniai tą patį daro užduotyje.
-9. Užduotis 3 (~1 val.), skelbiate po `/health` skaitymo; kitą pamoką parodote sprendimą. Dažna klaida: šaka `devops-docs` ištrinta (`git branch -d`) anksčiau nei sujungta; arba sujungta, bet `git push` nepadarytas.
 
 ### Sprendimas pagal darbus
 

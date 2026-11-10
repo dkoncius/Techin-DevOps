@@ -7,7 +7,7 @@ Pristatymas 01 pamokos pradžioje (~5 min). Tikslas: studentai žino, kas jiems 
 3. Mano projektai: AppGlove, Trenio, Scan Plan
 4. Su kuo dirbau: Acme grupė, Telia, LTKT; dabar Krei (procesų automatizavimas)
 
-Generuoti: `python3 -I .claude/skills/skaidres/build_deck.py "kursas/01 Kas yra DevOps/apie-mane-skaidres.md"` → `apie-mane-skaidres.html`.
+Generuoti: `python3 -I .claude/skills/skaidres/build_deck.py "kursas/01 Kas yra DevOps/1-apie-mane.md"` → `1-apie-mane.html`.
 
 === titulinė | Deividas Koncius
 Susipažinkime
@@ -16,7 +16,7 @@ Susipažinkime
 Pastaba: ~1 min. Pasisveikinkite, pasakykite, kad prisistatymas trumpas.
 
 === tekstas | Apie mane
-@nuotrauka: deividas.jpg
+@nuotrauka: nuotraukos/deividas.jpg
 :: | Deividas Koncius | Jūsų DevOps kurso dėstytojas
 :: | Stack | React / TypeScript, Firebase
 :: | Įrankiai | GitHub, Vercel, Cursor, Claude Code
@@ -38,9 +38,20 @@ Pastaba: ~2 min. Parodykite vieną projektą gyvai ir paminėkite, kad kiekvien�
 Pastaba: ~2 min. Pabrėžkite, kad dabartinis darbas (procesų automatizavimas) yra artimas DevOps minčiai: tas pats kelias kiekvieną kartą, be rankinio darbo.
 
 === tekstas | Susipažinkime: pristatykite save
-1. Vardas ir ko tikitės iš kurso
-2. Windows ar Mac, ir ar kompiuteris asmeninis (ne mokyklos ar darbo)
-3. Ar veikia Ubuntu (WSL) arba Terminalas Mac
-4. Ar turite GitHub paskyrą
-5. Patirtis nuo 1 iki 5: Git, Linux, Python, Docker
-Pastaba: ~10 min. Kiekvienas studentas atsako į visus penkis klausimus pristatydamasis, o dėstytojas atsakymus užsirašo Google lentelėje (eilutė kiekvienam studentui). Rezultatai reikalingi 02 pamokai: kiek Windows ir kiek Mac, kam gali nepavykti `wsl --install` dėl administratoriaus teisių, kam trūksta GitHub paskyros. Docker nepažįsta, tai tikėtina. Skaičiuokite greitai, neaiškinkite, ką daryti pagal atsakymus, tai vėliau.
+@plokštelės
++:: 01 | Apie jus | Vardas ir ko tikitės iš kurso
++:: 02 | Jūsų kompiuteris | Windows ar Mac, ir ar kompiuteris asmeninis (ne mokyklos ar darbo)
++:: 03 | Praeitos temos | Kaip vertinate praeitų temų įsisavinimą nuo 1 iki 5?
+Pastaba: ~10 min. Kiekvienas studentas atsako į visus tris klausimus pristatydamasis, o dėstytojas atsakymus užsirašo Google lentelėje (eilutė kiekvienam studentui). Rezultatai reikalingi 02 pamokai: kiek Windows ir kiek Mac, kam gali nepavykti `wsl --install` dėl administratoriaus teisių, kam trūksta GitHub paskyros. Docker nepažįsta, tai tikėtina. Skaičiuokite greitai, neaiškinkite, ką daryti pagal atsakymus, tai vėliau.
+
+=== komanda | Paleiskime terminalą
++ **Windows:** Start → PowerShell → dešiniu pelės klavišu **Run as administrator**
+```bash+
+wsl --install
+```
++ **Mac:** ⌘ + tarpas → Terminal
+```bash+
+xcode-select --install
+```
++ Diegimas vyks fone, kol pasakosiu apie kursą
+Pastaba: ~5 min. Patikrinkite, kad visi atidarė terminalą ir komanda pasileido. Dažna klaida (Windows): PowerShell ne kaip administratorius arba BIOS išjungta virtualizacija (tada `wsl --install` nepasileis); tokį studentą užsirašykite ir vėliau pasiūlykite atsarginį variantą `README.md` skyriuje „Jei WSL nepavyko“. Mac: gali pasirodyti langas „Install“, spausti Install ir laukti.

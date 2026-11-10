@@ -12,7 +12,7 @@ Telefone atsiranda programos atnaujinimas. Kūrėjas jį parašė prieš kelias 
 Pastaba: ~3 min. Leiskite spėlioti: kas testuoja, kas paleidžia, kas pastebi klaidą.
 
 === tekstas | DevOps = Dev + Ops
-@nuotrauka: devops-kilpa.png
+@nuotrauka: nuotraukos/devops-kilpa.png
 Pastaba: ~4 min. Dev: kūrėjai, rašo kodą ir nori keisti greitai. Ops: administratoriai, paleidžia ir prižiūri, nori stabilumo. DevOps = abi pusės dirba kaip viena komanda. Iliustracija: begalybės kilpa (Plan, Code, Build, Test, Release, Deploy, Operate, Monitor), šaltinis Dynatrace. Parodykite, kad Dev ir Ops yra viena kilpa, o stebėsena grįžta į planavimą. Paklauskite, ką kiekviena pusė nori ir kodėl tie norai prieštarauja: Dev nori kuo daugiau pakeitimų, Ops nori kuo mažiau netikėtumų, nes kiekvienas pakeitimas gali sugadinti veikiančią sistemą.
 
 === kita | Pažiūrėkime: DevOps per 5 minutes
@@ -94,13 +94,13 @@ DevOps yra labai plati sritis. Kaip prieš 25 metų „webmaster“ darė viską
 Pastaba: ~4 min. 2000-ųjų webmaster'is vienas darė dizainą, HTML, serverį ir duomenų bazę; vėliau atsirado frontend, backend, UX/UI. Dabar tas pats vyksta su DevOps: debesų inžinierius (Azure, AWS), platformų inžinierius (kuria vidinę platformą kitiems programuotojams), SRE (patikimumas ir incidentai), DevSecOps (saugumas procese), MLOps (DI modelių paleidimas). Yra ir kitų, pvz. release ar build inžinierius, FinOps (debesų kaštai). Šiame kurse gausite bendrą pagrindą, o specializuotis galėsite vėliau.
 
 === schema | Įrankiai keičiasi, principai ne
-@nuotrauka: devops-irankiai.jpeg | didelė
+@nuotrauka: nuotraukos/devops-irankiai.jpeg | didelė
 Pastaba: ~4 min. Įrankiai keičiasi ir programuotojams, ir DevOps, o filosofija ir principai, pagal kuriuos veikia sistemos ir verslai, nesikeičia: kodėl svarbiau už kaip. Iliustracija rodo, kiek įrankių yra tik vienoje kilpoje; šaltinis nenurodytas. Paklauskite, kiek jų pažįsta, ir kad nė vieno iš jų mokytis iš anksto nereikia. Pavyzdys: prieš 10 metų Jenkins, šiandien GitHub Actions, rytoj kažkas kito, bet idėja ta pati: automatiškai patikrinti ir paleisti kodą. Panašiai su programuotojais: karkasai keičiasi, o duomenų, tinklo ir saugumo principai ne. Verslui visada reikia to paties: greito, patikimo ir saugaus pristatymo vartotojui. Kas supranta kodėl, tas per savaitę perpranta naują įrankį; kas išmoko tik komandas, pasimeta pasikeitus įrankiui.
 
 === pagalvokime
 DI jau moka rašyti kodą ir komandas.
 # Kam mokytis DevOps, jei DI gali padaryti darbą?
-@nuotrauka: kodel-devops.gif | dešinėje
+@nuotrauka: nuotraukos/kodel-devops.gif | dešinėje
 Pastaba: ~3 min. Diskusija: leiskite studentams atsakyti patiems, paprašykite 2–3 nuomonių prieš rodydami kitą skaidrę. Nekomentuokite, kol neišgirsite skirtingų požiūrių.
 
 === tekstas | Kam mokytis DevOps?

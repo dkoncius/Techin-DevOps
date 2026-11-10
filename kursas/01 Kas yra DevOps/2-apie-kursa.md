@@ -2,7 +2,7 @@
 
 Pristatymas 01 pamokos pradžioje, po „Apie mane“ (~15 min). Tikslas: studentai supranta, ką darysime per kursą, kaip vyks pamokos, kaip vertinama ir kokie egzaminai laukia.
 
-Generuoti: `python3 -I .claude/skills/skaidres/build_deck.py "kursas/01 Kas yra DevOps/apie-kursa-skaidres.md"` → `apie-kursa-skaidres.html`.
+Generuoti: `python3 -I .claude/skills/skaidres/build_deck.py "kursas/01 Kas yra DevOps/2-apie-kursa.md"` → `2-apie-kursa.html`.
 
 === titulinė | Apie kursą
 Pradžia · kurso apžvalga
@@ -62,6 +62,7 @@ Pastaba: ~2 min. Pirmų dviejų datos patvirtintos, kitos orientacinės ir gali 
 - Užduotį gaunate Teams'e po vieną; baigę gaunate kitą
 - Kitos pamokos pradžioje parodau sprendimą ir aptariame, kas neaišku
 - Praeitos pamokos sprendimas įkeliamas į viešą repozitoriją
+- Kas savaitę `git pull` iš `devops-kursas` (žr. `README.md`)
 Pastaba: ~3 min. Užduotis skelbiate po vieną, kad niekas nesijaustų pavėlavęs ir kad greitesni gautų daugiau. Sprendimo iš anksto neduodate.
 
 === tekstas | Kaip mokysimės
