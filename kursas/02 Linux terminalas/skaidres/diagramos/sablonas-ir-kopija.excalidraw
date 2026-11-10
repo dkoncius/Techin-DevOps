@@ -4,7 +4,7 @@
   "source": "https://excalidraw.com",
   "elements": [
     {
-      "id": "95e74cc7a40e41c1",
+      "id": "db52bfaeace346a5",
       "type": "rectangle",
       "x": 0.0,
       "y": 0.0,
@@ -30,11 +30,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "fad60fd2883d4a7b"
+          "id": "340d3606d992426f"
         },
         {
           "type": "arrow",
-          "id": "6f217422c16a4de9"
+          "id": "1897d78d55444c6f"
         }
       ],
       "updated": 1,
@@ -42,7 +42,7 @@
       "locked": false
     },
     {
-      "id": "fad60fd2883d4a7b",
+      "id": "340d3606d992426f",
       "type": "text",
       "x": 10.0,
       "y": 30.0,
@@ -69,16 +69,16 @@
       "locked": false,
       "fontSize": 28,
       "fontFamily": 1,
-      "text": "Šablonas\ndevops-projektas-starter-template",
+      "text": "Šablonas\nstarter-template",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "95e74cc7a40e41c1",
-      "originalText": "Šablonas\ndevops-projektas-starter-template",
+      "containerId": "db52bfaeace346a5",
+      "originalText": "Šablonas\nstarter-template",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "0ff08f3799794e1d",
+      "id": "d998aa122cb54e06",
       "type": "rectangle",
       "x": 510.0,
       "y": 0.0,
@@ -104,15 +104,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "508bdc9fefc24ebb"
+          "id": "2a4c72ccb07f42ed"
         },
         {
           "type": "arrow",
-          "id": "6f217422c16a4de9"
+          "id": "1897d78d55444c6f"
         },
         {
           "type": "arrow",
-          "id": "8ec3f9e633314137"
+          "id": "6ebe96d29bfb4dcf"
         }
       ],
       "updated": 1,
@@ -120,7 +120,7 @@
       "locked": false
     },
     {
-      "id": "508bdc9fefc24ebb",
+      "id": "2a4c72ccb07f42ed",
       "type": "text",
       "x": 520.0,
       "y": 30.0,
@@ -147,16 +147,16 @@
       "locked": false,
       "fontSize": 28,
       "fontFamily": 1,
-      "text": "Jūsų repozitorija\ndevops-projektas",
+      "text": "Jūsų kopija\ndevops-projektas",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "0ff08f3799794e1d",
-      "originalText": "Jūsų repozitorija\ndevops-projektas",
+      "containerId": "d998aa122cb54e06",
+      "originalText": "Jūsų kopija\ndevops-projektas",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "9e5e8735c0aa41f8",
+      "id": "a1dcbb89300d4262",
       "type": "rectangle",
       "x": 510.0,
       "y": 190.0,
@@ -182,11 +182,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "a56fd4ebad3c483f"
+          "id": "bfdd45365f314f5d"
         },
         {
           "type": "arrow",
-          "id": "8ec3f9e633314137"
+          "id": "6ebe96d29bfb4dcf"
         }
       ],
       "updated": 1,
@@ -194,7 +194,7 @@
       "locked": false
     },
     {
-      "id": "a56fd4ebad3c483f",
+      "id": "bfdd45365f314f5d",
       "type": "text",
       "x": 520.0,
       "y": 220.0,
@@ -224,13 +224,13 @@
       "text": "~/devops/devops-projektas",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "9e5e8735c0aa41f8",
+      "containerId": "a1dcbb89300d4262",
       "originalText": "~/devops/devops-projektas",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "6f217422c16a4de9",
+      "id": "1897d78d55444c6f",
       "type": "arrow",
       "x": 330.0,
       "y": 50.0,
@@ -269,12 +269,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "95e74cc7a40e41c1",
+        "elementId": "db52bfaeace346a5",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "0ff08f3799794e1d",
+        "elementId": "d998aa122cb54e06",
         "focus": 0,
         "gap": 4
       },
@@ -282,7 +282,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "9ae529491809443d",
+      "id": "c98a65cfcb2d410b",
       "type": "text",
       "x": 350.0,
       "y": 14.0,
@@ -318,7 +318,7 @@
       "lineHeight": 1.25
     },
     {
-      "id": "8ec3f9e633314137",
+      "id": "6ebe96d29bfb4dcf",
       "type": "arrow",
       "x": 675.0,
       "y": 100.0,
@@ -357,12 +357,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "0ff08f3799794e1d",
+        "elementId": "d998aa122cb54e06",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "9e5e8735c0aa41f8",
+        "elementId": "a1dcbb89300d4262",
         "focus": 0,
         "gap": 4
       },
@@ -370,7 +370,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "73b842d1295f48ce",
+      "id": "028e894c5e204a6b",
       "type": "text",
       "x": 605.0,
       "y": 109.0,

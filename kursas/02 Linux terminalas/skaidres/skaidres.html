@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="lt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Linux terminalas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Patrick+Hand&family=Fraunces:wght@600;700&display=swap">
+<style>:root{--bg:#fbf8f3;--paper:#fff;--ink:#1c1b1a;--muted:#6b6560;--rule:#d9d2c7;--soft:#f1ece3;--accent:#d9480f;--mark:#fff1a8;--term:#1e1e1e;--pad-top:clamp(2rem,6vh,4rem)}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;overflow:hidden}
+.mono,code,pre{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:flex-start;padding:var(--pad-top) clamp(1.5rem,6vw,5rem) 3.2rem;text-align:left;overflow:hidden}
+.slide.active{display:flex;animation:in .25s ease}
+@keyframes in{from{opacity:0}to{opacity:1}}
+.slide--center{justify-content:center}
+.eyebrow{display:flex;align-items:center;gap:.7rem;margin:0 0 .7rem;font-size:clamp(.78rem,1.1vw,.95rem);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.eyebrow::before{content:"";width:2.2rem;height:3px;background:var(--accent);display:block}
+h1,h2,.big{font-family:"Fraunces",Georgia,"Times New Roman",serif;letter-spacing:-.01em}
+h2.title{margin:0 0 1rem;font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:700;line-height:1.12}
+h1.title-main{margin:.2rem 0 1.2rem;font-size:clamp(2.3rem,6vw,4.2rem);line-height:1.05;font-weight:700}
+.deco{position:absolute;right:clamp(1.5rem,6vw,5rem);top:50%;transform:translateY(-50%);font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:clamp(9rem,28vw,22rem);line-height:1;color:var(--soft);z-index:0;-webkit-text-stroke:2px var(--rule)}
+.slide>*{position:relative;z-index:1}
+.slide>.deco{position:absolute}
+.big{margin:.3rem 0;font-size:clamp(2rem,5.2vw,3.8rem);font-weight:700;line-height:1.1}
+p{margin:.45rem 0;font-size:clamp(1.1rem,1.95vw,1.55rem);line-height:1.5}
+.lead{color:var(--muted);font-size:clamp(1.15rem,2.2vw,1.7rem)}
+ul{margin:.4rem 0;padding:0;list-style:none}
+li{position:relative;font-size:clamp(1.1rem,1.95vw,1.5rem);line-height:1.5;margin:.5rem 0;padding-left:1.6rem}
+li::before{content:"";position:absolute;left:.1rem;top:.62em;width:.6rem;height:.6rem;background:var(--accent)}
+ol.steps{list-style:none;counter-reset:s;margin:.8rem 0;padding:0;display:flex;flex-direction:column;gap:.65rem}
+ol.steps li{counter-increment:s;padding-left:3rem;font-size:clamp(1.02rem,1.5vw,1.3rem);margin:0;min-height:2rem;padding-top:.15rem}
+ol.steps li::before{content:counter(s);left:0;top:.1em;width:2rem;height:2rem;border:2px solid var(--ink);background:none;border-radius:50%;color:var(--ink);font-weight:700;display:grid;place-items:center;font-size:.95rem}
+code{background:var(--soft);border:1px solid var(--rule);border-radius:5px;padding:.05em .4em;font-size:.88em;color:#9c2f06}
+strong{font-weight:700}
+.term{margin:.7rem 0;border-radius:8px;overflow:hidden;background:var(--term)}
+.term__bar{display:flex;align-items:center;padding:.4rem .9rem;background:#2c2c2c;font-size:.75rem;color:#a8a29e;letter-spacing:.06em;text-transform:uppercase}
+.term__bar i{display:none}
+pre{margin:0;padding:.9rem 1.1rem;font-size:clamp(1rem,1.7vw,1.3rem);line-height:1.55;overflow:auto;white-space:pre;color:#f5f5f4}
+pre code{background:none;border:0;padding:0;font-size:inherit;color:inherit}
+pre.mermaid{background:none;padding:0;color:var(--ink)}
+.term--out{background:#f3f7ee;border:1px solid #c7d8b8}.term--out .term__bar{background:#e4eed8;color:#4d6a35}.term--out pre{color:#2f4a1d}
+table{border-collapse:collapse;table-layout:fixed;width:100%;margin:.8rem 0;background:var(--paper);border:2px solid var(--ink)}
+th,td{padding:.8rem 1.1rem;text-align:left;font-size:clamp(1.1rem,1.75vw,1.35rem);vertical-align:middle;border:1.5px solid var(--ink)}
+th{background:var(--ink);color:#fff;font-weight:700;letter-spacing:.02em}
+td.ans-cell{min-width:12rem;background:var(--paper)}
+.ph{display:inline-block;min-width:2.5rem;border-bottom:3px dotted var(--muted);color:var(--muted);font-weight:700;text-align:center}
+.cell{display:grid}.cell>*{grid-area:1/1}
+td.ans-cell:has(.ans.shown) .ph{visibility:hidden}
+.ans{display:inline-block;font-weight:700;background:var(--mark);padding:.05em .4em;box-decoration-break:clone}
+.reveal{visibility:hidden;opacity:0;transition:opacity .25s}
+.reveal.shown{visibility:visible;opacity:1}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1rem;margin:1.3rem 0}
+.card{background:var(--paper);border:2px solid var(--ink);border-radius:4px;padding:1.2rem 1.2rem}
+.card__icon,.chip__icon,.bubble__icon{display:none}
+.card__title{margin:0 0 .3rem;font-family:"Fraunces",Georgia,serif;font-size:clamp(1.2rem,2.1vw,1.6rem);font-weight:700;line-height:1.2}
+.card__text{margin:0;color:var(--muted);font-size:clamp(1.05rem,1.7vw,1.3rem);line-height:1.4}
+.flow{display:flex;align-items:stretch;gap:2rem;margin:1.4rem 0;flex-wrap:wrap;counter-reset:chip}
+.chip{position:relative;counter-increment:chip;flex:1 1 130px;background:var(--paper);border:2px solid var(--ink);border-radius:4px;padding:1.5rem .8rem .9rem;text-align:center}
+.chip::before{content:counter(chip);position:absolute;left:-2px;top:-2px;width:1.7rem;height:1.7rem;background:var(--accent);color:#fff;font-weight:700;font-size:.9rem;display:grid;place-items:center}
+.chip__label{display:block;font-weight:700;font-size:clamp(1rem,1.7vw,1.3rem)}
+.chip:not(:last-child)::after{content:"→";position:absolute;right:-1.7rem;top:50%;transform:translateY(-50%);color:var(--ink);font-size:1.5rem}
+.bubble{display:block;margin:1rem 0;padding:.5rem 0 .5rem 1.2rem;border-left:5px solid var(--accent);max-width:46rem}
+.bubble__label{display:block;margin-bottom:.1rem;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.bubble p{margin:0;font-size:clamp(1.1rem,1.9vw,1.4rem);font-style:italic}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center;flex:0 1 auto;min-height:0;margin-top:.6rem}
+.split__text{min-width:0}
+.split__art svg{width:100%;height:auto;max-height:60vh}
+.sketch-wrap{margin:.4rem 0}.sketch{width:100%;height:auto;max-height:64vh;display:block}
+.mermaid{width:100%;margin:.4rem 0;text-align:center}
+.mermaid svg{width:100%!important;max-width:100%!important;height:auto;max-height:62vh}
+.notes{display:none;position:fixed;left:0;right:0;bottom:0;max-height:38vh;overflow:auto;background:#1c1b1af2;border-top:3px solid var(--accent);padding:.8rem 1.4rem;font-size:1rem;color:#f5f5f4;z-index:5}
+body.show-notes .notes{display:block}
+.bar{position:fixed;left:0;bottom:0;height:4px;background:var(--accent);transition:width .25s;z-index:6}
+.counter{position:fixed;right:1rem;bottom:.6rem;font-size:.8rem;color:var(--muted);z-index:6}
+.hint{position:fixed;left:1rem;bottom:.6rem;font-size:.75rem;color:var(--muted);z-index:6}
+@media (max-width:800px){.split{grid-template-columns:1fr}.deco{display:none}}
+@media print{html,body{overflow:visible;height:auto}.slide{display:flex!important;position:relative;min-height:100vh;page-break-after:always;animation:none}.reveal{visibility:visible;opacity:1}.hint,.bar,.counter,.notes{display:none!important}}
+
+.photo{width:100%;max-height:60vh;object-fit:cover;border:2px solid var(--ink);border-radius:4px;display:block}
+a{color:var(--accent,#d9480f);text-decoration:underline;text-underline-offset:3px}
+
+.video{width:min(100%,calc(58vh*16/9));aspect-ratio:16/9;border:2px solid var(--ink);border-radius:4px;overflow:hidden;background:#000;margin-top:1rem}
+.video iframe{width:100%;height:100%;border:0;display:block}
+.photo--diagram{object-fit:contain;background:#fff;padding:.5rem}
+.hero{display:flex;justify-content:flex-start;margin:.4rem 0 1rem}
+.hero .photo--diagram{width:auto;max-width:100%;max-height:74vh;padding:.6rem 1.2rem}
+.cards--path{grid-template-columns:1fr;gap:0;margin:1.2rem 0 0 .2rem}
+.cards--path .card{border:0;background:none;padding:0 0 1.8rem;display:grid;grid-template-columns:3.4rem 1fr;column-gap:1.4rem;align-items:start;position:relative}
+.cards--path .card__icon{display:flex;grid-row:1/3;width:3.4rem;height:3.4rem;border-radius:50%;background:var(--accent,#d9480f);color:#fff;font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:1.6rem;align-items:center;justify-content:center;position:relative;z-index:1}
+.cards--path .card::before{content:"";position:absolute;left:1.7rem;top:3.4rem;bottom:0;width:2px;background:var(--ink)}
+.cards--path .card:last-child::before{display:none}
+.cards--path .card__title{font-size:clamp(1.5rem,2.8vw,2.1rem);align-self:center;margin:0}
+.cards--path .card__text{font-size:clamp(1.15rem,2vw,1.5rem);margin-top:.2rem}
+.cards--tiles{grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:1.4rem}
+.cards--tiles .card{border:0;border-top:6px solid var(--accent);background:var(--paper);box-shadow:inset 0 0 0 2px var(--ink);border-top-color:var(--accent);padding:1.4rem 1.6rem 1.6rem;min-height:9rem}
+.cards--tiles .card__icon{display:block;font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:1rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem}
+.cards--tiles .card__title{font-size:clamp(1.7rem,3.2vw,2.5rem);margin-bottom:.5rem}
+.cards--tiles .card__text{font-size:clamp(1.1rem,1.9vw,1.45rem)}
+.hero--below{margin-top:1.2rem}
+.hero--below .photo--diagram{max-height:46vh;padding:0;object-fit:cover}
+.side{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;width:100%}
+.side__text{min-width:0}
+.side__art .photo--diagram{width:100%;max-height:70vh;padding:0;object-fit:cover}
+@media (max-width:800px){.side{grid-template-columns:1fr}}
+.cards--tiles:has(.card:nth-child(3):last-child){grid-template-columns:repeat(3,1fr)}
+.cards--tiles:has(.card:nth-child(3):last-child) .card{min-height:13rem}
+.cards--tiles:has(.card:nth-child(3):last-child) .card__icon{font-size:2.6rem;letter-spacing:0;line-height:1;margin-bottom:.8rem}
+.cards--tiles ~ p.reveal{margin-top:1.6rem;padding:.4rem 0 .4rem 1.2rem;border-left:6px solid var(--accent);font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(1.4rem,2.5vw,2rem);line-height:1.3}
+@media (max-width:800px){.cards--tiles:has(.card:nth-child(3):last-child){grid-template-columns:1fr}}
+.cards--tiles:has(.card:nth-child(4)){gap:1rem;margin-top:1rem}
+.cards--tiles:has(.card:nth-child(4)) .card{min-height:0;padding:1rem 1.3rem 1.1rem}
+.cards--tiles:has(.card:nth-child(4)) .card__title{font-size:clamp(1.3rem,2.4vw,1.9rem);margin-bottom:.4rem}
+.cards--tiles:has(.card:nth-child(4)) .card__text{font-size:clamp(.95rem,1.45vw,1.15rem);line-height:1.4;color:var(--ink)}
+.cards--tiles:has(.card:nth-child(4)) .card__text strong{color:var(--accent)}
+.slide__num{position:absolute;top:1.1rem;right:1.6rem;font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1;color:var(--accent);opacity:.9;pointer-events:none}
+@media print{.slide__num{display:block}}
+
+@media (max-width:800px){
+.slide{padding:1.1rem 1.1rem 3rem;overflow-y:auto;justify-content:flex-start}
+.slide--center{justify-content:flex-start}
+.eyebrow{font-size:.72rem;margin-bottom:.4rem;padding-right:3.2rem}
+h2.title{font-size:1.55rem;margin-bottom:.7rem;padding-right:3rem}
+h1.title-main{font-size:2.1rem}
+.big{font-size:1.7rem}
+p,li{font-size:1.05rem;line-height:1.45}
+ol.steps li{font-size:1rem;padding-left:2.7rem}
+ol.steps li::before{width:1.8rem;height:1.8rem;font-size:.85rem}
+.slide__num{top:.7rem;right:1rem;font-size:1.8rem}
+.cards,.cards--tiles,.cards--tiles:has(.card:nth-child(3):last-child),.cards--tiles:has(.card:nth-child(4)){grid-template-columns:1fr;gap:.8rem;margin:.8rem 0}
+.cards--tiles .card,.cards--tiles:has(.card:nth-child(3):last-child) .card,.cards--tiles:has(.card:nth-child(4)) .card{min-height:0;padding:.9rem 1rem 1rem}
+.cards--tiles:has(.card:nth-child(3):last-child) .card__icon{font-size:1.8rem;margin-bottom:.3rem}
+.cards--tiles .card__title,.cards--tiles:has(.card:nth-child(4)) .card__title{font-size:1.25rem}
+.cards--tiles .card__text,.cards--tiles:has(.card:nth-child(4)) .card__text{font-size:.98rem}
+.cards--tiles ~ p.reveal{font-size:1.2rem;margin-top:1rem}
+.cards--path .card{grid-template-columns:2.6rem 1fr;column-gap:1rem;padding-bottom:1.2rem}
+.cards--path .card__icon{width:2.6rem;height:2.6rem;font-size:1.2rem}
+.cards--path .card::before{left:1.3rem;top:2.6rem}
+.cards--path .card__title{font-size:1.25rem}.cards--path .card__text{font-size:1rem}
+.flow{gap:.8rem}.chip:not(:last-child)::after{display:none}
+.side{grid-template-columns:1fr;gap:1rem}
+.side__art .photo--diagram{max-height:38vh}
+.hero .photo--diagram,.hero--below .photo--diagram{max-height:40vh}
+.photo{max-height:40vh}
+table{display:block;overflow-x:auto}
+th,td{padding:.55rem .7rem;font-size:1rem}
+pre{font-size:.88rem;padding:.7rem .8rem}
+.bubble p{font-size:1.05rem}
+.hint{display:none}
+.counter{background:var(--bg);padding:.1rem .45rem;border-radius:4px}
+}
+.slide--klaida .cards{display:block;margin:1.2rem 0;border-top:2px solid var(--ink)}
+.slide--klaida .card{display:grid;grid-template-columns:minmax(13rem,36%) 1fr;column-gap:2.2rem;align-items:baseline;border:0;border-bottom:1.5px solid var(--rule);border-radius:0;background:none;padding:1.05rem .4rem 1.05rem 1.3rem;position:relative}
+.slide--klaida .card::before{content:"";position:absolute;left:0;top:.9rem;bottom:.9rem;width:5px;background:var(--accent);border-radius:2px}
+.slide--klaida .card__title{margin:0;font-size:clamp(1.2rem,2.2vw,1.65rem)}
+.slide--klaida .card__text{color:var(--ink);font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.5}
+.slide--klaida .card__title code{font-size:.78em;white-space:nowrap}
+@media (max-width:800px){.slide--klaida .card{grid-template-columns:1fr;row-gap:.3rem;padding:.8rem .2rem .8rem 1rem}.slide--klaida .card__title{font-size:1.2rem}.slide--klaida .card__text{font-size:1rem}}
+ol.steps code{background:var(--soft);border:0;padding:.05em .3em;color:var(--ink);font-weight:500}
+ol.steps li::before{border-width:1.5px;font-weight:600;color:var(--muted);border-color:var(--muted)}
+h2.title code{background:none;border:0;padding:0;color:var(--accent);font-size:.92em}
+.cards .card__title code,.card__text code{background:none;border:0;padding:0;color:var(--accent);font-weight:600}
+</style></head><body>
+<section class="slide slide--titulinė slide--center" data-i="1" data-notes="~5 min pasitikrinimas po 01: kam kas liko neaišku su šaka ir `merge`; parodykite 01 sprendimą gyvai (01 pamoka.md, skyrius „Sprendimas“). Šioje pamokoje kiekviena tema eina taip: skaidrės → jūsų demonstracija → užduotis Teams&#x27;e → jie daro patys. Terminalą jie jau mokėjo (Edgaras), todėl einame greitai."><div class="deco">02</div><p class="eyebrow">02 pamoka · 1 etapas</p><h1 class="title-main">Linux terminalas</h1><ul><li>Susikurti savo <code>devops-projektas</code> iš šablono ir nusiklonuoti</li><li>Judėti po failus ir sujungti komandas per srautus</li><li>Paaiškinti teises <code>rwx</code> ir paleisti pirmą skriptą</li></ul></section>
+<section class="slide slide--pagalvokime slide--center" data-i="2" data-notes="~3 min. Paklauskite, ką jie darė su Ubuntu VirtualBox&#x27;e. Mintis: terminale parašytą komandą galima įrašyti į skriptą ir paleisti šimtą kartų vienodai, o spaudant pelę to padaryti negalima. Todėl DevOps dirba terminale."><span class="slide__num">2</span><p class="eyebrow">Pagalvokime</p><div class="split"><div class="split__text"><p class="lead">Serveris debesyje neturi nei pelės, nei lango.</p><p class="big">Kaip jį valdyti tik tekstu?</p><div class="bubble"><span class="bubble__icon">💬</span><div class="bubble__body"><span class="bubble__label">Analogija</span><p>Kaip pokalbis telefonu: nėra paveikslėlio, tik žodžiai, bet tiksliai ir greitai.</p></div></div></div><div class="split__art"><svg viewBox="0 0 400 320" role="img" aria-label="Serveris, kuris klauso porto"><rect x="80" y="50" width="240" height="62" fill="#d0ebff" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="112" cy="81" r="8" fill="#ffd8a8" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="140" cy="81" r="8" fill="#d3f9d8" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><rect x="184" y="72" width="104" height="18" fill="#ffffff" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><rect x="80" y="124" width="240" height="62" fill="#d0ebff" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="112" cy="155" r="8" fill="#d3f9d8" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="140" cy="155" r="8" fill="#d3f9d8" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><rect x="184" y="146" width="104" height="18" fill="#ffffff" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><rect x="80" y="198" width="240" height="62" fill="#d0ebff" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="112" cy="229" r="8" fill="#d3f9d8" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="140" cy="229" r="8" fill="#d3f9d8" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><rect x="184" y="220" width="104" height="18" fill="#ffffff" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><text x="200" y="30" text-anchor="middle" font-size="20" fill="#1c1b1a" font-family="Patrick Hand,Kalam,cursive" font-weight="700">procesas = serveris</text><text x="200" y="296" text-anchor="middle" font-size="24" fill="#d9480f" font-family="Patrick Hand,Kalam,cursive" font-weight="700">klauso :5001</text></svg></div></div></section>
+<section class="slide slide--schema" data-i="3" data-notes="~3 min. Šablonas ir fork skiriasi: Use this template sukuria naują repozitoriją be senos istorijos. Dažna klaida: klonuojamas pats šablonas (`starter-template`) vietoje savo kopijos; klonuojama į `/mnt/c` (WSL)."><span class="slide__num">3</span><p class="eyebrow">Schema</p><h2 class="title">Kaip gaunate savo projektą</h2><div class="sketch-wrap"><svg class="sketch" viewBox="-32 -32 904 354" xmlns="http://www.w3.org/2000/svg" role="img"><defs><clipPath id="c0"><rect x="0.0" y="0.0" width="330.0" height="100.0" rx="16"/></clipPath><clipPath id="c1"><rect x="510.0" y="0.0" width="330.0" height="100.0" rx="16"/></clipPath><clipPath id="c2"><rect x="510.0" y="190.0" width="330.0" height="100.0" rx="16"/></clipPath></defs><rect x="0.0" y="0.0" width="330.0" height="100.0" rx="16" fill="#dee2e6" fill-opacity=".55"/><g clip-path="url(#c0)" stroke="#495057" stroke-opacity=".28" stroke-width="2"><line x1="-100.0" y1="100.0" x2="0.0" y2="0.0"/><line x1="-86.0" y1="100.0" x2="14.0" y2="0.0"/><line x1="-72.0" y1="100.0" x2="28.0" y2="0.0"/><line x1="-58.0" y1="100.0" x2="42.0" y2="0.0"/><line x1="-44.0" y1="100.0" x2="56.0" y2="0.0"/><line x1="-30.0" y1="100.0" x2="70.0" y2="0.0"/><line x1="-16.0" y1="100.0" x2="84.0" y2="0.0"/><line x1="-2.0" y1="100.0" x2="98.0" y2="0.0"/><line x1="12.0" y1="100.0" x2="112.0" y2="0.0"/><line x1="26.0" y1="100.0" x2="126.0" y2="0.0"/><line x1="40.0" y1="100.0" x2="140.0" y2="0.0"/><line x1="54.0" y1="100.0" x2="154.0" y2="0.0"/><line x1="68.0" y1="100.0" x2="168.0" y2="0.0"/><line x1="82.0" y1="100.0" x2="182.0" y2="0.0"/><line x1="96.0" y1="100.0" x2="196.0" y2="0.0"/><line x1="110.0" y1="100.0" x2="210.0" y2="0.0"/><line x1="124.0" y1="100.0" x2="224.0" y2="0.0"/><line x1="138.0" y1="100.0" x2="238.0" y2="0.0"/><line x1="152.0" y1="100.0" x2="252.0" y2="0.0"/><line x1="166.0" y1="100.0" x2="266.0" y2="0.0"/><line x1="180.0" y1="100.0" x2="280.0" y2="0.0"/><line x1="194.0" y1="100.0" x2="294.0" y2="0.0"/><line x1="208.0" y1="100.0" x2="308.0" y2="0.0"/><line x1="222.0" y1="100.0" x2="322.0" y2="0.0"/><line x1="236.0" y1="100.0" x2="336.0" y2="0.0"/><line x1="250.0" y1="100.0" x2="350.0" y2="0.0"/><line x1="264.0" y1="100.0" x2="364.0" y2="0.0"/><line x1="278.0" y1="100.0" x2="378.0" y2="0.0"/><line x1="292.0" y1="100.0" x2="392.0" y2="0.0"/><line x1="306.0" y1="100.0" x2="406.0" y2="0.0"/><line x1="320.0" y1="100.0" x2="420.0" y2="0.0"/></g><path d="M-0.9,-1.8 L165.8,-1.4 L330.2,-0.7 L328.6,50.0 L327.6,99.7 L162.8,98.7 L-0.4,101.7 L-1.2,49.1 Z" fill="none" stroke="#495057" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M0.7,2.3 L165.4,-0.3 L332.5,-2.4 L331.1,49.3 L328.2,98.0 L164.0,101.0 L-1.7,100.4 L0.4,49.6 Z" fill="none" stroke="#495057" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><text x="165.0" y="41.9" text-anchor="middle" font-size="30" fill="#1e1e1e" font-family="'Patrick Hand','Kalam','Comic Sans MS',cursive" font-weight="700">Šablonas</text><text x="165.0" y="77.9" text-anchor="middle" font-size="30" fill="#1e1e1e" font-family="'Patrick Hand','Kalam','Comic Sans MS',cursive" font-weight="700">starter-template</text><rect x="510.0" y="0.0" width="330.0" height="100.0" rx="16" fill="#a5d8ff" fill-opacity=".55"/><g clip-path="url(#c1)" stroke="#1971c2" stroke-opacity=".28" stroke-width="2"><line x1="410.0" y1="100.0" x2="510.0" y2="0.0"/><line x1="424.0" y1="100.0" x2="524.0" y2="0.0"/><line x1="438.0" y1="100.0" x2="538.0" y2="0.0"/><line x1="452.0" y1="100.0" x2="552.0" y2="0.0"/><line x1="466.0" y1="100.0" x2="566.0" y2="0.0"/><line x1="480.0" y1="100.0" x2="580.0" y2="0.0"/><line x1="494.0" y1="100.0" x2="594.0" y2="0.0"/><line x1="508.0" y1="100.0" x2="608.0" y2="0.0"/><line x1="522.0" y1="100.0" x2="622.0" y2="0.0"/><line x1="536.0" y1="100.0" x2="636.0" y2="0.0"/><line x1="550.0" y1="100.0" x2="650.0" y2="0.0"/><line x1="564.0" y1="100.0" x2="664.0" y2="0.0"/><line x1="578.0" y1="100.0" x2="678.0" y2="0.0"/><line x1="592.0" y1="100.0" x2="692.0" y2="0.0"/><line x1="606.0" y1="100.0" x2="706.0" y2="0.0"/><line x1="620.0" y1="100.0" x2="720.0" y2="0.0"/><line x1="634.0" y1="100.0" x2="734.0" y2="0.0"/><line x1="648.0" y1="100.0" x2="748.0" y2="0.0"/><line x1="662.0" y1="100.0" x2="762.0" y2="0.0"/><line x1="676.0" y1="100.0" x2="776.0" y2="0.0"/><line x1="690.0" y1="100.0" x2="790.0" y2="0.0"/><line x1="704.0" y1="100.0" x2="804.0" y2="0.0"/><line x1="718.0" y1="100.0" x2="818.0" y2="0.0"/><line x1="732.0" y1="100.0" x2="832.0" y2="0.0"/><line x1="746.0" y1="100.0" x2="846.0" y2="0.0"/><line x1="760.0" y1="100.0" x2="860.0" y2="0.0"/><line x1="774.0" y1="100.0" x2="874.0" y2="0.0"/><line x1="788.0" y1="100.0" x2="888.0" y2="0.0"/><line x1="802.0" y1="100.0" x2="902.0" y2="0.0"/><line x1="816.0" y1="100.0" x2="916.0" y2="0.0"/><line x1="830.0" y1="100.0" x2="930.0" y2="0.0"/></g><path d="M510.2,-2.3 L672.7,-0.9 L840.9,-0.4 L839.4,50.3 L839.8,99.0 L676.5,100.6 L508.7,100.4 L510.1,51.2 Z" fill="none" stroke="#1971c2" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M511.2,-1.1 L677.5,-1.2 L839.6,1.3 L838.9,50.0 L837.6,100.9 L676.4,100.2 L512.0,99.0 L510.6,50.3 Z" fill="none" stroke="#1971c2" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><text x="675.0" y="41.9" text-anchor="middle" font-size="30" fill="#1e1e1e" font-family="'Patrick Hand','Kalam','Comic Sans MS',cursive" font-weight="700">Jūsų kopija</text><text x="675.0" y="77.9" text-anchor="middle" font-size="30" fill="#1e1e1e" font-family="'Patrick Hand','Kalam','Comic Sans MS',cursive" font-weight="700">devops-projektas</text><rect x="510.0" y="190.0" width="330.0" height="100.0" rx="16" fill="#b2f2bb" fill-opacity=".55"/><g clip-path="url(#c2)" stroke="#2f9e44" stroke-opacity=".28" stroke-width="2"><line x1="410.0" y1="290.0" x2="510.0" y2="190.0"/><line x1="424.0" y1="290.0" x2="524.0" y2="190.0"/><line x1="438.0" y1="290.0" x2="538.0" y2="190.0"/><line x1="452.0" y1="290.0" x2="552.0" y2="190.0"/><line x1="466.0" y1="290.0" x2="566.0" y2="190.0"/><line x1="480.0" y1="290.0" x2="580.0" y2="190.0"/><line x1="494.0" y1="290.0" x2="594.0" y2="190.0"/><line x1="508.0" y1="290.0" x2="608.0" y2="190.0"/><line x1="522.0" y1="290.0" x2="622.0" y2="190.0"/><line x1="536.0" y1="290.0" x2="636.0" y2="190.0"/><line x1="550.0" y1="290.0" x2="650.0" y2="190.0"/><line x1="564.0" y1="290.0" x2="664.0" y2="190.0"/><line x1="578.0" y1="290.0" x2="678.0" y2="190.0"/><line x1="592.0" y1="290.0" x2="692.0" y2="190.0"/><line x1="606.0" y1="290.0" x2="706.0" y2="190.0"/><line x1="620.0" y1="290.0" x2="720.0" y2="190.0"/><line x1="634.0" y1="290.0" x2="734.0" y2="190.0"/><line x1="648.0" y1="290.0" x2="748.0" y2="190.0"/><line x1="662.0" y1="290.0" x2="762.0" y2="190.0"/><line x1="676.0" y1="290.0" x2="776.0" y2="190.0"/><line x1="690.0" y1="290.0" x2="790.0" y2="190.0"/><line x1="704.0" y1="290.0" x2="804.0" y2="190.0"/><line x1="718.0" y1="290.0" x2="818.0" y2="190.0"/><line x1="732.0" y1="290.0" x2="832.0" y2="190.0"/><line x1="746.0" y1="290.0" x2="846.0" y2="190.0"/><line x1="760.0" y1="290.0" x2="860.0" y2="190.0"/><line x1="774.0" y1="290.0" x2="874.0" y2="190.0"/><line x1="788.0" y1="290.0" x2="888.0" y2="190.0"/><line x1="802.0" y1="290.0" x2="902.0" y2="190.0"/><line x1="816.0" y1="290.0" x2="916.0" y2="190.0"/><line x1="830.0" y1="290.0" x2="930.0" y2="190.0"/></g><path d="M510.4,189.8 L676.8,191.4 L839.9,190.9 L838.6,240.6 L840.8,292.6 L676.7,289.3 L509.4,290.9 L508.5,239.9 Z" fill="none" stroke="#2f9e44" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M508.3,188.0 L672.7,190.9 L838.1,188.7 L839.7,241.2 L837.8,289.7 L675.3,291.2 L511.7,291.9 L509.3,239.7 Z" fill="none" stroke="#2f9e44" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round"/><text x="675.0" y="249.9" text-anchor="middle" font-size="30" fill="#1e1e1e" font-family="'Patrick Hand','Kalam','Comic Sans MS',cursive" font-weight="700">~/devops/devops-projektas</text><path d="M336.0,50.0 Q417.6,63.8 502.0,50.0" fill="none" stroke="#1e1e1e" stroke-width="3.4" stroke-linecap="round"/><line x1="502.0" y1="50.0" x2="484.0" y2="41.3" stroke="#1e1e1e" stroke-width="3.4" stroke-linecap="round"/><line x1="502.0" y1="50.0" x2="484.0" y2="58.7" stroke="#1e1e1e" stroke-width="3.4" stroke-linecap="round"/><text x="419.0" y="76.0" text-anchor="middle" font-size="22" fill="#c2410c" font-family="'Patrick Hand','Kalam','Comic Sans MS',cursive">Use this template</text><path d="M675.0,106.0 Q669.6,140.5 675.0,182.0" fill="none" stroke="#1e1e1e" stroke-width="3.4" stroke-linecap="round"/><line x1="675.0" y1="182.0" x2="683.7" y2="164.0" stroke="#1e1e1e" stroke-width="3.4" stroke-linecap="round"/><line x1="675.0" y1="182.0" x2="666.3" y2="164.0" stroke="#1e1e1e" stroke-width="3.4" stroke-linecap="round"/><text x="649.0" y="144.0" text-anchor="middle" font-size="22" fill="#c2410c" font-family="'Patrick Hand','Kalam','Comic Sans MS',cursive">git clone</text></svg></div><p class="reveal" data-step="1">Kodėl kopija? Šablonas priklauso kitam: jo keisti negalite, o savo kopijoje galite daryti ką norite</p></section>
+<section class="slide slide--demonstracija" data-i="4" data-notes="~5 min. Kitas pavyzdys nei užduotyje: sava demo kopija `demo-projektas`. Pirma naršyklėje parodykite **Use this template** ir **Public**. Klonavimo adresas: HTTPS, kaip `gh auth login`. Po klonavimo `git remote -v` turi rodyti jūsų vardą. Paskelbkite 1 užduotį."><span class="slide__num">4</span><p class="eyebrow">Demonstracija</p><h2 class="title">Savo projekto klonavimas</h2><div class="term"><div class="term__bar"><i></i><i></i><i></i><span>bash</span></div><pre><code>cd ~/devops
+git clone https://github.com/&lt;vartotojas&gt;/demo-projektas.git
+cd demo-projektas</code></pre></div><div class="term reveal" data-step="1"><div class="term__bar"><i></i><i></i><i></i><span>bash</span></div><pre><code>git remote -v
+ls</code></pre></div><div class="term reveal" data-step="2"><div class="term__bar"><i></i><i></i><i></i><span>bash</span></div><pre><code>git switch -c pamoka-02
+git branch</code></pre></div></section>
+<section class="slide slide--tekstas" data-i="5" data-notes="~3 min. Jie tai jau moka, tik prisiminti. Principas: įrankiai keičiasi, bet komandos struktūra visur ta pati: kas + kaip + su kuo. `man`: išeiti `q`."><span class="slide__num">5</span><p class="eyebrow">Svarbu</p><h2 class="title">Komanda, parametrai, argumentai</h2><div class="cards cards--tiles"><div class="card"><div class="card__icon">01</div><p class="card__title">Komanda</p><p class="card__text">Ką daryti: <code>ls</code></p></div><div class="card"><div class="card__icon">02</div><p class="card__title">Parametras</p><p class="card__text">Kaip daryti: <code>-l</code></p></div><div class="card"><div class="card__icon">03</div><p class="card__title">Argumentas</p><p class="card__text">Su kuo daryti: <code>static</code></p></div></div><div class="term"><div class="term__bar"><i></i><i></i><i></i><span>bash</span></div><pre><code>ls -l static</code></pre></div><p class="reveal" data-step="1">Kai neprisimenate: <code>ls --help</code> arba <code>man ls</code></p></section>
+<section class="slide slide--komanda" data-i="6" data-notes="~4 min. Parodykite Tab ir `Ctrl+R` (ieškoti istorijoje). Mac ir WSL elgiasi vienodai."><span class="slide__num">6</span><p class="eyebrow">Komandos</p><h2 class="title">Kur esu ir kas čia</h2><div class="term"><div class="term__bar"><i></i><i></i><i></i><span>bash</span></div><pre><code>pwd
+ls -la
+cd static
+cd ..</code></pre></div><p class="reveal" data-step="1"><code>pwd</code> kur esu, <code>ls -la</code> ką matau (įskaitant paslėptus failus), <code>cd</code> judėti</p><p class="reveal" data-step="2">Tab užbaigia vardą, rodyklė aukštyn grąžina ankstesnę komandą</p></section>
+<section class="slide slide--demonstracija" data-i="7" data-notes="~3 min. Pildykite kartu: klauskite, ką reiškia `~`, paskui paspauskite. Santykinis kelias priklauso nuo to, kur esate, absoliutus (nuo `/` arba `~`) visada tas pats. Dažna klaida: tarpas aplanko varde be kabučių (`cd Mano aplankas`)."><span class="slide__num">7</span><p class="eyebrow">Demonstracija</p><h2 class="title">Keliai: absoliutus ir santykinis</h2><table><thead><tr><th>Žymėjimas</th><th>Reiškia</th></tr></thead><tbody><tr><td><code>/</code></td><td class="ans-cell"><span class="cell"><span class="ph">?</span><span class="reveal ans" data-step="1">Šakninis aplankas</span></span></td></tr><tr><td><code>~</code></td><td class="ans-cell"><span class="cell"><span class="ph">?</span><span class="reveal ans" data-step="2">Jūsų namų aplankas</span></span></td></tr><tr><td><code>.</code></td><td class="ans-cell"><span class="cell"><span class="ph">?</span><span class="reveal ans" data-step="3">Šiuo metu esamas aplankas</span></span></td></tr><tr><td><code>..</code></td><td class="ans-cell"><span class="cell"><span class="ph">?</span><span class="reveal ans" data-step="4">Aplankas viršuje</span></span></td></tr></tbody></table></section>
+<section class="slide slide--komanda" data-i="8" data-notes="~8 min su demonstracija aplanke `demo` (kiti failų vardai nei užduotyje: `bandymas`, `f1.txt`). Išvestis pavyzdinė. Kodėl nekeliame `rm -rf`: ištrintas failas nepatenka į šiukšlinę. Paskelbkite 2 užduotį."><span class="slide__num">8</span><p class="eyebrow">Komandos</p><h2 class="title">Failai ir aplankai</h2><div class="term"><div class="term__bar"><i></i><i></i><i></i><span>bash</span></div><pre><code>mkdir -p demo/vaisiai
+touch demo/vaisiai/obuolys.txt
+cp demo/vaisiai/obuolys.txt demo/vaisiai/kriause.txt
+mv demo/vaisiai/kriause.txt demo/slyva.txt
+ls -R demo</code></pre></div><div class="term term--out reveal" data-step="1"><div class="term__bar"><i></i><i></i><i></i><span>pavyzdinė išvestis</span></div><pre><code>demo:
+slyva.txt   vaisiai
+
+demo/vaisiai:
+obuolys.txt</code></pre></div><p class="reveal" data-step="2"><code>cp</code> kopijuoja, <code>mv</code> perkelia arba pervadina</p><p class="reveal" data-step="3">Šiame kurse nenaudojame <code>rm -rf</code>: pirma kopijuokite, o ne trinkite</p></section>
+<section class="slide slide--tekstas" data-i="9" data-notes="~8 min su demonstracija. Failas `vaisiai.txt` (kitas nei `sorting.txt`). Parodykite `head`, `tail`, `wc -l`. Principas: maži įrankiai, jungiami į grandinę (Unix filosofija); tuo remiasi skriptai ir CI/CD."><span class="slide__num">9</span><p class="eyebrow">Svarbu</p><h2 class="title">Srautai: vamzdis ir nukreipimas</h2><div class="flow"><div class="chip reveal" data-step="1"><span class="chip__icon"></span><span class="chip__label">vaisiai.txt</span></div><div class="chip reveal" data-step="2"><span class="chip__icon"></span><span class="chip__label">sort</span></div><div class="chip reveal" data-step="3"><span class="chip__icon"></span><span class="chip__label">rusiuota.txt</span></div></div><div class="term"><div class="term__bar"><i></i><i></i><i></i><span>bash</span></div><pre><code>sort vaisiai.txt &gt; rusiuota.txt
+echo "slyva" &gt;&gt; vaisiai.txt
+cat vaisiai.txt | grep an</code></pre></div><div class="bubble"><span class="bubble__icon">💬</span><div class="bubble__body"><span class="bubble__label">Analogija</span><p>Kaip vamzdis: viena komanda daro vieną darbą, o <code>|</code> perduoda rezultatą kitai.</p></div></div><p class="reveal" data-step="4"><code>grep</code> ieško tekste, <code>find . -name</code> randa failą pagal vardą</p></section>
+<section class="slide slide--jusu-eile" data-i="10" data-notes="~3 min. Leiskite spėlioti: `a b c`, `a b` ar `c`. Dažna klaida: mokiniai praranda turinį pasirinkę `&gt;`. Paskelbkite 3 užduotį."><span class="slide__num">10</span><p class="eyebrow">Jūsų eilė</p><h2 class="title">Ką parodys failas?</h2><div class="term"><div class="term__bar"><i></i><i></i><i></i><span>bash</span></div><pre><code>echo "a" &gt; lapas.txt
+echo "b" &gt;&gt; lapas.txt
+echo "c" &gt; lapas.txt
+cat lapas.txt</code></pre></div><p class="reveal" data-step="1">Tik <code>c</code>: <code>&gt;</code> perrašo visą failą, o <code>&gt;&gt;</code> prideda gale</p></section>
+<section class="slide slide--demonstracija" data-i="11" data-notes="~7 min. Pildykite kartu. Pirmas simbolis `-` failas, `d` aplankas; toliau trys trynukai: savininkas, grupė, kiti. Principas: slapti dalykai (`.env`, privatūs raktai) turi būti skaitomi tik savininkui. Parodykite `ls -l run.sh` projekte: jis jau vykdomas."><span class="slide__num">11</span><p class="eyebrow">Demonstracija</p><h2 class="title">Teisės: kas gali ką</h2><div class="split"><div class="split__text"><table><thead><tr><th>Sakinys</th><th>Reiškia</th></tr></thead><tbody><tr><td><code>-rw-r--r--</code> (644)</td><td class="ans-cell"><span class="cell"><span class="ph">?</span><span class="reveal ans" data-step="1">Savininkas skaito ir rašo, kiti tik skaito</span></span></td></tr><tr><td><code>-rwxr-xr-x</code> (755)</td><td class="ans-cell"><span class="cell"><span class="ph">?</span><span class="reveal ans" data-step="2">Visi gali vykdyti, savininkas ir keisti</span></span></td></tr><tr><td><code>-rw-------</code> (600)</td><td class="ans-cell"><span class="cell"><span class="ph">?</span><span class="reveal ans" data-step="3">Tik savininkas: tinka raktams ir <code>.env</code></span></span></td></tr></tbody></table></div><div class="split__art"><svg viewBox="0 0 400 320" role="img" aria-label="Privatus ir viešas raktas"><rect x="40" y="130" width="130" height="110" fill="#ffd8a8" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M66 130 V98 a39 39 0 0 1 78 0 V130" fill="none" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="105" cy="182" r="11" fill="#1c1b1a"/><text x="105" y="270" text-anchor="middle" font-size="20" fill="#d9480f" font-family="Patrick Hand,Kalam,cursive" font-weight="700">PRIVATUS</text><text x="105" y="294" text-anchor="middle" font-size="17" fill="#1c1b1a" font-family="Patrick Hand,Kalam,cursive">tik pas jus</text><circle cx="262" cy="168" r="32" fill="#d3f9d8" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M294 168 H372 M346 168 V198 M324 168 V190" fill="none" stroke="#1c1b1a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><text x="300" y="270" text-anchor="middle" font-size="20" fill="#2b8a3e" font-family="Patrick Hand,Kalam,cursive" font-weight="700">VIEŠAS (.pub)</text><text x="300" y="294" text-anchor="middle" font-size="17" fill="#1c1b1a" font-family="Patrick Hand,Kalam,cursive">galima rodyti</text></svg></div></div></section>
+<section class="slide slide--komanda" data-i="12" data-notes="~8 min. Pavyzdys `labas.sh` (kitas nei mokinių `terminalas.sh`). Išvestis pavyzdinė (zsh rodo `zsh: permission denied: ./labas.sh`). Pirma eilutė `#!/usr/bin/env bash` pasako, kuo skriptą paleisti. Dažna klaida: `bash labas.sh` veikia ir be `x`, o `./labas.sh` ne. Windows: CRLF (`bad interpreter`): kurti WSL redaktoriumi. Paskelbkite 4 užduotį."><span class="slide__num">12</span><p class="eyebrow">Komandos</p><h2 class="title">Pirmas skriptas</h2><div class="term"><div class="term__bar"><i></i><i></i><i></i><span>bash</span></div><pre><code>echo '#!/usr/bin/env bash' &gt; labas.sh
+echo 'echo "Labas, $(pwd)"' &gt;&gt; labas.sh
+./labas.sh</code></pre></div><div class="term term--out reveal" data-step="1"><div class="term__bar"><i></i><i></i><i></i><span>pavyzdinė išvestis</span></div><pre><code>-bash: ./labas.sh: Permission denied</code></pre></div><div class="term reveal" data-step="2"><div class="term__bar"><i></i><i></i><i></i><span>bash</span></div><pre><code>chmod +x labas.sh
+./labas.sh</code></pre></div><div class="bubble"><span class="bubble__icon">💬</span><div class="bubble__body"><span class="bubble__label">Analogija</span><p>Kaip raktas nuo kabineto: failas yra, bet be teisės jo nepaleisite.</p></div></div></section>
+<section class="slide slide--klaida" data-i="13" data-notes="~3 min. Prieš 5 užduotį (PR): parodykite `demo-projektas` PR: `git push -u origin pamoka-02`, **Compare &amp; pull request**, **Merge**, `git switch main`, `git pull`. Principas: darbas per šaką ir PR, o ne tiesiai į `main`: kitas žmogus gali peržiūrėti, `main` lieka veikiantis."><span class="slide__num">13</span><p class="eyebrow">Dažna klaida</p><h2 class="title">Dažnos klaidos</h2><div class="cards"><div class="card reveal" data-step="1"><div class="card__icon"></div><p class="card__title">Permission denied</p><p class="card__text">Trūksta <code>x</code> teisės: <code>chmod +x</code></p></div><div class="card reveal" data-step="2"><div class="card__icon"></div><p class="card__title">Klonuota į <code>/mnt/c</code></p><p class="card__text">Perkelkite į <code>~/devops</code> (lėta, sugedusios teisės)</p></div><div class="card reveal" data-step="3"><div class="card__icon"></div><p class="card__title">Klonuotas šablonas</p><p class="card__text">Reikia savo kopijos: <strong>Use this template</strong></p></div><div class="card reveal" data-step="4"><div class="card__icon"></div><p class="card__title"><code>&gt;</code> vietoje <code>&gt;&gt;</code></p><p class="card__text">Failas perrašytas: prieš <code>&gt;</code> pagalvokite, ar jo turinio nereikia</p></div><div class="card reveal" data-step="5"><div class="card__icon"></div><p class="card__title">PR sulietas, bet <code>main</code> senas</p><p class="card__text">Kompiuteryje <code>git switch main</code>, <code>git pull</code></p></div></div><p class="reveal" data-step="6">Principas: klaidos tekstas dažniausiai pasako, ką daryti, todėl pirma jį perskaitykite</p></section>
+<section class="slide slide--uzduotys" data-i="14" data-notes="Skelbkite po vieną Teams&#x27;e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Pilni žingsniai yra Teams žinutėje ir pamoka.md. Atsakymus į „Kodėl“ rašo `docs/terminalas.md`."><span class="slide__num">14</span><p class="eyebrow">Užduotys</p><h2 class="title">Užduotys</h2><p>Užduotis skelbiu po vieną Teams'e: pirma parodau gyvai, tada darote jūs.</p><div class="cards"><div class="card"><div class="card__icon"></div><p class="card__title">1 užduotis: Savo projektas</p><p class="card__text">Pasidaryti savo projekto kopiją iš šablono, nusiklonuoti ir pradėti darbą atskiroje šakoje.</p></div><div class="card"><div class="card__icon"></div><p class="card__title">2 užduotis: Navigacija ir failai</p><p class="card__text">Judėti po aplankus ir kurti, kopijuoti bei perkelti failus.</p></div><div class="card"><div class="card__icon"></div><p class="card__title">3 užduotis: Srautai ir paieška</p><p class="card__text">Peržiūrėti failus, sujungti komandas per srautus ir rasti failą bei tekstą.</p></div><div class="card"><div class="card__icon"></div><p class="card__title">4 užduotis: Teisės ir pirmas skriptas</p><p class="card__text">Parašyti pirmą Bash skriptą, padaryti jį vykdomą ir paaiškinti teises.</p></div><div class="card"><div class="card__icon"></div><p class="card__title">5 užduotis: Pull Request</p><p class="card__text">Pateikti pakeitimus per Pull Request ir sujungti juos į <code>main</code>.</p></div></div><p>Pilnos užduotys su visais žingsniais bus įkeltos per Teams. Jei kas neveikia: perskaitykite klaidą ir ieškokite dokumentacijoje. Dirbtinio intelekto nenaudojame.</p></section>
+<section class="slide slide--kita slide--center" data-i="15" data-notes="Primename: kitą pamoką pradėsime nuo šios pamokos sprendimo (`docs/terminalas.md`, `terminalas.sh`)."><span class="slide__num">15</span><p class="eyebrow">Kita pamoka</p><h2 class="title">Kita pamoka</h2><p class="lead">Procesai, aplinkos kintamieji, paketų tvarkyklė</p></section>
+<div class="bar"></div><div class="counter"></div>
+<div class="hint">← → arba tarpas · N pastabos · F visas ekranas</div><div class="notes"></div>
+
+<script>(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')),cur=0,rendered={};
+  var bar=document.querySelector('.bar'),counter=document.querySelector('.counter'),notes=document.querySelector('.notes');
+  function steps(s){return [].slice.call(s.querySelectorAll('.reveal')).sort(function(a,b){return a.dataset.step-b.dataset.step})}
+  function pending(s){return steps(s).filter(function(e){return !e.classList.contains('shown')})}
+  function renderMermaid(s){
+    if(rendered[s.dataset.i]||!window.mermaid)return;rendered[s.dataset.i]=1;
+    var m=s.querySelectorAll('.mermaid');if(m.length){try{window.mermaid.run({nodes:m})}catch(e){}}
+  }
+  function show(i,all){
+    cur=Math.max(0,Math.min(slides.length-1,i));
+    slides.forEach(function(s,k){s.classList.toggle('active',k===cur)});
+    var s=slides[cur];
+    steps(s).forEach(function(e){e.classList.toggle('shown',!!all)});
+    renderMermaid(s);
+    bar.style.width=((cur+1)/slides.length*100)+'%';
+    counter.textContent=(cur+1)+' / '+slides.length;
+    notes.textContent=s.dataset.notes||'';
+    try{history.replaceState(null,'','#'+(cur+1))}catch(e){}
+  }
+  function next(){var p=pending(slides[cur]);if(p.length){p.forEach(function(e,k){if(k===0||e.dataset.step===p[0].dataset.step)e.classList.add('shown')});}else show(cur+1)}
+  function prev(){var sh=steps(slides[cur]).filter(function(e){return e.classList.contains('shown')});
+    if(sh.length){var last=sh[sh.length-1].dataset.step;sh.forEach(function(e){if(e.dataset.step===last)e.classList.remove('shown')})}else if(cur>0)show(cur-1,true)}
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(k==='ArrowRight'||k===' '||k==='PageDown'||k==='Enter'){e.preventDefault();next()}
+    else if(k==='ArrowLeft'||k==='PageUp'||k==='Backspace'){e.preventDefault();prev()}
+    else if(k==='ArrowDown'){show(cur+1)}else if(k==='ArrowUp'){show(cur-1)}
+    else if(k==='Home')show(0);else if(k==='End')show(slides.length-1);
+    else if(k==='n'||k==='N')document.body.classList.toggle('show-notes');
+    else if(k==='f'||k==='F'){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}
+  });
+  if(window.mermaid){window.mermaid.initialize({startOnLoad:false,theme:'dark',securityLevel:'strict'})}
+  var tx=null;document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});document.addEventListener('touchend',function(e){if(tx===null)return;var d=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(d)>60){d<0?next():prev()}},{passive:true});
+  var start=parseInt((location.hash||'').slice(1),10)||1;
+  show(start-1,/[?&]all\b/.test(location.search));
+  window.addEventListener('load',function(){if(window.mermaid){window.mermaid.initialize({startOnLoad:false,theme:'dark'});rendered={};renderMermaid(slides[cur])}});
+})();
+</script></body></html>

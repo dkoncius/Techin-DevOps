@@ -4,31 +4,37 @@ Data: 2026-11-12 (ketvirtadienis)
 
 ## Klasės darbas
 
-Pamoka eina per užduotis: dėstytojas trumpai paaiškina temą ir gyvai parodo kitu pavyzdžiu (aplankas `demo`, kiti failų vardai), tada Teams'e paskelbia užduotį. Jūs ją darote savo `devops-projektas`, o baigę gaunate kitą. Užduotys ir komandos yra žemiau, skyriuose „Užduotys“ ir „Komandos“.
+3 val. Skaidrėse **N** rodo pastabas. Ritmas kiekvienai temai: teorija (skaidrės) → dėstytojas gyvai parodo **kitu pavyzdžiu** (aplankas `demo`, kiti failų vardai) → Teams'e paskelbiama užduotis → jūs darote savo `devops-projektas`. Kitą užduotį gaunate tik baigę ankstesnę. Terminalą, `cp`, `mv`, `grep`, `chmod` ir Git jau mokėte (Edgaras): einame greitai. Naujovė: savo projektas iš šablono, srautai, teisių skaitymas, pirmas skriptas ir Pull Request.
 
-1. Pasitikrinimas po 01 paskaitos (~5 min): kam kas liko neaišku su `git-bandymas`, šaka ir `merge`; dėstytojas trumpai parodo 01 sprendimą gyvai
-2. Užduotis 1 „Savo projektas“ (~15 min): demonstracija ir darbas: projekto šablonas, savo `devops-projektas` kopija GitHub'e, klonavimas į `~/devops` (`README.md` skyrius „1. Susikurkite savo projektą“)
-3. Terminalas ir navigacija (~10 min teorijos ir demonstracijos), tada Užduotis 2:
-   1. Kas yra terminalas, apvalkalas (shell) ir Bash; kodėl DevOps darbas vyksta terminale
-   2. Komanda, parametrai, argumentai; pagalba: `--help`, `man`, [GNU Coreutils dokumentacija](https://www.gnu.org/software/coreutils/manual/)
-   3. Kur esu ir kas čia: `pwd`, `ls`, `ls -l`, `ls -a`; judėjimas: `cd`, `~`, `.`, `..`, absoliutūs ir santykiniai keliai
-   4. Tab užbaigimas ir istorija (rodyklė aukštyn, `Ctrl+R`)
-4. Failai, aplankai ir srautai (~10 min teorijos ir demonstracijos), tada Užduotis 3:
-   1. Kūrimas: `mkdir`, `mkdir -p`, `touch`
-   2. Kopijavimas ir perkėlimas: `cp`, `mv` (kodėl kopijuoti saugiau nei trinti)
-   3. Turinio peržiūra: `cat`, `less`, `head`, `tail`
-   4. Paieška: `grep`, `find` (tik pagal vardą)
-   5. Srautai: `|`, `>`, `>>`
-   6. Jokių `rm -rf` iš atminties: ką daro trynimas ir kodėl šiame kurse jo vengiame
+1. Pasitikrinimas po 01 (~5 min): kam kas liko neaišku su šaka ir `merge`; dėstytojas parodo 01 sprendimą gyvai (01 `pamoka.md`, skyrius „Sprendimas“)
+2. Savo projektas (~5 min teorijos ir demonstracijos), tada Užduotis 1 (~10 min): [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/02%20Linux%20terminalas/skaidres/skaidres.html), 1–4 skaidrės
+   1. Kodėl terminalas: serveris neturi pelės, o tekstines komandas galima įrašyti į skriptą ir kartoti
+   2. Šablonas ir jūsų kopija: **Use this template** (kopija be senos istorijos) ir `git clone` (kopija į kompiuterį)
+   3. Demonstracija: dėstytojas atlieka „Savo projektas“ su kitu pavyzdžiu (~5 min)
+3. Komanda ir navigacija (~10 min teorijos ir demonstracijos), tada Užduotis 2 (~25 min): skaidrės 5–8
+   1. Komanda, parametrai, argumentai; pagalba: `--help`, `man`, [GNU Coreutils dokumentacija](https://www.gnu.org/software/coreutils/manual/)
+   2. Kur esu ir kas čia: `pwd`, `ls -la`, `cd`; Tab užbaigimas ir istorija (rodyklė aukštyn, `Ctrl+R`)
+   3. Keliai: `/`, `~`, `.`, `..`; absoliutus ir santykinis kelias
+   4. Failai: `mkdir -p`, `touch`, `cp`, `mv`; kodėl pirma kopijuoti, o ne trinti (`rm -rf` šiame kurse nenaudojame)
+   5. Demonstracija: dėstytojas atlieka „Navigacija ir failai“ aplanke `demo` (~8 min)
+4. Srautai ir paieška (~10 min teorijos ir demonstracijos), tada Užduotis 3 (~25 min): skaidrės 9–10
+   1. Peržiūra: `cat`, `head`, `tail`, `wc -l`, `sort`
+   2. Srautai: `|`, `>`, `>>`; kodėl viena komanda daro vieną darbą, o vamzdis jas jungia
+   3. Paieška: `grep` (tekstas faile), `find -name` (failas pagal vardą)
+   4. Demonstracija: dėstytojas atlieka „Srautai ir paieška“ su failu `vaisiai.txt` (~8 min)
 5. Pertrauka (~15 min)
-6. Teisės ir pirmas skriptas (~15 min teorijos ir demonstracijos), tada Užduotis 4:
-   1. Vartotojas, grupė, kiti; `r`, `w`, `x` ir skaičiai (`644`, `755`)
+6. Teisės ir pirmas skriptas (~15 min teorijos ir demonstracijos), tada Užduotis 4 (~30 min): skaidrės 11–12
+   1. Vartotojas, grupė, kiti; `r`, `w`, `x` ir skaičiai (`644`, `755`, `600`)
    2. `ls -l` skaitymas; `chmod`
-   3. Kodėl `.sh` failas negali būti paleistas be `x`
-   4. Kodėl `.env` ir privatūs raktai neturi būti skaitomi kitų
-   5. Skripto pradžia: `#!/usr/bin/env bash`
-7. Python kodo skaitymas ir pirmas Pull Request (~5 min demonstracijos), tada Užduotis 5: trumpa Flask ištrauka su maršrutu `/items` (žr. skyrių „Užduotys“)
+   3. Kodėl `.sh` failas negali būti paleistas be `x`; kodėl `.env` ir privatūs raktai neturi būti skaitomi kitų
+   4. Skripto pradžia: `#!/usr/bin/env bash`
+   5. Demonstracija: dėstytojas atlieka „Teisės ir pirmas skriptas“ su `labas.sh` (~8 min)
+7. Pull Request (~5 min demonstracijos), tada Užduotis 5 (~20 min): skaidrė 13 (dažnos klaidos)
+   1. Kodėl darbas eina per šaką ir PR, o ne tiesiai į `main`
+   2. Demonstracija: dėstytojas atlieka „Pull Request“ savo `demo-projektas` kopijoje (~5 min)
 8. Kita paskaita: Procesai, aplinkos kintamieji, paketų tvarkyklė
+
+Nuorodos: [GitHub: creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template), [GitHub: about pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests), [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/)
 
 ## Kur skiriasi (Mac / Ubuntu)
 
@@ -37,25 +43,21 @@ Pamokos komandos parinktos taip, kad veiktų abiejose sistemose. Šie dalykai sk
 | Veiksmas | Mac (Terminalas) | Ubuntu (WSL) |
 |---|---|---|
 | Spalvotas `ls` | `ls -G` | `ls --color=auto` |
-| Failų dydžiai žmonėms | `ls -lh` (veikia abiejose) | `ls -lh` |
-| Rūšiavimas pagal dydį | `ls -lS` (veikia abiejose) | `ls -lS` |
 | Failo teisės skaičiumi | `stat -f %Lp failas` | `stat -c %a failas` |
-| Pakeisti tekstą faile vietoje | `sed -i '' 's/a/b/' f` | `sed -i 's/a/b/' f` (kurse nenaudojame) |
-| Atidaryti failą programoje | `open failas` | `xdg-open failas` arba `explorer.exe failas` |
-| Kopijuoti į iškarpinę | `pbcopy` | `clip.exe` (WSL) |
+| Atidaryti aplanką programoje | `open .` | `explorer.exe .` |
+| Kopijuoti į iškarpinę | `pbcopy` | `clip.exe` |
 
-Kurse naudokite tik tai, kas veikia abiejose: `ls -la`, `cp`, `mv`, `cat`, `grep`, `find . -name`, `chmod`.
+Kurse naudokite tik tai, kas veikia abiejose: `ls -la`, `ls -l`, `cp`, `mv`, `cat`, `grep`, `find . -name`, `chmod`.
 
 ## Schemos
 
-Aplankų medis, nuo kurio dirbsime (jūsų projekte; tikrasis starteris gali skirtis):
+Aplankų medis, nuo kurio dirbsime (jūsų projekte; `docs/` ir `scripts/` sukursite patys):
 
 ```mermaid
 flowchart TD
     saknis[devops-projektas] --> docs[docs]
     saknis --> scripts[scripts]
     saknis --> readme[README.md]
-    saknis --> gi[.gitignore]
     docs --> d1[terminalas.md]
     scripts --> s1[terminalas.sh]
 ```
@@ -64,7 +66,7 @@ Teisių skaitymas `ls -l` išvestyje:
 
 ```mermaid
 flowchart TD
-    eilute[-rwxr-xr-- failas] --> tipas[pirmas simbolis: failas arba aplankas]
+    eilute["-rwxr-xr-- failas"] --> tipas[pirmas simbolis: failas arba aplankas]
     eilute --> savininkas[rwx: savininkas]
     eilute --> grupe[r-x: grupė]
     eilute --> kiti[r--: kiti]
@@ -72,158 +74,182 @@ flowchart TD
 
 ## Užduotys
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje arba klauskite LLM, ir užsirašykite, kas padėjo. Nuorodos yra klasės darbe. Komandos yra skyriuje „Komandos“: žiūrėkite tik įstrigę.
+Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo (1 etape dirbtinio intelekto užduotyse nenaudojame; DI leidžiamas nuo Docker etapo). Nuorodos yra klasės darbe. Komandos yra skyriuje „Komandos“: žiūrėkite tik įstrigę.
 
-Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, tada darote savo `devops-projektas` ir tik baigę gaunate kitą.
+Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, tada darote savo kompiuteryje ir tik baigę gaunate kitą. Atsakymus į „Kodėl“ rašote faile `docs/terminalas.md` savo projekte.
 
 ### 1️⃣ Savo projektas
 
-1. **Tikslas:** Pasidaryti savo projekto kopiją iš šablono ir nusiklonuoti į kompiuterį.
-2. GitHub'e iš šablono [`devops-projektas-starter-template`](https://github.com/dkoncius/devops-projektas-starter-template) sukurkite savo **Public** repozitoriją `devops-projektas` (žingsniai: `README.md` skyrius „1. Susikurkite savo projektą“).
-3. Terminale eikite į `~/devops` ir nusiklonuokite **savo** repozitoriją (ne šablono).
-4. Patikrinkite, kad nuotolinė nuoroda rodo jūsų vardą ir `devops-projektas`, ne `starter-template`.
+1. **Tikslas:** Pasidaryti savo projekto kopiją iš šablono, nusiklonuoti ir pradėti darbą atskiroje šakoje.
+2. Naršyklėje atidarykite šabloną [`devops-projektas-starter-template`](https://github.com/dkoncius/devops-projektas-starter-template).
+3. Iš šablono sukurkite savo **Public** repozitoriją `devops-projektas` (mygtukas **Use this template**).
+4. Terminale eikite į aplanką `~/devops`.
+5. Nusiklonuokite **savo** repozitoriją `devops-projektas` (ne šablono).
+6. Pereikite į aplanką `devops-projektas`.
+7. Patikrinkite, kad nuotolinė nuoroda rodo jūsų vardą ir `devops-projektas`, o ne `starter-template`.
+8. Sukurkite šaką `pamoka-02` ir persijunkite į ją.
+9. Sukurkite aplanką `docs` ir faile `docs/terminalas.md` parašykite antraštę „# Terminalas“ ir skyrių „## Projektas“.
+10. **Kodėl:** skyriuje „Projektas“ vienu sakiniu užrašykite, kodėl dirbame savo kopijoje, o ne tiesiai šablone.
 
-### 2️⃣ Navigacija ir šaka
+### 2️⃣ Navigacija ir failai
 
-1. **Tikslas:** Apžiūrėti projektą terminale ir pradėti darbą atskiroje šakoje.
-2. Eikite į `~/devops/devops-projektas` ir pasižiūrėkite, kur esate ir kas čia yra, įskaitant paslėptus failus.
-3. Pereikite į `docs` (jei aplanko nėra, į kitą aplanką) ir grįžkite į projekto šaknį dviem būdais: santykiniu ir absoliučiu keliu.
-4. Sukurkite šaką `pamoka-02` iš atnaujinto `main`.
+1. **Tikslas:** Judėti po aplankus ir kurti, kopijuoti bei perkelti failus.
+2. Eikite į `~/devops/devops-projektas` ir pažiūrėkite, kur esate ir kas čia yra, įskaitant paslėptus failus.
+3. Pereikite į aplanką `static`.
+4. Grįžkite į projekto šaknį santykiniu keliu.
+5. Pereikite į `~/devops` absoliučiu keliu.
+6. Aplanke `~/devops` sukurkite aplanką `bandymas`.
+7. Aplanke `~/devops` sukurkite aplanką `tikslas`.
+8. Aplanke `bandymas` sukurkite failus: `f1.txt`, `f2.txt`, `f3.txt`, `ff1.txt`, `ff2.txt`.
+9. Pažiūrėkite aplanko `bandymas` turinį.
+10. Nukopijuokite `f1.txt`, `f3.txt` ir `ff2.txt` iš `bandymas` į `tikslas`.
+11. Pažiūrėkite aplanko `tikslas` turinį.
+12. Pervadinkite `f1.txt` aplanke `tikslas` į `file1.txt` ir perkelkite jį į `bandymas`.
+13. Viena komanda sukurkite aplanke `bandymas` aplankų grandinę `a/b/c`.
+14. **Kodėl:** faile `docs/terminalas.md` pridėkite skyrių „## Failai“ ir vienu sakiniu užrašykite, kodėl šiame kurse pirma kopijuojame, o ne trinam.
+15. **Papildomai:** pagal `man ls` suraskite, kaip surūšiuoti failus pagal dydį, ir išbandykite aplanke `static`.
 
-### 3️⃣ Failai ir srautai
+### 3️⃣ Srautai ir paieška
 
-1. **Tikslas:** Išmokti kurti, kopijuoti, perkelti failus ir aplankus, peržiūrėti turinį ir ieškoti. Darbas vykdomas terminale.
-2. Savo `~/devops` aplanke sukurkite aplanką `bandymas`.
-3. Aplanke `bandymas` sukurkite failus: `f1.txt`, `f2.txt`, `f3.txt`, `ff1.txt`, `ff2.txt`.
-4. Pažiūrėkite aplanko `bandymas` turinį.
-5. Savo `~/devops` aplanke sukurkite aplanką `tikslas`.
-6. Nukopijuokite failus `f1.txt`, `f3.txt` ir `ff2.txt` iš `bandymas` į `tikslas`.
-7. Pažiūrėkite aplanko `tikslas` turinį.
-8. Pervadinkite failą `f1.txt` aplanke `tikslas` į `file1.txt` ir perkelkite jį į `bandymas`.
-9. Į failą `bandymas/sorting.txt` įrašykite eilutes: `apples`, `oranges`, `pears`, `kiwis`, `bananas` (po vieną eilutėje).
-10. Išveskite `sorting.txt` turinį į ekraną ir tada surūšiuotą pagal abėcėlę.
-11. Pridėkite į `sorting.txt` dar vieną eilutę nepersirašydami senų ir suskaičiuokite eilutes faile.
-12. Išveskite pirmas 2 ir paskutines 2 `sorting.txt` eilutes.
-13. Raskite, kur failų sistemoje (jūsų `~/devops` aplanke) yra failas `ff2.txt`.
-14. Grįžkite į `devops-projektas`, sukurkite (jei reikia) aplanką `docs/` ir faile `docs/terminalas.md` su pirma eilute „# Terminalas“.
-15. Suraskite terminalo komandą, kuri į failą `docs/failai.txt` išrašo visų `.md` failų sąrašą projekte (pagal oficialią dokumentaciją; žingsnių čia nėra, tik tikslas). Komandą užrašykite `docs/terminalas.md`.
-16. Suraskite, kurioje projekto failo eilutėje yra žodis `health` (arba kitas pasirinktas) ir komandą taip pat užrašykite `docs/terminalas.md`.
+1. **Tikslas:** Peržiūrėti failus, sujungti komandas per srautus ir rasti failą bei tekstą.
+2. Aplanke `bandymas` į failą `sorting.txt` įrašykite eilutes po vieną: `apples`, `oranges`, `pears`, `kiwis`, `bananas`.
+3. Išveskite `sorting.txt` turinį į ekraną, o tada surūšiuotą pagal abėcėlę.
+4. Surūšiuotą turinį įrašykite į naują failą `sorting-rusiuota.txt`.
+5. Į `sorting.txt` pridėkite eilutę `grapes` nepersirašydami senų.
+6. Suskaičiuokite `sorting.txt` eilutes.
+7. Išveskite pirmas 2 ir paskutines 2 `sorting.txt` eilutes.
+8. Viena komanda su vamzdžiu (`|`) išveskite tik tas `sorting.txt` eilutes, kuriose yra `an`.
+9. Raskite, kur `~/devops` yra failas `ff2.txt`.
+10. Projekto šaknyje suraskite, kuriuose failuose ir kuriose eilutėse yra žodis `health`.
+11. Suraskite komandą, kuri į failą `docs/failai.txt` įrašo visų `.md` failų sąrašą projekte, be `.git` aplanko (pagal oficialią dokumentaciją; žingsnių čia nėra, tik tikslas).
+12. **Kodėl:** faile `docs/terminalas.md` pridėkite skyrių „## Srautai“, užrašykite komandą iš 11 žingsnio ir vienu sakiniu, kuo `>` skiriasi nuo `>>` ir ką prarastumėte per klaidą pasirinkę `>`.
 
 ### 4️⃣ Teisės ir pirmas skriptas
 
 1. **Tikslas:** Parašyti pirmą Bash skriptą, padaryti jį vykdomą ir paaiškinti teises.
-2. Sukurkite aplanką `scripts/` (jei jo nėra) ir faile `scripts/terminalas.sh` parašykite skriptą, kuris išveda aplanką, kuriame paleistas, failų ir aplankų skaičių jame ir kelias paskutines Git commit žinutes.
-3. Pabandykite paleisti jį iš projekto šaknies. Kas atsitiko ir kodėl? Atsakymą užrašykite `docs/terminalas.md`.
-4. Padarykite skriptą vykdomą ir paleiskite.
-5. Faile `docs/terminalas.md` paaiškinkite, ką reiškia `-rwxr-xr-x` jūsų skripto eilutėje `ls -l` išvestyje (savininkas, grupė, kiti).
-6. Padarykite du commit'us: `scripts/terminalas.sh` atskirai nuo `docs/`.
-7. **Papildomai:** išbandykite `man ls` ir suraskite, kaip surikiuoti failus pagal dydį; arba nuimkite skriptui vykdymo teisę ir paaiškinkite, kodėl jis nebeveikia.
+2. Projekte sukurkite aplanką `scripts` ir faile `scripts/terminalas.sh` parašykite skriptą, kuris išveda aplanką, kuriame paleistas, failų ir aplankų skaičių jame ir 3 paskutinius Git commit'us.
+3. Paleiskite skriptą iš projekto šaknies kaip programą.
+4. Faile `docs/terminalas.md` pridėkite skyrių „## Teisės“ ir užrašykite, kas atsitiko 3 žingsnyje ir kodėl.
+5. Padarykite skriptą vykdomą ir paleiskite iš naujo.
+6. Pažiūrėkite skripto teises ilguoju sąrašu ir skyriuje „Teisės“ paaiškinkite, ką reiškia `-rwxr-xr-x` (savininkas, grupė, kiti).
+7. Aplanke `bandymas` sukurkite failą `slaptas.txt` ir nustatykite teises taip, kad jį galėtų skaityti ir keisti tik savininkas. Patikrinkite ilguoju sąrašu.
+8. **Kodėl:** skyriuje „Teisės“ vienu sakiniu užrašykite, kodėl `.env` ir privatūs raktai neturi būti skaitomi kitų.
+9. Padarykite du commit'us: pirmas tik `scripts/terminalas.sh` (žinutė „Pridėtas terminalas.sh“), antras visas `docs` aplankas (žinutė „Pridėtas terminalas.md“).
+10. **Papildomai:** nuimkite skriptui vykdymo teisę, paleiskite per `bash` ir paaiškinkite, kodėl jis vis tiek veikia; tada grąžinkite teisę.
 
-### 5️⃣ `/items` ir Pull Request
+### 5️⃣ Pull Request
 
-1. **Tikslas:** Perskaityti Python kodą ir pirmą kartą pateikti darbą per Pull Request.
-2. Faile `docs/terminalas.md` paaiškinkite, ką daro šis kodas (kuris adresas, koks HTTP metodas, ką grąžina) (suderinti su starteriu, kai jis bus), ir padarykite commit:
-
-   ```python
-   ITEMS = [{"id": 1, "name": "pirmas"}]
-
-
-   @app.route("/items", methods=["GET"])
-   def list_items():
-       return {"items": ITEMS}
-   ```
-
-3. Patikrinkite, kad nėra slaptažodžių, raktų, tokenų ar `.env` turinio.
-4. Nusiųskite šaką į GitHub ir atidarykite Pull Request į `main`.
-5. Sulieskite Pull Request GitHub'e ir kompiuteryje atnaujinkite `main`.
+1. **Tikslas:** Pateikti pakeitimus per Pull Request ir sujungti juos į `main`.
+2. Patikrinkite, kad `docs` ir `scripts` nėra slaptažodžių, raktų, tokenų ar `.env` turinio.
+3. Nusiųskite šaką `pamoka-02` į GitHub.
+4. GitHub'e atidarykite Pull Request iš `pamoka-02` į `main` pavadinimu „Terminalas“.
+5. Pull Request aprašyme (Description) vienu sakiniu parašykite, ką pakeitėte ir kodėl.
+6. Sulieskite Pull Request GitHub'e.
+7. Kompiuteryje persijunkite į `main` ir atnaujinkite jį iš GitHub.
+8. Patikrinkite, kad `main` yra `scripts/terminalas.sh` ir `docs/terminalas.md`, o commit istorijoje matyti abu commit'ai.
+9. Ištrinkite šaką `pamoka-02` kompiuteryje ir GitHub'e.
 
 ## Komandos
 
+Žiūrėkite tik įstrigę. Numeriai atitinka užduoties žingsnius.
+
 ## 1️⃣ Savo projektas
 
-3. `cd ~/devops`, tada `git clone https://github.com/<JŪSŲ-VARDAS>/devops-projektas.git` ir `cd devops-projektas`
-4. `git remote -v`
+4. `cd ~/devops`
+5. `git clone https://github.com/<JŪSŲ-VARDAS>/devops-projektas.git`
+6. `cd devops-projektas`
+7. `git remote -v`
+8. `git switch -c pamoka-02`
+9. `mkdir docs`, tada redaktoriumi arba `echo "# Terminalas" > docs/terminalas.md` ir `echo "" >> docs/terminalas.md`, `echo "## Projektas" >> docs/terminalas.md`
 
-## 2️⃣ Navigacija ir šaka
+## 2️⃣ Navigacija ir failai
 
 2. `cd ~/devops/devops-projektas`, `pwd`, `ls -la`
-3. `cd docs`, `cd ..` (santykinis); `cd ~/devops/devops-projektas` (absoliutus)
-4. `git switch main`, `git pull`, `git switch -c pamoka-02`, `git branch`
+3. `cd static`
+4. `cd ..`
+5. `cd ~/devops`
+6–7. `mkdir bandymas`, `mkdir tikslas`
+8. `cd bandymas`, `touch f1.txt f2.txt f3.txt ff1.txt ff2.txt`
+9. `ls`
+10. `cp f1.txt f3.txt ff2.txt ../tikslas`
+11. `ls ../tikslas`
+12. `mv ../tikslas/f1.txt ../tikslas/file1.txt`, tada `mv ../tikslas/file1.txt .`
+13. `mkdir -p a/b/c`
+15. `man ls` (išeiti `q`); `ls -lS static`
 
-## 3️⃣ Failai ir srautai
+## 3️⃣ Srautai ir paieška
 
-2. `mkdir ~/devops/bandymas`
-3. `cd ~/devops/bandymas`, `touch f1.txt f2.txt f3.txt ff1.txt ff2.txt`
-4. `ls`
-5. `mkdir ~/devops/tikslas`
-6. `cp f1.txt f3.txt ff2.txt ~/devops/tikslas`
-7. `ls ~/devops/tikslas`
-8. `mv ~/devops/tikslas/f1.txt ~/devops/tikslas/file1.txt`, tada `mv ~/devops/tikslas/file1.txt .`
-9. `echo "apples" > sorting.txt`, toliau `echo "oranges" >> sorting.txt` ir t. t. (`>` perrašo, `>>` prideda)
-10. `cat sorting.txt`, `sort sorting.txt`
-11. `echo "grapes" >> sorting.txt`, `wc -l sorting.txt`
-12. `head -n 2 sorting.txt`, `tail -n 2 sorting.txt`
-13. `find ~/devops -name ff2.txt`
-14. `cd ~/devops/devops-projektas`, `mkdir -p docs`, `echo "# Terminalas" > docs/terminalas.md`
-15. `find` su `-name`, rezultatas į failą su `>`; `man find` arba `find --help`
-16. `grep -rn "health" .`
+2. `echo "apples" > sorting.txt`, toliau `echo "oranges" >> sorting.txt` ir t. t.
+3. `cat sorting.txt`, `sort sorting.txt`
+4. `sort sorting.txt > sorting-rusiuota.txt`
+5. `echo "grapes" >> sorting.txt`
+6. `wc -l sorting.txt`
+7. `head -n 2 sorting.txt`, `tail -n 2 sorting.txt`
+8. `cat sorting.txt | grep an`
+9. `find ~/devops -name ff2.txt`
+10. `cd ~/devops/devops-projektas`, `grep -rn "health" .`
+11. `find .` su `-name`, rezultatas `>` į failą; `man find`. Kad nepatektų `.git`: `-not -path "./.git/*"`
+12. `docs/terminalas.md` redaguokite redaktoriumi arba `>>`
 
 ## 4️⃣ Teisės ir pirmas skriptas
 
-2. `mkdir -p scripts`; skripto pirma eilutė `#!/usr/bin/env bash`; naudingos: `pwd`, `ls | wc -l`, `git log --oneline -n 3`
+2. `mkdir scripts`; pirma eilutė `#!/usr/bin/env bash`; naudingos: `pwd`, `ls | wc -l`, `git log --oneline -n 3`
 3. `./scripts/terminalas.sh`
-4. `ls -l scripts/terminalas.sh`, `chmod +x scripts/terminalas.sh`, `./scripts/terminalas.sh`
-6. `git add scripts/terminalas.sh`, `git commit -m "..."`, tada `git add docs`, `git commit -m "..."`; `git log --oneline`
-7. `man ls`; `chmod 644 scripts/terminalas.sh`
+5. `chmod +x scripts/terminalas.sh`, `./scripts/terminalas.sh`
+6. `ls -l scripts/terminalas.sh`
+7. `touch ~/devops/bandymas/slaptas.txt`, `chmod 600 ~/devops/bandymas/slaptas.txt`, `ls -l ~/devops/bandymas/slaptas.txt`
+9. `git add scripts/terminalas.sh`, `git commit -m "Pridėtas terminalas.sh"`, tada `git add docs`, `git commit -m "Pridėtas terminalas.md"`; `git log --oneline`
+10. `chmod -x scripts/terminalas.sh`, `bash scripts/terminalas.sh`, `chmod +x scripts/terminalas.sh`
 
-## 5️⃣ `/items` ir Pull Request
+## 5️⃣ Pull Request
 
-4. `git push -u origin pamoka-02`, tada GitHub'e **Compare & pull request**
-5. Sulieti GitHub'e, tada `git switch main`, `git pull`
+3. `git push -u origin pamoka-02`
+4–6. GitHub'e **Compare & pull request**, pavadinimas, aprašymas, **Merge pull request**
+7. `git switch main`, `git pull`
+8. `ls docs scripts`, `git log --oneline`
+9. `git branch -d pamoka-02`, `git push origin --delete pamoka-02` (arba GitHub'e mygtukas **Delete branch** po sujungimo)
 
 ## Sprendimas (dėstytojui)
 
-Patikrinta: `scripts/terminalas.sh` paleistas macOS (bash) fiktyviame Git repo. Nepatikrinta: Ubuntu (WSL2), prieš pamoką išbandyti abiejose sistemose.
+Patikrinta: macOS (bash 3.2) su laikina nuotoline repozitorija vietoj GitHub: klonavimas, šaka, `mkdir -p`, `cp`, `mv`, `sort`, `>`/`>>`, `grep`, `find`, `chmod`, skriptas (`Permission denied` ir po `chmod +x`), du commit'ai, sujungimas, šakos trynimas. Nepatikrinta: **Use this template**, Pull Request GitHub svetainėje, `gh`, WSL2 Ubuntu (`/mnt/c`, CRLF); išbandyti ranka prieš pamoką.
 
 ### Kaip rodyti klasėje
 
-Pamoka eina per 5 užduotis, skelbiamas Teams'e po vieną: trumpa teorija, jūsų demonstracija (kitas pavyzdys: `/tmp/demo` su kitais failų vardais), mokiniai daro savo `devops-projektas`, baigę gauna kitą. Laiko juosta (~157 min. be pertraukos; rezervas ~8 min.):
+Laiko juosta (~155 min be pertraukos, rezervas ~25 min):
 
 | Trukmė | Kas |
 |---|---|
-| 5 min | Praeitos pamokos (01) sprendimas gyvai |
-| 5 + 15 min | Užduotis 1: šablonas ir klonavimas (demonstracija + darbas) |
-| 10 + 10 min | Terminalas, navigacija, Užduotis 2 |
-| 10 + 25 min | Failai ir srautai, Užduotis 3 |
+| 5 min | 01 sprendimas gyvai |
+| 5 + 10 min | Užduotis 1: šablonas ir klonavimas |
+| 10 + 25 min | Navigacija ir failai (demonstracija + Užduotis 2) |
+| 10 + 25 min | Srautai ir paieška (demonstracija + Užduotis 3) |
 | 15 min | Pertrauka |
-| 15 + 30 min | Teisės ir skriptas, Užduotis 4 |
-| 5 + 30 min | `/items` skaitymas, Užduotis 5 (PR) |
+| 15 + 30 min | Teisės ir skriptas (demonstracija + Užduotis 4) |
+| 5 + 20 min | Pull Request (demonstracija + Užduotis 5) |
 
-1. (~5 min) Praeitos pamokos (01) sprendimas gyvai: parodykite 01 pamokos sprendimą (skyrius „Sprendimas“): `devops-dokumentas.md` bei `git log --oneline --graph --all` pavyzdyje. Mokiniai lygina su savo `git-bandymas`.
-2. Užduotis 1 (~5 min demonstracija, ~15 min darbas): **Use this template** → savo `devops-projektas` (Public) → klonavimas į `~/devops` → `git remote -v`. Dažna klaida: klonuojamas pats šablonas arba `devops-kursas`; arba klonuojama į `/mnt/c`. Žingsniai ir klaidų lentelė: `README.md` skyrius „1. Susikurkite savo projektą“.
-3. Navigacija (~10 min) ir Užduotis 2 (~10 min): `pwd`, `ls -la`, `cd`, `..`, šaka `pamoka-02`. Komandos veikia ir Mac, ir Ubuntu; skirtumai lentelėje „Kur skiriasi“ `pamoka.md`. Dažna klaida: tarpas aplanko varde be kabučių (`cd Mano aplankas`). Windows: studentas WSL terminale pateko į `/mnt/c/...`, o ne į `~/`; šaka kuriama iš neatnaujinto `main`.
-4. Failai ir srautai (~10 min) ir Užduotis 3 (~25 min): `mkdir -p`, `touch`, `cp`, `mv`, `cat`, `grep`, `>` ir `>>`, `find` į failą. Dažna klaida: `>` perrašo failą, o `>>` prideda; mokiniai praranda turinį.
+1. (~5 min) 01 sprendimas: parodykite 01 `pamoka.md` skyrių „Sprendimas“: `devops-dokumentas.md` ir `git log --oneline --graph --all`. Mokiniai lygina su savo `git-bandymas`.
+2. Užduotis 1 (~5 min demonstracija, ~10 min darbas): sava demo kopija `demo-projektas` (kitas pavadinimas nei `devops-projektas`): **Use this template** → `git clone` → `git remote -v`. Dažna klaida: klonuojamas pats šablonas (`starter-template`) vietoje savo kopijos; klonuojama į `/mnt/c` (WSL): perkelti į `~/devops`.
+3. Navigacija ir failai (~10 min demonstracija, ~25 min Užduotis 2): aplanke `~/devops/demo` sukurkite `apelsinai.txt`, `obuoliai.txt`, `cp`, `mv`, `mkdir -p x/y/z`, `cd ..`, `cd ~`. Dažna klaida: tarpas aplanko varde be kabučių (`cd Mano aplankas`); `cd` į neegzistuojantį aplanką: patikrinti `pwd` ir `ls`, naudoti Tab.
+4. Srautai ir paieška (~10 min demonstracija, ~25 min Užduotis 3): `vaisiai.txt` su 5 vaisiais: `sort`, `sort > rusiuota.txt`, `>>`, `wc -l`, `grep`, `find`. Dažna klaida: `>` perrašo failą, o `>>` prideda; mokiniai praranda turinį. `find` randa du `ff2.txt` (`bandymas` ir `tikslas`): tai teisingai.
 5. (~15 min) Pertrauka.
-6. Teisės ir skriptas (~15 min) ir Užduotis 4 (~30 min): `ls -l`, `chmod +x`, `#!/usr/bin/env bash`, `set -euo pipefail`. Sukurkite `labas.sh` (kitas nei mokinių `terminalas.sh`), paleiskite be `x` (`Permission denied`), pridėkite `x`. Dažna klaida: `bash labas.sh` veikia ir be `x`, mokiniai nesupranta skirtumo. Dažna klaida: skriptas paleistas ne Git repo aplanke ir `git log` rodo klaidą. Dažna klaida (Windows): failas sukurtas Windows redaktoriumi turi CRLF ir meta `bad interpreter`; sprendimas: kurti WSL redaktoriumi arba `.gitattributes` su `*.sh text eol=lf`.
-7. `/items` skaitymas (~5 min) ir Užduotis 5 (~30 min): GET, JSON, 200; tada `git push -u origin pamoka-02`, PR, sulieti, `git pull`. Dažna klaida: mokinys šaką sulieja, bet `main` kompiuteryje neatnaujina (`git pull`).
+6. Teisės ir skriptas (~15 min demonstracija, ~30 min Užduotis 4): sukurkite `labas.sh` (kitas nei mokinių `terminalas.sh`), paleiskite be `x` (`Permission denied`), `ls -l`, `chmod +x`, paleiskite. Parodykite `ls -l run.sh` projekte: jis jau `-rwxr-xr-x`. Dažna klaida: `bash labas.sh` veikia ir be `x`, o `./labas.sh` ne; mokiniai nesupranta skirtumo. Dažna klaida: skriptas paleistas ne Git aplanke, `git log` meta klaidą. Dažna klaida (Windows): CRLF (`bad interpreter`); kurti WSL redaktoriumi arba `.gitattributes` su `*.sh text eol=lf`.
+7. Pull Request (~5 min demonstracija, ~20 min Užduotis 5): `demo-projektas`: `push -u origin`, **Compare & pull request**, **Merge**, `git switch main`, `git pull`. Dažna klaida: PR sulietas GitHub'e, bet `main` kompiuteryje neatnaujintas (`git pull`); `git branch -d` atsisako, jei `main` neatnaujintas.
 
 ### Sprendimas pagal darbus
 
 | Darbas | Kur sprendime |
 |---|---|
-| Savo `devops-projektas` ir klonavimas (Užduotis 1) | `git remote -v` rodo mokinio vardą |
-| Aplanko apžiūra terminale | `ls -la` rodo `.git`, `README.md` ir kt. |
+| Savo `devops-projektas` ir klonavimas (Užduotis 1) | `git remote -v` rodo mokinio vardą ir `devops-projektas` |
 | Šaka `pamoka-02` | `git branch` rodo `pamoka-02` |
-| `cp`, `mv`, `>>`, `grep` (Užduotis 3) | `docs/terminalas.md`, skyrius „Failai ir srautai“ |
-| Skriptas `terminalas.sh` | `scripts/terminalas.sh` |
-| Paleidimas be `x` ir po `chmod +x` | `docs/terminalas.md`, skyrius „Teisės“ |
-| Vykdoma teisė ir paleidimas | `ls -l` rodo `x`; `./scripts/terminalas.sh` išveda 3 eilutes |
-| Teisių paaiškinimas | `docs/terminalas.md`, skyrius „Teisės“ |
-| Failų sąrašas į `docs/failai.txt` (Užduotis 3) | `docs/terminalas.md`, skyrius „Failų sąrašas“ |
-| `/items` skaitymas | `docs/terminalas.md`, skyrius `/items` |
-| ≥ 2 commit'ai ir sulietas PR | `git log --oneline` ir GitHub **Merged** |
+| Judėjimas ir `bandymas`, `tikslas` (Užduotis 2) | `ls` aplankuose; `bandymas` turi `file1.txt` ir `a/b/c` |
+| `sorting.txt`, `sort`, `>>`, `head`, `tail`, `grep` (Užduotis 3) | `sorting.txt` turi 6 eilutes; `sorting-rusiuota.txt` 5 |
+| `docs/failai.txt` | `docs/terminalas.md`, skyrius „Srautai“ |
+| Skriptas `terminalas.sh` ir `chmod +x` (Užduotis 4) | `scripts/terminalas.sh`; `ls -l` rodo `x` |
+| `slaptas.txt` su teisėmis `600` | `ls -l` rodo `-rw-------` |
+| „Kodėl“ atsakymai | `docs/terminalas.md`, skyriai „Projektas“, „Failai“, „Srautai“, „Teisės“ |
+| ≥ 2 commit'ai ir sulietas PR (Užduotis 5) | `git log --oneline` ir GitHub **Merged** |
 
-Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas yra tik atsiskaitymuose (vertinimas.md).
+Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas yra tik atsiskaitymuose.
 
 ### Pavyzdiniai failai
 
@@ -232,24 +258,27 @@ Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas yr
 ````markdown
 # Terminalas
 
-## Failai ir srautai
+## Projektas
 
-Kopija ir perkėlimas: `cp docs/terminalas.md docs/terminalas.bak`, tada `mv docs/terminalas.bak docs/atsargine.md`. Eilutės pridėjimas: `echo "Antra eilutė" >> docs/terminalas.md` (`>` perrašytų failą). Žodžio paieška: `grep -rn "health" .` (`-r` ieško aplankuose, `-n` rodo eilutės numerį).
+Dirbame savo kopijoje, nes šablonas priklauso kitam ir mes negalime (ir neturime) jo keisti; kopija yra mūsų darbo vieta.
 
-## Teisės
+## Failai
 
-Pirmas paleidimas be `x`: `./scripts/terminalas.sh` rašo „Permission denied“, nes failas dar nėra vykdomas; po `chmod +x scripts/terminalas.sh` veikia.
+Pirma kopijuojame, nes kopija nieko nesugadina, o ištrintą ar perrašytą failą atgauti sunku.
 
-
-`-rwxr-xr-x` reiškia: pirmas simbolis `-` yra paprastas failas; `rwx` savininkas gali skaityti, rašyti ir vykdyti; `r-x` grupė gali skaityti ir vykdyti; `r-x` kiti taip pat. Be `x` skriptas nebūtų paleidžiamas kaip `./scripts/terminalas.sh` (rašytų „Permission denied“).
-
-## Failų sąrašas
+## Srautai
 
 Komanda: `find . -name "*.md" -not -path "./.git/*" > docs/failai.txt`
 
-## /items
+`>` perrašo failą, o `>>` prideda gale; per klaidą pasirinkus `>` prarastume visą ankstesnį turinį.
 
-Kodas atsako į `GET` užklausą adresu `/items` ir grąžina JSON su sąrašu `ITEMS` (pvz. `{"items": [{"id": 1, "name": "pirmas"}]}`), o HTTP kodas bus 200, nes nenurodytas kitas.
+## Teisės
+
+Pirmas paleidimas `./scripts/terminalas.sh` parašė „Permission denied“, nes failas dar neturėjo vykdymo teisės `x`; po `chmod +x` veikia.
+
+`-rwxr-xr-x` reiškia: pirmas `-` yra paprastas failas; `rwx` savininkas gali skaityti, rašyti ir vykdyti; `r-x` grupė gali skaityti ir vykdyti; `r-x` kiti taip pat.
+
+`.env` ir privatūs raktai turi turėti `600`, nes juose slaptos reikšmės, kurių kiti vartotojai kompiuteryje neturi matyti.
 ````
 
 #### `scripts/terminalas.sh`
