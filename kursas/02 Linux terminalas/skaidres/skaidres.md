@@ -3,7 +3,7 @@
 - Susikurti savo `devops-projektas` iš šablono ir nusiklonuoti
 - Judėti po failus ir sujungti komandas per srautus
 - Paaiškinti teises `rwx` ir paleisti pirmą skriptą
-Pastaba: ~5 min pasitikrinimas po 01: kam kas liko neaišku su šaka ir `merge`; parodykite 01 sprendimą gyvai (01 pamoka.md, skyrius „Sprendimas“). Šioje pamokoje kiekviena tema eina taip: skaidrės → jūsų demonstracija → užduotis Teams'e → jie daro patys. Terminalą jie jau mokėjo (Edgaras), todėl einame greitai.
+Pastaba: ~5 min pasitikrinimas po 01: kam kas liko neaišku su šaka ir `merge`; parodykite 01 sprendimą gyvai (01 pamoka.md, skyrius „Sprendimas“). Šioje pamokoje kiekviena tema eina taip: skaidrės → jūsų demonstracija → užduotis Teams'e → jie daro patys. Užduotys eina viena gija: pastabos → srautai → skriptas → PR. Terminalą jie jau mokėjo (Edgaras), todėl einame greitai.
 
 === pagalvokime
 Serveris debesyje neturi nei pelės, nei lango.
@@ -88,7 +88,7 @@ obuolys.txt
 ```
 + `cp` kopijuoja, `mv` perkelia arba pervadina
 + Šiame kurse nenaudojame `rm -rf`: pirma kopijuokite, o ne trinkite
-Pastaba: ~8 min su demonstracija aplanke `demo` (kiti failų vardai nei užduotyje: `bandymas`, `f1.txt`). Išvestis pavyzdinė. Kodėl nekeliame `rm -rf`: ištrintas failas nepatenka į šiukšlinę. Paskelbkite 2 užduotį.
+Pastaba: ~8 min su demonstracija aplanke `demo` (kiti failų vardai nei užduotyje: ten `docs/pastabos`, `komandos.txt`). Išvestis pavyzdinė. Kodėl nekeliame `rm -rf`: ištrintas failas nepatenka į šiukšlinę. Paskelbkite 2 užduotį.
 
 === tekstas | Srautai: vamzdis ir nukreipimas
 >>+ vaisiai.txt | sort | rusiuota.txt
@@ -99,7 +99,7 @@ cat vaisiai.txt | grep an
 ```
 > Kaip vamzdis: viena komanda daro vieną darbą, o `|` perduoda rezultatą kitai.
 + `grep` ieško tekste, `find . -name` randa failą pagal vardą
-Pastaba: ~8 min su demonstracija. Failas `vaisiai.txt` (kitas nei `sorting.txt`). Parodykite `head`, `tail`, `wc -l`. Principas: maži įrankiai, jungiami į grandinę (Unix filosofija); tuo remiasi skriptai ir CI/CD.
+Pastaba: ~8 min su demonstracija. Failas `vaisiai.txt` (kitas nei mokinių `komandos.txt`). Parodykite `head`, `tail`, `wc -l`. Principas: maži įrankiai, jungiami į grandinę (Unix filosofija); tuo remiasi skriptai ir CI/CD.
 
 === jusu-eile | Ką parodys failas?
 ```bash
@@ -134,7 +134,7 @@ chmod +x labas.sh
 ./labas.sh
 ```
 > Kaip raktas nuo kabineto: failas yra, bet be teisės jo nepaleisite.
-Pastaba: ~8 min. Pavyzdys `labas.sh` (kitas nei mokinių `terminalas.sh`). Išvestis pavyzdinė (zsh rodo `zsh: permission denied: ./labas.sh`). Pirma eilutė `#!/usr/bin/env bash` pasako, kuo skriptą paleisti. Dažna klaida: `bash labas.sh` veikia ir be `x`, o `./labas.sh` ne. Windows: CRLF (`bad interpreter`): kurti WSL redaktoriumi. Paskelbkite 4 užduotį.
+Pastaba: ~8 min. Pavyzdys `labas.sh` (kitas nei mokinių `ataskaita.sh`, kuris automatizuoja jų ranka darytus žingsnius). Išvestis pavyzdinė (zsh rodo `zsh: permission denied: ./labas.sh`). Pirma eilutė `#!/usr/bin/env bash` pasako, kuo skriptą paleisti. Dažna klaida: `bash labas.sh` veikia ir be `x`, o `./labas.sh` ne. Windows: CRLF (`bad interpreter`): kurti WSL redaktoriumi. Paskelbkite 4 užduotį.
 
 === klaida | Dažnos klaidos
 +:: | Permission denied | Trūksta `x` teisės: `chmod +x`
@@ -147,7 +147,7 @@ Pastaba: ~3 min. Prieš 5 užduotį (PR): parodykite `demo-projektas` PR: `git p
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną Teams'e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Pilni žingsniai yra Teams žinutėje ir pamoka.md. Atsakymus į „Kodėl“ rašo `docs/terminalas.md`.
+Pastaba: Skelbkite po vieną Teams'e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Pilni žingsniai yra Teams žinutėje ir pamoka.md. Užduotys eina viena gija viename projekte: pastabos (2), jų apdorojimas srautais (3), skriptas, kuris tai automatizuoja (4), PR (5). Atsakymus į „Kodėl“ rašo `docs/terminalas.md`.
 
 === kita | Kita pamoka
 Procesai, aplinkos kintamieji, paketų tvarkyklė
