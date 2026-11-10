@@ -127,7 +127,7 @@ Pastaba: ~3 min. Visi atvejai yra pranešti internete (DEV Community, „Cyberne
 +:: 03 | Šaka (branch) | Atskira darbo linija, `main` lieka nepaliesta
 +:: 04 | GitHub | Nuotolinė repozitorijos kopija, kurią mato kiti
 + Kodėl Git? Kad kiekvienas pakeitimas būtų matomas, atšaukiamas ir peržiūrimas
-Pastaba: ~2 min. Tik prisiminti: Git jau mokėjote. Principas: darbas be istorijos yra rizikingas, nes nežinome, kas pasikeitė ir kaip grįžti. Klauskite: kas nutiktų, jei kompiuteris sugestų? Repozitorijos Public: jokių slaptažodžių, raktų, `.env`.
+Pastaba: ~2 min. Tik prisiminti: Git jau mokėjote. Principas: darbas be istorijos yra rizikingas, nes nežinome, kas pasikeitė ir kaip grįžti. Klauskite: kas nutiktų, jei kompiuteris sugestų? Repozitorijos Public: jokių slaptažodžių.
 
 === demonstracija | Nuo aplanko iki GitHub
 ```bash
@@ -180,17 +180,47 @@ git push origin --delete bugFix   # ištrinti ir GitHub'e
 + Kodėl šaka? Veikiantis `main` lieka saugus, o klaidą pagauname prieš sujungimą
 Pastaba: ~20 min su demonstracija: `bugFix`, pakeitimas `main`, `merge`, `git log --oneline --graph --all`. Principas: nestabilų darbą laikyti atskirai nuo veikiančio. Būtent tuo remiasi Pull Request ir CI/CD vėlesnėse pamokose.
 
+=== demonstracija | Lengvesnis būdas
+>>+ 📁 Failų kopija `demo-c-failai` | 🌐 New repository `demo-c` | 🖱️ Drag and drop | ✅ Commit changes
+```bash+
+git clone https://github.com/<vartotojas>/demo-c.git   # lokali kopija
+cd demo-c
+git log --oneline
+```
+```bash+
+echo "atnaujinimas" >> a.txt
+git commit -am "Atnaujinimas kompiuteryje"
+git push
+```
++ Kodėl `clone`? Svetainėje padarytas darbas atsiranda ir kompiuteryje, o ryšys su GitHub nustatomas pats; toliau dirbame kompiuteryje
+Pastaba: ~4 min. Antras būdas patekti į GitHub be `gh`. Pirmiausia nukopijuokite `demo-a` failus į naują aplanką `demo-c-failai` (tik `a.txt` ir `b.txt`, be paslėpto `.git`, kitaip aplankas liktų susietas su `demo-a`). Svetainėje: New repository `demo-c` be README, tada „uploading an existing file“, nutempti failus, Commit changes. Aplanko `demo-c-failai` nevadiname `demo-c`, nes `git clone` neįrašys į jau esantį nepustą aplanką.
+
+=== demonstracija | Šaka po clone
+```bash+
+git switch -c bugFix
+echo "fix" >> b.txt
+git commit -am "Pataisymas šakoje"
+git push -u origin bugFix
+git switch main
+git merge bugFix
+git push
+git branch -d bugFix
+git push origin --delete bugFix
+```
+Pastaba: ~4 min. Tas pats, ką darėme su `demo-a`, dabar `demo-c` aplanke: šaka, push, merge ir abiejų šakų (vietinės ir nutolusios) trynimas. Taip matyti, kad tolesnis darbas vyksta kompiuteryje.
+
 === klaida | Dažnos klaidos
 +:: | Šaka `master` | Neįrašytas `init.defaultBranch`: `git branch -m main`
 +:: | Commit be `add` | „nothing added to commit“: pirma `git add`
 +:: | Push atmestas (`GH007`) | `user.email` pakeiskite į GitHub „noreply“ ir padarykite naują commit
 +:: | `gh` neprisijungęs | `gh auth login`, HTTPS
++:: | Rašybos klaida (`eacho`) | „command not found“: patikrinkite komandos pavadinimą; rodyklė aukštyn paleistų tą pačią klaidingą komandą
 + Principas: klaidos tekstas dažniausiai pasako, ką daryti, todėl pirma jį perskaitykite
-Pastaba: ~3 min. Pabrėžkite įprotį: perskaityti klaidą, ieškoti dokumentacijoje, tik tada klausti. Tas pats galioja klausiant DI.
+Pastaba: ~3 min. Pabrėžkite įprotį: perskaityti klaidą, ieškoti dokumentacijoje, tik tada klausti.
 
 === uzduotys | Užduotys
-@uzduotys: auto, be sąrašo
-Pastaba: Skelbkite po vieną Teams'e: 1 ir 2 užduotis po demonstracijos, 3 užduotį po `/health` skaitymo.
+@uzduotys: auto, tik sąrašas
+Pastaba: Skelbkite po vieną Teams'e: 1 užduotį po demonstracijos, 2 užduotį baigus pirmą. Pilni žingsniai yra Teams žinutėje ir pamoka.md.
 
 === kita | Kita pamoka
 Pakartosime Linux terminalo temą: navigacija, failai, teisės

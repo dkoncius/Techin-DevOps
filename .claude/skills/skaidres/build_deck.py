@@ -302,15 +302,17 @@ def read_tasks(pamoka: Path):
     return tasks
 
 
-def expand_tasks(pamoka: Path, notes_line: str, skip_overview: bool = False):
+def expand_tasks(pamoka: Path, notes_line: str, skip_overview: bool = False, only_overview: bool = False):
     tasks = read_tasks(pamoka)
     nums = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"]
     over = ["Užduotis skelbiu po vieną Teams'e: pirma parodau gyvai, tada darote jūs.", ""]
     for n_, title, goal, steps in tasks:
         over.append(f":: | {n_} užduotis: {title} | {goal}")
-    over += ["", "Žingsniai ir komandos (įstrigus) yra Teams žinutėje prie užduoties. Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje arba klauskite LLM.",
+    over += ["", "Pilnos užduotys su visais žingsniais bus įkeltos per Teams. Jei kas neveikia: perskaitykite klaidą ir ieškokite dokumentacijoje. Dirbtinio intelekto nenaudojame.",
              notes_line]
     out = [("uzduotys", "Užduotys", "\n".join(over))]
+    if only_overview:
+        return out
     for n_, title, goal, steps in tasks:
         body = [goal, ""] + [f"{k}. {st}" for k, st in enumerate(steps, 1)]
         body.append(f"Pastaba: Komandos šiai užduočiai: pamoka.md → „Komandos“, skyrius {n_}.")
@@ -338,7 +340,8 @@ def build(src: Path):
     OUT_DIR = src.parent
     text = src.read_text(encoding="utf-8")
     parts = split_sections(text)
-    sections, warnings, steps_total, mermaid, title = [], [], 0, False, src.parent.name
+    lesson_dir = src.parent.parent if src.parent.name == "skaidres" else src.parent  # skaidrės gali būti pamokos poaplankyje skaidres/
+    sections, warnings, steps_total, mermaid, title = [], [], 0, False, lesson_dir.name
     task_slides = 0
     for k in range(1, len(parts), 2):
         header = parts[k].strip()
@@ -351,7 +354,7 @@ def build(src: Path):
         body_text = parts[k + 1]
         if "@uzduotys:" in body_text:
             extra = [l for l in body_text.split("\n") if l.strip().startswith("Pastaba:")]
-            for kd, tt, bd in expand_tasks(src.parent / "pamoka.md", extra[0] if extra else "Pastaba: Skelbkite užduotis po vieną.", "be sąrašo" in body_text.split("@uzduotys:",1)[1].split("\n",1)[0]):
+            for kd, tt, bd in expand_tasks(lesson_dir / "pamoka.md", extra[0] if extra else "Pastaba: Skelbkite užduotis po vieną.", "be sąrašo" in body_text.split("@uzduotys:",1)[1].split("\n",1)[0], "tik sąrašas" in body_text.split("@uzduotys:",1)[1].split("\n",1)[0]):
                 idx = len(sections) + 1
                 s, st, m = parse_slide(kd, tt, bd.split("\n"), warnings, idx, "")
                 sections.append(s); steps_total += st; task_slides += 1

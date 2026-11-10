@@ -199,7 +199,7 @@ Pamoka eina per 5 užduotis, skelbiamas Teams'e po vieną: trumpa teorija, jūs�
 | 15 + 30 min | Teisės ir skriptas, Užduotis 4 |
 | 5 + 30 min | `/items` skaitymas, Užduotis 5 (PR) |
 
-1. (~5 min) Praeitos pamokos (01) sprendimas gyvai: parodykite 01 pamokos sprendimą (skyrius „Sprendimas“): `docs/devops.md` bei `git log --oneline --graph --all` pavyzdyje. Mokiniai lygina su savo `git-bandymas`.
+1. (~5 min) Praeitos pamokos (01) sprendimas gyvai: parodykite 01 pamokos sprendimą (skyrius „Sprendimas“): `devops-dokumentas.md` bei `git log --oneline --graph --all` pavyzdyje. Mokiniai lygina su savo `git-bandymas`.
 2. Užduotis 1 (~5 min demonstracija, ~15 min darbas): **Use this template** → savo `devops-projektas` (Public) → klonavimas į `~/devops` → `git remote -v`. Dažna klaida: klonuojamas pats šablonas arba `devops-kursas`; arba klonuojama į `/mnt/c`. Žingsniai ir klaidų lentelė: `README.md` skyrius „1. Susikurkite savo projektą“.
 3. Navigacija (~10 min) ir Užduotis 2 (~10 min): `pwd`, `ls -la`, `cd`, `..`, šaka `pamoka-02`. Komandos veikia ir Mac, ir Ubuntu; skirtumai lentelėje „Kur skiriasi“ `pamoka.md`. Dažna klaida: tarpas aplanko varde be kabučių (`cd Mano aplankas`). Windows: studentas WSL terminale pateko į `/mnt/c/...`, o ne į `~/`; šaka kuriama iš neatnaujinto `main`.
 4. Failai ir srautai (~10 min) ir Užduotis 3 (~25 min): `mkdir -p`, `touch`, `cp`, `mv`, `cat`, `grep`, `>` ir `>>`, `find` į failą. Dažna klaida: `>` perrašo failą, o `>>` prideda; mokiniai praranda turinį.

@@ -7,7 +7,7 @@ Pristatymas 01 pamokos pradžioje (~5 min). Tikslas: studentai žino, kas jiems 
 3. Mano projektai: AppGlove, Trenio, Scan Plan
 4. Su kuo dirbau: Acme grupė, Telia, LTKT; dabar Krei (procesų automatizavimas)
 
-Generuoti: `python3 -I .claude/skills/skaidres/build_deck.py "kursas/01 Kas yra DevOps/1-apie-mane.md"` → `1-apie-mane.html`.
+Generuoti: `python3 -I .claude/skills/skaidres/build_deck.py "kursas/01 Kas yra DevOps/skaidres/1-apie-mane.md"` → `1-apie-mane.html`.
 
 === titulinė | Deividas Koncius
 Susipažinkime

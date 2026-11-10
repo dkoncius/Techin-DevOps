@@ -7,7 +7,7 @@ description: Naudok, kai reikia sugeneruoti DevOps pamokos skaidres kaip vieną 
 
 Skaidrių rinkinys yra **vienas failas pamokai**: `kursas/<NN Pavadinimas>/skaidres.html` (atsidaro dukart spustelėjus, be diegimo). Šaltinis `skaidres.md` rašomas pagal skillą `skaidres-planas`. HTML **neredaguojamas ranka**: keisk `skaidres.md` ir generuok iš naujo.
 
-Pamoka gali turėti kelis rinkinius: tada failai numeruojami pagal rodymo tvarką (`1-apie-mane.md`, `2-apie-kursa.md`, `3-skaidres.md`), o HTML gauna tą patį vardą (`<vardas>.html`; tik `skaidres.md` duoda `skaidres.html`). Paveikslai (jpg, png, gif) laikomi pamokos aplanke `nuotraukos/`, o `@nuotrauka:` kelias rašomas su juo (`nuotraukos/vardas.png`). Atskiro pastabų failo negeneruojame: pastabos yra tik `Pastaba:` eilutėse `skaidres.md`.
+Pamoka gali turėti kelis rinkinius: tada failai numeruojami pagal rodymo tvarką (`1-apie-mane.md`, `2-apie-kursa.md`, `3-skaidres.md`), o HTML gauna tą patį vardą (`<vardas>.html`; tik `skaidres.md` duoda `skaidres.html`). Jei aplanke daug failų, skaidrių rinkinius galima laikyti poaplankyje `skaidres/` (kartu su `diagramos/` ir `nuotraukos/`, pvz. 01 pamoka); tada `pamoka.md` lieka pamokos aplanke viršuje, o generatorius ją randa vienu lygiu aukščiau. Paveikslai (jpg, png, gif) laikomi šalia `.md` aplanke `nuotraukos/`, o `@nuotrauka:` kelias rašomas su juo (`nuotraukos/vardas.png`). Atskiro pastabų failo negeneruojame: pastabos yra tik `Pastaba:` eilutėse `skaidres.md`.
 
 ## Generavimas
 
