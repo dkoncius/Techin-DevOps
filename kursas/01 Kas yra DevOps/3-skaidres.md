@@ -126,7 +126,8 @@ Pastaba: ~3 min. Visi atvejai yra pranešti internete (DEV Community, „Cyberne
 +:: 02 | Commit | Išsaugotas pakeitimų taškas
 +:: 03 | Šaka (branch) | Atskira darbo linija, `main` lieka nepaliesta
 +:: 04 | GitHub | Nuotolinė repozitorijos kopija, kurią mato kiti
-Pastaba: ~2 min. Tik prisiminti: Git jau mokėjote. Repozitorijos Public: jokių slaptažodžių, raktų, `.env`.
++ Kodėl Git? Kad kiekvienas pakeitimas būtų matomas, atšaukiamas ir peržiūrimas
+Pastaba: ~2 min. Tik prisiminti: Git jau mokėjote. Principas: darbas be istorijos yra rizikingas, nes nežinome, kas pasikeitė ir kaip grįžti. Klauskite: kas nutiktų, jei kompiuteris sugestų? Repozitorijos Public: jokių slaptažodžių, raktų, `.env`.
 
 === demonstracija | Nuo aplanko iki GitHub
 ```bash
@@ -139,7 +140,8 @@ git commit -m "Du failai"
 ```bash+
 gh repo create demo-a --public --source . --push
 ```
-Pastaba: ~8 min. Kitas pavyzdys nei užduotyje (`a.txt`, `b.txt`). Priminkite: Public repozitorija, jokių slaptų duomenų.
++ Kodėl GitHub? Kopija ne tik kompiuteryje: kiti ją mato, o sugedus kompiuteriui nieko neprarandame
+Pastaba: ~8 min. Kitas pavyzdys nei užduotyje (`a.txt`, `b.txt`). Priminkite: Public repozitorija, jokių slaptų duomenų. Principas: kas nėra išsaugota kitur, tas gali dingti.
 
 === tekstas | Naujiena: šaka ir sujungimas
 @iliustracija: šaka
@@ -148,19 +150,21 @@ Pastaba: ~8 min. Kitas pavyzdys nei užduotyje (`a.txt`, `b.txt`). Priminkite: P
 - `git merge bugFix` sujungia šaką į `main`
 - `git branch -d bugFix` ištrina sujungtą šaką
 > Kaip juodraštis: rašote atskirai, o į galutinį tekstą įkeliate, kai patenkinti.
-Pastaba: ~20 min su demonstracija: `bugFix`, pakeitimas `main`, `merge`, `git log --oneline --graph --all`.
++ Kodėl šaka? Veikiantis `main` lieka saugus, o klaidą pagauname prieš sujungimą
+Pastaba: ~20 min su demonstracija: `bugFix`, pakeitimas `main`, `merge`, `git log --oneline --graph --all`. Principas: nestabilų darbą laikyti atskirai nuo veikiančio. Būtent tuo remiasi Pull Request ir CI/CD vėlesnėse pamokose.
 
 === klaida | Dažnos klaidos
 +:: | Šaka `master` | Neįrašytas `init.defaultBranch`: `git branch -m main`
 +:: | Commit be `add` | „nothing added to commit“: pirma `git add`
 +:: | Push atmestas (`GH007`) | `user.email` pakeiskite į GitHub „noreply“ ir padarykite naują commit
 +:: | `gh` neprisijungęs | `gh auth login`, HTTPS
-Pastaba: ~3 min.
++ Principas: klaidos tekstas dažniausiai pasako, ką daryti, todėl pirma jį perskaitykite
+Pastaba: ~3 min. Pabrėžkite įprotį: perskaityti klaidą, ieškoti dokumentacijoje, tik tada klausti. Tas pats galioja klausiant DI.
 
 === uzduotys | Užduotys
 @uzduotys: auto, be sąrašo
 Pastaba: Skelbkite po vieną Teams'e: 1 ir 2 užduotis po demonstracijos, 3 užduotį po `/health` skaitymo.
 
 === kita | Kita pamoka
-Linux terminalas: navigacija, failai, teisės
+Pakartosime Linux terminalo temą: navigacija, failai, teisės
 Pastaba: Primename: pradėsime nuo savo `devops-projektas` susikūrimo iš šablono.

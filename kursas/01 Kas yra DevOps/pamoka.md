@@ -16,7 +16,7 @@ Data: 2026-11-11 (trečiadienis)
 8. Git per užduotis (~30 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/3-skaidres.html), 14–17 skaidrės; Užduotys 1 ir 2; užduotys skelbiamos po vieną Teams'e
 9. `/health` (~5 min): [`app.py`](https://github.com/dkoncius/devops-projektas-starter-template/blob/main/app.py) naršyklėje
 10. Užduotis 3 (~70 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/3-skaidres.html), 18–20 skaidrės
-11. Kita paskaita: Linux terminalas
+11. Kita paskaita: pakartosime Linux terminalo temą (navigacija, failai, teisės)
 
 Nuorodos: [GitHub Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world), [Learn Git Branching](https://learngitbranching.js.org/), [Pro Git](https://git-scm.com/book/en/v2)
 
@@ -33,6 +33,7 @@ Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, t
 3. Paverskite aplanką Git repozitorija ir padarykite pirmą commit su abiem failais.
 4. Sukurkite repozitoriją GitHub'e (Public: jokių slaptažodžių, raktų, `.env`) ir nusiųskite commit'ą.
 5. Atidarykite repozitoriją naršyklėje; terminale patikrinkite nuotolinę nuorodą ir commit istoriją.
+6. **Kodėl:** vienu sakiniu užrašykite (galite `pastabos.txt`), kuo GitHub kopija geresnė už aplanką tik jūsų kompiuteryje.
 
 ### 2️⃣ Git: šaka ir sujungimas
 
@@ -43,6 +44,7 @@ Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, t
 5. Šakoje `main` papildykite `idejos.txt` viena eilute ir padarykite commit.
 6. Sujunkite `papildymas` į `main` ir ištrinkite šaką.
 7. Nusiųskite `main` į GitHub ir peržiūrėkite commit grafiką: turi matytis dvi šakos, kurios susijungia.
+8. **Kodėl:** vienu sakiniu užrašykite, kodėl pakeitimą geriau daryti šakoje, o ne tiesiai `main`.
 
 ### 3️⃣ Git: DevOps dokumentas ir `/health`
 
