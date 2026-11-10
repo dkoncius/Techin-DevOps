@@ -10,13 +10,14 @@ Visas kursas vyksta **Linux terminale**. Windows ir Mac pasiekiate jį skirtinga
 
 1. Atidarykite PowerShell kaip administratorius ir įvykdykite `wsl --install`. Perkraukite kompiuterį ir sukurkite Ubuntu vartotoją pagal pasirodžiusius klausimus.
 2. Toliau dirbkite tik Ubuntu terminale (Start meniu: „Ubuntu“).
-3. Visus kurso failus laikykite vienu aplanku `~/devops` (sukursite jį 01 pamokoje), pvz. `~/devops/devops-projektas`. Klonuokite **ne** į `/mnt/c/...`: ten failai lėti ir gali sugesti eilučių pabaigos bei teisės.
+3. Visus kurso failus ir užduotis laikykite vienu aplanku `~/devops`. Susikurkite jį vieną kartą: `mkdir -p ~/devops`. Užduotims kurkite poaplankius (pvz. `~/devops/git-bandymas`, `~/devops/devops-projektas`). Aplanką atidaryti Windows Explorer'yje: `cd ~/devops && explorer.exe .`. Klonuokite **ne** į `/mnt/c/...`: ten failai lėti ir gali sugesti eilučių pabaigos bei teisės.
 4. Git Ubuntu paprastai jau yra (`git --version`). Jei ne: `sudo apt update && sudo apt install git`.
 
 **Mac: Terminalas.**
 
 1. Atidarykite programą „Terminal“.
 2. Git: `git --version`. Jei jo nėra, sistema pasiūlys įdiegti; arba įvykdykite `xcode-select --install`.
+3. Aplankas kurso failams: `mkdir -p ~/devops`. Jį atidaryti Finder'yje: `open ~/devops`.
 
 **Abiem sistemoms: GitHub CLI (`gh`).** Diekite pagal oficialią dokumentaciją: [GitHub CLI installation](https://github.com/cli/cli#installation) (raskite savo sistemos skyrių: Ubuntu/Debian arba macOS Homebrew). Tikrinimas: `gh --version`.
 

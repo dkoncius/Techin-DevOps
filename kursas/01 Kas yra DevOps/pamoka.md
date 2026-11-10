@@ -24,16 +24,17 @@ Nuorodos: [GitHub Hello World](https://docs.github.com/en/get-started/start-your
 
 Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje arba klauskite LLM, ir užsirašykite, kas padėjo. Nuorodos yra klasės darbe. Komandos yra skyriuje „Komandos“: žiūrėkite tik įstrigę.
 
-Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, tada darote savo kompiuteryje ir tik baigę gaunate kitą. Vardas ir el. paštas (`git config`), aplankas `~/devops` ir `gh auth login` padaromi aplinkos patikroje. Projekto šablono klonavimas bus 02 pamokoje.
+Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, tada darote savo kompiuteryje ir tik baigę gaunate kitą. Vardas ir el. paštas (`git config`), darbalaukio aplankas `devops` ir `gh auth login` padaromi aplinkos patikroje. Projekto šablono klonavimas bus 02 pamokoje.
 
 ### 1️⃣ Git: nuo aplanko iki GitHub
 
 1. **Tikslas:** Pakartoti žinomą Git kelią: aplankas su failais → commit → jūsų repozitorija GitHub'e.
-2. Sukurkite aplanką `~/devops/git-bandymas` ir jame du failai: `pastabos.txt` ir `idejos.txt` (kiekviename bent viena eilutė).
-3. Paverskite aplanką Git repozitorija ir padarykite pirmą commit su abiem failais.
-4. Sukurkite repozitoriją GitHub'e (Public: jokių slaptažodžių, raktų, `.env`) ir nusiųskite commit'ą.
-5. Atidarykite repozitoriją naršyklėje; terminale patikrinkite nuotolinę nuorodą ir commit istoriją.
-6. **Kodėl:** vienu sakiniu užrašykite (galite `pastabos.txt`), kuo GitHub kopija geresnė už aplanką tik jūsų kompiuteryje.
+2. Darbalaukyje sukurtame aplanke `devops` sukurkite aplanką `git-bandymas` ir jame du failai: `pastabos.txt` ir `idejos.txt` (kiekviename bent viena eilutė).
+3. Prisijunkite prie GitHub per `gh` (tik pirmą kartą) ir sukurkite tuščią repozitoriją GitHub'e (Public: jokių slaptažodžių, raktų, `.env`).
+4. Paverskite aplanką Git repozitorija ir padarykite pirmą commit su abiem failais (pridėkite tik savo failus, ne sistemos failų, pvz. `.DS_Store`).
+5. Susiekite aplanką su GitHub repozitorija ir nusiųskite commit'ą.
+6. Atidarykite repozitoriją naršyklėje; terminale patikrinkite nuotolinę nuorodą ir commit istoriją.
+7. **Kodėl:** vienu sakiniu užrašykite (galite `pastabos.txt`), kuo GitHub kopija geresnė už aplanką tik jūsų kompiuteryje.
 
 ### 2️⃣ Git: šaka ir sujungimas
 
@@ -49,7 +50,7 @@ Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, t
 ### 3️⃣ Git: DevOps dokumentas ir `/health`
 
 1. **Tikslas:** Per šaką sukurti pirmą dokumentą apie DevOps, sujungti jį į `main` ir nusiųsti į GitHub.
-2. Aplanke `~/devops/git-bandymas` sukurkite šaką `devops-docs` iš `main`.
+2. Aplanke `git-bandymas` sukurkite šaką `devops-docs` iš `main`.
 3. Šakoje sukurkite `docs/devops.md`: 3–4 sakiniai savais žodžiais, kas yra DevOps; numeruotas sąrašas „nuo kodo iki vartotojo“ (5–7 žingsniai) ir 2 vietos, kur grandinė gali lūžti, kiekviena su vienu sakiniu kodėl. Padarykite commit.
 4. Naršyklėje atidarykite [`app.py`](https://github.com/dkoncius/devops-projektas-starter-template/blob/main/app.py) iš projekto šablono ir suraskite maršrutą `/health`. Faile `docs/devops.md` paaiškinkite, ką jis grąžina (atsakymą ir kodą) ir kam toks maršrutas reikalingas. Padarykite commit.
 5. Išsiaiškinkite pagal oficialią dokumentaciją, kuo skiriasi šakos trynimas mažąja ir didžiąja raide (žingsnių čia nėra, tik tikslas). Atsakymą užrašykite `docs/devops.md` skyriuje „Git“ ir padarykite commit. **Šakos `devops-docs` netrinkite**: ji reikalinga savitikrai.
@@ -64,28 +65,43 @@ Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, t
 2. Aplankas ir failai:
 
    ```bash
-   mkdir -p ~/devops/git-bandymas
-   cd ~/devops/git-bandymas
+   # Susikurti DevOps aplankalą darbalaukyje
+   # Atsidaryti DevOps aplankalą per terminalą
+   mkdir git-bandymas
+   cd git-bandymas
    echo "pirma pastaba" > pastabos.txt
    echo "pirma idėja" > idejos.txt
+   ls
+   cat pastabos.txt
    ```
 
-3. Git repozitorija ir commit:
+3. Prisijungimas ir repozitorija GitHub'e:
+
+   ```bash
+   gh auth login   # tik pirmą kartą
+   gh repo create
+   ```
+
+   Klausimai: pirmas pasirinkimas turi būti *Create a new repository on github.com from scratch*; pavadinimas `git-bandymas`; Public; README, `.gitignore` ir license: No; *Clone the new repository locally?* No.
+
+4. Git repozitorija ir commit:
 
    ```bash
    git init
    git status
-   git add .
+   git add pastabos.txt idejos.txt
    git commit -m "Du failai"
+   git log --oneline
    ```
 
-4. Repozitorija GitHub'e ir nusiuntimas:
+5. Susiejimas ir nusiuntimas (nuorodą nukopijuokite iš GitHub puslapio „Quick setup“):
 
    ```bash
-   gh repo create git-bandymas --public --source . --push
+   git remote add origin <nuoroda iš GitHub>
+   git push -u origin main
    ```
 
-5. Patikra:
+6. Patikra:
 
    ```bash
    git remote -v
@@ -123,7 +139,7 @@ Patikrinta: visa klasės ir užduoties Git eiga (`git init`, commit, šaka, `mer
 | Šaka sujungta į `main` ir `push` | `git log --oneline --graph --all` rodo sujungimą |
 | Slaptų duomenų nėra | `docs/devops.md` ir repo be slaptažodžių, raktų, tokenų, realių IP |
 
-Vardas ir el. paštas bei `~/devops` daromi aplinkos patikroje (`git config --global --list`, `gh auth status`) ir į užduotis neįeina. `git init`, `gh repo create` ir pirmas `merge` yra Užduotyse 1 ir 2; lentelė žemiau apie Užduotį 3. Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas yra tik atsiskaitymuose (vertinimas.md).
+Vardas ir el. paštas bei darbalaukio aplankas `devops` daromi aplinkos patikroje (`git config --global --list`, `gh auth status`) ir į užduotis neįeina. `git init`, `gh repo create` ir pirmas `merge` yra Užduotyse 1 ir 2; lentelė žemiau apie Užduotį 3. Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas yra tik atsiskaitymuose (vertinimas.md).
 
 ### Pavyzdiniai failai
 

@@ -131,24 +131,51 @@ Pastaba: ~2 min. Tik prisiminti: Git jau mokėjote. Principas: darbas be istorij
 
 === demonstracija | Nuo aplanko iki GitHub
 ```bash
-mkdir -p ~/devops/demo-a && cd ~/devops/demo-a
-echo "a" > a.txt && echo "b" > b.txt
-git init
-git add .
-git commit -m "Du failai"
+# Susikurti DevOps aplankalą darbalaukyje
+# Atsidaryti DevOps aplankalą per terminalą
+mkdir demo-a
+cd demo-a
+echo "a" > a.txt
+echo "b" > b.txt
+ls
+cat a.txt   # patikrinti, ar failas ne tuščias
 ```
 ```bash+
-gh repo create demo-a --public --source . --push
+gh auth login   # tik pirmą kartą
+gh repo create
+```
+```bash+
+git init
+git add a.txt b.txt
+git commit -m "Du failai"
+git log --oneline
+```
+```bash+
+git remote add origin <nuoroda iš GitHub>
+git push -u origin main
 ```
 + Kodėl GitHub? Kopija ne tik kompiuteryje: kiti ją mato, o sugedus kompiuteriui nieko neprarandame
-Pastaba: ~8 min. Kitas pavyzdys nei užduotyje (`a.txt`, `b.txt`). Priminkite: Public repozitorija, jokių slaptų duomenų. Principas: kas nėra išsaugota kitur, tas gali dingti.
+Pastaba: ~8 min. Pradedame terminale, atidarytame aplanke `devops` (Mac: dešinys klavišas ant aplanko → New Terminal at Folder). Kitas pavyzdys nei užduotyje (`a.txt`, `b.txt`). Priminkite: Public repozitorija, jokių slaptų duomenų. Principas: kas nėra išsaugota kitur, tas gali dingti.
+
+=== pagalvokime
+Du programuotojai vienu metu taiso tą patį projektą.
+# Ką daryti, kad vienas kito darbo neištrintų?
+@iliustracija: du-kurejai
++ Atsakymas: šakos (branching)
+Pastaba: ~3 min. Leiskite studentams spėlioti, kas nutinka, kai abu keičia tą patį failą ir siunčia į vieną vietą: vėlesnis pakeitimas gali perrašyti ankstesnį. Tik tada parodykite atsakymą: šakos. Kiekvienas dirba savo šakoje, o sujungia vėliau. Tai veda į kitą skaidrę.
 
 === tekstas | Naujiena: šaka ir sujungimas
 @iliustracija: šaka
-- `git switch -c bugFix` sukuria šaką ir persijungia
-- `main` lieka nepaliestas, kol nesujungsite
-- `git merge bugFix` sujungia šaką į `main`
-- `git branch -d bugFix` ištrina sujungtą šaką
+```bash
+git switch -c bugFix           # nauja šaka
+echo "fix" >> a.txt            # pakeitimas šakoje
+git commit -am "Pataisymas"    # commit šakoje
+git push -u origin bugFix      # šaka GitHub'e
+git switch main                # main nepaliestas
+git merge bugFix               # sujungti į main
+git branch -d bugFix           # ištrinti šaką
+git push origin --delete bugFix   # ištrinti ir GitHub'e
+```
 > Kaip juodraštis: rašote atskirai, o į galutinį tekstą įkeliate, kai patenkinti.
 + Kodėl šaka? Veikiantis `main` lieka saugus, o klaidą pagauname prieš sujungimą
 Pastaba: ~20 min su demonstracija: `bugFix`, pakeitimas `main`, `merge`, `git log --oneline --graph --all`. Principas: nestabilų darbą laikyti atskirai nuo veikiančio. Būtent tuo remiasi Pull Request ir CI/CD vėlesnėse pamokose.

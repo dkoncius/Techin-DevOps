@@ -30,7 +30,6 @@
     else if(k==='n'||k==='N')document.body.classList.toggle('show-notes');
     else if(k==='f'||k==='F'){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}
   });
-  document.addEventListener('click',function(e){if(e.target.closest('a'))return;(e.clientX<window.innerWidth*0.2)?prev():next()});
   if(window.mermaid){window.mermaid.initialize({startOnLoad:false,theme:'dark',securityLevel:'strict'})}
   var tx=null;document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});document.addEventListener('touchend',function(e){if(tx===null)return;var d=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(d)>60){d<0?next():prev()}},{passive:true});
   var start=parseInt((location.hash||'').slice(1),10)||1;

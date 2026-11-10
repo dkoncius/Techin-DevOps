@@ -72,5 +72,20 @@ SAKA = ('<svg viewBox="0 0 400 320" role="img" aria-label="Git šakos">'
         + "".join(f'<circle cx="{x}" cy="120" r="14" fill="{PAPER}" stroke="{ACC}" stroke-width="3.5"/>' for x in (210, 260))
         + _t(60, 284, "main", 20) + _t(235, 86, "šaka", 20, ACC) + _t(320, 284, "merge", 20) + '</svg>')
 
+def _dev(x, fill, name):
+    return (f'<circle cx="{x}" cy="112" r="24" fill="{fill}" {S}/>'
+            f'<path d="M{x-34} 214 V176 a34 34 0 0 1 68 0 V214 Z" fill="{fill}" {S}/>'
+            + _t(x, 244, name, 22))
+
+
+DU_KUREJAI = ('<svg viewBox="0 0 400 320" role="img" aria-label="Du kūrėjai taiso tą patį failą">'
+              f'<rect x="150" y="96" width="100" height="130" fill="{PAPER}" {S}/>'
+              + "".join(f'<line x1="166" y1="{y}" x2="234" y2="{y}" stroke="{INK}" stroke-opacity=".3" stroke-width="3"/>' for y in (126, 148, 170, 192))
+              + _t(200, 256, "app.py", 20)
+              + _dev(60, BLUE, "A") + _dev(340, ORG, "B")
+              + f'<path d="M96 150 H140 M132 142 L142 150 L132 158" fill="none" {S}/>'
+              + f'<path d="M304 150 H260 M268 142 L258 150 L268 158" fill="none" {S}/>'
+              + _t(200, 70, "kas liks?", 24, ACC) + _t(200, 298, "vienas failas, du kūrėjai", 20) + '</svg>')
+
 ILLUSTRATIONS = {"pastatas": PASTATAS, "knyga": KNYGA, "laiškas": LAISKAS, "laiskas": LAISKAS,
-                 "serveris": SERVERIS, "raktas": RAKTAS, "šaka": SAKA, "saka": SAKA}
+                 "serveris": SERVERIS, "raktas": RAKTAS, "šaka": SAKA, "saka": SAKA, "du-kūrėjai": DU_KUREJAI, "du-kurejai": DU_KUREJAI}
