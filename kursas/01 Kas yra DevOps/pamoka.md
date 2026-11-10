@@ -6,10 +6,7 @@ Data: 2026-11-11 (trečiadienis)
 
 Visa paskaita telpa į 3 val.: teorija ir darbas gyvai ~90 min. plius pertrauka ~15 min., savarankiškos užduotys ~1 val. 15 min. (likęs laikas yra rezervas).
 
-1. Prisistatymas (~5 min): dėstytojas prisistato
-   1. Kas esu: [ĮRAŠYTI: trumpa mano patirtis]
-   2. Kaip su manimi susisiekti: [ĮRAŠYTI: kaip su manimi susisiekti]
-   3. Ko tikiuosi iš grupės: [ĮRAŠYTI: ko tikiuosi iš grupės]
+1. Prisistatymas (~5 min): dėstytojas prisistato per skaidres `apie-mane-skaidres.html` (šalia šio failo): kas esu, stack ir įrankiai, projektai, su kuo dirbau, GitHub ir LinkedIn
 2. Apklausa ir susipažinimas (~10 min), žodžiu, be formos:
    1. Rankų pakėlimas: Windows ar Mac?
    2. Rankų pakėlimas: ar kompiuteris asmeninis (ne mokyklos ar darbo)? Tai svarbu dėl administratoriaus teisių diegiant WSL
@@ -203,7 +200,7 @@ Pavyzdinė laiko juosta (pradžia 17:30):
 | ~19:10 | 5 min | `/health` skaitymas |
 | ~19:15 | ~1 val. 15 min | Užduotis 3 (iki ~20:30; rezervas iki 20:40) |
 
-1. (~5 min) Prisistatymas: užpildykite `[ĮRAŠYTI: …]` vietas `pamoka.md` prieš pamoką arba sakykite žodžiu.
+1. (~5 min) Prisistatymas: atidarykite `apie-mane-skaidres.html` ir pereikite 4 skaidres (pastabos dėstytojui: klavišas N).
 2. (~10 min) Apklausa ir susipažinimas (žr. skyrių aukščiau). Dažna klaida: klausimai skaitomi per ilgai; rodykite juos lentoje ir klauskite greitai.
 3. (~10 min) Kurso eiga: 80 paskaitų, 7 etapai, atsiskaitymai 2026-11-30 ir 2026-12-17, `git pull` iš `devops-kursas`, sprendimas kitos pamokos pradžioje, DI taisyklės. Vertinimo procentų nesakykite: jie nepatvirtinti. Šio žingsnio pabaigoje paprašykite Windows studentų PowerShell kaip administratoriui paleisti `wsl --install`, o Mac studentų `xcode-select --install`. Dažna klaida (Windows): PowerShell paleista ne kaip administratorius; arba virtualizacija išjungta BIOS (tada `wsl --install` nepasileis).
 4. (~20 min) Kas yra DevOps: schema „kodas → vartotojas“ iš `pamoka.md`; kitas pavyzdys nei mokinių (mokiniai rašo apie `/health`; rodykite, kur lūžta mobilios programos atnaujinimas). roadmap.sh/devops: ~5 min.: parodykite visą diagramą, pažymėkite kurso etapus (Linux ir Git, Docker, CI/CD, Kubernetes, Azure) ir kad visko nereikia išmokti iš karto; nekalbėkite apie kiekvieną langelį. Diegimas tuo metu vyksta fone.
