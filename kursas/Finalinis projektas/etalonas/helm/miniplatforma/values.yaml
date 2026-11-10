@@ -1,0 +1,43 @@
+image:
+  repository: ghcr.io/dkoncius/etalonas/api
+  tag: sha-ab1d429
+  pullPolicy: IfNotPresent
+# Privataus registro paslaptys (pavadinimai). Pačios paslaptys kuriamos klasteryje, ne Git'e.
+# Pvz.: imagePullSecrets: [ghcr-pull]
+imagePullSecrets: []
+replicas: 2
+
+# Rodoma puslapyje „Aplinka“; kiekviena aplinka perrašo savo values faile.
+appEnv: unknown
+
+host: etalonas.example.lt
+ingress:
+  className: nginx
+  tls:
+    enabled: true
+    issuer: selfsigned        # cert-manager ClusterIssuer (prod: letsencrypt)
+
+db:
+  name: notes
+  user: notes
+  # Prod: paslaptis sukuriama atskirai (kubectl/Vault/Sealed Secrets), chart jos nekuria.
+  existingSecret: ""
+  # Dev: jei existingSecret tuščias, chart sukuria Secret iš šio slaptažodžio.
+  password: ""
+
+postgres:
+  image: postgres:16-alpine
+  storage: 1Gi
+  resources:
+    requests: {cpu: 100m, memory: 128Mi}
+    limits: {cpu: 500m, memory: 256Mi}
+
+resources:
+  requests: {cpu: 50m, memory: 64Mi}
+  limits: {cpu: 250m, memory: 128Mi}
+
+backup:
+  enabled: true
+  schedule: "0 * * * *"       # kas valandą -> RPO <= 1 val.
+  keep: 7
+  storage: 1Gi

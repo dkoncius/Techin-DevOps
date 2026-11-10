@@ -1,0 +1,6 @@
+replicas: 1
+host: dev.etalonas.example.lt
+db:
+  password: dev-slaptazodis-tik-dev
+backup:
+  enabled: false

@@ -1,0 +1,6 @@
+---
+hardening_packages: [ufw, fail2ban, docker.io, docker-compose-v2, unattended-upgrades]
+hardening_allowed_ports: ["22", "80", "443"]
+hardening_app_dir: /opt/etalonas
+db_user: notes
+db_name: notes

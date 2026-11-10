@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Etalonas</title>
+<style>
+  :root {
+    --bg:#f4f5f7; --fg:#1b1f24; --muted:#4b5563; --card:#ffffff; --line:#c9ced6;
+    --accent:#0b57d0; --on-accent:#ffffff; --focus:#7a3df0;
+    --ok:#0a6b3d; --err:#b42318; --neutral:#4b5563;
+    --b-local:#0a6b3d; --b-azure:#0b57d0; --b-unknown:#4b5563;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#14171c; --fg:#eceff3; --muted:#aab2bd; --card:#1d2128; --line:#3b4350;
+      --accent:#8ab4f8; --on-accent:#0b1220; --focus:#ffd166;
+      --ok:#5fd39a; --err:#ff9a90; --neutral:#aab2bd;
+    }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width:640px; margin:0 auto; padding:16px; }
+  header { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:8px 0 4px; }
+  h1 { margin:0; font-size:2rem; line-height:1.2; }
+  h2 { margin:0 0 12px; font-size:1.25rem; }
+  .badge { display:inline-block; padding:4px 14px; border-radius:999px; color:#fff; font-weight:700; font-size:1.125rem; letter-spacing:.05em; background:var(--b-unknown); }
+  .badge.local { background:var(--b-local); }
+  .badge.azure { background:var(--b-azure); }
+  .status { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:0 0 16px; }
+  .pill { font-weight:600; color:var(--neutral); }
+  .pill.ok { color:var(--ok); } .pill.err { color:var(--err); }
+  section { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px; }
+  label { display:block; font-weight:600; margin-bottom:6px; }
+  textarea { width:100%; min-height:96px; font:inherit; padding:10px; border:1px solid var(--line); border-radius:8px; background:var(--bg); color:var(--fg); resize:vertical; }
+  button { font:inherit; min-height:44px; padding:8px 18px; border-radius:8px; border:2px solid var(--accent); background:var(--accent); color:var(--on-accent); cursor:pointer; font-weight:600; }
+  button.small { min-height:44px; padding:4px 12px; background:transparent; color:var(--accent); }
+  button:disabled { opacity:.6; cursor:default; }
+  :focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+  .row { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:10px; flex-wrap:wrap; }
+  .count { color:var(--muted); } .count.over { color:var(--err); font-weight:600; }
+  .msg { min-height:1.5em; margin-top:10px; font-weight:600; }
+  .msg.ok { color:var(--ok); } .msg.err { color:var(--err); }
+  .head { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .head h2 { margin:0; }
+  ul { list-style:none; margin:8px 0 0; padding:0; }
+  li { border-top:1px solid var(--line); padding:10px 0; white-space:pre-wrap; overflow-wrap:anywhere; }
+  li small { display:block; color:var(--muted); }
+  footer { color:var(--muted); font-size:1rem; text-align:center; padding:8px 0 24px; overflow-wrap:anywhere; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Etalonas</h1>
+    <span class="badge" id="env" aria-label="Aplinka">UNKNOWN</span>
+  </header>
+
+  <div class="status">
+    <span class="pill" id="db" role="status">DB tikrinama…</span>
+    <button type="button" class="small" id="b-health">Patikrinti</button>
+  </div>
+
+  <section>
+    <h2>Pridėti pastabą</h2>
+    <form id="f-note" novalidate>
+      <label for="t-note">Pastabos tekstas</label>
+      <textarea id="t-note" aria-describedby="count note-msg"></textarea>
+      <div class="row">
+        <span class="count" id="count">0/500</span>
+        <button type="submit" id="b-add">Pridėti</button>
+      </div>
+      <div class="msg" id="note-msg" role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <section>
+    <div class="head">
+      <h2>Pastabos</h2>
+      <button type="button" class="small" id="b-notes">Atnaujinti</button>
+    </div>
+    <div class="msg" id="notes-msg" role="status" aria-live="polite"></div>
+    <ul id="notes"></ul>
+  </section>
+
+  <footer>Versija: <span id="ver">…</span> · Pod'as: <span id="host">…</span></footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+
+  function setText(el, text, cls) {
+    el.textContent = text;
+    el.className = el.className.split(" ")[0] + (cls ? " " + cls : "");
+  }
+
+  function getJson(url) {
+    return fetch(url, { headers: { "Accept": "application/json" } }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (body) {
+        return { status: r.status, ok: r.ok, body: body };
+      });
+    });
+  }
+
+  function loadInfo() {
+    getJson("/api/info").then(function (r) {
+      if (!r.ok) { throw new Error(); }
+      var env = String(r.body.env || "").toLowerCase();
+      var known = env === "local" || env === "azure";
+      var badge = $("env");
+      badge.textContent = known ? env.toUpperCase() : "UNKNOWN";
+      badge.className = "badge" + (known ? " " + env : "");
+      $("ver").textContent = r.body.version || "nežinoma";
+      $("host").textContent = r.body.hostname || "nežinomas";
+    }).catch(function () {
+      $("ver").textContent = $("host").textContent = "nepavyko gauti";
+    });
+  }
+
+  function checkHealth() {
+    var el = $("db");
+    setText(el, "DB tikrinama…", "");
+    getJson("/health").then(function (r) {
+      if (r.ok && r.body.db === "up") { setText(el, "DB veikia", "ok"); }
+      else { setText(el, "DB neveikia", "err"); }
+    }).catch(function () { setText(el, "DB neveikia", "err"); });
+  }
+
+  function loadNotes() {
+    var msg = $("notes-msg"), list = $("notes");
+    getJson("/notes").then(function (r) {
+      if (!r.ok || !Array.isArray(r.body)) { throw new Error(); }
+      list.textContent = "";
+      r.body.slice().reverse().forEach(function (n) {
+        var li = document.createElement("li");
+        li.textContent = n.text;
+        var small = document.createElement("small");
+        small.textContent = "#" + n.id + " · " + n.created_at;
+        li.appendChild(small);
+        list.appendChild(li);
+      });
+      setText(msg, r.body.length ? "" : "Pastabų dar nėra.", "");
+    }).catch(function () { setText(msg, "Nepavyko gauti pastabų.", "err"); });
+  }
+
+  function updateCount() {
+    var n = $("t-note").value.length, c = $("count");
+    c.textContent = n + "/500";
+    c.className = "count" + (n > 500 ? " over" : "");
+  }
+
+  function addNote(ev) {
+    ev.preventDefault();
+    var msg = $("note-msg"), value = $("t-note").value.trim();
+    if (value.length < 1) { setText(msg, "Klaida: įveskite pastabos tekstą.", "err"); return; }
+    if (value.length > 500) { setText(msg, "Klaida: pastaba per ilga, daugiausia 500 simbolių.", "err"); return; }
+    $("b-add").disabled = true;
+    fetch("/notes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: value })
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (body) {
+        if (r.status === 201) {
+          $("t-note").value = ""; updateCount();
+          setText(msg, "Pastaba pridėta", "ok");
+          loadNotes();
+        } else if (r.status === 400) {
+          setText(msg, "Klaida: serveris atmetė pastabą (" + (body.error || "neteisingi duomenys") + ").", "err");
+        } else {
+          setText(msg, "Klaida: nepavyko išsaugoti (HTTP " + r.status + ").", "err");
+        }
+      });
+    }).catch(function () {
+      setText(msg, "Klaida: serveris nepasiekiamas.", "err");
+    }).then(function () { $("b-add").disabled = false; });
+  }
+
+  $("b-health").addEventListener("click", checkHealth);
+  $("b-notes").addEventListener("click", loadNotes);
+  $("f-note").addEventListener("submit", addNote);
+  $("t-note").addEventListener("input", updateCount);
+  loadInfo();
+  checkHealth();
+  loadNotes();
+})();
+</script>
+</body>
+</html>

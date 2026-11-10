@@ -1,0 +1,4 @@
+route:
+  receiver: "null"
+receivers:
+  - name: "null"   # mokymams: perspėjimai matomi UI; realiai čia būtų Slack/e-paštas

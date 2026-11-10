@@ -1,0 +1,11 @@
+# Azure MVP (viena VM, k3s). Naudojama kartu su values.yaml; image.tag bendras (nekeičiamas čia).
+appEnv: azure
+replicas: 1
+service:
+  type: LoadBalancer      # k3s servicelb atveria hostPort 80; Ingress nenaudojamas
+ingress:
+  enabled: false
+db:
+  existingSecret: db-secret   # kubectl -n prod create secret generic db-secret --from-literal=DB_PASSWORD=...
+backup:
+  schedule: "0 * * * *"

@@ -1,0 +1,44 @@
+# Demonstracija (dėstytojui): kino bilietai. Paleidimas: docker compose -p kinas up -d
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: kinas
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: bilietai
+    volumes:
+      - kinas-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kinas -d bilietai"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+  kasa1:
+    image: traefik/whoami:v1.10.3
+    environment:
+      WHOAMI_NAME: kasa1
+    depends_on:
+      db:
+        condition: service_healthy
+
+  kasa2:
+    image: traefik/whoami:v1.10.3
+    environment:
+      WHOAMI_NAME: kasa2
+    depends_on:
+      db:
+        condition: service_healthy
+
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - "8081:80"
+    volumes:
+      - ./kinas.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - kasa1
+      - kasa2
+
+volumes:
+  kinas-data:

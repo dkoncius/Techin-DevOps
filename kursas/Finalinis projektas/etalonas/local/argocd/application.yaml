@@ -1,0 +1,27 @@
+# GitOps (28.3 / 34.3 pamokos): Argo CD seka repozitoriją ir pats sinchronizuoja klasterį.
+#   kubectl create ns argocd && kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.5.7/manifests/install.yaml
+#   kubectl apply -f local/argocd/application.yaml
+# Prieš tai: prod Secret (db-secret) sukurti ranka arba per Vault/Sealed Secrets - repozitorijoje jo nėra.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: etalonas-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:dkoncius/etalonas.git
+    targetRevision: main
+    path: helm/miniplatforma
+    helm:
+      releaseName: etalonas      # kad objektų vardai sutaptų su esamu Helm išleidimu (etalonas-postgres ir kt.)
+      valueFiles: [../../local/values-local.yaml]   # kelias nuo source.path (helm/miniplatforma)
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod
+  # Automated + selfHeal (po žalio pirmo sync). prune sąmoningai išjungtas: Argo nieko netrina pats.
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions: [CreateNamespace=true]

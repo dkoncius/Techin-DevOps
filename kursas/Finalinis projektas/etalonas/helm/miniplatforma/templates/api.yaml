@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-api
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels: {app: {{ .Release.Name }}-api}
+  template:
+    metadata:
+      labels: {app: {{ .Release.Name }}-api}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- range . }}
+        - name: {{ . }}
+        {{- end }}
+      {{- end }}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+      containers:
+        - name: api
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8000
+          env:
+            - name: APP_ENV
+              value: {{ .Values.appEnv | default "unknown" | quote }}
+            - name: APP_VERSION
+              value: {{ .Values.image.tag | quote }}
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef: {name: {{ include "mp.secretName" . }}, key: DB_PASSWORD}
+            - name: DATABASE_URL
+              value: postgresql+psycopg2://{{ .Values.db.user }}:$(DB_PASSWORD)@{{ include "mp.dbHost" . }}:5432/{{ .Values.db.name }}
+          readinessProbe:
+            httpGet: {path: /health, port: 8000}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /health, port: 8000}
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - {name: tmp, mountPath: /tmp}     # gunicorn worker tmp
+      volumes:
+        - {name: tmp, emptyDir: {}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-api
+spec:
+  {{- with (.Values.service).type }}
+  type: {{ . }}
+  {{- end }}
+  selector: {app: {{ .Release.Name }}-api}
+  ports:
+    - port: 80
+      targetPort: 8000

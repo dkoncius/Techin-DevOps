@@ -1,0 +1,66 @@
+---
+- name: Reikalingi paketai
+  ansible.builtin.apt:
+    name: "{{ hardening_packages }}"
+    state: present
+    update_cache: true
+  tags: [packages]
+
+- name: SSH tik su raktu, be root
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "^#?{{ item.key }}\\b"
+    line: "{{ item.key }} {{ item.value }}"
+    validate: "sshd -t -f %s"
+  loop:
+    - {key: PasswordAuthentication, value: "no"}
+    - {key: PermitRootLogin, value: "no"}
+  notify: restart ssh
+  tags: [ssh]
+
+- name: SSH perkraunamas iškart (kad vėlesnė klaida nepaliktų senos konfigūracijos)
+  ansible.builtin.meta: flush_handlers
+
+- name: UFW numatytosios taisyklės
+  community.general.ufw:
+    default: "{{ item.policy }}"
+    direction: "{{ item.direction }}"
+  loop:
+    - {policy: deny, direction: incoming}
+    - {policy: allow, direction: outgoing}
+  tags: [firewall]
+
+- name: UFW leidžia tik reikalingus portus
+  community.general.ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: tcp
+  loop: "{{ hardening_allowed_ports }}"
+  tags: [firewall]
+
+- name: UFW įjungtas
+  community.general.ufw:
+    state: enabled
+  tags: [firewall]
+
+- name: fail2ban paleistas
+  ansible.builtin.service:
+    name: fail2ban
+    state: started
+    enabled: true
+  tags: [fail2ban]
+
+- name: Programos katalogas
+  ansible.builtin.file:
+    path: "{{ hardening_app_dir }}"
+    state: directory
+    mode: "0750"
+  tags: [secrets]
+
+- name: .env su paslaptimi iš ansible-vault (teisės 0600)
+  ansible.builtin.template:
+    src: env.j2
+    dest: "{{ hardening_app_dir }}/.env"
+    mode: "0600"
+  no_log: true
+  tags: [secrets]

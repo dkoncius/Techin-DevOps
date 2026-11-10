@@ -1,0 +1,6 @@
+apiVersion: v2
+name: miniplatforma
+description: Etaloninė užrašų platforma - API, PostgreSQL, Ingress su TLS, DB kopijos
+type: application
+version: 0.2.0
+appVersion: "1.0.0"

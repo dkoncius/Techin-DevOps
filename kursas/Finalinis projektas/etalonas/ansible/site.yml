@@ -1,0 +1,7 @@
+---
+# ansible-playbook -i inventory.ini site.yml
+- name: Serverio paruošimas ir apsauga (A reikalavimas)
+  hosts: web
+  become: true
+  roles:
+    - hardening

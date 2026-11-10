@@ -1,0 +1,30 @@
+.env
+*.tfstate*
+.terraform/
+__pycache__/
+.pytest_cache/
+*.sql.gz
+vault-pass.txt
+rendered/
+*.tfvars
+!*.tfvars.example
+
+# Raktai ir kubeconfig (niekada į Git)
+k3s.yaml
+kubeconfig
+kubeconfig*
+*.kubeconfig
+id_rsa*
+id_ed25519*
+etalonas_azure*
+etalonas_argocd*
+*.pem
+*.key
+
+# Argo CD repo Secret su tikru raktu (šablonai *.template.yaml lieka Git'e)
+local/argocd/repo-secret.yaml
+azure/argocd/repo-secret.yaml
+
+# macOS
+.DS_Store
+**/.DS_Store

@@ -1,0 +1,5 @@
+# Nukopijuokite į terraform.tfvars (jis ignoruojamas Git'e) ir užpildykite.
+# Čia jokių tikrų duomenų.
+ssh_public_key = "ssh-ed25519 AAAA... komentaras"
+my_ip_cidr     = "203.0.113.10/32" # jūsų viešas IP; pasikeitus atnaujinkite ir paleiskite apply
+# shutdown_notification_email = "" # tuščia = be pranešimų

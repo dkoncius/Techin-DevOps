@@ -1,0 +1,55 @@
+{{- if .Values.backup.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-backup
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: {{ .Values.backup.storage }}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-backup
+spec:
+  schedule: {{ .Values.backup.schedule | quote }}
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 70
+            runAsGroup: 70
+            fsGroup: 70
+          containers:
+            - name: pg-dump
+              image: {{ .Values.postgres.image }}
+              securityContext:
+                allowPrivilegeEscalation: false
+                readOnlyRootFilesystem: true
+              env:
+                - name: PGPASSWORD
+                  valueFrom:
+                    secretKeyRef: {name: {{ include "mp.secretName" . }}, key: DB_PASSWORD}
+              command: ["/bin/sh", "-c"]
+              args:
+                - |
+                  set -e
+                  F=/backup/notes-`date +%Y%m%d-%H%M%S`.sql.gz
+                  pg_dump -h {{ include "mp.dbHost" . }} -U {{ .Values.db.user }} {{ .Values.db.name }} | gzip > "$F"
+                  [ -s "$F" ]
+                  echo "OK: $F"
+                  ls -1t /backup/notes-*.sql.gz | tail -n +{{ add .Values.backup.keep 1 }} | xargs -r rm -f
+              volumeMounts:
+                - {name: backup, mountPath: /backup}
+          volumes:
+            - name: backup
+              persistentVolumeClaim:
+                claimName: {{ .Release.Name }}-backup
+{{- end }}

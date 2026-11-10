@@ -1,0 +1,8 @@
+#cloud-config
+# k3s be traefik (Ingress nenaudojamas; Service LoadBalancer per servicelb užima hostPort 80).
+# Jokių slaptų reikšmių čia nėra. kubeconfig: /home/azureuser/k3s.yaml (0640, savininkas azureuser).
+package_update: true
+packages: [curl]
+runcmd:
+  - curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server --disable traefik --write-kubeconfig-mode 0600" sh -
+  - install -o azureuser -g azureuser -m 0640 /etc/rancher/k3s/k3s.yaml /home/azureuser/k3s.yaml

@@ -1,0 +1,7 @@
+appEnv: local
+replicas: 2
+host: etalonas.example.lt
+db:
+  existingSecret: db-secret   # kubectl -n <ns> create secret generic db-secret --from-literal=DB_PASSWORD=...
+backup:
+  schedule: "*/30 * * * *"
