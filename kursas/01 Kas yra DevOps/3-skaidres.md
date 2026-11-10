@@ -120,6 +120,14 @@ Pastaba: ~3 min. Formuluotė dar tikslinama. Darbas yra ne tik jį atlikti, bet 
 + Slaptas raktas, apribojimai ir išlaidų riba yra DevOps darbas, o DI to už jus nepadarys
 Pastaba: ~3 min. Visi atvejai yra pranešti internete (DEV Community, „Cybernews“, „Google“ kūrėjų forumas), ne patikrinti pirminiais šaltiniais, todėl sakykite „pranešama“. Sumos apytikslės. Bendra priežastis: „Google“ API raktai pagal numatytuosius nustatymus neribojami, o „Firebase“ naršyklės raktai viešai matomi. 40 000 $ tikslaus atvejo nerasta. Klauskite studentų, kaip to išvengti: riboti raktą pagal API ir svetainę, kviesti per backend, biudžeto įspėjimai ir limitai, rotuoti raktus. Susiekite su „DI taisyklės“: DI gali įdėti raktą tiesiai į kodą, jei nepatikrinsite.
 
+=== tekstas | Git: keturi žodžiai
+@plokštelės
++:: 01 | Repozitorija | Aplankas, kurio istoriją saugo Git
++:: 02 | Commit | Išsaugotas pakeitimų taškas
++:: 03 | Šaka (branch) | Atskira darbo linija, `main` lieka nepaliesta
++:: 04 | GitHub | Nuotolinė repozitorijos kopija, kurią mato kiti
+Pastaba: ~2 min. Tik prisiminti: Git jau mokėjote. Repozitorijos Public: jokių slaptažodžių, raktų, `.env`.
+
 === demonstracija | Nuo aplanko iki GitHub
 ```bash
 mkdir -p ~/devops/demo-a && cd ~/devops/demo-a
@@ -143,14 +151,14 @@ Pastaba: ~8 min. Kitas pavyzdys nei užduotyje (`a.txt`, `b.txt`). Priminkite: P
 Pastaba: ~20 min su demonstracija: `bugFix`, pakeitimas `main`, `merge`, `git log --oneline --graph --all`.
 
 === klaida | Dažnos klaidos
-:: | Šaka `master` | Neįrašytas `init.defaultBranch`: `git branch -m main`
-:: | Commit be `add` | „nothing added to commit“: pirma `git add`
-:: | Push atmestas (`GH007`) | `user.email` pakeiskite į GitHub „noreply“ ir padarykite naują commit
-:: | `gh` neprisijungęs | `gh auth login`, HTTPS
++:: | Šaka `master` | Neįrašytas `init.defaultBranch`: `git branch -m main`
++:: | Commit be `add` | „nothing added to commit“: pirma `git add`
++:: | Push atmestas (`GH007`) | `user.email` pakeiskite į GitHub „noreply“ ir padarykite naują commit
++:: | `gh` neprisijungęs | `gh auth login`, HTTPS
 Pastaba: ~3 min.
 
 === uzduotys | Užduotys
-@uzduotys: auto
+@uzduotys: auto, be sąrašo
 Pastaba: Skelbkite po vieną Teams'e: 1 ir 2 užduotis po demonstracijos, 3 užduotį po `/health` skaitymo.
 
 === kita | Kita pamoka

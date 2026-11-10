@@ -13,9 +13,9 @@ Data: 2026-11-11 (trečiadienis)
 5. Kas yra DevOps (~20 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/3-skaidres.html), 1–13 skaidrės; [roadmap.sh/devops](https://roadmap.sh/devops)
 6. Pertrauka (~15 min): Windows perkrauna ir vieną kartą paleidžia Ubuntu; Mac patikrina `xcode-select`
 7. Aplinkos patikra (~10 min): `README.md` skyrius „Aplinka“; jei WSL nepavyksta, „Jei WSL nepavyko“ (turi būti išspręsta prieš 02 pamoką)
-8. Git per užduotis (~30 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/3-skaidres.html), 14–16 skaidrės; Užduotys 1 ir 2; užduotys skelbiamos po vieną Teams'e
+8. Git per užduotis (~30 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/3-skaidres.html), 14–17 skaidrės; Užduotys 1 ir 2; užduotys skelbiamos po vieną Teams'e
 9. `/health` (~5 min): [`app.py`](https://github.com/dkoncius/devops-projektas-starter-template/blob/main/app.py) naršyklėje
-10. Užduotis 3 (~70 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/3-skaidres.html), 17–20 skaidrės
+10. Užduotis 3 (~70 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/3-skaidres.html), 18–20 skaidrės
 11. Kita paskaita: Linux terminalas
 
 Nuorodos: [GitHub Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world), [Learn Git Branching](https://learngitbranching.js.org/), [Pro Git](https://git-scm.com/book/en/v2)

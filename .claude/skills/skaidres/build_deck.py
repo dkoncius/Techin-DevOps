@@ -295,14 +295,14 @@ def read_tasks(pamoka: Path):
             if g:
                 goal = g.group(1)
             elif t.startswith("**Papildomai:**"):
-                steps.append("⭐ " + t.replace("**Papildomai:**", "**Papildomai:**", 1))
+                steps.append(t)
             else:
                 steps.append(t)
         tasks.append((num.group(1) if num else str(len(tasks) + 1), title, goal, steps))
     return tasks
 
 
-def expand_tasks(pamoka: Path, notes_line: str):
+def expand_tasks(pamoka: Path, notes_line: str, skip_overview: bool = False):
     tasks = read_tasks(pamoka)
     nums = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"]
     over = ["Užduotis skelbiu po vieną Teams'e: pirma parodau gyvai, tada darote jūs.", ""]
@@ -315,7 +315,7 @@ def expand_tasks(pamoka: Path, notes_line: str):
         body = [goal, ""] + [f"{k}. {st}" for k, st in enumerate(steps, 1)]
         body.append(f"Pastaba: Komandos šiai užduočiai: pamoka.md → „Komandos“, skyrius {n_}.")
         out.append(("uzduotis", f"{n_} užduotis: {title}", "\n".join(body)))
-    return out
+    return out[1:] if skip_overview else out
 
 
 def split_sections(text):
@@ -351,7 +351,7 @@ def build(src: Path):
         body_text = parts[k + 1]
         if "@uzduotys:" in body_text:
             extra = [l for l in body_text.split("\n") if l.strip().startswith("Pastaba:")]
-            for kd, tt, bd in expand_tasks(src.parent / "pamoka.md", extra[0] if extra else "Pastaba: Skelbkite užduotis po vieną."):
+            for kd, tt, bd in expand_tasks(src.parent / "pamoka.md", extra[0] if extra else "Pastaba: Skelbkite užduotis po vieną.", "be sąrašo" in body_text.split("@uzduotys:",1)[1].split("\n",1)[0]):
                 idx = len(sections) + 1
                 s, st, m = parse_slide(kd, tt, bd.split("\n"), warnings, idx, "")
                 sections.append(s); steps_total += st; task_slides += 1
