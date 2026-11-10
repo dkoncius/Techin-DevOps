@@ -4,7 +4,7 @@
   "source": "https://excalidraw.com",
   "elements": [
     {
-      "id": "b005b4f9f7cd49f4",
+      "id": "be6aa39dad234a09",
       "type": "rectangle",
       "x": 0.0,
       "y": 0.0,
@@ -30,11 +30,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "88715983e2034900"
+          "id": "0727f672466c4791"
         },
         {
           "type": "arrow",
-          "id": "4aecf6d5c9594c95"
+          "id": "ec4efac3fd224bda"
         }
       ],
       "updated": 1,
@@ -42,7 +42,7 @@
       "locked": false
     },
     {
-      "id": "88715983e2034900",
+      "id": "0727f672466c4791",
       "type": "text",
       "x": 10.0,
       "y": 30.0,
@@ -72,13 +72,13 @@
       "text": "Linux ir Git",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "b005b4f9f7cd49f4",
+      "containerId": "be6aa39dad234a09",
       "originalText": "Linux ir Git",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "ee727204f8b144df",
+      "id": "f7fd7bd634c34439",
       "type": "rectangle",
       "x": 300.0,
       "y": 0.0,
@@ -104,15 +104,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "7de793b6d406441d"
+          "id": "c1994d48c8f84b74"
         },
         {
           "type": "arrow",
-          "id": "4aecf6d5c9594c95"
+          "id": "ec4efac3fd224bda"
         },
         {
           "type": "arrow",
-          "id": "a717ae51fc6e4bda"
+          "id": "fad3ece9e594438e"
         }
       ],
       "updated": 1,
@@ -120,7 +120,7 @@
       "locked": false
     },
     {
-      "id": "7de793b6d406441d",
+      "id": "c1994d48c8f84b74",
       "type": "text",
       "x": 310.0,
       "y": 30.0,
@@ -150,13 +150,13 @@
       "text": "Docker",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "ee727204f8b144df",
+      "containerId": "f7fd7bd634c34439",
       "originalText": "Docker",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "c2a08dbd5f814ba2",
+      "id": "db64d10a1b3f44fc",
       "type": "rectangle",
       "x": 600.0,
       "y": 0.0,
@@ -182,15 +182,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "a4ac5c63b0004f6b"
+          "id": "d6f0364698a3461b"
         },
         {
           "type": "arrow",
-          "id": "a717ae51fc6e4bda"
+          "id": "fad3ece9e594438e"
         },
         {
           "type": "arrow",
-          "id": "4f07b13f4edc4cdb"
+          "id": "6417b7d946c3472d"
         }
       ],
       "updated": 1,
@@ -198,7 +198,7 @@
       "locked": false
     },
     {
-      "id": "a4ac5c63b0004f6b",
+      "id": "d6f0364698a3461b",
       "type": "text",
       "x": 610.0,
       "y": 30.0,
@@ -228,13 +228,13 @@
       "text": "GitHub Actions",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "c2a08dbd5f814ba2",
+      "containerId": "db64d10a1b3f44fc",
       "originalText": "GitHub Actions",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "0c3f8c63cdc84dde",
+      "id": "34198375cafe4c1f",
       "type": "rectangle",
       "x": 900.0,
       "y": 0.0,
@@ -260,15 +260,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "5a92077e9d6346f0"
+          "id": "95a5cacbe2ac4a09"
         },
         {
           "type": "arrow",
-          "id": "4f07b13f4edc4cdb"
+          "id": "6417b7d946c3472d"
         },
         {
           "type": "arrow",
-          "id": "d7843d54e03e4675"
+          "id": "7c36dc8c1d91442c"
         }
       ],
       "updated": 1,
@@ -276,7 +276,7 @@
       "locked": false
     },
     {
-      "id": "5a92077e9d6346f0",
+      "id": "95a5cacbe2ac4a09",
       "type": "text",
       "x": 910.0,
       "y": 30.0,
@@ -306,13 +306,13 @@
       "text": "Kubernetes",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "0c3f8c63cdc84dde",
+      "containerId": "34198375cafe4c1f",
       "originalText": "Kubernetes",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "b05cb6967dd6402f",
+      "id": "e288c1a0712b405c",
       "type": "rectangle",
       "x": 900.0,
       "y": 190.0,
@@ -338,15 +338,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "1cc8d5ce0256407a"
+          "id": "c1da4675662c4270"
         },
         {
           "type": "arrow",
-          "id": "d7843d54e03e4675"
+          "id": "7c36dc8c1d91442c"
         },
         {
           "type": "arrow",
-          "id": "6b720381aa934621"
+          "id": "855147ce04dd4ae8"
         }
       ],
       "updated": 1,
@@ -354,7 +354,7 @@
       "locked": false
     },
     {
-      "id": "1cc8d5ce0256407a",
+      "id": "c1da4675662c4270",
       "type": "text",
       "x": 910.0,
       "y": 220.0,
@@ -384,13 +384,13 @@
       "text": "Azure",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "b05cb6967dd6402f",
+      "containerId": "e288c1a0712b405c",
       "originalText": "Azure",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "948b7578594c45e7",
+      "id": "7b605c414a5345f6",
       "type": "rectangle",
       "x": 600.0,
       "y": 190.0,
@@ -416,11 +416,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "1466f88a16344cc5"
+          "id": "9b31dd94edb449b8"
         },
         {
           "type": "arrow",
-          "id": "6b720381aa934621"
+          "id": "855147ce04dd4ae8"
         }
       ],
       "updated": 1,
@@ -428,7 +428,7 @@
       "locked": false
     },
     {
-      "id": "1466f88a16344cc5",
+      "id": "9b31dd94edb449b8",
       "type": "text",
       "x": 610.0,
       "y": 220.0,
@@ -458,13 +458,13 @@
       "text": "Terraform / Bicep\ninfrastruktūra\nkaip kodas",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "948b7578594c45e7",
+      "containerId": "7b605c414a5345f6",
       "originalText": "Terraform / Bicep\ninfrastruktūra\nkaip kodas",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "4aecf6d5c9594c95",
+      "id": "ec4efac3fd224bda",
       "type": "arrow",
       "x": 240.0,
       "y": 50.0,
@@ -503,12 +503,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "b005b4f9f7cd49f4",
+        "elementId": "be6aa39dad234a09",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "ee727204f8b144df",
+        "elementId": "f7fd7bd634c34439",
         "focus": 0,
         "gap": 4
       },
@@ -516,7 +516,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "a717ae51fc6e4bda",
+      "id": "fad3ece9e594438e",
       "type": "arrow",
       "x": 540.0,
       "y": 50.0,
@@ -555,12 +555,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "ee727204f8b144df",
+        "elementId": "f7fd7bd634c34439",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "c2a08dbd5f814ba2",
+        "elementId": "db64d10a1b3f44fc",
         "focus": 0,
         "gap": 4
       },
@@ -568,7 +568,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "4f07b13f4edc4cdb",
+      "id": "6417b7d946c3472d",
       "type": "arrow",
       "x": 840.0,
       "y": 50.0,
@@ -607,12 +607,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "c2a08dbd5f814ba2",
+        "elementId": "db64d10a1b3f44fc",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "0c3f8c63cdc84dde",
+        "elementId": "34198375cafe4c1f",
         "focus": 0,
         "gap": 4
       },
@@ -620,7 +620,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "d7843d54e03e4675",
+      "id": "7c36dc8c1d91442c",
       "type": "arrow",
       "x": 1020.0,
       "y": 100.0,
@@ -659,12 +659,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "0c3f8c63cdc84dde",
+        "elementId": "34198375cafe4c1f",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "b05cb6967dd6402f",
+        "elementId": "e288c1a0712b405c",
         "focus": 0,
         "gap": 4
       },
@@ -672,7 +672,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "6b720381aa934621",
+      "id": "855147ce04dd4ae8",
       "type": "arrow",
       "x": 870.0,
       "y": 240.0,
@@ -711,12 +711,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "948b7578594c45e7",
+        "elementId": "7b605c414a5345f6",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "b05cb6967dd6402f",
+        "elementId": "e288c1a0712b405c",
         "focus": 0,
         "gap": 4
       },
@@ -724,7 +724,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "9ad58ba3ef1244c7",
+      "id": "a95b724287574d73",
       "type": "text",
       "x": -30.0,
       "y": 233.0,

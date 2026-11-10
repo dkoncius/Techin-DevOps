@@ -11,6 +11,35 @@ Telefone atsiranda programos atnaujinimas. Kūrėjas jį parašė prieš kelias 
 > Kaip restorane: virtuvė gamina, salė aptarnauja, o gerą vakarą užtikrina abi kartu.
 Pastaba: ~3 min. Leiskite spėlioti: kas testuoja, kas paleidžia, kas pastebi klaidą.
 
+=== tekstas | DevOps = Dev + Ops
+:: | Dev (Development) | Kūrėjai: rašo kodą, kuria naujas funkcijas. Nori keisti greitai
+:: | Ops (Operations) | Administratoriai: paleidžia ir prižiūri serverius. Nori, kad viskas veiktų stabiliai
+- **DevOps** = abi pusės dirba kaip viena komanda
+Pastaba: ~3 min. Paklauskite, ką kiekviena pusė nori ir kodėl tie norai prieštarauja: Dev nori kuo daugiau pakeitimų, Ops nori kuo mažiau netikėtumų, nes kiekvienas pakeitimas gali sugadinti veikiančią sistemą.
+
+=== schema | Taip buvo anksčiau: siena tarp Dev ir Ops
+```excalidraw
+file: dev-ops-siena
+box dev | Dev\nparašė kodą | 0,0 | blue
+box siena | SIENA\n„perduodam“ | 1,0 | gray
+box ops | Ops\npaleidžia | 2,0 | orange
+box klaida | Klaida\n„pas mane veikė“ | 2,1 | pink
+arrow dev -> siena | kodas
+arrow siena -> ops | rankiniu
+arrow ops -> klaida
+arrow klaida -> dev | kaltinimai
+```
+Pastaba: ~3 min. Pasakykite situaciją: kūrėjas perduoda kodą, kuris jo kompiuteryje veikė; serveryje neveikia; Dev sako „pas mane veikia“, Ops sako „jūsų kodas blogas“. Niekas nežino, kas kaltas, o vartotojai laukia.
+
+=== tekstas | Kodėl atsirado DevOps
+:: | Retas leidimas | Dideli pakeitimai kartą per kelis mėnesius: sunku surasti, kas sugedo
+:: | Rankinis darbas | Kiekvienas diegimas kitoks, klaidos kartojasi
+:: | Skirtingi tikslai | Dev nori greičio, Ops nori stabilumo: abi pusės traukia į skirtingas puses
+:: | Pas mane veikia | Skiriasi aplinkos, niekas nebūna atsakingas
+- Sprendimas: bendra atsakomybė ir **automatizavimas**, tas pats kelias kiekvieną kartą
+- Tikslas: dažni maži pakeitimai, o ne retas didelis
+Pastaba: ~5 min. Pabrėžkite, kad DevOps nėra įrankis ar pareigos, o darbo būdas ir kultūra. Įrankius (Docker, Actions, Kubernetes) matysime per kursą, o jie reikalingi tam, kad tas pats kelias kiekvieną kartą būtų vienodas.
+
 === schema | Kodo kelias nuo kūrėjo iki vartotojo
 ```excalidraw
 file: kodo-kelias
@@ -30,13 +59,6 @@ arrow vartotojas -> stebesena
 arrow stebesena -> kodas | grįžtamasis ryšys
 ```
 Pastaba: ~5 min. Kitas pavyzdys nei mokinių: mobilios programos atnaujinimas. Kurso pabaigoje visa grandinė veiks automatiškai.
-
-=== tekstas | Kodėl atsirado DevOps
-- Kūrėjai nori keisti greitai
-- Administratoriai nori stabilumo
-- DevOps jungia juos **automatizavimu**: tas pats kelias kiekvieną kartą
-- Ne vienas įrankis, o darbo būdas ir kultūra
-Pastaba: ~5 min. Pabrėžkite: tikslas yra dažni maži pakeitimai, o ne retas didelis.
 
 === tekstas | Ką daro DevOps inžinierius
 :: | Automatizuoja | Testai, paketavimas ir diegimas vyksta be rankinio darbo

@@ -2,38 +2,38 @@
 
 ## Testas
 
-| Nr. | Atsakymas | Paaiškinimas |
-|---|---|---|
-| 1 | B | DevOps jungia kūrėjus ir administratorius automatizavimu. |
-| 2 | D | Kodas, versijų kontrolė, testai, paketavimas, diegimas, stebėsena. |
-| 3 | A | `/health` leidžia įrankiams patikrinti, ar programa gyva. |
-| 4 | C | Commit yra išsaugotas pakeitimų taškas. |
-| 5 | B | `-c` sukuria šaką ir persijungia. |
-| 6 | A | `--staged` rodo jau pridėtus pakeitimus. |
-| 7 | D | `revert` sukuria naują commit'ą, istorija lieka. |
-| 8 | C | Konfliktas atsiranda, kai ta pati vieta pakeista skirtingai. |
-| 9 | B | Žymekliai pašalinami, tada `git add` ir `git commit`. |
-| 10 | A | `fetch` tik atsisiunčia, `pull` = `fetch` + `merge`. |
-| 11 | D | `600`: savininkas skaito ir rašo, kiti nieko. |
-| 12 | C | Trūksta `x` teisės: `chmod +x`. |
-| 13 | A | `kill` siunčia SIGTERM, `kill -9` SIGKILL. |
-| 14 | B | Mac `brew` be `sudo`, Ubuntu `sudo apt`. |
-| 15 | C | `$1` yra pirmas argumentas. |
-| 16 | D | Nulinis kodas = sėkmė, kitas = klaida; matoma per `$?`. |
-| 17 | B | `-e` sustabdo klaidoje, `-u` nenustatytuose kintamuosiuose, `pipefail` vamzdžiuose. |
-| 18 | A | Ar komanda yra. |
-| 19 | C | `-d` tikrina, ar tai katalogas. |
-| 20 | D | Ciklas per `.md` failus ir `echo` kiekvieno kelio. |
-| 21 | B | 404 reiškia, kad resurso nėra. |
-| 22 | C | `-s` tyliai, `-o /dev/null` išmeta kūną, `-w` išveda kodą. |
-| 23 | A | `lsof -i :PORTAS` rodo procesą, naudojantį portą. |
-| 24 | D | `localhost` yra šis kompiuteris (127.0.0.1). |
-| 25 | B | DNS paverčia vardą IP adresu. |
-| 26 | C | Privatus raktas lieka pas jus. |
-| 27 | A | SSH atsisako rakto, kurį gali skaityti kiti. |
-| 28 | D | Raktas laikomas nutekėjusiu: pašalinti iš GitHub, sukurti naują porą. |
-| 29 | B | Branch apsauga reikalauja PR prieš sujungimą. |
-| 30 | C | `.env` gali turėti slaptažodžių; `.env.example` keliamas. |
+| Nr. | Pamoka | Atsakymas | Paaiškinimas |
+|---|---|---|---|
+| 1 | 01 | B | DevOps jungia kūrėjus ir administratorius automatizavimu. |
+| 2 | 01 | D | Kodas, versijų kontrolė, testai, paketavimas, diegimas, stebėsena. |
+| 3 | 01 | A | `/health` leidžia įrankiams patikrinti, ar programa gyva. |
+| 4 | 01 | C | Commit yra išsaugotas pakeitimų taškas. |
+| 5 | 01 | B | `-c` sukuria šaką ir persijungia. |
+| 6 | 07 | A | `--staged` rodo jau pridėtus pakeitimus. |
+| 7 | 07 | D | `revert` sukuria naują commit'ą, istorija lieka. |
+| 8 | 06 | C | Konfliktas atsiranda, kai ta pati vieta pakeista skirtingai. |
+| 9 | 06 | B | Žymekliai pašalinami, tada `git add` ir `git commit`. |
+| 10 | 07 | A | `fetch` tik atsisiunčia, `pull` = `fetch` + `merge`. |
+| 11 | 06 | D | `600`: savininkas skaito ir rašo, kiti nieko. |
+| 12 | 02 | C | Trūksta `x` teisės: `chmod +x`. |
+| 13 | 03 | A | `kill` siunčia SIGTERM, `kill -9` SIGKILL. |
+| 14 | 03 | B | Mac `brew` be `sudo`, Ubuntu `sudo apt`. |
+| 15 | 04 | C | `$1` yra pirmas argumentas. |
+| 16 | 04 | D | Nulinis kodas = sėkmė, kitas = klaida; matoma per `$?`. |
+| 17 | 04 | B | `-e` sustabdo klaidoje, `-u` nenustatytuose kintamuosiuose, `pipefail` vamzdžiuose. |
+| 18 | 04 | A | Ar komanda yra. |
+| 19 | 04 | C | `-d` tikrina, ar tai katalogas. |
+| 20 | 04 | D | Ciklas per `.md` failus ir `echo` kiekvieno kelio. |
+| 21 | 05 | B | 404 reiškia, kad resurso nėra. |
+| 22 | 05 | C | `-s` tyliai, `-o /dev/null` išmeta kūną, `-w` išveda kodą. |
+| 23 | 05 | A | `lsof -i :PORTAS` rodo procesą, naudojantį portą. |
+| 24 | 05 | D | `localhost` yra šis kompiuteris (127.0.0.1). |
+| 25 | 05 | B | DNS paverčia vardą IP adresu. |
+| 26 | 06 | C | Privatus raktas lieka pas jus. |
+| 27 | 06 | A | SSH atsisako rakto, kurį gali skaityti kiti. |
+| 28 | 06 | D | Raktas laikomas nutekėjusiu: pašalinti iš GitHub, sukurti naują porą. |
+| 29 | 08 | B | Branch apsauga reikalauja PR prieš sujungimą. |
+| 30 | 09 | C | `.env` gali turėti slaptažodžių; `.env.example` keliamas. |
 
 Teisingų atsakymų pasiskirstymas: A 7, B 8, C 8, D 7.
 

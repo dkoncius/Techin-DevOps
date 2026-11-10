@@ -189,9 +189,19 @@ Kiekvienas atsiskaitymas: teorijos testas (30 klausimų, 35 min.) ir praktika (u
 | 6 | 2027-05-06 | 68 Atsiskaitymas 6 | Azure, infrastruktūra kodu, AKS |
 | 7 | 2027-05-27 | 80 Baigiamojo projekto gynimas | Baigiamojo projekto gynimas |
 
-Pasiūlytas vertinimas (**nepatvirtinta**): 1–6 etapų atsiskaitymai 40 %, baigiamasis projektas 30 %, egzaminas 30 % (praktika ~70 %, teorija ~30 %; egzaminas lokaliai, be Azure). Ankstesnis variantas: 7 atsiskaitymai po 7–8 % (50 %) ir egzaminas 50 %. Pasirinkti vieną prieš pirmą pažymį.
+**Vertinimas (Techin atsakymas, 2026-11-10, pakeičia ankstesnį 40/30/30 pasiūlymą):**
+- Atsiskaitymų (1–6 ir baigiamojo projekto 7) **praktinių dalių** įvertinimai visų modulių ir dėstytojų kaupiami ir į egzamino praktiką atsinešami kaip **40 %** jos įvertinimo (visi 10 → 4 balai). Egzaminą vis tiek būtina laikyti.
+- Baigiamasis projektas yra praktinis atsiskaitymas, ne egzamino dalis.
+- Atsiskaitymų **teorijos** dalis vertinama pažymiu, bet į egzaminą nenešama (Techin tekste nurodyta tik praktika).
+- Atviras: tikslus balų svoris ir kaip kaupiama (vidurkis ar svertinis), ir ar pažymys už atsiskaitymo teoriją įeina į kurso pažymį. Klausti Ivetos.
 
-Kurso pabaigos egzaminai (dėstytojo patvirtinta 2026-11-09): abiejų egzaminų (teorijos ir praktikos) užduotis ruošia išorinė institucija; praktikos egzaminą galima laikyti tik surinkus daugiau nei 50 % teorijos egzamine. Pavyzdžių nėra, užduotis mokykla pasidalins iškart, kai jas gaus. Ar tai tas pats kaip 7 atsiskaitymas (gynimas), ar atskiras egzaminas po jo, nenuspręsta (žr. 11 skyrių).
+**Egzaminai (Techin, 2026-11-10; kontaktas Iveta, IT skyriaus vadybininkė):**
+- Teorija: 80–100 klausimų iš visų modulių, 2 val., kompiuteriu specialioje sistemoje, niekuo naudotis negalima, rezultatas iš karto. Reikia ≥ 50 %, kad būtų leista laikyti praktiką.
+- Praktika: 3–4 val., kompiuteriu, mokyklos kompiuteriai ir patalpos, po kelių dienų nuo teorijos. Aplinkos rekomendacijas duos iš anksto. Ar leidžiama naudotis savo darbais, neaišku (programuotojams leidžiama).
+- Datos skelbiamos 2027 sausį, tikėtina birželio 15–25.
+- Komisija: išorės vertintojas + 2 TECHIN dėstytojai. Pagrindinis dėstytojas egzamine dalyvauti negali.
+- Perlaikymas: prašymas, nauja data po 1–3 mėn. Neatvykus reikia oficialaus dokumento ir svarbios priežasties.
+- Uždavinius ruošia ne dėstytojas (pavyzdžių nėra, mokykla pasidalins gavusi).
 
 ## 7. Senų pamokų panaudojimas
 
@@ -248,7 +258,7 @@ Dėstytojas paskelbia repo `devops-projektas` kaip GitHub template **iki 01 pask
 1. **Tvarkaraštis po 2027-01-01.** Žinomas tik iki sausio 1 d. ir vasario DB modulis.
 2. **Pavasario atostogos, STVA savaitės ir birželio konsultacijos** paimtos iš Excel plano ir nepatikrintos. Nuo jų priklauso, ar yra laisvų paskaitų.
 3. **Linux paskaitos 02–06.** Edgaras mokė OS (2026-09-07 – 10-02). Patikrinti jo programą ir diagnostiniu testu nustatyti, kiek kartoti.
-4. **Vertinimas.** 40/30/30 ar 7 atsiskaitymai po 7–8 % su 50 % egzaminu.
+4. **Vertinimas.** Iš dalies išspręsta (žr. 6 skyrių: 40 % egzamino praktikos iš atsiskaitymų). Neaišku, koks kurso pažymys ir kaip kaupiama.
 5. **Azure kreditai.** Pagal užrašus baigiasi apie 2026-12-06, o Azure pradedamas 2027-04-19. Reikia naujų kreditų ar mokyklos laiško.
 6. **Pradinis repo.** Template `devops-projektas` reikalingas jau 2026-11-11 (bent kad susikurtų ir klonuotųsi), pilnai veikiantis iki 2026-11-26.
 7. **Kubernetes etapas pertrauktas DB moduliu.** Po pertraukos pirmą paskaitą skirti kartojimui.
@@ -256,7 +266,7 @@ Dėstytojas paskelbia repo `devops-projektas` kaip GitHub template **iki 01 pask
 9. **Mokinių sistemos.** Ar visi turi Bash (Linux, Git Bash ar WSL)? Nuo to priklauso komandų pamokose.
 10. **Viešas repo.** Ar reikia viešo `devops-kursas` (aplinkos `README.md`), jei užduotys eina per Teams.
 11. **Privatumas.** Repo `Techin DevOps` turi būti privatus prieš bet kurį `git push`.
-12. **Egzaminas.** Kas jį organizuoja, kada tiksliai, ar baigiamojo projekto gynimas (80) yra egzamino dalis ar atskiras, ir kaip tai keičia vertinimo svorius (4 klausimas).
+12. **Egzaminas.** Išspręsta 2026-11-10: gynimas (80) yra atsiskaitymas, ne egzamino dalis. Laukiama tik tikslių datų (2027 sausis) ir atsakymo, ar praktikoje leidžiami savo darbai bei kokia aplinka.
 
 ## 12. Pamokos formatas (trumpai)
 

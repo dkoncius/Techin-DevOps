@@ -124,22 +124,26 @@ Kiekvienas atsiskaitymas: teorijos testas (30 klausimų, 35 min.) ir praktika (~
 | 6 | 2027-05-06 | Azure, infrastruktūra kodu, AKS |
 | 7 | 2027-05-27 | Baigiamojo projekto gynimas |
 
-Pirmų dviejų datos patvirtintos, kitos orientacinės. Vertinimo balai dar nepatvirtinti.
+Pirmų dviejų datos patvirtintos, kitos orientacinės. Atsiskaitymų praktikos įvertinimai kaupiami ir sudaro 40 % egzamino praktikos įvertinimo (žr. žemiau).
 
 ## Baigiamasis projektas
 
 Individualus (galima daryti poroje, gynimas individualus). Užduotys pagal lygius, kiekvienas apima ankstesnį, ir etaloninis sprendimas yra aplanke `kursas/Finalinis projektas/`.
 
+## DI kurse
+
+DI galima naudoti klaidoms paaiškinti ir komandoms pasiūlyti, bet rezultatą reikia paleisti ir patikrinti patiems. Slaptų duomenų į DI nekeliame. Atsiskaitymuose ir testuose DI nenaudojamas. Kiekviename etape bus trumpa užduotis: paprašyti DI, patikrinti rezultatą ir pataisyti bent vieną dalyką. Daugiau: `medziaga/di-kurse.md`.
+
 ## Egzaminai kurso pabaigoje
 
-Kurso pabaigoje laikomi du egzaminai:
+Kurso pabaigoje laikomi du egzaminai (tikėtina birželio 15–25 d., datas mokykla paskelbs 2027 sausį):
 
-1. **Teorijos egzaminas.**
-2. **Praktikos egzaminas.** Jį laikyti galite tik jei teorijos egzamine surinkote **daugiau nei 50 %**.
+1. **Teorijos egzaminas.** 80–100 klausimų iš visų modulių, 2 val., kompiuteriu, niekuo naudotis negalima. Rezultatas iškart.
+2. **Praktikos egzaminas.** 3–4 val., mokyklos kompiuteriais. Jį laikyti galite tik jei teorijos egzamine surinkote **50 % ar daugiau**. Neišlaikius teorijos, rašomas prašymas perlaikymui (nauja data po 1–3 mėn.).
 
-Abiejų egzaminų užduotis ruošia išorinė institucija, ne dėstytojas.
+Kurso eigoje surinkti **praktinių atsiskaitymų** įvertinimai sudaro 40 % egzamino praktikos įvertinimo (visi atsiskaitymai 10 → 4 balai). Egzaminą vis tiek reikia laikyti. Baigiamasis projektas yra praktinis atsiskaitymas.
 
-Egzaminų pavyzdžių nėra: kai mokykla gaus užduotis, jas iškart pasidalins su dėstytoju. Pasiruošti padeda atsiskaitymai kurso eigoje ir kartojimo pamoka (79). Egzaminų laikotarpis mokyklos plane: 2027-05-31 – 06-25 (orientacinis, dar nepatikrintas).
+Egzaminų uždavinių nerašo dėstytojas, pavyzdžių nėra. Komisijoje: išorės vertintojas ir du TECHIN dėstytojai. Pasiruošti padeda atsiskaitymai kurso eigoje ir kartojimo pamoka (79). Klausimus apie egzaminų organizavimą spręskite su IT skyriaus vadybininke Iveta.
 
 ## Ką žinoti dar
 
