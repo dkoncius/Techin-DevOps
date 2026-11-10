@@ -4,6 +4,7 @@
 Naudojimas: python3 -I build_deck.py "kursas/05 Tinklų pagrindai/skaidres.md"
 Rezultatas: tas pats aplankas, failas skaidres.html. Sintaksė: žr. SKILL.md.
 """
+import base64
 import html
 import re
 import sys
@@ -33,6 +34,7 @@ def inline(text):
     t = html.escape(text, quote=False)
     t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
     t = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", t)
+    t = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2" target="_blank" rel="noopener">\1</a>', t)
     return t
 
 
@@ -176,6 +178,15 @@ def parse_slide(kind, title, lines, warnings, idx, deco=""):
                 cls, attr = "bubble reveal", f' data-step="{step}"'
             body.append(f'<div class="{cls}"{attr}><span class="bubble__icon">{html.escape(icon or "💬")}</span>'
                         f'<div class="bubble__body"><span class="bubble__label">Analogija</span><p>{inline(txt)}</p></div></div>')
+            i += 1
+        elif s.startswith("@nuotrauka:"):
+            flush()
+            img = OUT_DIR / s.split(":", 1)[1].strip()
+            if img.exists():
+                b64 = base64.b64encode(img.read_bytes()).decode()
+                art_svg = f'<img class="photo" alt="" src="data:image/jpeg;base64,{b64}">'
+            else:
+                warnings.append(f"skaidrė {idx}: nerastas paveikslėlis {img.name}")
             i += 1
         elif s.startswith("@iliustracija:"):
             flush()
@@ -332,7 +343,7 @@ def build(src: Path):
 {f'<script src="{MERMAID}"></script>' if mermaid else ''}
 <script>{js}</script></body></html>
 """
-    out = src.with_name("skaidres.html")
+    out = src.with_name("skaidres.html" if src.stem == "skaidres" else src.stem + ".html")
     out.write_text(doc, encoding="utf-8")
     print(f"{out}: {len(sections)} skaidrių (iš jų užduočių {task_slides}), {steps_total} atskleidimo žingsnių, mermaid: {'taip' if mermaid else 'ne'}")
     for w in warnings:
