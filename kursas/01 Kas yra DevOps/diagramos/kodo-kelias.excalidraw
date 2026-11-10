@@ -4,7 +4,7 @@
   "source": "https://excalidraw.com",
   "elements": [
     {
-      "id": "06b2d00fb8b74e3f",
+      "id": "fe174a66295140b6",
       "type": "rectangle",
       "x": 0.0,
       "y": 0.0,
@@ -30,15 +30,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "2b129dd1a1f44b60"
+          "id": "512deaaa21924f04"
         },
         {
           "type": "arrow",
-          "id": "02ad1617b00e4b9a"
+          "id": "6ee575c0ac4a4c96"
         },
         {
           "type": "arrow",
-          "id": "dbc8b6b5a5d64590"
+          "id": "9816f734032245c5"
         }
       ],
       "updated": 1,
@@ -46,7 +46,7 @@
       "locked": false
     },
     {
-      "id": "2b129dd1a1f44b60",
+      "id": "512deaaa21924f04",
       "type": "text",
       "x": 10.0,
       "y": 30.0,
@@ -76,13 +76,13 @@
       "text": "Kodas",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "06b2d00fb8b74e3f",
+      "containerId": "fe174a66295140b6",
       "originalText": "Kodas",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "9778136f7602487f",
+      "id": "71ed7dde567c4293",
       "type": "rectangle",
       "x": 300.0,
       "y": 0.0,
@@ -108,15 +108,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "df00b9c3e0284e7c"
+          "id": "ddb1756ba708407a"
         },
         {
           "type": "arrow",
-          "id": "02ad1617b00e4b9a"
+          "id": "6ee575c0ac4a4c96"
         },
         {
           "type": "arrow",
-          "id": "db0cff00e4464534"
+          "id": "de125b0343d6447b"
         }
       ],
       "updated": 1,
@@ -124,7 +124,7 @@
       "locked": false
     },
     {
-      "id": "df00b9c3e0284e7c",
+      "id": "ddb1756ba708407a",
       "type": "text",
       "x": 310.0,
       "y": 30.0,
@@ -154,13 +154,13 @@
       "text": "Versijų kontrolė\n(Git)",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "9778136f7602487f",
+      "containerId": "71ed7dde567c4293",
       "originalText": "Versijų kontrolė\n(Git)",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "011e7156acdd4456",
+      "id": "9174a7c978624038",
       "type": "rectangle",
       "x": 600.0,
       "y": 0.0,
@@ -186,15 +186,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "9d620a7c3671446d"
+          "id": "ae6d09a88ac44bf5"
         },
         {
           "type": "arrow",
-          "id": "db0cff00e4464534"
+          "id": "de125b0343d6447b"
         },
         {
           "type": "arrow",
-          "id": "839acf4da86e40be"
+          "id": "1877d77c9dcb4bdd"
         }
       ],
       "updated": 1,
@@ -202,7 +202,7 @@
       "locked": false
     },
     {
-      "id": "9d620a7c3671446d",
+      "id": "ae6d09a88ac44bf5",
       "type": "text",
       "x": 610.0,
       "y": 30.0,
@@ -232,13 +232,13 @@
       "text": "Testai",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "011e7156acdd4456",
+      "containerId": "9174a7c978624038",
       "originalText": "Testai",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "929b7a1d42a14575",
+      "id": "621d9724ee774a4a",
       "type": "rectangle",
       "x": 900.0,
       "y": 0.0,
@@ -264,15 +264,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "a1a838d437f645a8"
+          "id": "a50a881b1ea14734"
         },
         {
           "type": "arrow",
-          "id": "839acf4da86e40be"
+          "id": "1877d77c9dcb4bdd"
         },
         {
           "type": "arrow",
-          "id": "e5686add4cb54726"
+          "id": "26096b34876b48f7"
         }
       ],
       "updated": 1,
@@ -280,7 +280,7 @@
       "locked": false
     },
     {
-      "id": "a1a838d437f645a8",
+      "id": "a50a881b1ea14734",
       "type": "text",
       "x": 910.0,
       "y": 30.0,
@@ -310,13 +310,13 @@
       "text": "Paketavimas",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "929b7a1d42a14575",
+      "containerId": "621d9724ee774a4a",
       "originalText": "Paketavimas",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "0470223e0ca74718",
+      "id": "2c0a2b7f0e824fee",
       "type": "rectangle",
       "x": 900.0,
       "y": 190.0,
@@ -342,15 +342,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "5bb1435db5cf4c0e"
+          "id": "420abc1cbfa24481"
         },
         {
           "type": "arrow",
-          "id": "e5686add4cb54726"
+          "id": "26096b34876b48f7"
         },
         {
           "type": "arrow",
-          "id": "e3883081d7294e83"
+          "id": "d43a152ff0444b82"
         }
       ],
       "updated": 1,
@@ -358,7 +358,7 @@
       "locked": false
     },
     {
-      "id": "5bb1435db5cf4c0e",
+      "id": "420abc1cbfa24481",
       "type": "text",
       "x": 910.0,
       "y": 220.0,
@@ -388,13 +388,13 @@
       "text": "Diegimas į\nserverį",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "0470223e0ca74718",
+      "containerId": "2c0a2b7f0e824fee",
       "originalText": "Diegimas į\nserverį",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "30c29b87942841eb",
+      "id": "761dcd50e44549ac",
       "type": "rectangle",
       "x": 600.0,
       "y": 190.0,
@@ -420,15 +420,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "d6d9e9dad83a4c8e"
+          "id": "caf824f9268e4f89"
         },
         {
           "type": "arrow",
-          "id": "e3883081d7294e83"
+          "id": "d43a152ff0444b82"
         },
         {
           "type": "arrow",
-          "id": "6a79f7281a4641b3"
+          "id": "f15e4c4ceaa1437e"
         }
       ],
       "updated": 1,
@@ -436,7 +436,7 @@
       "locked": false
     },
     {
-      "id": "d6d9e9dad83a4c8e",
+      "id": "caf824f9268e4f89",
       "type": "text",
       "x": 610.0,
       "y": 220.0,
@@ -466,13 +466,13 @@
       "text": "Vartotojas",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "30c29b87942841eb",
+      "containerId": "761dcd50e44549ac",
       "originalText": "Vartotojas",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "d548fe480d1549c0",
+      "id": "c15ab794fc454778",
       "type": "rectangle",
       "x": 300.0,
       "y": 190.0,
@@ -498,15 +498,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "8f89ccb05f514cdf"
+          "id": "d13d4401332649b5"
         },
         {
           "type": "arrow",
-          "id": "6a79f7281a4641b3"
+          "id": "f15e4c4ceaa1437e"
         },
         {
           "type": "arrow",
-          "id": "dbc8b6b5a5d64590"
+          "id": "9816f734032245c5"
         }
       ],
       "updated": 1,
@@ -514,7 +514,7 @@
       "locked": false
     },
     {
-      "id": "8f89ccb05f514cdf",
+      "id": "d13d4401332649b5",
       "type": "text",
       "x": 310.0,
       "y": 220.0,
@@ -544,13 +544,13 @@
       "text": "Stebėsena",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "d548fe480d1549c0",
+      "containerId": "c15ab794fc454778",
       "originalText": "Stebėsena",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "02ad1617b00e4b9a",
+      "id": "6ee575c0ac4a4c96",
       "type": "arrow",
       "x": 240.0,
       "y": 50.0,
@@ -589,12 +589,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "06b2d00fb8b74e3f",
+        "elementId": "fe174a66295140b6",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "9778136f7602487f",
+        "elementId": "71ed7dde567c4293",
         "focus": 0,
         "gap": 4
       },
@@ -602,7 +602,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "db0cff00e4464534",
+      "id": "de125b0343d6447b",
       "type": "arrow",
       "x": 540.0,
       "y": 50.0,
@@ -641,12 +641,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "9778136f7602487f",
+        "elementId": "71ed7dde567c4293",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "011e7156acdd4456",
+        "elementId": "9174a7c978624038",
         "focus": 0,
         "gap": 4
       },
@@ -654,7 +654,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "839acf4da86e40be",
+      "id": "1877d77c9dcb4bdd",
       "type": "arrow",
       "x": 840.0,
       "y": 50.0,
@@ -693,12 +693,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "011e7156acdd4456",
+        "elementId": "9174a7c978624038",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "929b7a1d42a14575",
+        "elementId": "621d9724ee774a4a",
         "focus": 0,
         "gap": 4
       },
@@ -706,7 +706,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "e5686add4cb54726",
+      "id": "26096b34876b48f7",
       "type": "arrow",
       "x": 1020.0,
       "y": 100.0,
@@ -745,12 +745,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "929b7a1d42a14575",
+        "elementId": "621d9724ee774a4a",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "0470223e0ca74718",
+        "elementId": "2c0a2b7f0e824fee",
         "focus": 0,
         "gap": 4
       },
@@ -758,7 +758,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "e3883081d7294e83",
+      "id": "d43a152ff0444b82",
       "type": "arrow",
       "x": 900.0,
       "y": 240.0,
@@ -797,12 +797,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "0470223e0ca74718",
+        "elementId": "2c0a2b7f0e824fee",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "30c29b87942841eb",
+        "elementId": "761dcd50e44549ac",
         "focus": 0,
         "gap": 4
       },
@@ -810,7 +810,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "6a79f7281a4641b3",
+      "id": "f15e4c4ceaa1437e",
       "type": "arrow",
       "x": 600.0,
       "y": 240.0,
@@ -849,12 +849,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "30c29b87942841eb",
+        "elementId": "761dcd50e44549ac",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "d548fe480d1549c0",
+        "elementId": "c15ab794fc454778",
         "focus": 0,
         "gap": 4
       },
@@ -862,7 +862,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "dbc8b6b5a5d64590",
+      "id": "9816f734032245c5",
       "type": "arrow",
       "x": 341.0526315789474,
       "y": 190.0,
@@ -901,12 +901,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "d548fe480d1549c0",
+        "elementId": "c15ab794fc454778",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "06b2d00fb8b74e3f",
+        "elementId": "fe174a66295140b6",
         "focus": 0,
         "gap": 4
       },
@@ -914,7 +914,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "71be1f024ed9429f",
+      "id": "f9c19ac0942d41d3",
       "type": "text",
       "x": 200.0,
       "y": 109.0,
