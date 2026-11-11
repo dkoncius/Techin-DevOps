@@ -4,7 +4,7 @@
   "source": "https://excalidraw.com",
   "elements": [
     {
-      "id": "fd9a3ad9ba0542ed",
+      "id": "b426cb75fcb44042",
       "type": "rectangle",
       "x": 0.0,
       "y": 95.0,
@@ -30,11 +30,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "2d1e3fd583d94959"
+          "id": "0901c3b8b5054b8a"
         },
         {
           "type": "arrow",
-          "id": "e8fdb5c65d1545ac"
+          "id": "ac894e35722345f5"
         }
       ],
       "updated": 1,
@@ -42,7 +42,7 @@
       "locked": false
     },
     {
-      "id": "2d1e3fd583d94959",
+      "id": "0901c3b8b5054b8a",
       "type": "text",
       "x": 10.0,
       "y": 125.0,
@@ -72,13 +72,13 @@
       "text": "./skriptas.sh",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "fd9a3ad9ba0542ed",
+      "containerId": "b426cb75fcb44042",
       "originalText": "./skriptas.sh",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "11f828bc22384656",
+      "id": "325267ab3ab343ab",
       "type": "rectangle",
       "x": 390.0,
       "y": 95.0,
@@ -104,19 +104,19 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "2d586f0673774e03"
+          "id": "11ee48f9e0a64695"
         },
         {
           "type": "arrow",
-          "id": "e8fdb5c65d1545ac"
+          "id": "ac894e35722345f5"
         },
         {
           "type": "arrow",
-          "id": "3fc26ca49bfc4d0a"
+          "id": "6911bc1d1e2c4a93"
         },
         {
           "type": "arrow",
-          "id": "73b0682954ef4ddf"
+          "id": "5adb7326aed04769"
         }
       ],
       "updated": 1,
@@ -124,7 +124,7 @@
       "locked": false
     },
     {
-      "id": "2d586f0673774e03",
+      "id": "11ee48f9e0a64695",
       "type": "text",
       "x": 400.0,
       "y": 125.0,
@@ -154,13 +154,13 @@
       "text": "Ar yra\nargumentas?",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "11f828bc22384656",
+      "containerId": "325267ab3ab343ab",
       "originalText": "Ar yra\nargumentas?",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "88830c0f931f4755",
+      "id": "674cf1f88cac40ff",
       "type": "rectangle",
       "x": 780.0,
       "y": 0.0,
@@ -186,11 +186,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "a5b92819e7094378"
+          "id": "8c107351dcee47b5"
         },
         {
           "type": "arrow",
-          "id": "3fc26ca49bfc4d0a"
+          "id": "6911bc1d1e2c4a93"
         }
       ],
       "updated": 1,
@@ -198,7 +198,7 @@
       "locked": false
     },
     {
-      "id": "a5b92819e7094378",
+      "id": "8c107351dcee47b5",
       "type": "text",
       "x": 790.0,
       "y": 30.0,
@@ -228,13 +228,13 @@
       "text": "Naudojimas į\nstderr\nexit 1",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "88830c0f931f4755",
+      "containerId": "674cf1f88cac40ff",
       "originalText": "Naudojimas į\nstderr\nexit 1",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "482da449be4f49d2",
+      "id": "355724c6303b49d9",
       "type": "rectangle",
       "x": 780.0,
       "y": 190.0,
@@ -260,15 +260,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "ebea906132174900"
+          "id": "1b7e7131d54f4b37"
         },
         {
           "type": "arrow",
-          "id": "73b0682954ef4ddf"
+          "id": "5adb7326aed04769"
         },
         {
           "type": "arrow",
-          "id": "cdc4f3c9d23e48bb"
+          "id": "b49dba3406634f9a"
         }
       ],
       "updated": 1,
@@ -276,7 +276,7 @@
       "locked": false
     },
     {
-      "id": "ebea906132174900",
+      "id": "1b7e7131d54f4b37",
       "type": "text",
       "x": 790.0,
       "y": 220.0,
@@ -306,13 +306,13 @@
       "text": "for per elementus",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "482da449be4f49d2",
+      "containerId": "355724c6303b49d9",
       "originalText": "for per elementus",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "bcdd15d69dc743d1",
+      "id": "362a8654e2d94af9",
       "type": "rectangle",
       "x": 1170.0,
       "y": 190.0,
@@ -338,11 +338,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "2c0777aab1ec4af3"
+          "id": "5d9af3d19e084d01"
         },
         {
           "type": "arrow",
-          "id": "cdc4f3c9d23e48bb"
+          "id": "b49dba3406634f9a"
         }
       ],
       "updated": 1,
@@ -350,7 +350,7 @@
       "locked": false
     },
     {
-      "id": "2c0777aab1ec4af3",
+      "id": "5d9af3d19e084d01",
       "type": "text",
       "x": 1180.0,
       "y": 220.0,
@@ -380,13 +380,13 @@
       "text": "exit 0",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "bcdd15d69dc743d1",
+      "containerId": "362a8654e2d94af9",
       "originalText": "exit 0",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "e8fdb5c65d1545ac",
+      "id": "ac894e35722345f5",
       "type": "arrow",
       "x": 240.0,
       "y": 145.0,
@@ -425,12 +425,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "fd9a3ad9ba0542ed",
+        "elementId": "b426cb75fcb44042",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "11f828bc22384656",
+        "elementId": "325267ab3ab343ab",
         "focus": 0,
         "gap": 4
       },
@@ -438,7 +438,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "3fc26ca49bfc4d0a",
+      "id": "6911bc1d1e2c4a93",
       "type": "arrow",
       "x": 630.0,
       "y": 115.76923076923077,
@@ -477,12 +477,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "11f828bc22384656",
+        "elementId": "325267ab3ab343ab",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "88830c0f931f4755",
+        "elementId": "674cf1f88cac40ff",
         "focus": 0,
         "gap": 4
       },
@@ -490,7 +490,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "d82f842161b24400",
+      "id": "8a6033e10ee34b3c",
       "type": "text",
       "x": 635.0,
       "y": 61.5,
@@ -526,7 +526,7 @@
       "lineHeight": 1.25
     },
     {
-      "id": "73b0682954ef4ddf",
+      "id": "5adb7326aed04769",
       "type": "arrow",
       "x": 630.0,
       "y": 174.23076923076923,
@@ -565,12 +565,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "11f828bc22384656",
+        "elementId": "325267ab3ab343ab",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "482da449be4f49d2",
+        "elementId": "355724c6303b49d9",
         "focus": 0,
         "gap": 4
       },
@@ -578,7 +578,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "73de1a6405fe403d",
+      "id": "2712e42967db48f0",
       "type": "text",
       "x": 635.0,
       "y": 156.5,
@@ -614,7 +614,7 @@
       "lineHeight": 1.25
     },
     {
-      "id": "cdc4f3c9d23e48bb",
+      "id": "b49dba3406634f9a",
       "type": "arrow",
       "x": 1020.0,
       "y": 240.0,
@@ -653,12 +653,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "482da449be4f49d2",
+        "elementId": "355724c6303b49d9",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "bcdd15d69dc743d1",
+        "elementId": "362a8654e2d94af9",
         "focus": 0,
         "gap": 4
       },

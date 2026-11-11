@@ -4,7 +4,7 @@
   "source": "https://excalidraw.com",
   "elements": [
     {
-      "id": "8c74a5fe5dc740dd",
+      "id": "051b193206374248",
       "type": "rectangle",
       "x": 0.0,
       "y": 95.0,
@@ -30,15 +30,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "e5b8ae6f2e004952"
+          "id": "ddb2b5a606ea43d2"
         },
         {
           "type": "arrow",
-          "id": "c4b1811cc8614c8f"
+          "id": "e2da438441824d01"
         },
         {
           "type": "arrow",
-          "id": "498b7d4f4e084a0d"
+          "id": "c4f23c2395d84751"
         }
       ],
       "updated": 1,
@@ -46,7 +46,7 @@
       "locked": false
     },
     {
-      "id": "e5b8ae6f2e004952",
+      "id": "ddb2b5a606ea43d2",
       "type": "text",
       "x": 10.0,
       "y": 125.0,
@@ -76,13 +76,13 @@
       "text": "Jūsų kompiuteris\nprivatus raktas",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "8c74a5fe5dc740dd",
+      "containerId": "051b193206374248",
       "originalText": "Jūsų kompiuteris\nprivatus raktas",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "6b5574a1dccc426b",
+      "id": "54bab81625234d92",
       "type": "rectangle",
       "x": 720.0,
       "y": 95.0,
@@ -108,15 +108,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "e2199d4a1f0840db"
+          "id": "5256a7d7645545e7"
         },
         {
           "type": "arrow",
-          "id": "c4b1811cc8614c8f"
+          "id": "e2da438441824d01"
         },
         {
           "type": "arrow",
-          "id": "498b7d4f4e084a0d"
+          "id": "c4f23c2395d84751"
         }
       ],
       "updated": 1,
@@ -124,7 +124,7 @@
       "locked": false
     },
     {
-      "id": "e2199d4a1f0840db",
+      "id": "5256a7d7645545e7",
       "type": "text",
       "x": 730.0,
       "y": 125.0,
@@ -154,13 +154,13 @@
       "text": "GitHub arba\nserveris\nviešas raktas",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "6b5574a1dccc426b",
+      "containerId": "54bab81625234d92",
       "originalText": "GitHub arba\nserveris\nviešas raktas",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "c4b1811cc8614c8f",
+      "id": "e2da438441824d01",
       "type": "arrow",
       "x": 270.0,
       "y": 145.0,
@@ -199,12 +199,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "8c74a5fe5dc740dd",
+        "elementId": "051b193206374248",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "6b5574a1dccc426b",
+        "elementId": "54bab81625234d92",
         "focus": 0,
         "gap": 4
       },
@@ -212,7 +212,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "b4236f4a2ee34fb8",
+      "id": "d4c7b6658be04076",
       "type": "text",
       "x": 425.0,
       "y": 109.0,
@@ -248,7 +248,7 @@
       "lineHeight": 1.25
     },
     {
-      "id": "498b7d4f4e084a0d",
+      "id": "c4f23c2395d84751",
       "type": "arrow",
       "x": 720.0,
       "y": 145.0,
@@ -287,12 +287,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "6b5574a1dccc426b",
+        "elementId": "54bab81625234d92",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "8c74a5fe5dc740dd",
+        "elementId": "051b193206374248",
         "focus": 0,
         "gap": 4
       },
@@ -300,7 +300,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "e92ae1d9571b458e",
+      "id": "3a2bbda514014dbc",
       "type": "text",
       "x": 425.0,
       "y": 109.0,
@@ -336,7 +336,7 @@
       "lineHeight": 1.25
     },
     {
-      "id": "c5b3532917e84d8f",
+      "id": "bb6bfc6f7e364630",
       "type": "text",
       "x": 240.0,
       "y": 328.0,

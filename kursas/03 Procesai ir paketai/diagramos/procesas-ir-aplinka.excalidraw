@@ -4,7 +4,7 @@
   "source": "https://excalidraw.com",
   "elements": [
     {
-      "id": "afceca2bc6114282",
+      "id": "fdd8289685a24568",
       "type": "rectangle",
       "x": 0.0,
       "y": 95.0,
@@ -30,11 +30,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "152b8be493224e70"
+          "id": "3744c7ad44e045f0"
         },
         {
           "type": "arrow",
-          "id": "0ace98238bf842a8"
+          "id": "8b30fa601a93429f"
         }
       ],
       "updated": 1,
@@ -42,7 +42,7 @@
       "locked": false
     },
     {
-      "id": "152b8be493224e70",
+      "id": "3744c7ad44e045f0",
       "type": "text",
       "x": 10.0,
       "y": 125.0,
@@ -72,13 +72,13 @@
       "text": "Terminalas\nexport\nVARDAS=reiksme",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "afceca2bc6114282",
+      "containerId": "fdd8289685a24568",
       "originalText": "Terminalas\nexport\nVARDAS=reiksme",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "7561664c77aa486a",
+      "id": "25583860f1e64dd8",
       "type": "rectangle",
       "x": 420.0,
       "y": 95.0,
@@ -104,15 +104,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "cad8fedb71b647fb"
+          "id": "cb30f449c244465e"
         },
         {
           "type": "arrow",
-          "id": "0ace98238bf842a8"
+          "id": "8b30fa601a93429f"
         },
         {
           "type": "arrow",
-          "id": "7cbbb9c5beb34128"
+          "id": "aa794155b6424c76"
         }
       ],
       "updated": 1,
@@ -120,7 +120,7 @@
       "locked": false
     },
     {
-      "id": "cad8fedb71b647fb",
+      "id": "cb30f449c244465e",
       "type": "text",
       "x": 430.0,
       "y": 125.0,
@@ -150,13 +150,13 @@
       "text": "Procesas\n(PID)",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "7561664c77aa486a",
+      "containerId": "25583860f1e64dd8",
       "originalText": "Procesas\n(PID)",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "4a5646a6bf034ec9",
+      "id": "e4e1a65f5a084ceb",
       "type": "rectangle",
       "x": 840.0,
       "y": 95.0,
@@ -182,11 +182,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "d1b2fb3ac0394e44"
+          "id": "b3fa480b0d784326"
         },
         {
           "type": "arrow",
-          "id": "7cbbb9c5beb34128"
+          "id": "aa794155b6424c76"
         }
       ],
       "updated": 1,
@@ -194,7 +194,7 @@
       "locked": false
     },
     {
-      "id": "d1b2fb3ac0394e44",
+      "id": "b3fa480b0d784326",
       "type": "text",
       "x": 850.0,
       "y": 125.0,
@@ -224,13 +224,13 @@
       "text": "Programa skaito\nkintamąjį",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "4a5646a6bf034ec9",
+      "containerId": "e4e1a65f5a084ceb",
       "originalText": "Programa skaito\nkintamąjį",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "0ace98238bf842a8",
+      "id": "8b30fa601a93429f",
       "type": "arrow",
       "x": 240.0,
       "y": 145.0,
@@ -269,12 +269,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "afceca2bc6114282",
+        "elementId": "fdd8289685a24568",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "7561664c77aa486a",
+        "elementId": "25583860f1e64dd8",
         "focus": 0,
         "gap": 4
       },
@@ -282,7 +282,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "254bf0c8d9424772",
+      "id": "0000470f8d274494",
       "type": "text",
       "x": 260.0,
       "y": 109.0,
@@ -318,7 +318,7 @@
       "lineHeight": 1.25
     },
     {
-      "id": "7cbbb9c5beb34128",
+      "id": "aa794155b6424c76",
       "type": "arrow",
       "x": 660.0,
       "y": 145.0,
@@ -357,12 +357,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "7561664c77aa486a",
+        "elementId": "25583860f1e64dd8",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "4a5646a6bf034ec9",
+        "elementId": "e4e1a65f5a084ceb",
         "focus": 0,
         "gap": 4
       },
@@ -370,7 +370,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "ced7bd796af04797",
+      "id": "24c2935d98c64fd1",
       "type": "text",
       "x": 680.0,
       "y": 109.0,

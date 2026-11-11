@@ -14,9 +14,8 @@ Data: 2026-11-11 (trečiadienis)
 6. Pertrauka (~15 min): Windows perkrauna ir vieną kartą paleidžia Ubuntu; Mac patikrina `xcode-select`
 7. Aplinkos patikra (~10 min): `README.md` skyrius „Aplinka“; jei WSL nepavyksta, „Jei WSL nepavyko“ (turi būti išspręsta prieš 02 pamoką)
 8. Užduotis 1 (~45 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/skaidres/3-skaidres.html), 14–17 ir 21 skaidrės; nuo aplanko iki GitHub, šaka ir sujungimas; užduotys skelbiamos po vieną Teams'e
-9. `/health` (~5 min): [`app.py`](https://github.com/dkoncius/devops-projektas-starter-template/blob/main/app.py) naršyklėje
-10. Užduotis 2 (~55 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/skaidres/3-skaidres.html), 18–20 skaidrės (21 skaidrėje abi užduotys); repozitorija per svetainę, `clone`, dokumentas, `/health`
-11. Kita paskaita: pakartosime Linux terminalo temą (navigacija, failai, teisės)
+9. Užduotis 2 (~55 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/skaidres/3-skaidres.html), 18–20 skaidrės (21 skaidrėje abi užduotys); repozitorija per svetainę, `clone`, dokumentas, šaka, sujungimas, šakos trynimas
+10. Kita paskaita: pakartosime Linux terminalo temą (navigacija, failai, teisės)
 
 Nuorodos: [GitHub Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world), [Learn Git Branching](https://learngitbranching.js.org/), [Pro Git](https://git-scm.com/book/en/v2)
 
@@ -57,12 +56,12 @@ Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, t
 7. Patikrinkite: aplanke yra `devops-dokumentas.md`, nuotolinė nuoroda rodo jūsų repozitoriją, o commit istorijoje yra commit'as iš GitHub svetainės.
 8. Kompiuteryje papildykite dokumentą skyriumi „Kur gali lūžti“: 2 vietos, kur grandinė gali lūžti, kiekviena su vienu sakiniu kodėl. Padarykite commit su žinute „Pridėta, kur gali lūžti“.
 9. Nusiųskite commit'ą į GitHub ir naršyklėje patikrinkite, kad pakeitimas atsirado.
-10. Sukurkite šaką `health` ir persijunkite į ją.
-11. Naršyklėje atidarykite [`app.py`](https://github.com/dkoncius/devops-projektas-starter-template/blob/main/app.py) iš projekto šablono ir suraskite maršrutą `/health`.
-12. Šakoje `health` papildykite dokumentą skyriumi `/health`: ką jis grąžina (atsakymą ir kodą) ir kam toks maršrutas reikalingas. Padarykite commit su žinute „Pridėtas /health“.
-13. Nusiųskite šaką `health` į GitHub.
-14. Grįžkite į `main`, sujunkite `health` į `main` ir nusiųskite `main` į GitHub.
-15. Ištrinkite šaką `health` kompiuteryje ir GitHub'e.
+10. Sukurkite šaką `skyriai` ir persijunkite į ją.
+11. Šakoje `skyriai` papildykite dokumentą skyriumi „Kodėl DevOps“: 2 sakiniai, kuo DevOps naudingas komandai. Padarykite commit su žinute „Pridėta, kodėl DevOps“.
+12. Nusiųskite šaką `skyriai` į GitHub (naršyklėje turi atsirasti šaka `skyriai`).
+13. Grįžkite į `main` ir įsitikinkite, kad skyriaus „Kodėl DevOps“ dokumente dar nėra.
+14. Sujunkite `skyriai` į `main` ir nusiųskite `main` į GitHub.
+15. Ištrinkite šaką `skyriai` kompiuteryje ir GitHub'e.
 16. Išsiaiškinkite pagal oficialią dokumentaciją, kuo skiriasi šakos trynimas mažąja ir didžiąja raide. Atsakymą užrašykite dokumento skyriuje „Git“, padarykite commit su žinute „Pridėta apie šakų trynimą“ ir nusiųskite.
 17. Patikrinkite, kad dokumente ir repozitorijoje nėra slaptažodžių ar realių IP.
 18. **Kodėl:** vienu sakiniu užrašykite, kuo šis būdas skiriasi nuo `gh repo create` ir kodėl pradėjus svetainėje darbą galima tęsti kompiuteryje.
@@ -199,28 +198,28 @@ Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, t
    git push
    ```
 
-10–13. Šaka `health`:
+10–13. Šaka `skyriai`:
 
    ```bash
-   git switch -c health
+   git switch -c skyriai
    cat >> devops-dokumentas.md <<'EOF'
 
-   ## /health
+   ## Kodėl DevOps
 
-   Maršrutas `/health` grąžina JSON `{"status": "ok"}` ir HTTP kodą 200. Jis skirtas patikrinti, ar programa gyva: pvz. monitoringas ar Kubernetes gali kreiptis į jį ir žinoti, ar programą reikia perkrauti.
+   DevOps leidžia komandai išleisti pakeitimus greičiau ir su mažesne rizika, nes daug žingsnių atlieka automatika. Klaidas randame anksti, o ne pas vartotoją.
    EOF
-   git commit -am "Pridėtas /health"
-   git push -u origin health
+   git commit -am "Pridėta, kodėl DevOps"
+   git push -u origin skyriai
+   git switch main
    ```
 
 14–15. Sujungimas ir šakos trynimas:
 
    ```bash
-   git switch main
-   git merge health
+   git merge skyriai
    git push
-   git branch -d health
-   git push origin --delete health
+   git branch -d skyriai
+   git push origin --delete skyriai
    ```
 
 16. `git branch --help` (skyrius apie `-d` ir `-D`) arba Pro Git knyga; atsakymas dokumente, tada `git commit -am "..."` ir `git push`.
@@ -236,11 +235,11 @@ Patikrinta: klasės ir užduočių Git eiga (`git init`, commit, šaka, `merge`,
 | `git-bandymas` su `pastabos.txt` ir `idejos.txt` GitHub'e | `git remote -v`, GitHub puslapis |
 | Šaka `papildymas` sujungta į `main` | `git log --oneline --graph --all` rodo sujungimą |
 | `devops-dokumentas.md` per svetainę ir `clone` į `git-svetaine` | `git log --oneline` rodo commit iš svetainės |
-| „Kur gali lūžti“ ir `/health` | dokumento skyriai |
+| „Kur gali lūžti“ ir „Kodėl DevOps“ | dokumento skyriai, šaka `skyriai` sujungta |
 | `git branch -d` ir `-D` | dokumento skyrius „Git“ |
 | Slaptų duomenų nėra | dokumente ir repo be slaptažodžių ir realių IP |
 
-Vardas ir el. paštas bei darbalaukio aplankas `devops` daromi aplinkos patikroje (`git config --global --list`, `gh auth status`) ir į užduotis neįeina. `git init`, `gh repo create` ir pirmas `merge` yra Užduotyje 1; repozitorija per svetainę, `clone`, dokumentas ir `/health` Užduotyje 2. Dirbtinio intelekto abiejose užduotyse nenaudojame. Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas yra tik atsiskaitymuose (vertinimas.md).
+Vardas ir el. paštas bei darbalaukio aplankas `devops` daromi aplinkos patikroje (`git config --global --list`, `gh auth status`) ir į užduotis neįeina. `git init`, `gh repo create` ir pirmas `merge` yra Užduotyje 1; repozitorija per svetainę, `clone`, dokumentas, šaka ir sujungimas Užduotyje 2. Dirbtinio intelekto abiejose užduotyse nenaudojame. Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas yra tik atsiskaitymuose (vertinimas.md).
 
 ### Pavyzdinis failas
 
@@ -256,9 +255,9 @@ DevOps yra būdas, kaip kūrėjai ir sistemų administratoriai dirba kartu, kad 
 1. Testai: jei jų nėra, klaida pasiekia vartotoją.
 2. Diegimas: ranka diegiant, galima pamiršti žingsnį ir serveris veiks kitaip nei kompiuteryje.
 
-## /health
+## Kodėl DevOps
 
-Maršrutas `/health` grąžina JSON `{"status": "ok"}` ir HTTP kodą 200. Jis skirtas patikrinti, ar programa gyva: pvz. monitoringas ar Kubernetes gali kreiptis į jį ir žinoti, ar programą reikia perkrauti.
+DevOps leidžia komandai išleisti pakeitimus greičiau ir su mažesne rizika, nes daug žingsnių atlieka automatika. Klaidas randame anksti, o ne pas vartotoją.
 
 ## Git
 

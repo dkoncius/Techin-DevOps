@@ -11,12 +11,12 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 7. Patikrinkite: aplanke yra `devops-dokumentas.md`, nuotolinė nuoroda rodo jūsų repozitoriją, o commit istorijoje yra commit'as iš GitHub svetainės.
 8. Kompiuteryje papildykite dokumentą skyriumi „Kur gali lūžti“: 2 vietos, kur grandinė gali lūžti, kiekviena su vienu sakiniu kodėl. Padarykite commit su žinute „Pridėta, kur gali lūžti“.
 9. Nusiųskite commit'ą į GitHub ir naršyklėje patikrinkite, kad pakeitimas atsirado.
-10. Sukurkite šaką `health` ir persijunkite į ją.
-11. Naršyklėje atidarykite [`app.py`](https://github.com/dkoncius/devops-projektas-starter-template/blob/main/app.py) iš projekto šablono ir suraskite maršrutą `/health`.
-12. Šakoje `health` papildykite dokumentą skyriumi `/health`: ką jis grąžina (atsakymą ir kodą) ir kam toks maršrutas reikalingas. Padarykite commit su žinute „Pridėtas /health“.
-13. Nusiųskite šaką `health` į GitHub.
-14. Grįžkite į `main`, sujunkite `health` į `main` ir nusiųskite `main` į GitHub.
-15. Ištrinkite šaką `health` kompiuteryje ir GitHub'e.
+10. Sukurkite šaką `skyriai` ir persijunkite į ją.
+11. Šakoje `skyriai` papildykite dokumentą skyriumi „Kodėl DevOps“: 2 sakiniai, kuo DevOps naudingas komandai. Padarykite commit su žinute „Pridėta, kodėl DevOps“.
+12. Nusiųskite šaką `skyriai` į GitHub (naršyklėje turi atsirasti šaka `skyriai`).
+13. Grįžkite į `main` ir įsitikinkite, kad skyriaus „Kodėl DevOps“ dokumente dar nėra.
+14. Sujunkite `skyriai` į `main` ir nusiųskite `main` į GitHub.
+15. Ištrinkite šaką `skyriai` kompiuteryje ir GitHub'e.
 16. Išsiaiškinkite pagal oficialią dokumentaciją, kuo skiriasi šakos trynimas mažąja ir didžiąja raide. Atsakymą užrašykite dokumento skyriuje „Git“, padarykite commit su žinute „Pridėta apie šakų trynimą“ ir nusiųskite.
 17. Patikrinkite, kad dokumente ir repozitorijoje nėra slaptažodžių ar realių IP.
 18. **Kodėl:** vienu sakiniu užrašykite, kuo šis būdas skiriasi nuo `gh repo create` ir kodėl pradėjus svetainėje darbą galima tęsti kompiuteryje.

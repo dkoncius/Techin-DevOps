@@ -4,7 +4,7 @@
   "source": "https://excalidraw.com",
   "elements": [
     {
-      "id": "e9974256965644c8",
+      "id": "0642980673a249c2",
       "type": "rectangle",
       "x": 360.0,
       "y": 0.0,
@@ -30,15 +30,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "afcfbeac38ff40f5"
+          "id": "b9c7e02152ee4b9f"
         },
         {
           "type": "arrow",
-          "id": "bf037e3fcf274743"
+          "id": "685b1ecee12244d1"
         },
         {
           "type": "arrow",
-          "id": "aaf682de07bb45ae"
+          "id": "5a96a03036ff4148"
         }
       ],
       "updated": 1,
@@ -46,7 +46,7 @@
       "locked": false
     },
     {
-      "id": "afcfbeac38ff40f5",
+      "id": "b9c7e02152ee4b9f",
       "type": "text",
       "x": 370.0,
       "y": 30.0,
@@ -76,13 +76,13 @@
       "text": "GitHub main",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "e9974256965644c8",
+      "containerId": "0642980673a249c2",
       "originalText": "GitHub main",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "60055f6ba0594a61",
+      "id": "106e43cb6c8e4309",
       "type": "rectangle",
       "x": 0.0,
       "y": 228.0,
@@ -108,11 +108,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "61f1ad522d124096"
+          "id": "450f1aaa254341dc"
         },
         {
           "type": "arrow",
-          "id": "bf037e3fcf274743"
+          "id": "685b1ecee12244d1"
         }
       ],
       "updated": 1,
@@ -120,7 +120,7 @@
       "locked": false
     },
     {
-      "id": "61f1ad522d124096",
+      "id": "450f1aaa254341dc",
       "type": "text",
       "x": 10.0,
       "y": 258.0,
@@ -150,13 +150,13 @@
       "text": "Kopija A\npakeitė eilutę ir\nnusiuntė",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "60055f6ba0594a61",
+      "containerId": "106e43cb6c8e4309",
       "originalText": "Kopija A\npakeitė eilutę ir\nnusiuntė",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "a7ad6711f4a44d44",
+      "id": "b07693add9aa4012",
       "type": "rectangle",
       "x": 720.0,
       "y": 228.0,
@@ -182,11 +182,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "a6fa1365b0784bce"
+          "id": "dee04ff8b6774fd9"
         },
         {
           "type": "arrow",
-          "id": "aaf682de07bb45ae"
+          "id": "5a96a03036ff4148"
         }
       ],
       "updated": 1,
@@ -194,7 +194,7 @@
       "locked": false
     },
     {
-      "id": "a6fa1365b0784bce",
+      "id": "dee04ff8b6774fd9",
       "type": "text",
       "x": 730.0,
       "y": 258.0,
@@ -224,13 +224,13 @@
       "text": "Kopija B\npakeitė tą pačią\neilutę",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "a7ad6711f4a44d44",
+      "containerId": "b07693add9aa4012",
       "originalText": "Kopija B\npakeitė tą pačią\neilutę",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "bf037e3fcf274743",
+      "id": "685b1ecee12244d1",
       "type": "arrow",
       "x": 210.65789473684208,
       "y": 228.0,
@@ -269,12 +269,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "60055f6ba0594a61",
+        "elementId": "106e43cb6c8e4309",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "e9974256965644c8",
+        "elementId": "0642980673a249c2",
         "focus": 0,
         "gap": 4
       },
@@ -282,7 +282,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "7c1917406f704a1d",
+      "id": "73658e8849f94324",
       "type": "text",
       "x": 237.5,
       "y": 128.0,
@@ -318,7 +318,7 @@
       "lineHeight": 1.25
     },
     {
-      "id": "aaf682de07bb45ae",
+      "id": "5a96a03036ff4148",
       "type": "arrow",
       "x": 562.2368421052631,
       "y": 100.0,
@@ -357,12 +357,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "e9974256965644c8",
+        "elementId": "0642980673a249c2",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "a7ad6711f4a44d44",
+        "elementId": "b07693add9aa4012",
         "focus": 0,
         "gap": 4
       },
@@ -370,7 +370,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "a7f329f4175b4a06",
+      "id": "8b6d36dd59594761",
       "type": "text",
       "x": 597.5,
       "y": 128.0,

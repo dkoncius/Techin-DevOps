@@ -25,10 +25,10 @@ ol.steps li{counter-increment:s;padding-left:3rem;font-size:clamp(1.02rem,1.5vw,
 ol.steps li::before{content:counter(s);left:0;top:.1em;width:2rem;height:2rem;border:2px solid var(--ink);background:none;border-radius:50%;color:var(--ink);font-weight:700;display:grid;place-items:center;font-size:.95rem}
 code{background:var(--soft);border:1px solid var(--rule);border-radius:5px;padding:.05em .4em;font-size:.88em;color:#9c2f06}
 strong{font-weight:700}
-.term{margin:.7rem 0;border-radius:8px;overflow:hidden;background:var(--term)}
+.term{flex-shrink:0;margin:.5rem 0;border-radius:8px;overflow:hidden;background:var(--term)}
 .term__bar{display:flex;align-items:center;padding:.4rem .9rem;background:#2c2c2c;font-size:.75rem;color:#a8a29e;letter-spacing:.06em;text-transform:uppercase}
 .term__bar i{display:none}
-pre{margin:0;padding:.9rem 1.1rem;font-size:clamp(1rem,1.7vw,1.3rem);line-height:1.55;overflow:auto;white-space:pre;color:#f5f5f4}
+pre{margin:0;padding:.9rem 1.1rem;font-size:clamp(.8rem,min(1.7vw,2.5vh),1.3rem);line-height:1.5;overflow:auto;white-space:pre;color:#f5f5f4}
 pre code{background:none;border:0;padding:0;font-size:inherit;color:inherit}
 pre.mermaid{background:none;padding:0;color:var(--ink)}
 .term--out{background:#f3f7ee;border:1px solid #c7d8b8}.term--out .term__bar{background:#e4eed8;color:#4d6a35}.term--out pre{color:#2f4a1d}
