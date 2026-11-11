@@ -1,4 +1,4 @@
-# 1 užduotis: Create your repo
+# 1 užduotis: Sukurkite repozitoriją terminale
 
 Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, pridėta Teams'e).
 

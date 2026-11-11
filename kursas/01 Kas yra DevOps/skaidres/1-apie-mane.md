@@ -54,4 +54,5 @@ wsl --install
 xcode-select --install
 ```
 + Diegimas vyks fone, kol pasakosiu apie kursą
-Pastaba: ~5 min. Patikrinkite, kad visi atidarė terminalą ir komanda pasileido. Dažna klaida (Windows): PowerShell ne kaip administratorius arba BIOS išjungta virtualizacija (tada `wsl --install` nepasileis); tokį studentą užsirašykite ir vėliau pasiūlykite atsarginį variantą `README.md` skyriuje „Jei WSL nepavyko“. Mac: gali pasirodyti langas „Install“, spausti Install ir laukti.
++ Žingsniai ir klaidų sprendimai: [WSL diegimo sąrašas](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/checklists/WSL%20diegimo%20s%C4%85ra%C5%A1as.html) (ir Teams'e prie paskaitos)
+Pastaba: ~5 min. Patikrinkite, kad visi atidarė terminalą ir komanda pasileido. Dažna klaida (Windows): PowerShell ne kaip administratorius arba BIOS išjungta virtualizacija (tada `wsl --install` nepasileis); tokį studentą užsirašykite ir vėliau pasiūlykite atsarginį variantą WSL sąraše „Jei WSL nepavyko“. Pasakykite, kad WSL diegimo sąrašas bus Teams'e prie paskaitos; jį naudosime aplinkos patikroje po pertraukos. Mac: gali pasirodyti langas „Install“, spausti Install ir laukti.

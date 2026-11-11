@@ -180,8 +180,16 @@ git push origin --delete bugFix   # ištrinti ir GitHub'e
 + Kodėl šaka? Veikiantis `main` lieka saugus, o klaidą pagauname prieš sujungimą
 Pastaba: ~20 min su demonstracija: `bugFix`, pakeitimas `main`, `merge`, `git log --oneline --graph --all`. Principas: nestabilų darbą laikyti atskirai nuo veikiančio. Būtent tuo remiasi Pull Request ir CI/CD vėlesnėse pamokose.
 
-=== demonstracija | Lengvesnis būdas
->>+ 📁 Failų kopija `demo-c-failai` | 🌐 New repository `demo-c` | 🖱️ Drag and drop | ✅ Commit changes
+=== demonstracija | Repozitorija per GitHub svetainę
++ 1. github.com → `+` viršuje dešinėje → **New repository**
++ 2. Pavadinimas `demo-c`, **Public**, nieko nežymėti (be README, be `.gitignore`) → **Create repository**
++ 3. Tuščios repozitorijos puslapyje spausti *uploading an existing file*
++ 4. Nutempti `a.txt` ir `b.txt` iš `demo-c-failai` → **Commit changes**
++ Kodėl svetainėje? Nereikia `gh` ir terminalo: tinka, kai pradedame nuo GitHub arba failai jau paruošti
+Pastaba: ~6 min. Tai 2 užduoties demonstracija, žingsniai tie patys kaip užduotyje, tik kitas pavyzdys. Pirmiausia nukopijuokite `demo-a` failus į naują aplanką `demo-c-failai` (tik `a.txt` ir `b.txt`, be paslėpto `.git`, kitaip aplankas liktų susietas su `demo-a`). Rodykite gyvai svetainėje, tada studentai kartu su jumis daro savo `git-svetaine` (aplankas `git-svetaine-failai` su `devops-dokumentas.md`). Kai visi turi repozitoriją GitHub'e, skelbkite 3 užduotį. Aplanko `demo-c-failai` nevadiname `demo-c`, nes `git clone` neįrašys į jau esantį nepustą aplanką.
+
+=== demonstracija | Clone: repozitorija į kompiuterį
++ Nuoroda: žalias mygtukas **Code** → HTTPS → kopijuoti
 ```bash+
 git clone https://github.com/<vartotojas>/demo-c.git   # lokali kopija
 cd demo-c
@@ -193,7 +201,7 @@ git commit -am "Atnaujinimas kompiuteryje"
 git push
 ```
 + Kodėl `clone`? Svetainėje padarytas darbas atsiranda ir kompiuteryje, o ryšys su GitHub nustatomas pats; toliau dirbame kompiuteryje
-Pastaba: ~4 min. Antras būdas patekti į GitHub be `gh`. Pirmiausia nukopijuokite `demo-a` failus į naują aplanką `demo-c-failai` (tik `a.txt` ir `b.txt`, be paslėpto `.git`, kitaip aplankas liktų susietas su `demo-a`). Svetainėje: New repository `demo-c` be README, tada „uploading an existing file“, nutempti failus, Commit changes. Aplanko `demo-c-failai` nevadiname `demo-c`, nes `git clone` neįrašys į jau esantį nepustą aplanką.
+Pastaba: ~4 min. Tai 3 užduoties pradžia: `clone` į `demo-c` (ne į `demo-c-failai`), patikra, pakeitimas, commit ir `push`. Toliau studentai savarankiškai.
 
 === demonstracija | Šaka po clone
 ```bash+
@@ -220,7 +228,7 @@ Pastaba: ~3 min. Pabrėžkite įprotį: perskaityti klaidą, ieškoti dokumentac
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną Teams'e: 1 užduotį po demonstracijos, 2 užduotį baigus pirmą. Pilni žingsniai yra Teams žinutėje ir pamoka.md.
+Pastaba: Skelbkite po vieną Teams'e: 1 užduotį po demonstracijos, 2 užduotį kartu 18 skaidrėje, 3 užduotį baigus 2. Pilni žingsniai yra Teams žinutėje ir pamoka.md.
 
 === kita | Kita pamoka
 Pakartosime Linux terminalo temą: navigacija, failai, teisės
