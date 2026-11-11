@@ -22,7 +22,7 @@ Nuorodos: [GitHub Hello World](https://docs.github.com/en/get-started/start-your
 
 ## Užduotys
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, pridėta Teams'e). Nuorodos yra klasės darbe.
+Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, pridėta Teams'e). Taip pat [Git ir GitHub sąrašas](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/checklists/Git%20ir%20GitHub%20s%C4%85ra%C5%A1as.html) (nustatymai, prisijungimas, šakos, klaidų sprendimai). Nuorodos yra klasės darbe.
 
 Užduotis skelbiu po vieną (Teams). Pirmiausia parodau gyvai kitu pavyzdžiu, tada darote savo kompiuteryje ir tik baigę gaunate kitą. Vardas ir el. paštas (`git config`), darbalaukio aplankas `devops` ir `gh auth login` padaromi aplinkos patikroje. Projekto šablono klonavimas bus 02 pamokoje.
 

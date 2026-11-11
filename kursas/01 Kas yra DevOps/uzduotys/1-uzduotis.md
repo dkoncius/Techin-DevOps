@@ -1,6 +1,6 @@
 # 1 užduotis: Sukurkite repozitoriją terminale
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, pridėta Teams'e).
+Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, pridėta Teams'e). Taip pat [Git ir GitHub sąrašas](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/checklists/Git%20ir%20GitHub%20s%C4%85ra%C5%A1as.html) (nustatymai, prisijungimas, šakos, klaidų sprendimai).
 
 1. **Tikslas:** Viename aplanke pakartoti visą kelią: failai → GitHub → commit → šaka su pakeitimu → sujungimas į `main`.
 2. Darbalaukyje esančiame aplanke `devops` sukurkite aplanką `git-bandymas` ir atidarykite jį terminale.

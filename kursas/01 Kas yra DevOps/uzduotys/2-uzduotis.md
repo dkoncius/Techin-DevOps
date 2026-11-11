@@ -1,6 +1,6 @@
 # 2 užduotis: Sukurkite repozitoriją GitHub svetainėje
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, pridėta Teams'e).
+Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, pridėta Teams'e). Taip pat [Git ir GitHub sąrašas](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/checklists/Git%20ir%20GitHub%20s%C4%85ra%C5%A1as.html) (nustatymai, prisijungimas, šakos, klaidų sprendimai).
 
 1. **Tikslas:** Sukurti repozitoriją tiesiai GitHub svetainėje ir įkelti į ją dokumentą nutempdami (drag and drop), be terminalo.
 2. Aplanke `devops` sukurkite aplanką `git-svetaine-failai`.
