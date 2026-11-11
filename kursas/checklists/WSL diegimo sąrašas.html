@@ -1,0 +1,280 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>WSL diegimo sąrašas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: single reading column, checklist cards per phase, terminal-style command chips */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --fg: #1b1f1d;
+  --muted: #5d6662;
+  --line: #dde2df;
+  --accent: #c2410c;
+  --term-bg: #1d2321;
+  --term-fg: #e6ece9;
+  --term-prompt: #7fd18b;
+  --ok: #15803d;
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131715; --surface: #1b201e; --fg: #e8ece9; --muted: #9aa5a0; --line: #2c3431;
+    --accent: #fb923c; --term-bg: #0c0f0e; --term-fg: #e6ece9; --term-prompt: #7fd18b; --ok: #4ade80;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131715; --surface: #1b201e; --fg: #e8ece9; --muted: #9aa5a0; --line: #2c3431;
+  --accent: #fb923c; --term-bg: #0c0f0e; --term-fg: #e6ece9; --term-prompt: #7fd18b; --ok: #4ade80;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 32px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 28px; }
+header { display: flex; flex-direction: column; gap: 10px; }
+.eyebrow { font-family: var(--font-mono); font-size: 13px; color: var(--accent); letter-spacing: .04em; }
+h1 { font-family: var(--font-display); font-size: clamp(28px, 6vw, 40px); line-height: 1.1; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--font-display); font-size: 22px; margin: 0; text-wrap: balance; }
+.lede { margin: 0; color: var(--muted); max-width: 62ch; }
+.progress { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar { flex: 1; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.bar > span { display: block; height: 100%; width: 0; background: var(--ok); transition: width .25s; }
+button.reset { font: inherit; font-size: 13px; background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+section { display: flex; flex-direction: column; gap: 14px; }
+.phase-note { margin: 0; color: var(--muted); font-size: 15px; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+li.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; grid-template-columns: 24px 1fr; gap: 12px; }
+li.step.done { opacity: .62; }
+li.step input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--ok); cursor: pointer; }
+.step-body { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.step-body label { font-weight: 600; cursor: pointer; }
+.step-body p { margin: 0; font-size: 15px; color: var(--muted); }
+.step-body p strong { color: var(--fg); }
+.where { font-family: var(--font-mono); font-size: 12px; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); margin-left: 6px; font-weight: 400; white-space: nowrap; }
+.cmd { display: flex; align-items: stretch; background: var(--term-bg); color: var(--term-fg); border-radius: 7px; overflow: hidden; }
+.cmd code { flex: 1; min-width: 0; font-family: var(--font-mono); font-size: 14px; padding: 9px 12px; overflow-x: auto; white-space: pre; }
+.cmd code::before { content: "$ "; color: var(--term-prompt); }
+.cmd.ps code::before { content: "PS> "; color: #8ab4f8; }
+.cmd button { font: inherit; font-size: 12px; background: transparent; color: var(--term-fg); border: 0; border-left: 1px solid #ffffff22; padding: 0 12px; cursor: pointer; }
+.cmd button:hover, .cmd button:focus-visible { background: #ffffff14; }
+.expect { font-size: 14px; }
+.expect code, p code, td code { font-family: var(--font-mono); font-size: .92em; background: var(--line); padding: 1px 5px; border-radius: 4px; }
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+td:first-child { white-space: nowrap; }
+td:first-child code { background: none; padding: 0; color: var(--accent); font-weight: 500; }
+.trouble { display: flex; flex-direction: column; gap: 10px; }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+summary { cursor: pointer; font-weight: 600; }
+details[open] summary { margin-bottom: 10px; }
+details .cmd { margin-top: 8px; }
+details p { margin: 0 0 6px; font-size: 15px; color: var(--muted); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .bar > span { transition: none; } }
+</style>
+
+<div class="wrap" lang="lt">
+  <header>
+    <div class="eyebrow">Windows 10 (2004+) / Windows 11</div>
+    <h1>WSL ir Ubuntu diegimas</h1>
+    <p class="lede">WSL leidžia Windows viduje paleisti tikrą Linux sistemą. Atlikite žingsnius iš eilės ir pažymėkite kiekvieną atliktą. Žymės išsaugomos tik šioje naršyklėje.</p>
+    <div class="progress"><div class="bar"><span id="bar"></span></div><span id="count">0 / 0</span><button class="reset" id="reset" type="button">Išvalyti žymes</button></div>
+  </header>
+
+  <section>
+    <h2>1. Įdiegimas</h2>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="s-winver"><div class="step-body">
+        <label for="s-winver">Patikrinkite Windows versiją <span class="where">Win + R</span></label>
+        <p>Paspauskite Win + R, įveskite <code>winver</code> ir paspauskite Enter. Reikia Windows 11 arba Windows 10 versijos 2004 ar naujesnės.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-install"><div class="step-body">
+        <label for="s-install">Įdiekite WSL su Ubuntu <span class="where">PowerShell</span></label>
+        <div class="cmd ps"><code>wsl --install</code><button type="button">Kopijuoti</button></div>
+        <p>Jei rašo, kad reikia administratoriaus teisių, dešiniuoju pelės mygtuku spustelėkite PowerShell, pasirinkite <strong>Run as administrator</strong> ir paleiskite komandą dar kartą. Atsisiuntimas užtrunka kelias minutes.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-restart"><div class="step-body">
+        <label for="s-restart">Jei prašo, perkraukite kompiuterį</label>
+        <p>Kai kuriems kompiuteriams reikia perkrovimo, kad įsijungtų virtualizacijos funkcijos. Po to Ubuntu gali atsidaryti savaime.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>2. Linux vartotojo sukūrimas</h2>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="s-user"><div class="step-body">
+        <label for="s-user">Sugalvokite vartotojo vardą</label>
+        <p>Tik mažosios lotyniškos raidės, skaičiai ir brūkšneliai, be tarpų ir lietuviškų raidžių. Vardas neprivalo sutapti su jūsų Windows vardu.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-pass"><div class="step-body">
+        <label for="s-pass">Nustatykite slaptažodį (rašant jo nesimato)</label>
+        <p><strong>Rašant slaptažodį ekrane nieko nerodoma</strong>, net taškelių. Tai normalu. Įrašykite jį, paspauskite Enter ir įrašykite dar kartą. Jo prireiks kiekvieną kartą naudojant <code>sudo</code>, todėl užsirašykite.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-retry"><div class="step-body">
+        <label for="s-retry">Jei diegimas grįžo į PowerShell, paleiskite jį iš naujo <span class="where">PowerShell</span></label>
+        <div class="cmd ps"><code>wsl -d Ubuntu</code><button type="button">Kopijuoti</button></div>
+        <p>Jei iškart po <code>New password:</code> matote <code>PS C:\...&gt;</code>, slaptažodis neišsaugotas. Ši komanda vartotojo kūrimą pradeda iš naujo.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-metrics"><div class="step-body">
+        <label for="s-metrics">Atsakykite į klausimą apie statistiką</label>
+        <p>Ubuntu klausia, ar galima siųsti anonimines naudojimo ataskaitas. Tinka ir <code>y</code>, ir <code>n</code>. Ubuntu veikimui tai neturi jokios įtakos.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="s-prompt"><div class="step-body">
+        <label for="s-prompt">Pamatykite Ubuntu komandų eilutę</label>
+        <p class="expect">Turėtumėte matyti kažką panašaus į <code>jusuvardas@PC:~$</code>. Ženklas <code>$</code> reiškia, kad esate Linux sistemoje.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>3. Ubuntu atnaujinimas</h2>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="s-update"><div class="step-body">
+        <label for="s-update">Įdiekite naujausius atnaujinimus <span class="where">Ubuntu</span></label>
+        <div class="cmd"><code>sudo apt update &amp;&amp; sudo apt upgrade -y</code><button type="button">Kopijuoti</button></div>
+        <p>Paprašius įveskite savo Linux slaptažodį. Pirmą kartą tai gali užtrukti kelias minutes.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>4. Patikrinkite, ar viskas veikia</h2>
+    <p class="phase-note">Paleiskite kiekvieną komandą ir palyginkite rezultatą su laukiamu.</p>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="c-list"><div class="step-body">
+        <label for="c-list">Ubuntu įdiegta kaip WSL 2 <span class="where">PowerShell</span></label>
+        <div class="cmd ps"><code>wsl -l -v</code><button type="button">Kopijuoti</button></div>
+        <p class="expect">Turi būti: eilutė <code>Ubuntu</code>, kurios stulpelyje VERSION parašyta <code>2</code>.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="c-whoami"><div class="step-body">
+        <label for="c-whoami">Esate prisijungę savo vartotoju <span class="where">Ubuntu</span></label>
+        <div class="cmd"><code>whoami</code><button type="button">Kopijuoti</button></div>
+        <p class="expect">Turi būti: jūsų vartotojo vardas, <strong>ne</strong> <code>root</code>.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="c-sudo"><div class="step-body">
+        <label for="c-sudo">sudo priima jūsų slaptažodį <span class="where">Ubuntu</span></label>
+        <div class="cmd"><code>sudo whoami</code><button type="button">Kopijuoti</button></div>
+        <p class="expect">Turi būti: <code>root</code>.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="c-os"><div class="step-body">
+        <label for="c-os">Ubuntu versija <span class="where">Ubuntu</span></label>
+        <div class="cmd"><code>cat /etc/os-release</code><button type="button">Kopijuoti</button></div>
+        <p class="expect">Turi būti: eilutė, panaši į <code>PRETTY_NAME="Ubuntu 24.04 LTS"</code>.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="c-mnt"><div class="step-body">
+        <label for="c-mnt">Linux mato jūsų Windows failus <span class="where">Ubuntu</span></label>
+        <div class="cmd"><code>ls /mnt/c/Users</code><button type="button">Kopijuoti</button></div>
+        <p class="expect">Turi būti: sąraše matote savo Windows vartotojo aplanką. Jūsų C: diskas yra <code>/mnt/c</code>.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="c-net"><div class="step-body">
+        <label for="c-net">Linux pasiekia internetą <span class="where">Ubuntu</span></label>
+        <div class="cmd"><code>curl -I https://ubuntu.com</code><button type="button">Kopijuoti</button></div>
+        <p class="expect">Turi būti: pirma eilutė prasideda <code>HTTP/</code>, o būsenos kodas yra, pvz., <code>200</code> arba <code>301</code>.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="c-exit"><div class="step-body">
+        <label for="c-exit">Išeikite ir grįžkite</label>
+        <p>Įveskite <code>exit</code>, kad grįžtumėte į PowerShell, tada įveskite <code>wsl</code>, kad vėl atidarytumėte Ubuntu. Jūsų failai liks vietoje.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Komandos, kurias verta išbandyti Ubuntu</h2>
+    <p class="phase-note">Tai standartinės Linux komandos, kurias dabar galite naudoti Ubuntu.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Komanda</th><th>Ką daro</th><th>Pavyzdys</th></tr></thead>
+      <tbody>
+        <tr><td><code>pwd</code></td><td>Parodo, kuriame aplanke esate</td><td><code>pwd</code></td></tr>
+        <tr><td><code>ls</code></td><td>Išvardija failus (<code>-la</code> rodo ir paslėptus failus bei detales)</td><td><code>ls -la</code></td></tr>
+        <tr><td><code>cd</code></td><td>Pakeičia aplanką (<code>~</code> yra namų aplankas, <code>..</code> – lygiu aukščiau)</td><td><code>cd ~/projects</code></td></tr>
+        <tr><td><code>mkdir</code></td><td>Sukuria aplanką (<code>-p</code> sukuria ir tėvinius aplankus)</td><td><code>mkdir -p demo/src</code></td></tr>
+        <tr><td><code>touch</code></td><td>Sukuria tuščią failą</td><td><code>touch notes.txt</code></td></tr>
+        <tr><td><code>echo</code></td><td>Išspausdina tekstą arba įrašo jį į failą</td><td><code>echo labas &gt; notes.txt</code></td></tr>
+        <tr><td><code>cat</code></td><td>Parodo failo turinį</td><td><code>cat notes.txt</code></td></tr>
+        <tr><td><code>nano</code></td><td>Redaguoja failą terminale (Ctrl+O išsaugo, Ctrl+X išeina)</td><td><code>nano notes.txt</code></td></tr>
+        <tr><td><code>cp</code> / <code>mv</code></td><td>Kopijuoja / perkelia arba pervadina</td><td><code>mv notes.txt todo.txt</code></td></tr>
+        <tr><td><code>rm</code></td><td>Ištrina (šiukšlinės nėra, todėl būkite atsargūs)</td><td><code>rm todo.txt</code></td></tr>
+        <tr><td><code>grep</code></td><td>Ieško teksto failuose</td><td><code>grep -r "error" .</code></td></tr>
+        <tr><td><code>find</code></td><td>Ieško failų pagal pavadinimą</td><td><code>find . -name "*.sh"</code></td></tr>
+        <tr><td><code>chmod</code></td><td>Keičia teises, pvz., leidžia paleisti skriptą</td><td><code>chmod +x run.sh</code></td></tr>
+        <tr><td><code>sudo</code></td><td>Paleidžia komandą administratoriaus teisėmis</td><td><code>sudo apt update</code></td></tr>
+        <tr><td><code>apt</code></td><td>Įdiegia programas</td><td><code>sudo apt install tree</code></td></tr>
+        <tr><td><code>which</code></td><td>Parodo, kur įdiegta programa</td><td><code>which python3</code></td></tr>
+        <tr><td><code>man</code></td><td>Atidaro komandos vadovą (q – išeiti)</td><td><code>man ls</code></td></tr>
+        <tr><td><code>history</code></td><td>Parodo anksčiau įvestas komandas</td><td><code>history</code></td></tr>
+        <tr><td><code>top</code></td><td>Rodo veikiančius procesus realiu laiku (q – išeiti)</td><td><code>top</code></td></tr>
+        <tr><td><code>curl</code></td><td>Siunčia užklausas į internetą</td><td><code>curl https://example.com</code></td></tr>
+        <tr><td><code>ssh</code></td><td>Prisijungia prie nuotolinio serverio</td><td><code>ssh user@server</code></td></tr>
+        <tr><td><code>clear</code></td><td>Išvalo ekraną (arba Ctrl+L)</td><td><code>clear</code></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="trouble">
+    <h2>Jei kas nors nepavyksta</h2>
+    <details><summary>Klaida dėl virtualizacijos (0x80370102 ar panaši)</summary>
+      <p>Kompiuterio BIOS/UEFI nustatymuose išjungta virtualizacija. Perkraukite kompiuterį, atidarykite BIOS (paleidimo metu dažniausiai F2, F10 arba Del), įjunkite <strong>Intel VT-x</strong> arba <strong>AMD-V / SVM</strong>, išsaugokite ir vėl paleiskite <code>wsl --install</code>. Jei nesate tikri, paklauskite mokytojo.</p>
+    </details>
+    <details><summary>Pamiršau Linux slaptažodį</summary>
+      <p>PowerShell lange atidarykite Ubuntu kaip root:</p>
+      <div class="cmd ps"><code>wsl -d Ubuntu -u root</code><button type="button">Kopijuoti</button></div>
+      <p>Tada nustatykite naują slaptažodį (vietoj <code>jusuvardas</code> įrašykite savo vartotojo vardą) ir įveskite <code>exit</code>:</p>
+      <div class="cmd"><code>passwd jusuvardas</code><button type="button">Kopijuoti</button></div>
+    </details>
+    <details><summary>Eilutėje rašo root@... vietoj mano vardo</summary>
+      <p>Vartotojas nebuvo sukurtas. Būdami root, paleiskite šias komandas su savo vartotojo vardu:</p>
+      <div class="cmd"><code>adduser jusuvardas</code><button type="button">Kopijuoti</button></div>
+      <div class="cmd"><code>usermod -aG sudo jusuvardas</code><button type="button">Kopijuoti</button></div>
+      <div class="cmd"><code>printf "[user]\ndefault=jusuvardas\n" &gt;&gt; /etc/wsl.conf</code><button type="button">Kopijuoti</button></div>
+      <p>Tada įveskite <code>exit</code>, PowerShell lange paleiskite <code>wsl --terminate Ubuntu</code> ir vėl atidarykite <code>wsl</code>.</p>
+    </details>
+    <details><summary>wsl -l -v rodo VERSION 1</summary>
+      <p>PowerShell lange pakeiskite į WSL 2:</p>
+      <div class="cmd ps"><code>wsl --set-version Ubuntu 2</code><button type="button">Kopijuoti</button></div>
+    </details>
+    <details><summary>Kažkas užstrigo arba veikia keistai</summary>
+      <p>PowerShell lange visiškai išjunkite WSL ir vėl atidarykite <code>wsl</code>. Jūsų failai išliks.</p>
+      <div class="cmd ps"><code>wsl --shutdown</code><button type="button">Kopijuoti</button></div>
+    </details>
+  </section>
+</div>
+
+<script>
+(function () {
+  var KEY = "wsl-checklist-v1";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll("li.step input[type=checkbox]"));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+  function render() {
+    var done = 0;
+    boxes.forEach(function (b) { b.closest("li").classList.toggle("done", b.checked); if (b.checked) done++; });
+    document.getElementById("count").textContent = done + " / " + boxes.length;
+    document.getElementById("bar").style.width = (boxes.length ? done / boxes.length * 100 : 0) + "%";
+  }
+  function save() {
+    var s = {}; boxes.forEach(function (b) { if (b.checked) s[b.id] = 1; });
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {}
+  }
+  boxes.forEach(function (b) { b.checked = !!saved[b.id]; b.addEventListener("change", function () { render(); save(); }); });
+  document.getElementById("reset").addEventListener("click", function () { boxes.forEach(function (b) { b.checked = false; }); render(); save(); });
+  render();
+
+  document.querySelectorAll(".cmd button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var code = btn.parentNode.querySelector("code");
+      var text = code.textContent;
+      function ok() { btn.textContent = "Nukopijuota"; setTimeout(function () { btn.textContent = "Kopijuoti"; }, 1400); }
+      function fallback() { var r = document.createRange(); r.selectNodeContents(code); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Ctrl+C"; setTimeout(function () { btn.textContent = "Kopijuoti"; }, 1800); }
+      try { navigator.clipboard.writeText(text).then(ok, fallback); } catch (e) { fallback(); }
+    });
+  });
+})();
+</script>
+
+</body></html>

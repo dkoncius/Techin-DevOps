@@ -76,6 +76,14 @@ exit 1
 ```
 Pastaba: ~15 min. `&` fone, `$!` PID, `trap` sustabdo išėjus, `|| true` kad `set -e` nenutrauktų, kai niekas neklauso porto.
 
+=== tekstas | Šablonas, fork ar clone?
+@plokštelės
+:: 01 | Šablonas | Nauja repozitorija GitHub'e be senos istorijos: `Use this template`
+:: 02 | Fork | Nauja repozitorija su visa istorija ir ryšiu su originalu: galima siūlyti PR atgal
+:: 03 | Clone | Kopija kompiuteryje: `git clone`
+> Šablonas yra kaip tuščia anketa: kiekvienas gauna švarią kopiją, o originalas lieka nepaliestas.
+Pastaba: ~10 min. Rodykite kitu pavyzdžiu nei užduotyje: savo demo repozitorija. **Settings → General → Template repository**, mygtukas **Use this template**, `gh repo create demo-kopija --public --template <vartotojas>/demo-projektas --clone`, `git log --oneline` (vienas commit). Dažna klaida: šablone nėra `paleisti.sh`, nes PR dar nesulietas. Paskelbkite 5 užduotį.
+
 === klaida | Dažnos klaidos
 :: | Projektas ne tame aplanke | `cd ~/devops/devops-projektas`
 :: | `.env` pakeitimas neveikia | Paleiskite serverį iš naujo

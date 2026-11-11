@@ -22,7 +22,7 @@ arrow sablonas -> kopija | Use this template
 arrow kopija -> kompiuteris | git clone
 ```
 + Kodėl kopija? Šablonas priklauso kitam: jo keisti negalite, o savo kopijoje galite daryti ką norite
-Pastaba: ~3 min. Šablonas ir fork skiriasi: Use this template sukuria naują repozitoriją be senos istorijos. Dažna klaida: klonuojamas pats šablonas (`starter-template`) vietoje savo kopijos; klonuojama į `/mnt/c` (WSL).
+Pastaba: ~3 min. Šablonas ir fork skiriasi: Use this template sukuria naują repozitoriją be senos istorijos. Kaip patiems susikurti šabloną: 09 pamoka. Dažna klaida: klonuojamas pats šablonas (`starter-template`) vietoje savo kopijos; klonuojama į `/mnt/c` (WSL).
 
 === demonstracija | Savo projekto klonavimas
 ```bash
@@ -38,7 +38,7 @@ ls
 git switch -c pamoka-02
 git branch
 ```
-Pastaba: ~5 min. Kitas pavyzdys nei užduotyje: sava demo kopija `demo-projektas`. Pirma naršyklėje parodykite **Use this template** ir **Public**. Klonavimo adresas: HTTPS, kaip `gh auth login`. Po klonavimo `git remote -v` turi rodyti jūsų vardą. Paskelbkite 1 užduotį.
+Pastaba: ~5 min. Kitas pavyzdys nei užduotyje: sava demo kopija `demo-projektas`. Pirma naršyklėje parodykite **Use this template** ir **Public**. Klonavimo adresas: HTTPS, kaip `gh auth login`. Po klonavimo `git remote -v` turi rodyti jūsų vardą (`origin`, `fetch`/`push`); paaiškinkite, kad `clone` pats nustato `origin`, o `remote -v` tik parodo, kur eis `push`. Paskelbkite 1 užduotį.
 
 === tekstas | Komanda, parametrai, argumentai
 @plokštelės

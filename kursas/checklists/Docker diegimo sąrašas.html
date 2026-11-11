@@ -1,0 +1,303 @@
+<title>Docker diegimo sąrašas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: single reading column, checklist cards per phase, terminal-style command chips */
+:root {
+  --bg: #f6f7f5;
+  --surface: #ffffff;
+  --fg: #1b1f1d;
+  --muted: #5d6662;
+  --line: #dde2df;
+  --accent: #c2410c;
+  --term-bg: #1d2321;
+  --term-fg: #e6ece9;
+  --term-prompt: #7fd18b;
+  --ok: #15803d;
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131715; --surface: #1b201e; --fg: #e8ece9; --muted: #9aa5a0; --line: #2c3431;
+    --accent: #fb923c; --term-bg: #0c0f0e; --term-fg: #e6ece9; --term-prompt: #7fd18b; --ok: #4ade80;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131715; --surface: #1b201e; --fg: #e8ece9; --muted: #9aa5a0; --line: #2c3431;
+  --accent: #fb923c; --term-bg: #0c0f0e; --term-fg: #e6ece9; --term-prompt: #7fd18b; --ok: #4ade80;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 32px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 28px; }
+header { display: flex; flex-direction: column; gap: 10px; }
+.eyebrow { font-family: var(--font-mono); font-size: 13px; color: var(--accent); letter-spacing: .04em; }
+h1 { font-family: var(--font-display); font-size: clamp(28px, 6vw, 40px); line-height: 1.1; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--font-display); font-size: 22px; margin: 0; text-wrap: balance; }
+.lede { margin: 0; color: var(--muted); max-width: 62ch; }
+.progress { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar { flex: 1; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.bar > span { display: block; height: 100%; width: 0; background: var(--ok); transition: width .25s; }
+button.reset { font: inherit; font-size: 13px; background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+section { display: flex; flex-direction: column; gap: 14px; }
+.phase-note { margin: 0; color: var(--muted); font-size: 15px; max-width: 65ch; }
+.phase-note code { font-family: var(--font-mono); font-size: .92em; background: var(--line); padding: 1px 5px; border-radius: 4px; }
+ol.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+li.step { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; grid-template-columns: 24px 1fr; gap: 12px; }
+li.step.done { opacity: .62; }
+li.step input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--ok); cursor: pointer; }
+.step-body { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.step-body label { font-weight: 600; cursor: pointer; }
+.step-body p { margin: 0; font-size: 15px; color: var(--muted); }
+.step-body p strong { color: var(--fg); }
+.step-body ul { margin: 0; padding-left: 20px; font-size: 15px; color: var(--muted); display: flex; flex-direction: column; gap: 3px; }
+.where { font-family: var(--font-mono); font-size: 12px; padding: 1px 6px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); margin-left: 6px; font-weight: 400; white-space: nowrap; }
+.cmd { display: flex; align-items: stretch; background: var(--term-bg); color: var(--term-fg); border-radius: 7px; overflow: hidden; }
+.cmd code { flex: 1; min-width: 0; font-family: var(--font-mono); font-size: 14px; padding: 9px 12px; overflow-x: auto; white-space: pre; }
+.cmd code::before { content: "$ "; color: var(--term-prompt); }
+.cmd.ps code::before { content: "PS> "; color: #8ab4f8; }
+.cmd button { font: inherit; font-size: 12px; background: transparent; color: var(--term-fg); border: 0; border-left: 1px solid #ffffff22; padding: 0 12px; cursor: pointer; }
+.cmd button:hover, .cmd button:focus-visible { background: #ffffff14; }
+.out { font-family: var(--font-mono); font-size: 13px; background: var(--bg); border: 1px dashed var(--line); border-radius: 7px; padding: 8px 12px; white-space: pre; overflow-x: auto; color: var(--muted); }
+.expect { font-size: 14px; }
+.expect code, p code, td code, li code { font-family: var(--font-mono); font-size: .92em; background: var(--line); padding: 1px 5px; border-radius: 4px; }
+.cycle { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 13px; }
+.cycle span { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 4px 9px; }
+.cycle i { font-style: normal; color: var(--accent); }
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+tr.group td { background: var(--bg); font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--fg); }
+tr:last-child td { border-bottom: 0; }
+td:first-child { white-space: nowrap; }
+td:first-child code { background: none; padding: 0; color: var(--accent); font-weight: 500; }
+.trouble { display: flex; flex-direction: column; gap: 10px; }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+summary { cursor: pointer; font-weight: 600; }
+details[open] summary { margin-bottom: 10px; }
+details .cmd { margin-top: 8px; }
+details p { margin: 0 0 6px; font-size: 15px; color: var(--muted); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .bar > span { transition: none; } }
+</style>
+
+<div class="wrap" lang="lt">
+  <header>
+    <div class="eyebrow">Windows 10/11 · WSL 2 · Docker Desktop</div>
+    <h1>Docker Desktop diegimas</h1>
+    <p class="lede">Įdiegsite Docker Desktop Windows kompiuteryje, prijungsite jį prie Ubuntu (WSL) ir paleisite pirmą konteinerį. Komandas vykdysite PowerShell ir Ubuntu languose. Žymės išsaugomos tik šioje naršyklėje.</p>
+    <div class="progress"><div class="bar"><span id="bar"></span></div><span id="count">0 / 0</span><button class="reset" id="reset" type="button">Išvalyti žymes</button></div>
+  </header>
+
+  <section>
+    <h2>1. Pasiruošimas</h2>
+    <p class="phase-note">Docker Desktop Windows sistemoje veikia per WSL 2. Jei WSL dar neįdiegtas, pirmiausia pereikite „WSL diegimo sąrašą“.</p>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="d-1"><div class="step-body">
+        <label for="d-1">Atidarykite PowerShell <span class="where">Start meniu</span></label>
+        <p>Start meniu įveskite <code>PowerShell</code> ir atidarykite <strong>Windows PowerShell</strong>.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-2"><div class="step-body">
+        <label for="d-2">Patikrinkite, ar Ubuntu veikia per WSL 2 <span class="where">PowerShell</span></label>
+        <div class="cmd ps"><code>wsl --list --verbose</code><button type="button">Kopijuoti</button></div>
+        <div class="out">  NAME      STATE           VERSION
+* Ubuntu    Running         2</div>
+        <p class="expect">Turi būti: eilutėje su <code>Ubuntu</code> stulpelyje <code>VERSION</code> yra <code>2</code>.</p>
+        <p>Jei rodo <code>1</code>, žr. „Jei kas nors nepavyksta“.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-3"><div class="step-body">
+        <label for="d-3">Atnaujinkite WSL <span class="where">PowerShell</span></label>
+        <div class="cmd ps"><code>wsl --update</code><button type="button">Kopijuoti</button></div>
+        <p>Docker Desktop reikalauja naujos WSL versijos. Jei jau naujausia, komanda tai pasakys.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-4"><div class="step-body">
+        <label for="d-4">Įsitikinkite, kad kompiuteryje įjungta virtualizacija <span class="where">Task Manager</span></label>
+        <p>Paspauskite <code>Ctrl + Shift + Esc</code>, atidarykite skirtuką <strong>Performance</strong> → <strong>CPU</strong>.</p>
+        <p class="expect">Turi būti: apačioje prie <code>Virtualization</code> parašyta <code>Enabled</code>.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>2. Docker Desktop įdiegimas</h2>
+    <p class="phase-note">Diegimo programą atsisiųskite tik iš oficialios svetainės.</p>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="d-5"><div class="step-body">
+        <label for="d-5">Atsisiųskite diegimo programą <span class="where">naršyklė</span></label>
+        <p>Atidarykite <code>docker.com/products/docker-desktop</code> ir spauskite <strong>Download for Windows</strong>. Pasirinkite <strong>AMD64</strong>, nebent kompiuteris turi ARM procesorių.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-6"><div class="step-body">
+        <label for="d-6">Paleiskite <code>Docker Desktop Installer.exe</code> <span class="where">Atsisiuntimai</span></label>
+        <p>Dukart spustelėkite atsisiųstą failą. Jei Windows klausia leidimo, spauskite <strong>Yes</strong>.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-7"><div class="step-body">
+        <label for="d-7">Palikite pažymėtą WSL 2 parinktį <span class="where">diegimo langas</span></label>
+        <p>Lange <strong>Configuration</strong> turi būti pažymėta <code>Use WSL 2 instead of Hyper-V (recommended)</code>. Spauskite <strong>Ok</strong> ir palaukite, kol diegimas baigsis.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-8"><div class="step-body">
+        <label for="d-8">Spauskite „Close and restart“ <span class="where">diegimo langas</span></label>
+        <p>Kompiuteris persikraus. <strong>Neuždarykite lango be perkrovimo</strong>: be jo Docker nepasileis.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>3. Pirmas paleidimas</h2>
+    <p class="phase-note">Po perkrovimo Docker Desktop paleidžiamas pats. Jei ne, atidarykite jį iš Start meniu.</p>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="d-9"><div class="step-body">
+        <label for="d-9">Sutikite su sąlygomis <span class="where">Docker Desktop</span></label>
+        <p>Lange <strong>Docker Subscription Service Agreement</strong> spauskite <strong>Accept</strong>.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-10"><div class="step-body">
+        <label for="d-10">Praleiskite prisijungimą <span class="where">Docker Desktop</span></label>
+        <p>Jei siūlo susikurti paskyrą ar prisijungti, spauskite <strong>Skip</strong> (arba <strong>Continue without signing in</strong>). Paskyros kursui nereikia.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-11"><div class="step-body">
+        <label for="d-11">Palaukite, kol Docker pasileis <span class="where">Docker Desktop</span></label>
+        <p class="expect">Turi būti: apatiniame kairiajame kampe ryškus žalias užrašas <code>Engine running</code>. Užduočių juostoje (šalia laikrodžio) matosi banginio ikona.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>4. Prijungimas prie Ubuntu (WSL)</h2>
+    <p class="phase-note">Kad <code>docker</code> komanda veiktų Ubuntu terminale, reikia įjungti integraciją.</p>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="d-12"><div class="step-body">
+        <label for="d-12">Atidarykite nustatymus <span class="where">Docker Desktop</span></label>
+        <p>Viršuje dešinėje spauskite krumpliaračio ikoną <strong>Settings</strong>.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-13"><div class="step-body">
+        <label for="d-13">Įjunkite Ubuntu integraciją <span class="where">Docker Desktop</span></label>
+        <p><strong>Resources</strong> → <strong>WSL integration</strong>. Įjunkite <code>Enable integration with my default WSL distro</code> ir jungiklį prie <code>Ubuntu</code>. Spauskite <strong>Apply &amp; restart</strong>.</p>
+        <p>Jei <strong>WSL integration</strong> skiltyje Ubuntu nematyti, žr. „Jei kas nors nepavyksta“.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>5. Patikrinimas</h2>
+    <p class="phase-note">Atidarykite Ubuntu (Start meniu → Ubuntu). Paleiskite kiekvieną komandą ir palyginkite rezultatą su laukiamu.</p>
+    <ol class="steps">
+      <li class="step"><input type="checkbox" id="d-14"><div class="step-body">
+        <label for="d-14">Patikrinkite Docker versiją <span class="where">Ubuntu</span></label>
+        <div class="cmd"><code>docker --version</code><button type="button">Kopijuoti</button></div>
+        <div class="out">Docker version 28.1.1, build 4eba377</div>
+        <p class="expect">Turi būti: eilutė, prasidedanti <code>Docker version</code>. Skaičiai gali skirtis.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-15"><div class="step-body">
+        <label for="d-15">Patikrinkite Docker Compose <span class="where">Ubuntu</span></label>
+        <div class="cmd"><code>docker compose version</code><button type="button">Kopijuoti</button></div>
+        <div class="out">Docker Compose version v2.35.1-desktop.1</div>
+        <p class="expect">Turi būti: eilutė su <code>Docker Compose version</code>.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-16"><div class="step-body">
+        <label for="d-16">Paleiskite pirmą konteinerį <span class="where">Ubuntu</span></label>
+        <div class="cmd"><code>docker run hello-world</code><button type="button">Kopijuoti</button></div>
+        <p>Pirmą kartą Docker atsisiunčia vaizdą (image), todėl užtruks kelias sekundes.</p>
+        <div class="out">Unable to find image 'hello-world:latest' locally
+...
+Hello from Docker!
+This message shows that your installation appears to be working correctly.</div>
+        <p class="expect">Turi būti: tekstas <code>Hello from Docker!</code>. Tai reiškia, kad Docker veikia.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-17"><div class="step-body">
+        <label for="d-17">Pažiūrėkite, ką sukūrė Docker <span class="where">Ubuntu</span></label>
+        <div class="cmd"><code>docker ps -a</code><button type="button">Kopijuoti</button></div>
+        <div class="out">CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                     NAMES
+3f2a1b9c8d7e   hello-world   "/hello"   10 seconds ago  Exited (0) 9 seconds ago   happy_name</div>
+        <p class="expect">Turi būti: viena eilutė su vaizdu <code>hello-world</code> ir būsena <code>Exited (0)</code>. Konteineris atliko darbą ir sustojo, tai normalu.</p>
+      </div></li>
+      <li class="step"><input type="checkbox" id="d-18"><div class="step-body">
+        <label for="d-18">Atidarykite Docker Desktop skiltį „Containers“ <span class="where">Docker Desktop</span></label>
+        <p>Kairiajame meniu spauskite <strong>Containers</strong>.</p>
+        <p class="expect">Turi būti: sąraše matosi tas pats <code>hello-world</code> konteineris su būsena <strong>Exited</strong>.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Visos komandos vienoje vietoje</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Komanda</th><th>Ką daro</th></tr></thead>
+      <tbody>
+        <tr class="group"><td colspan="2">PowerShell</td></tr>
+        <tr><td><code>wsl --list --verbose</code></td><td>Parodo Ubuntu būseną ir WSL versiją</td></tr>
+        <tr><td><code>wsl --update</code></td><td>Atnaujina WSL</td></tr>
+        <tr><td><code>wsl --set-version Ubuntu 2</code></td><td>Perjungia Ubuntu į WSL 2</td></tr>
+        <tr><td><code>wsl --shutdown</code></td><td>Sustabdo visus WSL langus (Docker integracijos perkrovimui)</td></tr>
+        <tr class="group"><td colspan="2">Ubuntu</td></tr>
+        <tr><td><code>docker --version</code></td><td>Parodo Docker versiją</td></tr>
+        <tr><td><code>docker compose version</code></td><td>Parodo Docker Compose versiją</td></tr>
+        <tr><td><code>docker run hello-world</code></td><td>Atsisiunčia ir paleidžia bandomąjį konteinerį</td></tr>
+        <tr><td><code>docker ps -a</code></td><td>Parodo visus konteinerius, ir sustojusius</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="trouble">
+    <h2>Jei kas nors nepavyksta</h2>
+    <details><summary>Docker Desktop nepasileidžia arba rašo, kad virtualizacija išjungta</summary>
+      <p>Kompiuterio BIOS/UEFI nustatymuose išjungta virtualizacija. Perkraukite kompiuterį, įeikite į BIOS (paprastai <code>F2</code>, <code>F10</code>, <code>Del</code> arba <code>Esc</code>) ir įjunkite <strong>Intel Virtualization Technology</strong> arba <strong>SVM Mode</strong> (AMD). Mokyklos kompiuteryje BIOS gali būti užrakintas, tada kreipkitės į dėstytoją.</p>
+    </details>
+    <details><summary>WSL needs updating / Docker Desktop requires a newer WSL kernel version</summary>
+      <p>Atnaujinkite WSL PowerShell lange, tada paleiskite Docker Desktop iš naujo.</p>
+      <div class="cmd ps"><code>wsl --update</code><button type="button">Kopijuoti</button></div>
+    </details>
+    <details><summary>Ubuntu VERSION stulpelyje yra 1</summary>
+      <p>Ubuntu veikia senesne WSL 1 versija. Perjunkite į WSL 2 ir palaukite, kol komanda baigs darbą.</p>
+      <div class="cmd ps"><code>wsl --set-version Ubuntu 2</code><button type="button">Kopijuoti</button></div>
+    </details>
+    <details><summary>The command 'docker' could not be found in this WSL 2 distro</summary>
+      <p>Neįjungta Ubuntu integracija. Grįžkite į 4 etapą: <strong>Settings → Resources → WSL integration</strong>, įjunkite <code>Ubuntu</code>, spauskite <strong>Apply &amp; restart</strong>. Tada uždarykite Ubuntu langą ir atidarykite iš naujo.</p>
+    </details>
+    <details><summary>Cannot connect to the Docker daemon at unix:///var/run/docker.sock</summary>
+      <p>Docker Desktop neveikia. Atidarykite jį iš Start meniu ir palaukite, kol apačioje pasirodys <code>Engine running</code>. Jei nepadeda, sustabdykite WSL ir bandykite dar kartą.</p>
+      <div class="cmd ps"><code>wsl --shutdown</code><button type="button">Kopijuoti</button></div>
+      <p>Po to paleiskite Docker Desktop, palaukite žalio <code>Engine running</code> ir atidarykite Ubuntu iš naujo.</p>
+    </details>
+    <details><summary>permission denied while trying to connect to the Docker daemon socket</summary>
+      <p>Ubuntu viduje greičiausiai įdiegtas atskiras Docker per <code>apt</code>. Su Docker Desktop jo nereikia. Pašalinkite jį, tada uždarykite ir vėl atidarykite Ubuntu.</p>
+      <div class="cmd"><code>sudo apt remove docker.io -y</code><button type="button">Kopijuoti</button></div>
+    </details>
+    <details><summary>Ubuntu nėra WSL integration sąraše</summary>
+      <p>Ubuntu turi būti įdiegtas ir bent kartą paleistas. Atidarykite Ubuntu iš Start meniu, tada Docker Desktop nustatymuose spauskite <strong>Refresh</strong> (arba perkraukite Docker Desktop).</p>
+    </details>
+  </section>
+</div>
+
+<script>
+(function () {
+  var KEY = "docker-checklist-v1";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll("li.step input[type=checkbox]"));
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+  function render() {
+    var done = 0;
+    boxes.forEach(function (b) { b.closest("li").classList.toggle("done", b.checked); if (b.checked) done++; });
+    document.getElementById("count").textContent = done + " / " + boxes.length;
+    document.getElementById("bar").style.width = (boxes.length ? done / boxes.length * 100 : 0) + "%";
+  }
+  function save() {
+    var s = {}; boxes.forEach(function (b) { if (b.checked) s[b.id] = 1; });
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {}
+  }
+  boxes.forEach(function (b) { b.checked = !!saved[b.id]; b.addEventListener("change", function () { render(); save(); }); });
+  document.getElementById("reset").addEventListener("click", function () { boxes.forEach(function (b) { b.checked = false; }); render(); save(); });
+  render();
+
+  document.querySelectorAll(".cmd button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var code = btn.parentNode.querySelector("code");
+      var text = code.textContent;
+      function ok() { btn.textContent = "Nukopijuota"; setTimeout(function () { btn.textContent = "Kopijuoti"; }, 1400); }
+      function fallback() { var r = document.createRange(); r.selectNodeContents(code); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Ctrl+C"; setTimeout(function () { btn.textContent = "Kopijuoti"; }, 1800); }
+      try { navigator.clipboard.writeText(text).then(ok, fallback); } catch (e) { fallback(); }
+    });
+  });
+})();
+</script>

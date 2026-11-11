@@ -24,8 +24,13 @@ Data: 2026-11-26 (ketvirtadienis)
 7. README ir `paleisti.sh` (~15 min)
    1. Geras README: ką daro projektas, kaip paleisti, kaip patikrinti, kaip nustatyti
    2. `paleisti.sh`: Python versijos patikra, `.venv`, paleidimas fone, laukimas `/health` 200, sustabdymas; kodėl viskas tai jau mokėjote (04 `if`/`for`, 05 `curl`, išėjimo kodas)
-8. Demonstracija: dėstytojas atlieka užduotis „paleidimas, `.env`, `paleisti.sh`“ su kitu projektu (mažas Flask failas iš kito aplanko) (~20 min)
-9. Kita paskaita: Atsiskaitymas 1 (testas ir praktika)
+8. Savo projektas kaip šablonas (~10 min)
+   1. Šablonas, fork ir clone: kuo skiriasi (žr. skyrių „Schemos“); šablonas sukuria naują repozitoriją be senos istorijos
+   2. GitHub: **Settings → General → Template repository**; atsiranda **Use this template**
+   3. Komandinė eilutė: `gh repo create <vardas> --public --template <savininkas>/<šablonas> --clone`
+   4. Kodėl tai naudinga: pradiniai failai (`Dockerfile`, workflow) vėliau kopijuojami vienu paspaudimu
+9. Demonstracija: dėstytojas atlieka užduotis „paleidimas, `.env`, `paleisti.sh`, šablonas“ su kitu projektu (mažas Flask failas iš kito aplanko) (~20 min)
+10. Kita paskaita: Atsiskaitymas 1 (testas ir praktika)
 
 ## Kur skiriasi (Mac / Ubuntu)
 
@@ -93,6 +98,16 @@ Užduotis skelbiu po vieną (Teams): pirma parodau gyvai, tada darote jūs. Daba
 8. Patikrinkite, kad commit'e nėra `.env` ar slaptažodžių.
 9. **Papildomai:** paleiskite `paleisti.sh` ir iš kito aplanko (`cd /tmp && ~/devops/devops-projektas/paleisti.sh`); jei neveikia, pataisykite.
 
+### 5️⃣ Savo šablonas
+
+1. **Tikslas:** Paversti savo projektą šablonu ir sukurti iš jo naują kopiją.
+2. Įsitikinkite, kad 4 užduoties PR sulietas, o `main` kompiuteryje atnaujintas (šablone turi būti `paleisti.sh`).
+3. GitHub'e savo `devops-projektas` nustatymuose įjunkite **Template repository** ir patikrinkite, ar atsirado mygtukas **Use this template**.
+4. Sukurkite iš savo šablono naują **Public** repozitoriją `projekto-kopija` ir nuklonuokite ją į `~/devops`.
+5. Naujoje kopijoje patikrinkite, kad `origin` rodo `projekto-kopija`, o istorijoje yra vienas commit'as.
+6. Naujoje kopijoje paleiskite `./paleisti.sh` (kodas 0).
+7. Naujoje kopijoje sukurkite `docs/sablonas.md`: vienu sakiniu paaiškinkite, kuo šablonas skiriasi nuo fork ir nuo clone; commit ir `git push` į `main` (šioje naujoje repozitorijoje apsaugos nėra).
+
 ## Komandos
 
 Žiūrėkite tik įstrigę. Numeriai atitinka užduoties žingsnius.
@@ -123,9 +138,17 @@ Užduotis skelbiu po vieną (Teams): pirma parodau gyvai, tada darote jūs. Daba
 5. `./paleisti.sh`, `echo $?`, `PORT=5002 ./paleisti.sh`; užimtas portas: kitame lange `python3 -m http.server 5003`, tada `PORT=5003 ./paleisti.sh`
 7. `git push -u origin pamoka-09`, GitHub'e **Compare & pull request**, sulieti, tada `git switch main` ir `git pull`
 
+## 5️⃣ Savo šablonas
+
+3. GitHub: `Settings → General → Template repository`
+4. `cd ~/devops`, `gh repo create projekto-kopija --public --template <vartotojas>/devops-projektas --clone` (arba naršyklėje **Use this template** ir `git clone`)
+5. `cd projekto-kopija`, `git remote -v`, `git log --oneline`
+6. `./paleisti.sh`, `echo $?`
+7. `git add docs/sablonas.md`, `git commit -m "..."`, `git push`
+
 ## Sprendimas (dėstytojui)
 
-Patikrinta: `paleisti.sh` paleistas macOS su tikru starteriu: sėkmė (`OK: /health atsakė 200`, kodas 0), kitas portas, užimtas portas (po 20 s kodas 1); `pytest` (3 praėjo); `.env` su `APP_COLOR=green` ir `APP_VERSION=1.2` pasirodė `/status`. Nepatikrinta: Ubuntu (WSL; `python3-venv`), pirmas paleidimas su lėtu `pip` (laukimas 20 s gali nepakakti, pip diegimas vyksta prieš laukimo ciklą). Išbandyti prieš pamoką.
+Patikrinta: `paleisti.sh` paleistas macOS su tikru starteriu: sėkmė (`OK: /health atsakė 200`, kodas 0), kitas portas, užimtas portas (po 20 s kodas 1); `pytest` (3 praėjo); `.env` su `APP_COLOR=green` ir `APP_VERSION=1.2` pasirodė `/status`. Nepatikrinta: **Template repository** nustatymas ir `gh repo create --template ... --clone` (užduotis 5), Ubuntu (WSL; `python3-venv`), pirmas paleidimas su lėtu `pip` (laukimas 20 s gali nepakakti, pip diegimas vyksta prieš laukimo ciklą). Išbandyti prieš pamoką.
 
 ### Kaip rodyti klasėje
 
@@ -147,6 +170,7 @@ Patikrinta: `paleisti.sh` paleistas macOS su tikru starteriu: sėkmė (`OK: /hea
 | `paleisti.sh` ir kodai | `paleisti.sh`; `docs/paleidimas.md` |
 | README skyrius „Paleidimas“ | `README.md` |
 | Sulietas PR | GitHub **Merged** |
+| Šablonas ir kopija | `projekto-kopija`: `git log --oneline` (1 commit), `docs/sablonas.md` |
 
 Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas yra tik atsiskaitymuose (vertinimas.md).
 
