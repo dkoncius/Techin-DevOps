@@ -97,31 +97,39 @@ Laiko juosta (~155 min be pertraukos, rezervas ~25 min). Kiekviena tema: skaidr�
 | 15 + 30 min | Užduotis 4: teisės ir skriptas |
 | 5 + 20 min | Užduotis 5: Pull Request |
 
-**Kaip naudoti.** Kiekviena dalis žemiau yra tos pačios komandos, kurios rodomos atitinkamoje skaidrėje (pavadinimas nurodytas), ta pačia tvarka. Galite rodyti arba iš skaidrių, arba iš šio failo: jie vienas kitą dubliuoja. Demonstracija vyksta viename terminalo lange, vienas po kito, be papildomo pasiruošimo.
+**Kaip naudoti.** Kiekviena dalis žemiau yra tos pačios komandos su aprašais, kurios rodomos atitinkamoje skaidrėje (pavadinimas nurodytas), ta pačia tvarka; dalis sugeneruota iš `skaidres/skaidres.md`. Galite rodyti arba iš skaidrių, arba iš šio failo: jie vienas kitą dubliuoja. Demonstracija vyksta viename terminalo lange, vienas po kito, be papildomo pasiruošimo.
 
 **1. (~5 min) 01 sprendimas.** Parodykite 01 `pamoka.md` skyrių „Pamokos eiga“ ir `uzduotys/N-uzduotis-sprendimas.md`: `devops-dokumentas.md` ir `git log --oneline --graph --all`. Mokiniai lygina su savo `git-bandymas`. Pasakykite: šiandien užduotys eina viena gija (pastabos → srautai → skriptas → PR).
 
 **2. Savo projektas (~5 min demonstracija, tada Užduotis 1 ~10 min).** Skaidrė „Savo projekto klonavimas“. Pirma naršyklėje: šablonas → **Use this template** → `demo-a`, **Public**. `<vartotojas>` pakeiskite savo GitHub vardu.
 
+*Skaidrė „Savo projekto klonavimas“*
+
 ```bash
-cd ~/devops
-git clone https://github.com/<vartotojas>/demo-a.git
-cd demo-a
+cd ~/devops                                           # į darbo aplanką
+git clone https://github.com/<vartotojas>/demo-a.git  # nusiklonuoja
+cd demo-a                                             # į klonuotą aplanką
 ```
 
 ```bash
-git remote -v
-ls
+git remote -v   # kur eis push
+ls              # failai
 ```
 
 ```bash
-git switch -c pamoka-02
-git branch
+git switch -c pamoka-02   # sukuria šaką ir persijungia
+git branch                # šakos, * yra esama
 ```
 
 Paskelbkite 1 užduotį. Dažna klaida: klonuojamas pats šablonas (`starter-template`); klonuojama į `/mnt/c` (WSL): perkelti į `~/devops`.
 
 **3. Navigacija ir failai (~10 min demonstracija, tada Užduotis 2 ~25 min).** Skaidrės „Komanda, parametrai, argumentai“, „Kur esu ir kas čia“, „Keliai“, „Failai ir aplankai“.
+
+*Skaidrė „Komanda, parametrai, argumentai“*
+
+- **Komanda**: Ką daryti: `ls`
+- **Parametras**: Kaip daryti: `-l`
+- **Argumentas**: Su kuo daryti: `a.txt`
 
 ```bash
 ls
@@ -135,46 +143,59 @@ ls -l
 ls -l a.txt
 ```
 
+- Kai neprisimenate: `man ls` (išeiti: `q`) arba `ls --help` (tik Ubuntu / WSL)
+
+*Skaidrė „Kur esu ir kas čia“*
+
 ```bash
-pwd
+pwd   # kur esu
 ```
 
 ```bash
-ls -la
+ls -la   # failai, įskaitant paslėptus
 ```
 
 ```bash
-cd ..
+cd ..   # viena pakopa aukštyn
 ```
 
 ```bash
-cd demo-a
+cd demo-a   # į aplanką
 ```
 
+- Tab užbaigia vardą, rodyklė aukštyn grąžina ankstesnę komandą
+
+*Skaidrė „Keliai: absoliutus ir santykinis“*
+
+| Žymėjimas | Reiškia |
+|---|---|
+| `/` | Šakninis aplankas |
+| `~` | Jūsų namų aplankas |
+| `.` | Šiuo metu esamas aplankas |
+| `..` | Aplankas viršuje |
+
 ```bash
-cd ~
-cd ~/devops/demo-a
-cd ..
-cd demo-a
+cd ~                  # į namų aplanką
+cd ~/devops/demo-a    # absoliutus kelias
+cd ..                 # viena pakopa aukštyn
+cd demo-a             # santykinis kelias
 ```
+
+*Skaidrė „Failai ir aplankai“*
+
+| Komanda | Ką daro |
+|---|---|
+| `mkdir -p KELIAS` | Sukuria aplanką (ir tarpinius) |
+| `touch FAILAS` | Sukuria tuščią failą |
+| `cp ŠALTINIS TIKSLAS` | Nukopijuoja failą |
+| `mv ŠALTINIS TIKSLAS` | Perkelia arba pervadina |
+| `ls -R APLANKAS` | Parodo aplankų medį |
 
 ```bash
 mkdir -p demo/vaisiai
-```
-
-```bash
 touch demo/vaisiai/obuolys.txt
-```
-
-```bash
 cp demo/vaisiai/obuolys.txt demo/vaisiai/kriause.txt
-```
-
-```bash
 mv demo/vaisiai/kriause.txt demo/slyva.txt
-```
-
-```bash
 ls -R demo
 ```
 
@@ -182,13 +203,20 @@ Paskelbkite 2 užduotį. Dažna klaida: tarpas aplanko varde be kabučių (`cd M
 
 **4. Srautai ir paieška (~10 min demonstracija, tada Užduotis 3 ~25 min).** Skaidrės „Srautai: vamzdis ir nukreipimas“, „Ką parodys failas?“ (leiskite spėlioti prieš paleisdami).
 
+*Skaidrė „Srautai: vamzdis ir nukreipimas“*
+
 ```bash
+# sukuria failą su keturiomis eilutėmis
 printf 'obuolys\nanasas\nslyva\nbanana\n' > vaisiai.txt
-cat vaisiai.txt
-sort vaisiai.txt > rusiuota.txt
-echo "slyva" >> vaisiai.txt
-cat vaisiai.txt | grep an
+cat vaisiai.txt                   # parodo turinį
+sort vaisiai.txt > rusiuota.txt   # surikiuotą įrašo į naują failą
+echo "slyva" >> vaisiai.txt       # prideda eilutę gale
+cat vaisiai.txt | grep an         # palieka eilutes su „an“
 ```
+
+- `grep` ieško tekste, `find . -name` randa failą pagal vardą
+
+*Skaidrė „Ką parodys failas?“*
 
 ```bash
 echo "a" > lapas.txt
@@ -197,38 +225,58 @@ echo "c" > lapas.txt
 cat lapas.txt
 ```
 
+- Tik `c`: `>` perrašo visą failą, o `>>` prideda gale
+
 Paskelbkite 3 užduotį. Dažna klaida: `>` perrašo failą, o `>>` prideda, mokiniai praranda turinį. `grep -rn` be `--exclude-dir` į rezultatą įtraukia `.git` ir paties rezultato failą.
 
 **5. (~15 min) Pertrauka.**
 
 **6. Teisės ir pirmas skriptas (~15 min demonstracija, tada Užduotis 4 ~30 min).** Skaidrės „Teisės: kas gali ką“ (lentelė pildoma balsu), „Pirmas skriptas“. Skriptas `labas.sh` kitoks nei mokinių `ataskaita.sh`.
 
+*Skaidrė „Teisės: kas gali ką“*
+
+| Sakinys | Reiškia |
+|---|---|
+| `-rw-r--r--` (644) | Savininkas skaito ir rašo, kiti tik skaito |
+| `-rwxr-xr-x` (755) | Visi gali vykdyti, savininkas ir keisti |
+| `-rw-------` (600) | Tik savininkas: tinka raktams ir `.env` |
+
+*Skaidrė „Pirmas skriptas“*
+
 ```bash
-echo '#!/usr/bin/env bash' > labas.sh
-echo 'echo "Labas, $(pwd)"' >> labas.sh
-./labas.sh
+echo '#!/usr/bin/env bash' > labas.sh     # pirma eilutė: kuo paleisti
+echo 'echo "Labas, $(pwd)"' >> labas.sh  # antra eilutė: ką daryti
+./labas.sh                                # paleidžia skriptą
+```
+
+```text
+-bash: ./labas.sh: Permission denied
 ```
 
 ```bash
-chmod +x labas.sh
-ls -l labas.sh
-./labas.sh
+chmod +x labas.sh   # leidžia vykdyti
+ls -l labas.sh      # rodo teises (atsirado x)
+./labas.sh          # dabar veikia
 ```
 
 Pirmas paleidimas turi parodyti `Permission denied` (zsh: `zsh: permission denied: ./labas.sh`). Paskelbkite 4 užduotį. Dažna klaida: `bash ataskaita.sh` veikia ir be `x`, o `./scripts/ataskaita.sh` ne. Skriptas paleistas ne projekto šaknyje, `app.py` nerandamas. Windows: CRLF (`bad interpreter`): kurti WSL redaktoriumi arba `.gitattributes` su `*.sh text eol=lf`.
 
 **7. Pull Request (~5 min demonstracija, tada Užduotis 5 ~20 min).** Skaidrė „Pull Request“; Pull Request sujungiamas naršyklėje (**Compare & pull request**, **Files changed**, **Merge pull request**).
 
-```bash
-git add .
-git commit -m "Demo: pirmas pakeitimas"
-git push -u origin pamoka-02
-```
+*Skaidrė „Pull Request“*
 
 ```bash
-git switch main
-git pull
-git branch -d pamoka-02
+git add .                                # paruošia pakeitimus
+git commit -m "Demo: pirmas pakeitimas"  # išsaugo juos
+git push -u origin pamoka-02             # išsiunčia šaką į GitHub
+```
+
+- Naršyklėje: **Compare & pull request** → pavadinimas → **Files changed** → **Merge pull request**
+
+```bash
+git switch main            # grįžta į main
+git pull                   # atsisiunčia sulietą pakeitimą
+git branch -d pamoka-02    # ištrina sulietą šaką
 ```
 
 Paskelbkite 5 užduotį. Dažna klaida: PR sulietas GitHub'e, bet `main` kompiuteryje neatnaujintas (`git pull`); `git branch -d` atsisako, jei `main` neatnaujintas.

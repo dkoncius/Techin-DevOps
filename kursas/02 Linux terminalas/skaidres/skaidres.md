@@ -26,17 +26,17 @@ Pastaba: ~3 min. Šablonas ir fork skiriasi: Use this template sukuria naują re
 
 === demonstracija | Savo projekto klonavimas
 ```bash
-cd ~/devops
-git clone https://github.com/<vartotojas>/demo-a.git
-cd demo-a
+cd ~/devops                                           # į darbo aplanką
+git clone https://github.com/<vartotojas>/demo-a.git  # nusiklonuoja
+cd demo-a                                             # į klonuotą aplanką
 ```
 ```bash+
-git remote -v
-ls
+git remote -v   # kur eis push
+ls              # failai
 ```
 ```bash+
-git switch -c pamoka-02
-git branch
+git switch -c pamoka-02   # sukuria šaką ir persijungia
+git branch                # šakos, * yra esama
 ```
 Pastaba: ~5 min. Kitas pavyzdys nei užduotyje: sava demo kopija `demo-a`. Pirma naršyklėje parodykite **Use this template** ir **Public**. Klonavimo adresas: HTTPS, kaip `gh auth login`. Po klonavimo `git remote -v` turi rodyti jūsų vardą (`origin`, `fetch`/`push`); paaiškinkite, kad `clone` pats nustato `origin`, o `remote -v` tik parodo, kur eis `push`. Paskelbkite 1 užduotį.
 
@@ -59,18 +59,17 @@ Pastaba: ~3 min. Jie tai jau moka, tik prisiminti. Principas: įrankiai keičias
 
 === komanda | Kur esu ir kas čia
 ```bash
-pwd
+pwd   # kur esu
 ```
 ```bash+
-ls -la
+ls -la   # failai, įskaitant paslėptus
 ```
 ```bash+
-cd ..
+cd ..   # viena pakopa aukštyn
 ```
 ```bash+
-cd demo-a
+cd demo-a   # į aplanką
 ```
-+ `pwd` kur esu, `ls -la` ką matau (įskaitant paslėptus failus), `cd` judėti
 + Tab užbaigia vardą, rodyklė aukštyn grąžina ankstesnę komandą
 Pastaba: ~4 min. Parodykite Tab ir `Ctrl+R` (ieškoti istorijoje). Mac ir WSL elgiasi vienodai.
 
@@ -82,32 +81,39 @@ Pastaba: ~4 min. Parodykite Tab ir `Ctrl+R` (ieškoti istorijoje). Mac ir WSL el
 | `.` | ?Šiuo metu esamas aplankas |
 | `..` | ?Aplankas viršuje |
 ```bash+
-cd ~
-cd ~/devops/demo-a
-cd ..
-cd demo-a
+cd ~                  # į namų aplanką
+cd ~/devops/demo-a    # absoliutus kelias
+cd ..                 # viena pakopa aukštyn
+cd demo-a             # santykinis kelias
 ```
 Pastaba: ~3 min. Pildykite kartu: klauskite, ką reiškia `~`, paskui paspauskite. Santykinis kelias priklauso nuo to, kur esate, absoliutus (nuo `/` arba `~`) visada tas pats. Dažna klaida: tarpas aplanko varde be kabučių (`cd Mano aplankas`).
 
 === demonstracija | Failai ir aplankai
 | Komanda | Ką daro |
 |---|---|
-| `mkdir -p demo/vaisiai` | ?Sukuria aplanką (ir tarpinius) |
-| `touch demo/vaisiai/obuolys.txt` | ?Sukuria tuščią failą |
-| `cp demo/vaisiai/obuolys.txt demo/vaisiai/kriause.txt` | ?Nukopijuoja failą |
-| `mv demo/vaisiai/kriause.txt demo/slyva.txt` | ?Perkelia arba pervadina |
-| `ls -R demo` | ?Parodo aplankų medį |
-+ Šiame kurse nenaudojame `rm -rf`: pirma kopijuokite, o ne trinkite
-Pastaba: ~8 min su demonstracija aplanke `demo` (kiti failų vardai nei užduotyje: ten `docs/pastabos`, `komandos.txt`). Kodėl nekeliame `rm -rf`: ištrintas failas nepatenka į šiukšlinę. Paskelbkite 2 užduotį.
+| `mkdir -p KELIAS` | ?Sukuria aplanką (ir tarpinius) |
+| `touch FAILAS` | ?Sukuria tuščią failą |
+| `cp ŠALTINIS TIKSLAS` | ?Nukopijuoja failą |
+| `mv ŠALTINIS TIKSLAS` | ?Perkelia arba pervadina |
+| `ls -R APLANKAS` | ?Parodo aplankų medį |
+```bash+
+mkdir -p demo/vaisiai
+touch demo/vaisiai/obuolys.txt
+cp demo/vaisiai/obuolys.txt demo/vaisiai/kriause.txt
+mv demo/vaisiai/kriause.txt demo/slyva.txt
+ls -R demo
+```
+Pastaba: ~8 min su demonstracija aplanke `demo` (kiti failų vardai nei užduotyje: ten `docs/pastabos`, `komandos.txt`). Pasakykite: šiame kurse nenaudojame `rm -rf`, pirma kopijuokite, o ne trinkite. Kodėl nekeliame `rm -rf`: ištrintas failas nepatenka į šiukšlinę. Paskelbkite 2 užduotį.
 
 === tekstas | Srautai: vamzdis ir nukreipimas
 >>+ vaisiai.txt | sort | rusiuota.txt
 ```bash
+# sukuria failą su keturiomis eilutėmis
 printf 'obuolys\nanasas\nslyva\nbanana\n' > vaisiai.txt
-cat vaisiai.txt
-sort vaisiai.txt > rusiuota.txt
-echo "slyva" >> vaisiai.txt
-cat vaisiai.txt | grep an
+cat vaisiai.txt                   # parodo turinį
+sort vaisiai.txt > rusiuota.txt   # surikiuotą įrašo į naują failą
+echo "slyva" >> vaisiai.txt       # prideda eilutę gale
+cat vaisiai.txt | grep an         # palieka eilutes su „an“
 ```
 > Kaip vamzdis: viena komanda daro vieną darbą, o `|` perduoda rezultatą kitai.
 + `grep` ieško tekste, `find . -name` randa failą pagal vardą
@@ -134,32 +140,32 @@ Pastaba: ~7 min. Pildykite kartu. Pirmas simbolis `-` failas, `d` aplankas; toli
 
 === komanda | Pirmas skriptas
 ```bash
-echo '#!/usr/bin/env bash' > labas.sh
-echo 'echo "Labas, $(pwd)"' >> labas.sh
-./labas.sh
+echo '#!/usr/bin/env bash' > labas.sh     # pirma eilutė: kuo paleisti
+echo 'echo "Labas, $(pwd)"' >> labas.sh  # antra eilutė: ką daryti
+./labas.sh                                # paleidžia skriptą
 ```
 ```output+
 -bash: ./labas.sh: Permission denied
 ```
 ```bash+
-chmod +x labas.sh
-ls -l labas.sh
-./labas.sh
+chmod +x labas.sh   # leidžia vykdyti
+ls -l labas.sh      # rodo teises (atsirado x)
+./labas.sh          # dabar veikia
 ```
 > Kaip raktas nuo kabineto: failas yra, bet be teisės jo nepaleisite.
 Pastaba: ~8 min. Pavyzdys `labas.sh` (kitas nei mokinių `ataskaita.sh`, kuris automatizuoja jų ranka darytus žingsnius). Išvestis pavyzdinė (zsh rodo `zsh: permission denied: ./labas.sh`). Pirma eilutė `#!/usr/bin/env bash` pasako, kuo skriptą paleisti. Dažna klaida: `bash labas.sh` veikia ir be `x`, o `./labas.sh` ne. Windows: CRLF (`bad interpreter`): kurti WSL redaktoriumi. Paskelbkite 4 užduotį.
 
 === demonstracija | Pull Request
 ```bash
-git add .
-git commit -m "Demo: pirmas pakeitimas"
-git push -u origin pamoka-02
+git add .                                # paruošia pakeitimus
+git commit -m "Demo: pirmas pakeitimas"  # išsaugo juos
+git push -u origin pamoka-02             # išsiunčia šaką į GitHub
 ```
 + Naršyklėje: **Compare & pull request** → pavadinimas → **Files changed** → **Merge pull request**
 ```bash+
-git switch main
-git pull
-git branch -d pamoka-02
+git switch main            # grįžta į main
+git pull                   # atsisiunčia sulietą pakeitimą
+git branch -d pamoka-02    # ištrina sulietą šaką
 ```
 Pastaba: ~5 min. Rodykite `demo-a`. Principas: darbas per šaką ir PR, o ne tiesiai į `main`: kitas žmogus gali peržiūrėti, `main` lieka veikiantis. Dažna klaida: PR sulietas GitHub'e, bet `main` kompiuteryje neatnaujintas (`git pull`); `git branch -d` atsisako. Paskelbkite 5 užduotį.
 
