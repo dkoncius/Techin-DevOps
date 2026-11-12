@@ -193,11 +193,12 @@ Kiekvienas atsiskaitymas: teorijos testas (30 klausimų, 35 min.) ir praktika (u
 - Atsiskaitymų (1–6 ir baigiamojo projekto 7) **praktinių dalių** įvertinimai visų modulių ir dėstytojų kaupiami ir į egzamino praktiką atsinešami kaip **40 %** jos įvertinimo (visi 10 → 4 balai). Egzaminą vis tiek būtina laikyti.
 - Baigiamasis projektas yra praktinis atsiskaitymas, ne egzamino dalis.
 - Atsiskaitymų **teorijos** dalis vertinama pažymiu, bet į egzaminą nenešama (Techin tekste nurodyta tik praktika).
-- Atviras: tikslus balų svoris ir kaip kaupiama (vidurkis ar svertinis), ir ar pažymys už atsiskaitymo teoriją įeina į kurso pažymį. Klausti Ivetos.
+- Justina 2026-11-12: praktinių darbų įvertinimai skaičiuojami **paprastu vidurkiu**, baigiamasis projektas didesnio svorio neturi. Pažymiai du: už teoriją ir už praktiką (atskirai).
+- Atviras: galutinis kurso pažymys (visi mokslo metai ar vienas modulis) ir ar atsiskaitymų teorija įeina į jį. Justina siūlo susiskambinti ir parodyti pažymių lentelę; pirma suderinti žodyną.
 
-**Egzaminai (Techin, 2026-11-10; kontaktas Iveta, IT skyriaus vadybininkė):**
+**Egzaminai (Techin, 2026-11-10; kontaktas Justina, IT skyriaus vadybininkė):**
 - Teorija: 80–100 klausimų iš visų modulių, 2 val., kompiuteriu specialioje sistemoje, niekuo naudotis negalima, rezultatas iš karto. Reikia ≥ 50 %, kad būtų leista laikyti praktiką.
-- Praktika: 3–4 val., kompiuteriu, mokyklos kompiuteriai ir patalpos, po kelių dienų nuo teorijos. Aplinkos rekomendacijas duos iš anksto. Ar leidžiama naudotis savo darbais, neaišku (programuotojams leidžiama).
+- Praktika: 3–4 val., kompiuteriu, mokyklos kompiuteriai ir patalpos, po kelių dienų nuo teorijos. Aplinką iš anksto įdiegia IT pagal dėstytojo programų sąrašą (`medziaga/egzamino-programu-sarasas.md`); po teorijos egzamino galima nueiti į praktikos klasę ir pasitikrinti. Egzamine galima naudotis GitHub ir ten sukeltais darbais (Justina 2026-11-12: programuotojams leidžiama, DevOps dar tiksliai nežino, bet savo užduotimis galės). Egzamino užduotis rengia speciali įstaiga; praktikos pavyzdį galima gauti nuo mėnesio iki kelių dienų prieš egzaminą.
 - Datos skelbiamos 2027 sausį, tikėtina birželio 15–25.
 - Komisija: išorės vertintojas + 2 TECHIN dėstytojai. Pagrindinis dėstytojas egzamine dalyvauti negali.
 - Perlaikymas: prašymas, nauja data po 1–3 mėn. Neatvykus reikia oficialaus dokumento ir svarbios priežasties.
@@ -258,7 +259,7 @@ Dėstytojas paskelbia repo `devops-projektas` kaip GitHub template **iki 01 pask
 1. **Tvarkaraštis po 2027-01-01.** Žinomas tik iki sausio 1 d. ir vasario DB modulis.
 2. **Pavasario atostogos, STVA savaitės ir birželio konsultacijos** paimtos iš Excel plano ir nepatikrintos. Nuo jų priklauso, ar yra laisvų paskaitų.
 3. **Linux paskaitos 02–06.** Edgaras mokė OS (2026-09-07 – 10-02). Patikrinti jo programą ir diagnostiniu testu nustatyti, kiek kartoti.
-4. **Vertinimas.** Iš dalies išspręsta (žr. 6 skyrių: 40 % egzamino praktikos iš atsiskaitymų). Neaišku, koks kurso pažymys ir kaip kaupiama.
+4. **Vertinimas.** Iš dalies išspręsta (žr. 6 skyrių: 40 % egzamino praktikos iš atsiskaitymų). Kaupiama paprastu vidurkiu (Justina 2026-11-12); neaišku tik galutinis kurso pažymys.
 5. **Azure kreditai.** Pagal užrašus baigiasi apie 2026-12-06, o Azure pradedamas 2027-04-19. Reikia naujų kreditų ar mokyklos laiško.
 6. **Pradinis repo.** Template `devops-projektas` reikalingas jau 2026-11-11 (bent kad susikurtų ir klonuotųsi), pilnai veikiantis iki 2026-11-26.
 7. **Kubernetes etapas pertrauktas DB moduliu.** Po pertraukos pirmą paskaitą skirti kartojimui.
@@ -266,7 +267,7 @@ Dėstytojas paskelbia repo `devops-projektas` kaip GitHub template **iki 01 pask
 9. **Mokinių sistemos.** Ar visi turi Bash (Linux, Git Bash ar WSL)? Nuo to priklauso komandų pamokose.
 10. **Viešas repo.** Ar reikia viešo `devops-kursas` (aplinkos `README.md`), jei užduotys eina per Teams.
 11. **Privatumas.** Repo `Techin DevOps` turi būti privatus prieš bet kurį `git push`.
-12. **Egzaminas.** Išspręsta 2026-11-10: gynimas (80) yra atsiskaitymas, ne egzamino dalis. Laukiama tik tikslių datų (2027 sausis) ir atsakymo, ar praktikoje leidžiami savo darbai bei kokia aplinka.
+12. **Egzaminas.** Išspręsta 2026-11-10: gynimas (80) yra atsiskaitymas, ne egzamino dalis. Justina 2026-11-12: GitHub ir savo darbai galimi; aplinką įdiegs IT pagal programų sąrašą (`medziaga/egzamino-programu-sarasas.md`, reikia išsiųsti). Laukiama tik tikslių datų (2027 sausis).
 
 ## 12. Pamokos formatas (trumpai)
 

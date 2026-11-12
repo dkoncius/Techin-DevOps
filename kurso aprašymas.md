@@ -124,7 +124,7 @@ Kiekvienas atsiskaitymas: teorijos testas (30 klausimų, 35 min.) ir praktika (~
 | 6 | 2027-05-06 | Azure, infrastruktūra kodu, AKS |
 | 7 | 2027-05-27 | Baigiamojo projekto gynimas |
 
-Pirmų dviejų datos patvirtintos, kitos orientacinės. Atsiskaitymų praktikos įvertinimai kaupiami ir sudaro 40 % egzamino praktikos įvertinimo (žr. žemiau).
+Pirmų dviejų datos patvirtintos, kitos orientacinės. Atsiskaitymų praktikos įvertinimai skaičiuojami paprastu vidurkiu ir sudaro 40 % egzamino praktikos įvertinimo (žr. žemiau).
 
 ## Baigiamasis projektas
 
@@ -141,9 +141,9 @@ Kurso pabaigoje laikomi du egzaminai (tikėtina birželio 15–25 d., datas moky
 1. **Teorijos egzaminas.** 80–100 klausimų iš visų modulių, 2 val., kompiuteriu, niekuo naudotis negalima. Rezultatas iškart.
 2. **Praktikos egzaminas.** 3–4 val., mokyklos kompiuteriais. Jį laikyti galite tik jei teorijos egzamine surinkote **50 % ar daugiau**. Neišlaikius teorijos, rašomas prašymas perlaikymui (nauja data po 1–3 mėn.).
 
-Kurso eigoje surinkti **praktinių atsiskaitymų** įvertinimai sudaro 40 % egzamino praktikos įvertinimo (visi atsiskaitymai 10 → 4 balai). Egzaminą vis tiek reikia laikyti. Baigiamasis projektas yra praktinis atsiskaitymas.
+Kurso eigoje surinkti **praktinių atsiskaitymų** įvertinimai sudaro 40 % egzamino praktikos įvertinimo (visi atsiskaitymai 10 → 4 balai). Egzaminą vis tiek reikia laikyti. Baigiamasis projektas yra praktinis atsiskaitymas ir didesnio svorio neturi. Pažymiai du: už teoriją ir už praktiką.
 
-Egzaminų uždavinių nerašo dėstytojas, pavyzdžių nėra. Komisijoje: išorės vertintojas ir du TECHIN dėstytojai. Pasiruošti padeda atsiskaitymai kurso eigoje ir kartojimo pamoka (79). Klausimus apie egzaminų organizavimą spręskite su IT skyriaus vadybininke Iveta.
+Praktikos egzamine galima naudotis savo darbais, sukeltais į GitHub, todėl užduotis ir sprendimus laikykite savo GitHub paskyroje. Egzaminų uždavinių nerašo dėstytojas; praktikos pavyzdį mokykla gali duoti likus nuo mėnesio iki kelių dienų. Komisijoje: išorės vertintojas ir du TECHIN dėstytojai. Pasiruošti padeda atsiskaitymai kurso eigoje ir kartojimo pamoka (79). Klausimus apie egzaminų organizavimą spręskite su IT skyriaus vadybininke Justina.
 
 ## Ką žinoti dar
 
