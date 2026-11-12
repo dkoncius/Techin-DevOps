@@ -17,8 +17,8 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 **Antra dalis: dokumentas main šakoje**
 
 1. Sukurkite failą `devops-dokumentas.md` ir atidarykite jį iš terminalo redaktoriuje. Markdown rezultatą galite pasižiūrėti [markdownlivepreview.com](https://markdownlivepreview.com).
-2. Įrašykite pirmo lygio antraštę `# Kas yra DevOps` ir po ja 3–4 sakinius savais žodžiais, kas yra DevOps.
-3. Pridėkite antro lygio antraštę `## Kur gali lūžti` ir po ja numeruotą sąrašą (`1.`, `2.`): 2 vietos, kur grandinė gali lūžti, kiekviena su vienu sakiniu kodėl.
+2. Įrašykite pirmo lygio antraštę `# Kas yra DevOps` ir po ja 3–4 sakinius savais žodžiais, kas yra DevOps (pavyzdys apačioje).
+3. Pridėkite antro lygio antraštę `## Kur gali lūžti` ir po ja numeruotą sąrašą (`1.`, `2.`): 2 vietos, kur grandinė gali lūžti, kiekviena su vienu sakiniu kodėl (pavyzdys apačioje).
 4. Pridėkite failą į Git.
 5. Padarykite commit su žinute „Pridėta, kur gali lūžti“.
 6. Nusiųskite į GitHub.
@@ -27,7 +27,7 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 **Trečia dalis: šaka skyriai**
 
 1. Sukurkite šaką `skyriai` ir persijunkite į ją.
-2. Atidarykite dokumentą iš terminalo redaktoriuje ir papildykite jį skyriumi `## Kodėl DevOps`: 2 sakiniai, kuo DevOps naudingas komandai.
+2. Atidarykite dokumentą iš terminalo redaktoriuje ir papildykite jį skyriumi `## Kodėl DevOps`: 2 sakiniai, kuo DevOps naudingas komandai (pavyzdys apačioje).
 3. Padarykite commit su žinute „Pridėta, kodėl DevOps“.
 4. Nusiųskite šaką `skyriai` į GitHub.
 5. Pažiūrėkite šakas GitHub repozitorijoje: turi būti `main` ir `skyriai`.
@@ -51,9 +51,9 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 5. Patikrinkite, kad dokumente ir repozitorijoje nėra slaptažodžių ar realių IP.
 6. **Papildomai:** pažaiskite [Learn Git Branching](https://learngitbranching.js.org/) pirmą lygių grupę arba parašykite dokumente, kas yra merge commit.
 
-**Markdown pavyzdys antrai daliai**
+**Markdown pavyzdys**
 
-Galite įklijuoti į `devops-dokumentas.md` ir pakeisti tekstą savais žodžiais:
+Dokumentas turi tris skyrius. Galite įklijuoti pavyzdį ir pakeisti tekstą savais žodžiais, bet kiekvieną skyrių pridėkite toje dalyje, kurioje jis minimas:
 
 ```markdown
 # Kas yra DevOps
@@ -64,4 +64,8 @@ DevOps yra būdas, kaip kūrėjai ir sistemų administratoriai dirba kartu, kad 
 
 1. Testai: jei jų nėra, klaida pasiekia vartotoją.
 2. Diegimas: ranka diegiant, galima pamiršti žingsnį ir serveris veiks kitaip nei kompiuteryje.
+
+## Kodėl DevOps
+
+DevOps leidžia komandai išleisti pakeitimus greičiau ir su mažesne rizika, nes daug žingsnių atlieka automatika. Klaidas randame anksti, o ne pas vartotoją.
 ```
