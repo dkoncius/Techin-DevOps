@@ -34,6 +34,8 @@ gh api repos/{owner}/{repo}/contents --jq '.[].name'
 gh api repos/{owner}/{repo}/commits --jq '.[].commit.message'
 ```
 
+Jei iš karto po pirmo `push` `gh api` grąžina 404 („No commit found for the ref“), palaukite kelias sekundes ir pakartokite: GitHub dar neatnaujino duomenų.
+
 13–16. Tolesnis darbas:
 
 ```bash
