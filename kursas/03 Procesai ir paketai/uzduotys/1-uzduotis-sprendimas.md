@@ -1,6 +1,6 @@
 # 1 užduotis, sprendimas (dėstytojui): Procesai
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
+Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–2. Nauja šaka:
 
@@ -27,7 +27,7 @@ Trečia dalis, 1–3. Užrašai ir commit:
 
 ```bash
 mkdir -p docs
-code docs/procesai.md
+nano docs/procesai.md
 ```
 
 Failo `docs/procesai.md` turinys (įrašykite ir išsaugokite):

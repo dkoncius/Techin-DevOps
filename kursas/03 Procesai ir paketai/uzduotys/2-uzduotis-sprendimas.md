@@ -1,12 +1,12 @@
 # 2 užduotis, sprendimas (dėstytojui): Aplinkos kintamasis skripte
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`2-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
+Numeriai: dalis ir žingsnis kaip užduotyje (`2-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–2. Skriptas:
 
 ```bash
 mkdir -p scripts
-code scripts/aplinka.sh
+nano scripts/aplinka.sh
 ```
 
 Failo `scripts/aplinka.sh` turinys (įrašykite ir išsaugokite):

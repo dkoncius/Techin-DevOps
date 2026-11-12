@@ -1,13 +1,13 @@
 # 4 užduotis, sprendimas (dėstytojui): Teisės ir pirmas skriptas
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`4-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
+Numeriai: dalis ir žingsnis kaip užduotyje (`4-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį. Failus redaktoriuje atidarome iš terminalo: `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–2. Skriptas:
 
 ```bash
 cd ~/devops/devops-projektas
 mkdir scripts
-code scripts/ataskaita.sh
+nano scripts/ataskaita.sh
 ```
 
 Failo `scripts/ataskaita.sh` turinys (įrašykite ir išsaugokite):

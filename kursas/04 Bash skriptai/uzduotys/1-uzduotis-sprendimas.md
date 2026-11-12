@@ -1,6 +1,6 @@
 # 1 užduotis, sprendimas (dėstytojui): Argumentas ir sąlyga
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
+Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–2. Šaka:
 
@@ -15,7 +15,7 @@ Pirma dalis, 3–7. Skriptas (1 versija):
 
 ```bash
 mkdir -p scripts
-code scripts/patikra.sh
+nano scripts/patikra.sh
 ```
 
 Failo `scripts/patikra.sh` turinys (įrašykite ir išsaugokite):
@@ -55,7 +55,7 @@ Trečia dalis, 1–2. Užrašai ir commit:
 
 ```bash
 mkdir -p docs
-code docs/bash.md
+nano docs/bash.md
 ```
 
 Failo `docs/bash.md` turinys (įrašykite ir išsaugokite):

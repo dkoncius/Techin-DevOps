@@ -223,6 +223,17 @@ git push origin --delete bugFix
 ```
 Pastaba: ~4 min. Tas pats, ką darėme su `demo-a`, dabar `demo-c` aplanke, tik šį kartą šaka ir jos trynimas matomi ir GitHub'e. Taip matyti, kad tolesnis darbas vyksta kompiuteryje, o `push` tik nusiunčia rezultatą.
 
+=== demonstracija | Failų kūrimas ir redagavimas terminale
+| Komanda | Ką daro |
+|---|---|
+| `nano FAILAS` | ?terminalo redaktorius: atidaro esamą failą (jei failo nėra, sukuria išsaugojus) |
+| `Ctrl+O`, `Enter` | ?išsaugoti (vardas jau įrašytas, tik patvirtinkite) |
+| `Ctrl+X` | ?išeiti (jei klausia „Save?“: `Y`, tada `Enter`) |
+```bash+
+nano pavyzdys.md
+```
+Pastaba: ~5 min. Rodoma prieš dažnas klaidas ir 3 užduotį, nes joje pirmą kartą rašoma failas terminale: `nano pavyzdys.md`, įrašyti `# Pavyzdys`, `Control+O`, `Enter`, `Control+X`. Visada rašykite failo vardą (`nano FAILAS`), kitaip `Control+O` klaus „File Name to write“ (įrašykite vardą ir `Enter`, `Control+C` atšaukia). Išsaugojus `Control+X` išeina į terminalą; jei klausia „Save modified buffer?“, spauskite `Y` ir `Enter` (arba `N`, jei nenorite išsaugoti). Esamo failo redagavimas: rodyklės juda po tekstą (pele žymeklio perkelti negalima), tekstas įterpiamas ten, kur žymeklis; `Control+K` iškerpa eilutę, `Control+U` įklijuoja, `Control+A`/`Control+E` žymeklis į eilutės pradžią/pabaigą, `Control+W` paieška. Mac'e vietoj `Ctrl` spaudžiama Control (ne Cmd). Mac'e `nano` yra Pico (`nano --version` rodo „UW PICO“): Cmd+Z ir atšaukimo ten nėra; Ubuntu/WSL `nano` atšaukia `Alt+U`, grąžina `Alt+E`. Išsaugojus patikrinkite `cat FAILAS`. Pavyzdžio failas kitas nei užduotyje (`devops-dokumentas.md`).
+
 === klaida | Dažnos klaidos
 +:: | Šaka `master` | Neįrašytas `init.defaultBranch`: `git branch -m main`
 +:: | Commit be `add` | „nothing added to commit“: pirma `git add`

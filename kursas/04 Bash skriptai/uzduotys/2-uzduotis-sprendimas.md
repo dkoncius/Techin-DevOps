@@ -1,11 +1,11 @@
 # 2 užduotis, sprendimas (dėstytojui): Ciklas per įrankius
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`2-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
+Numeriai: dalis ir žingsnis kaip užduotyje (`2-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–4. Skriptas (2 versija):
 
 ```bash
-code scripts/patikra.sh
+nano scripts/patikra.sh
 ```
 
 Failo `scripts/patikra.sh` turinys (įrašykite ir išsaugokite):
@@ -50,7 +50,7 @@ Laukiama kodai: 0, 1, 0.
 Trečia dalis, 1–2. Užrašai ir commit:
 
 ```bash
-code docs/bash.md
+nano docs/bash.md
 ```
 
 Pridėkite gale:

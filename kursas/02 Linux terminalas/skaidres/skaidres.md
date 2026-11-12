@@ -103,7 +103,7 @@ cp demo/vaisiai/obuolys.txt demo/vaisiai/kriause.txt
 mv demo/vaisiai/kriause.txt demo/slyva.txt
 ls -R demo
 ```
-Pastaba: ~8 min su demonstracija aplanke `demo` (kiti failų vardai nei užduotyje: ten `docs/pastabos`, `komandos.txt`). Parodykite, kaip failą atidaryti redaktoriuje iš terminalo (`code FAILAS`; jei neįdiegta, `nano FAILAS`: išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`): tai reikės rašant skriptus ir `.md`. Pasakykite: šiame kurse nenaudojame `rm -rf`, pirma kopijuokite, o ne trinkite. Kodėl nekeliame `rm -rf`: ištrintas failas nepatenka į šiukšlinę. Paskelbkite 2 užduotį.
+Pastaba: ~8 min su demonstracija aplanke `demo` (kiti failų vardai nei užduotyje: ten `docs/pastabos`, `komandos.txt`). Parodykite, kaip failą atidaryti redaktoriuje iš terminalo (`nano FAILAS`: išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`; Mac'e Control, ne Cmd): tai reikės rašant skriptus ir `.md`.md`. Pasakykite: šiame kurse nenaudojame `rm -rf`, pirma kopijuokite, o ne trinkite. Kodėl nekeliame `rm -rf`: ištrintas failas nepatenka į šiukšlinę. Paskelbkite 2 užduotį.
 
 === demonstracija | Commit: išsaugome darbą
 ```bash

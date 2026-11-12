@@ -47,7 +47,7 @@ description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paska
 
 ## Užduočių sprendimai (`uzduotys/N-uzduotis-sprendimas.md`)
 1. Antraštė `# N užduotis, sprendimas (dėstytojui): <Pavadinimas>`, eilutė, kad numeriai (dalis ir žingsnis) atitinka užduotį, ir pastaba, kad demonstracijoje naudojamas kitas pavyzdys.
-2. Failai, kuriuos mokiniai rašo ar papildo, atidaromi iš terminalo (`code FAILAS`, rezervas `nano FAILAS`) ir jų turinys pateikiamas atskirame bloke (ne `cat <<EOS`/`printf`); užduoties žingsnyje rašoma „atidarykite iš terminalo redaktoriuje“ be komandos. Žingsniai grupuojami pagal dalį ir žingsnius (`Pirma dalis, 1–4.`, `Antra dalis, 1–6.`), po jais kodo blokai ```bash su komandomis, kur reikia „Laukiama: ...“ ir „Dažna klaida: ...“. „Papildomai“ žingsniui pateikti pavyzdinį atsakymą ar komandas.
+2. Failai, kuriuos mokiniai rašo ar papildo, atidaromi iš terminalo (`nano FAILAS`: veikia Linux ir Mac, kitų redaktorių nenaudojame) ir jų turinys pateikiamas atskirame bloke (ne `cat <<EOS`/`printf`); užduoties žingsnyje rašoma „atidarykite iš terminalo redaktoriuje“ be komandos. Žingsniai grupuojami pagal dalį ir žingsnius (`Pirma dalis, 1–4.`, `Antra dalis, 1–6.`), po jais kodo blokai ```bash su komandomis, kur reikia „Laukiama: ...“ ir „Dažna klaida: ...“. „Papildomai“ žingsniui pateikti pavyzdinį atsakymą ar komandas.
 3. Komandos veikia Mac ir Ubuntu (WSL); be GNU-only parametrų (žr. „Windows ir Mac“). Naršyklės žingsniai aprašomi tekstu (kur yra `gh` alternatyva, nurodyti ją).
 4. Tik tikri rezultatai: kodo blokus PALEISK iš eilės švarioje aplinkoje (prireikus laikina nuotolinė repozitorija vietoj GitHub) ir tik tada rašyk „Patikrinta“. DRAUDŽIAMA nepatikrinti skriptai.
 

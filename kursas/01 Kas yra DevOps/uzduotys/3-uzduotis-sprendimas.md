@@ -1,6 +1,6 @@
 # 3 užduotis, sprendimas (dėstytojui): Nusiklonuokite savo repozitoriją
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`). Rodoma aplanke `devops`, tuo pačiu pavadinimu `git-bandymas` kaip studentų.
+Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Failus redaktoriuje atidarome iš terminalo: `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`). Rodoma aplanke `devops`, tuo pačiu pavadinimu `git-bandymas` kaip studentų.
 
 Pirma dalis, 1–7. Clone ir patikra:
 
@@ -17,8 +17,7 @@ git log --oneline
 Antra dalis, 1–7. Dokumentas (pavyzdinis tekstas žemiau):
 
 ```bash
-touch devops-dokumentas.md
-code devops-dokumentas.md
+nano devops-dokumentas.md
 ```
 
 Po išsaugojimo:
@@ -39,7 +38,7 @@ Trečia dalis, 1–7. Šaka `skyriai`:
 
 ```bash
 git switch -c skyriai
-code devops-dokumentas.md   # pridėti skyrių `## Kodėl DevOps`
+nano devops-dokumentas.md   # pridėti skyrių `## Kodėl DevOps`
 git commit -am "Pridėta, kodėl DevOps"
 git push -u origin skyriai
 git switch main
@@ -63,7 +62,7 @@ git push origin --delete skyriai
 git log --oneline --graph --all
 ```
 
-Penkta dalis, 1–4. `git branch --help` (ieškoti `-d` ir `-D`), parašyti skyrių `## Git` dokumente (`code devops-dokumentas.md`) ir:
+Penkta dalis, 1–4. `git branch --help` (ieškoti `-d` ir `-D`), parašyti skyrių `## Git` dokumente (`nano devops-dokumentas.md`) ir:
 
 ```bash
 git commit -am "Pridėta apie šakų trynimą"
@@ -74,7 +73,7 @@ Penkta dalis, 5. Patikra: `grep -rniE "password|slaptažod|[0-9]+\.[0-9]+\.[0-9]
 
 #### Pavyzdinis `devops-dokumentas.md`
 
-````markdown
+```markdown
 # Kas yra DevOps
 
 DevOps yra būdas, kaip kūrėjai ir sistemų administratoriai dirba kartu, kad programa greitai ir saugiai pasiektų vartotoją. Pagrindinė idėja: kuo daugiau žingsnių automatizuoti ir kuo dažniau išleisti mažus pakeitimus. Tai ne vienas įrankis, o darbo kultūra ir procesas.
@@ -87,8 +86,4 @@ DevOps yra būdas, kaip kūrėjai ir sistemų administratoriai dirba kartu, kad 
 ## Kodėl DevOps
 
 DevOps leidžia komandai išleisti pakeitimus greičiau ir su mažesne rizika, nes daug žingsnių atlieka automatika. Klaidas randame anksti, o ne pas vartotoją.
-
-## Git
-
-`git branch -d` ištrina šaką tik jei ji jau sujungta į dabartinę šaką, todėl nepaleistų pakeitimų neprarandame. `git branch -D` ištrina šaką priverstinai, net jei ji nesujungta, ir tada jos commit'ai gali dingti. Todėl įprastai naudojamas `-d`.
-````
+```

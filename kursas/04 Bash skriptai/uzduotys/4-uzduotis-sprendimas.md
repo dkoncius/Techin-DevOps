@@ -1,6 +1,6 @@
 # 4 užduotis, sprendimas (dėstytojui): Tikras skriptas, ignoravimas ir Pull Request
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`4-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
+Numeriai: dalis ir žingsnis kaip užduotyje (`4-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–4. `.env` ir `*.log`:
 
@@ -52,7 +52,7 @@ git push origin --delete pamoka-04
 Trečia dalis, 8. Papildomai:
 
 ```bash
-code scripts/dydis.sh
+nano scripts/dydis.sh
 ```
 
 Failo `scripts/dydis.sh` turinys (įrašykite ir išsaugokite):

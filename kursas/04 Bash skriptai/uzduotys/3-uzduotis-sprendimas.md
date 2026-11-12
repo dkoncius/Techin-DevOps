@@ -1,11 +1,11 @@
 # 3 užduotis, sprendimas (dėstytojui): Projekto failų patikra
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
+Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–3. Skriptas (galutinė versija):
 
 ```bash
-code scripts/patikra.sh
+nano scripts/patikra.sh
 ```
 
 Failo `scripts/patikra.sh` turinys (įrašykite ir išsaugokite):

@@ -26,8 +26,6 @@
 
 ## Pagalba ir failai
 - `git KOMANDA --help` → oficiali dokumentacija (pvz. `git branch --help`, išeiti `q`)
-- `touch FAILAS` → sukuria tuščią failą
-- `code FAILAS` → atidaro failą VS Code redaktoriuje (jei failo nėra, sukuria išsaugojus)
 - `nano FAILAS` → terminalo redaktorius (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`)
 
 ## Atšaukimas

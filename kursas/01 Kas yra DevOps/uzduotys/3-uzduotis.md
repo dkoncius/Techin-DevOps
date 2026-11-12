@@ -16,7 +16,7 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Antra dalis: dokumentas main šakoje**
 
-1. Sukurkite failą `devops-dokumentas.md` ir atidarykite jį iš terminalo redaktoriuje. Markdown rezultatą galite pasižiūrėti [markdownlivepreview.com](https://markdownlivepreview.com).
+1. Atidarykite iš terminalo redaktoriuje naują failą `devops-dokumentas.md`. Markdown rezultatą galite pasižiūrėti [markdownlivepreview.com](https://markdownlivepreview.com).
 2. Įrašykite pirmo lygio antraštę `# Kas yra DevOps` ir po ja 3–4 sakinius savais žodžiais, kas yra DevOps (pavyzdys apačioje).
 3. Pridėkite antro lygio antraštę `## Kur gali lūžti` ir po ja numeruotą sąrašą (`1.`, `2.`): 2 vietos, kur grandinė gali lūžti, kiekviena su vienu sakiniu kodėl (pavyzdys apačioje).
 4. Pridėkite failą į Git.
@@ -52,8 +52,6 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 6. **Papildomai:** pažaiskite [Learn Git Branching](https://learngitbranching.js.org/) pirmą lygių grupę arba parašykite dokumente, kas yra merge commit.
 
 **Markdown pavyzdys**
-
-Dokumentas turi tris skyrius. Galite įklijuoti pavyzdį ir pakeisti tekstą savais žodžiais, bet kiekvieną skyrių pridėkite toje dalyje, kurioje jis minimas:
 
 ```markdown
 # Kas yra DevOps

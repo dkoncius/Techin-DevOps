@@ -1,6 +1,6 @@
 # 3 užduotis, sprendimas (dėstytojui): Paketas
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
+Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–4. Diegimas (Mac ir Ubuntu/WSL):
 
@@ -31,7 +31,7 @@ Antra dalis, 2. Ar įdiegtas: Mac `brew list tree`; Ubuntu `dpkg -s tree` (arba 
 Trečia dalis, 1–2. Lentelė ir commit:
 
 ```bash
-code docs/procesai.md
+nano docs/procesai.md
 ```
 
 Pridėkite gale:
