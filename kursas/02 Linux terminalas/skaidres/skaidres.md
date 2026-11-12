@@ -89,24 +89,16 @@ cd demo-a
 ```
 Pastaba: ~3 min. Pildykite kartu: klauskite, ką reiškia `~`, paskui paspauskite. Santykinis kelias priklauso nuo to, kur esate, absoliutus (nuo `/` arba `~`) visada tas pats. Dažna klaida: tarpas aplanko varde be kabučių (`cd Mano aplankas`).
 
-=== komanda | Failai ir aplankai
-```bash
-mkdir -p demo/vaisiai
-touch demo/vaisiai/obuolys.txt
-cp demo/vaisiai/obuolys.txt demo/vaisiai/kriause.txt
-mv demo/vaisiai/kriause.txt demo/slyva.txt
-ls -R demo
-```
-```output+
-demo:
-slyva.txt   vaisiai
-
-demo/vaisiai:
-obuolys.txt
-```
-+ `cp` kopijuoja, `mv` perkelia arba pervadina
+=== demonstracija | Failai ir aplankai
+| Komanda | Ką daro |
+|---|---|
+| `mkdir -p demo/vaisiai` | ?Sukuria aplanką (ir tarpinius) |
+| `touch demo/vaisiai/obuolys.txt` | ?Sukuria tuščią failą |
+| `cp demo/vaisiai/obuolys.txt demo/vaisiai/kriause.txt` | ?Nukopijuoja failą |
+| `mv demo/vaisiai/kriause.txt demo/slyva.txt` | ?Perkelia arba pervadina |
+| `ls -R demo` | ?Parodo aplankų medį |
 + Šiame kurse nenaudojame `rm -rf`: pirma kopijuokite, o ne trinkite
-Pastaba: ~8 min su demonstracija aplanke `demo` (kiti failų vardai nei užduotyje: ten `docs/pastabos`, `komandos.txt`). Išvestis pavyzdinė. Kodėl nekeliame `rm -rf`: ištrintas failas nepatenka į šiukšlinę. Paskelbkite 2 užduotį.
+Pastaba: ~8 min su demonstracija aplanke `demo` (kiti failų vardai nei užduotyje: ten `docs/pastabos`, `komandos.txt`). Kodėl nekeliame `rm -rf`: ištrintas failas nepatenka į šiukšlinę. Paskelbkite 2 užduotį.
 
 === tekstas | Srautai: vamzdis ir nukreipimas
 >>+ vaisiai.txt | sort | rusiuota.txt

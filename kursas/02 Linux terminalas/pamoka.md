@@ -160,9 +160,21 @@ cd demo-a
 
 ```bash
 mkdir -p demo/vaisiai
+```
+
+```bash
 touch demo/vaisiai/obuolys.txt
+```
+
+```bash
 cp demo/vaisiai/obuolys.txt demo/vaisiai/kriause.txt
+```
+
+```bash
 mv demo/vaisiai/kriause.txt demo/slyva.txt
+```
+
+```bash
 ls -R demo
 ```
 
