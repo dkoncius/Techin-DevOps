@@ -1,12 +1,36 @@
-# 2 užduotis: Sukurkite repozitoriją GitHub svetainėje
+# 2 užduotis: Sukurkite repozitoriją GitHub ir susiekite
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, pridėta Teams'e). Taip pat [Git ir GitHub sąrašas](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/checklists/Git%20ir%20GitHub%20s%C4%85ra%C5%A1as.html) (nustatymai, prisijungimas, šakos, klaidų sprendimai).
+Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, pridėta Teams'e).
 
-1. **Tikslas:** Sukurti repozitoriją tiesiai GitHub svetainėje ir įkelti į ją dokumentą nutempdami (drag and drop), be terminalo.
-2. Aplanke `devops` sukurkite aplanką `git-svetaine-failai`.
-3. Aplanke `git-svetaine-failai` sukurkite failą `devops-dokumentas.md`: antraštė ir 3–4 sakiniai savais žodžiais, kas yra DevOps.
-4. Naršyklėje atidarykite github.com ir sukurkite naują repozitoriją `git-svetaine` (**New repository**, Public, nieko nepažymėkite: be README, be `.gitignore`).
-5. Naujos repozitorijos puslapyje spauskite *uploading an existing file*, nutempkite `devops-dokumentas.md` iš `git-svetaine-failai` ir spauskite **Commit changes**.
-6. Patikrinkite naršyklėje: repozitorijoje matomas `devops-dokumentas.md`, o skyriuje **Commits** yra jūsų commit'as.
-7. **Kodėl:** vienu sakiniu užrašykite, kuo šis būdas skiriasi nuo `gh repo create` ir kada jis patogesnis.
-8. **Papildomai:** svetainėje atidarykite `devops-dokumentas.md`, spauskite pieštuko ikoną, pridėkite sakinį ir padarykite commit tiesiai svetainėje.
+**Tikslas:** Per terminalą sukurti tuščią repozitoriją GitHub ir susieti ją su jau esančiu aplanku `git-bandymas`.
+
+**1 dalis: prisijungimas**
+
+2. Atidarykite terminalą ir pereikite į aplanką `git-bandymas`.
+3. Patikrinkite, kad esate teisingame aplanke.
+4. Patikrinkite, ar esate prisijungę prie GitHub (jei ne, prisijunkite, pasirinkite HTTPS).
+
+**2 dalis: tuščia repozitorija GitHub**
+
+5. Sukurkite viešą (Public) repozitoriją `git-bandymas` savo GitHub paskyroje: be README, be `.gitignore`, be licencijos ir nesusiekite jos su aplanku (susiesite patys kituose žingsniuose).
+6. Pažiūrėkite sukurtos repozitorijos HTTPS nuorodą.
+
+**3 dalis: susiejimas**
+
+7. Pridėkite nuotolinę nuorodą vardu `origin`.
+8. Patikrinkite, kad nuoroda pridėta: turi būti dvi eilutės (fetch ir push).
+9. Nusiųskite šaką `main` į GitHub ir nustatykite, kad ji sektų `origin/main`.
+10. Patikrinkite būseną: turi rašyti „up to date with 'origin/main'“.
+
+**4 dalis: patikra GitHub**
+
+11. Pažiūrėkite failus, esančius GitHub repozitorijoje: turi būti `pastabos.txt` ir `idejos.txt`.
+12. Pažiūrėkite commit'us GitHub repozitorijoje: turi būti 1 užduoties commit'ai.
+
+**5 dalis: tolesnis darbas tame pačiame aplanke**
+
+13. Pridėkite eilutę į `idejos.txt`.
+14. Padarykite commit su žinute „Papildytas idejos.txt“.
+15. Nusiųskite į GitHub.
+16. Pažiūrėkite commit'us GitHub repozitorijoje: turi atsirasti naujas commit.
+17. **Kodėl:** užrašykite vienu sakiniu, ką sukuria `gh repo create` ir ką nusiunčia `git push`.

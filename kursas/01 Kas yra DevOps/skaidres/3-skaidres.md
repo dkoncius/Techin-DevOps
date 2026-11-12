@@ -129,7 +129,7 @@ Pastaba: ~3 min. Visi atvejai yra pranešti internete (DEV Community, „Cyberne
 + Kodėl Git? Kad kiekvienas pakeitimas būtų matomas, atšaukiamas ir peržiūrimas
 Pastaba: ~2 min. Tik prisiminti: Git jau mokėjote. Principas: darbas be istorijos yra rizikingas, nes nežinome, kas pasikeitė ir kaip grįžti. Klauskite: kas nutiktų, jei kompiuteris sugestų? Repozitorijos Public: jokių slaptažodžių.
 
-=== demonstracija | Nuo aplanko iki GitHub
+=== demonstracija | Nuo aplanko iki commit
 ```bash
 # Susikurti DevOps aplankalą darbalaukyje
 # Atsidaryti DevOps aplankalą per terminalą
@@ -141,21 +141,13 @@ ls
 cat a.txt   # patikrinti, ar failas ne tuščias
 ```
 ```bash+
-gh auth login   # tik pirmą kartą
-gh repo create
-```
-```bash+
 git init
 git add a.txt b.txt
 git commit -m "Du failai"
 git log --oneline
 ```
-```bash+
-git remote add origin <nuoroda iš GitHub>
-git push -u origin main
-```
-+ Kodėl GitHub? Kopija ne tik kompiuteryje: kiti ją mato, o sugedus kompiuteriui nieko neprarandame
-Pastaba: ~8 min. Pradedame terminale, atidarytame aplanke `devops` (Mac: dešinys klavišas ant aplanko → New Terminal at Folder). Kitas pavyzdys nei užduotyje (`a.txt`, `b.txt`). Priminkite: Public repozitorija, jokių slaptų duomenų. Principas: kas nėra išsaugota kitur, tas gali dingti.
++ Kodėl commit? Istorija lieka aplanke: matome, kas pasikeitė, ir galime grįžti
+Pastaba: ~8 min. Pradedame terminale, atidarytame aplanke `devops` (Mac: dešinys klavišas ant aplanko → New Terminal at Folder). Kitas pavyzdys nei užduotyje (`a.txt`, `b.txt`). GitHub šioje demonstracijoje dar nėra: tik aplankas ir commit. Principas: be commit istorijos nežinome, kas pasikeitė.
 
 === pagalvokime
 Du programuotojai vienu metu taiso tą patį projektą.
@@ -170,28 +162,45 @@ Pastaba: ~3 min. Leiskite studentams spėlioti, kas nutinka, kai abu keičia tą
 git switch -c bugFix           # nauja šaka
 echo "fix" >> a.txt            # pakeitimas šakoje
 git commit -am "Pataisymas"    # commit šakoje
-git push -u origin bugFix      # šaka GitHub'e
 git switch main                # main nepaliestas
 git merge bugFix               # sujungti į main
 git branch -d bugFix           # ištrinti šaką
-git push origin --delete bugFix   # ištrinti ir GitHub'e
 ```
 > Kaip juodraštis: rašote atskirai, o į galutinį tekstą įkeliate, kai patenkinti.
 + Kodėl šaka? Veikiantis `main` lieka saugus, o klaidą pagauname prieš sujungimą
-Pastaba: ~20 min su demonstracija: `bugFix`, pakeitimas `main`, `merge`, `git log --oneline --graph --all`. Principas: nestabilų darbą laikyti atskirai nuo veikiančio. Būtent tuo remiasi Pull Request ir CI/CD vėlesnėse pamokose.
+Pastaba: ~20 min su demonstracija aplanke `demo-a`: `bugFix`, pakeitimas `main`, `merge`, `git log --oneline --graph --all`. Nuotolinės šakos dar nėra, nes GitHub bus kitoje skaidrėje. Principas: nestabilų darbą laikyti atskirai nuo veikiančio. Būtent tuo remiasi Pull Request ir CI/CD vėlesnėse pamokose.
 
-=== demonstracija | Repozitorija per GitHub svetainę
-+ 1. github.com → `+` viršuje dešinėje → **New repository**
-+ 2. Pavadinimas `demo-c`, **Public**, nieko nežymėti (be README, be `.gitignore`) → **Create repository**
-+ 3. Tuščios repozitorijos puslapyje spausti *uploading an existing file*
-+ 4. Nutempti `a.txt` ir `b.txt` iš `demo-c-failai` → **Commit changes**
-+ Kodėl svetainėje? Nereikia `gh` ir terminalo: tinka, kai pradedame nuo GitHub arba failai jau paruošti
-Pastaba: ~6 min. Tai 2 užduoties demonstracija, žingsniai tie patys kaip užduotyje, tik kitas pavyzdys. Pirmiausia nukopijuokite `demo-a` failus į naują aplanką `demo-c-failai` (tik `a.txt` ir `b.txt`, be paslėpto `.git`, kitaip aplankas liktų susietas su `demo-a`). Rodykite gyvai svetainėje, tada studentai kartu su jumis daro savo `git-svetaine` (aplankas `git-svetaine-failai` su `devops-dokumentas.md`). Kai visi turi repozitoriją GitHub'e, skelbkite 3 užduotį. Aplanko `demo-c-failai` nevadiname `demo-c`, nes `git clone` neįrašys į jau esantį nepustą aplanką.
+=== demonstracija | Tuščia repozitorija ir susiejimas
+```bash
+gh auth status
+gh repo create demo-a --public
+gh repo view demo-a --json url -q .url
+```
+```bash+
+git remote add origin <nuoroda>
+git remote -v
+git push -u origin main
+git status
+```
++ `origin` yra nuorodos vardas, `-u` įsimena, kad `main` siunčiamas į `origin/main`. Todėl vėliau užtenka `git push`
++ Kodėl taip? `gh repo create` sukuria tuščią vietą GitHub'e, o `git push` nusiunčia jau esančią aplanko istoriją
+Pastaba: ~6 min. Tai 2 užduoties demonstracija su `demo-a` (studentai tą patį daro su `git-bandymas`), viskas terminale. Komandas vykdyti aplanke `demo-a` (patikrinti `pwd`). `gh repo create` be `--source`: susiejimą darome patys, kad matytųsi, kaip veikia `git remote add`. Jei `gh auth status` rodo neprisijungus: `gh auth login`. `git remote -v` turi rodyti dvi eilutes (fetch ir push); `git status` po push: „up to date with 'origin/main'“. Dažna klaida: repozitorija sukurta su README (pvz. per `--add-readme`), tada `git push` atmestas.
+
+=== demonstracija | Toliau tame pačiame aplanke
+```bash
+echo "c" > c.txt
+git add c.txt
+git commit -m "Trečias failas"
+git push
+```
++ Susiejimas daromas vieną kartą. Toliau kasdienis ciklas: pakeitimas → `add` → `commit` → `push`
++ Kodėl? Darbas vyksta kompiuteryje, o `push` tik nusiunčia jau išsaugotus commit'us į GitHub
+Pastaba: ~3 min. Tas pats `demo-a` aplankas, jokio naujo `clone`. Po `push` parodykite `c.txt` GitHub'e: `gh api repos/{owner}/{repo}/contents --jq '.[].name'`. Studentai tą patį daro 2 užduotyje su `git-bandymas`. Kai visi turi repozitoriją GitHub'e, skelbkite 3 užduotį.
 
 === demonstracija | Clone: repozitorija į kompiuterį
-+ Nuoroda: žalias mygtukas **Code** → HTTPS → kopijuoti
 ```bash+
-git clone https://github.com/<vartotojas>/demo-c.git   # lokali kopija
+gh repo view demo-a --json url -q .url
+git clone <nuoroda> demo-c
 cd demo-c
 git log --oneline
 ```
@@ -200,8 +209,8 @@ echo "atnaujinimas" >> a.txt
 git commit -am "Atnaujinimas kompiuteryje"
 git push
 ```
-+ Kodėl `clone`? Svetainėje padarytas darbas atsiranda ir kompiuteryje, o ryšys su GitHub nustatomas pats; toliau dirbame kompiuteryje
-Pastaba: ~4 min. Tai 3 užduoties pradžia: `clone` į `demo-c` (ne į `demo-c-failai`), patikra, pakeitimas, commit ir `push`. Toliau studentai savarankiškai.
++ Kodėl `clone`? Nusiųsta istorija atsiranda naujame aplanke, o ryšys su GitHub nustatomas pats
+Pastaba: ~4 min. Tai 3 užduoties pradžia. Klonuokite į `demo-c`, ne į `demo-a`: aplankas `demo-a` jau yra. `git log` rodo tuos pačius commit'us, kuriuos nusiuntėte. Toliau studentai savarankiškai.
 
 === demonstracija | Šaka po clone
 ```bash+
@@ -215,13 +224,17 @@ git push
 git branch -d bugFix
 git push origin --delete bugFix
 ```
-Pastaba: ~4 min. Tas pats, ką darėme su `demo-a`, dabar `demo-c` aplanke: šaka, push, merge ir abiejų šakų (vietinės ir nutolusios) trynimas. Taip matyti, kad tolesnis darbas vyksta kompiuteryje.
+Pastaba: ~4 min. Tas pats, ką darėme su `demo-a`, dabar `demo-c` aplanke, tik šį kartą šaka ir jos trynimas matomi ir GitHub'e. Taip matyti, kad tolesnis darbas vyksta kompiuteryje, o `push` tik nusiunčia rezultatą.
 
 === klaida | Dažnos klaidos
 +:: | Šaka `master` | Neįrašytas `init.defaultBranch`: `git branch -m main`
 +:: | Commit be `add` | „nothing added to commit“: pirma `git add`
 +:: | Push atmestas (`GH007`) | `user.email` pakeiskite į GitHub „noreply“ ir padarykite naują commit
 +:: | `gh` neprisijungęs | `gh auth login`, HTTPS
++:: | `remote origin already exists` | Nuoroda jau pridėta: `git remote -v`, klaidingą pakeiskite `git remote set-url origin <nuoroda>`
++:: | `fatal: not a git repository` | Komanda paleista ne tame aplanke: `pwd`, `cd git-bandymas`
++:: | Push `rejected` | Repozitorija nebuvo tuščia (README): sukurkite naują be README arba `git pull --rebase origin main`
++:: | Push prašo slaptažodžio | Paprastas slaptažodis nebetinka: `gh auth login` arba asmeninis prieigos raktas
 +:: | Rašybos klaida (`eacho`) | „command not found“: patikrinkite komandos pavadinimą; rodyklė aukštyn paleistų tą pačią klaidingą komandą
 + Principas: klaidos tekstas dažniausiai pasako, ką daryti, todėl pirma jį perskaitykite
 Pastaba: ~3 min. Pabrėžkite įprotį: perskaityti klaidą, ieškoti dokumentacijoje, tik tada klausti.

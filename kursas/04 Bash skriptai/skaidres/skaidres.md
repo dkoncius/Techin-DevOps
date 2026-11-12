@@ -3,7 +3,7 @@
 - Parašyti skriptą su argumentais ir `if`
 - Naudoti `for` ir grąžinti teisingą išėjimo kodą
 - Perskaityti realų projekto `run.sh`
-Pastaba: ~10 min pasitikrinimas po 03. Šios pamokos skriptai taps `paleisti.sh` pagrindu atsiskaitymui.
+Pastaba: ~10 min pasitikrinimas po 03: parodykite 03 sprendimą gyvai. Ritmas: skaidrės → jūsų demonstracija → užduotis Teams'e → jie daro patys. Visos užduotys plečia vieną skriptą `scripts/patikra.sh`, kuris taps `paleisti.sh` (atsiskaitymui) pagrindu.
 
 === pagalvokime
 Tą pačią komandų seką reikia paleisti dvidešimt kartų.
@@ -37,7 +37,7 @@ echo "Sveiki, $1!"
 chmod +x scripts/pridek.sh
 ./scripts/pridek.sh 2 3
 ```
-Pastaba: ~15 min. Kitas pavyzdys nei užduotyje: `pridek.sh` sudeda du skaičius per `$(($1 + $2))`. Pakartojimas: `#!`, `chmod +x`, kintamieji.
+Pastaba: ~8 min. Kitas pavyzdys nei užduotyje: `pridek.sh` sudeda du skaičius per `$(($1 + $2))`. Pakartojimas: `#!`, `chmod +x`, kintamieji.
 
 === komanda | `if` ir testai
 ```bash
@@ -95,8 +95,8 @@ Pastaba: ~10 min. Pakartojimas. Dažna klaida: failas jau buvo `git add` ir `.gi
 Pastaba: ~3 min.
 
 === uzduotys | Užduotys
-@uzduotys: auto
-Pastaba: Skelbkite po vieną. Užduotys 1–3 kuria skriptus, 4 sujungia Bash skaitymą, `.gitignore` ir PR.
+@uzduotys: auto, tik sąrašas
+Pastaba: Skelbkite po vieną Teams'e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Užduotys eina viena gija: vienas įrankis (1), įrankių sąrašas (2), projekto failai (3), `run.sh`, `.gitignore` ir PR (4). Atsakymus į „Kodėl“ rašo `docs/bash.md`.
 
 === kita | Kita pamoka
 Tinklų pagrindai: IP, portai, DNS, HTTP, `curl`

@@ -326,29 +326,32 @@ Etapo tikslas [planas]: studentas jaučiasi patogiai terminale ir dirba su Git p
 
 #### 02 Linux terminalas (2026-11-12)
 
-- **Pamoka:** pasitikrinimas po 01, **šablono `devops-projektas` susikūrimas ir klonavimas**, navigacija, failai, teisės.
+- **Pamoka:** pasitikrinimas po 01, **šablono `devops-projektas` susikūrimas ir klonavimas**, navigacija, failai, srautai, teisės, pirmas skriptas ir pirmas Pull Request. Užduotys sudaro vieną giją viename projekte (pastabos → srautai → `scripts/ataskaita.sh` → PR).
 - **Studentas po pamokos gali:**
-  1. sukurti savo `devops-projektas` iš šablono ir nusiklonuoti į `~/devops`;
-  2. naršyti (`pwd`, `ls`, `cd`) ir rasti failą;
-  3. kurti, kopijuoti, perkelti ir trinti failus bei aplankus;
-  4. paaiškinti teises (`rwx`) ir nustatyti jas su `chmod`;
-  5. paleisti skriptą (`./scripts/terminalas.sh`) ir suprasti `Permission denied`.
+  1. sukurti savo `devops-projektas` iš šablono (**Use this template**) ir nusiklonuoti į `~/devops` (`git clone`, `git remote -v`);
+  2. naršyti (`pwd`, `ls`, `cd`), kurti, kopijuoti ir perkelti failus bei aplankus;
+  3. peržiūrėti ir filtruoti tekstą srautais (`cat`, `head`, `tail`, `wc`, `sort`, `|`, `>`, `>>`, `grep`, `find`);
+  4. paaiškinti teises (`rwx`) ir nustatyti jas su `chmod`, suprasti `Permission denied`;
+  5. parašyti ir paleisti pirmą skriptą (`scripts/ataskaita.sh`);
+  6. atlikti darbą šakoje ir atidaryti Pull Request GitHub svetainėje.
 
 #### 03 Procesai ir paketai (2026-11-16)
 
-- **Pamoka:** procesai, aplinkos kintamieji, paketų tvarkyklė.
+- **Pamoka:** procesai, aplinkos kintamieji, `PATH`, paketų tvarkyklė, kaip `app.py` skaito nustatymus iš aplinkos. Užduotys viena gija viename projekte (procesas → `scripts/aplinka.sh` → paketas → kodas → PR).
 - **Studentas po pamokos gali:**
-  1. parodyti procesus (`ps`, `top`) ir sustabdyti procesą (`kill`);
-  2. nustatyti ir perskaityti aplinkos kintamąjį (`export`, `echo $VAR`);
-  3. įdiegti ir pašalinti paketą (`apt` WSL, `brew` Mac).
+  1. parodyti procesus (`ps`, `jobs`) ir sustabdyti procesą (`kill`);
+  2. nustatyti ir perskaityti aplinkos kintamąjį (`export`, `echo $VAR`), paaiškinti `PATH`;
+  3. įdiegti paketą (`apt` WSL, `brew` Mac) ir patikrinti versiją;
+  4. perskaityti `os.environ.get` kode ir paaiškinti numatytąją reikšmę bei kodėl `.env` neina į Git.
 
 #### 04 Bash skriptai (2026-11-17)
 
-- **Pamoka:** kintamieji, sąlygos, ciklai.
+- **Pamoka:** argumentai, `if`, `for`, išėjimo kodai, `run.sh` skaitymas, `.gitignore` ir atšaukimas. Užduotys viena gija: skriptas `scripts/patikra.sh` auga (įrankis → sąrašas → projekto failai) ir tampa `paleisti.sh` pagrindu.
 - **Studentas po pamokos gali:**
   1. parašyti skriptą su `#!/usr/bin/env bash`, argumentais ir kintamaisiais;
   2. naudoti `if` ir `for`;
-  3. patikrinti, ar komanda ar failas egzistuoja, ir baigti su teisingu išėjimo kodu.
+  3. patikrinti, ar komanda ar failas egzistuoja, ir baigti su teisingu išėjimo kodu;
+  4. perskaityti `run.sh` ir naudoti `.gitignore`, `git restore`.
 
 #### 05 Tinklų pagrindai (2026-11-18)
 

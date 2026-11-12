@@ -1,0 +1,89 @@
+# 3 užduotis, sprendimas (dėstytojui): Nusiklonuokite savo repozitoriją
+
+Numeriai atitinka užduoties žingsnius (`3-uzduotis.md`). Rodoma aplanke `devops`, tuo pačiu pavadinimu `git-bandymas` kaip studentų.
+
+2–8. Clone ir patikra:
+
+```bash
+cd ~/Desktop/devops
+gh repo view git-bandymas --json url -q .url
+git clone https://github.com/<vartotojas>/git-bandymas.git git-bandymas-kopija
+cd git-bandymas-kopija
+ls
+git remote -v
+git log --oneline
+```
+
+9–15. Dokumentas (pavyzdinis tekstas žemiau; kuriama redaktoriumi, pvz. VS Code):
+
+```bash
+git add devops-dokumentas.md
+git commit -m "Pridėta, kur gali lūžti"
+git push
+```
+
+Patikra GitHub:
+
+```bash
+gh api repos/{owner}/{repo}/contents --jq '.[].name'
+```
+
+16–22. Šaka `skyriai`:
+
+```bash
+git switch -c skyriai
+# papildyti dokumentą skyriumi „Kodėl DevOps“
+git commit -am "Pridėta, kodėl DevOps"
+git push -u origin skyriai
+git switch main
+```
+
+Patikra GitHub šakų ir `main` failo:
+
+```bash
+git ls-remote --heads origin
+git branch
+grep "Kodėl DevOps" devops-dokumentas.md   # `main` šakoje nieko neturi rasti
+```
+
+23–27. Sujungimas ir trynimas:
+
+```bash
+git merge skyriai
+git push
+git branch -d skyriai
+git push origin --delete skyriai
+git log --oneline --graph --all
+```
+
+28–31. `git branch --help` (ieškoti `-d` ir `-D`), parašyti skyrių „Git“ dokumente ir:
+
+```bash
+git commit -am "Pridėta apie šakų trynimą"
+git push
+```
+
+32. Patikra: `grep -rniE "password|slaptažod|[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" .` (neturi rasti nieko)
+
+33. Kodėl (pavyzdys): `clone` nukopijuoja istoriją ir pats nustato `origin`, o `git init` su `git remote add` tą ryšį reikia sukurti rankomis.
+
+#### Pavyzdinis `devops-dokumentas.md`
+
+````markdown
+# Kas yra DevOps
+
+DevOps yra būdas, kaip kūrėjai ir sistemų administratoriai dirba kartu, kad programa greitai ir saugiai pasiektų vartotoją. Pagrindinė idėja: kuo daugiau žingsnių automatizuoti ir kuo dažniau išleisti mažus pakeitimus. Tai ne vienas įrankis, o darbo kultūra ir procesas.
+
+## Kur gali lūžti
+
+1. Testai: jei jų nėra, klaida pasiekia vartotoją.
+2. Diegimas: ranka diegiant, galima pamiršti žingsnį ir serveris veiks kitaip nei kompiuteryje.
+
+## Kodėl DevOps
+
+DevOps leidžia komandai išleisti pakeitimus greičiau ir su mažesne rizika, nes daug žingsnių atlieka automatika. Klaidas randame anksti, o ne pas vartotoją.
+
+## Git
+
+`git branch -d` ištrina šaką tik jei ji jau sujungta į dabartinę šaką, todėl nepaleistų pakeitimų neprarandame. `git branch -D` ištrina šaką priverstinai, net jei ji nesujungta, ir tada jos commit'ai gali dingti. Todėl įprastai naudojamas `-d`.
+````

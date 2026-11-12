@@ -3,7 +3,7 @@
 - Parodyti procesus ir juos sustabdyti
 - Nustatyti ir perskaityti aplinkos kintamąjį
 - Įdiegti paketą su `apt` arba `brew`
-Pastaba: ~15 min pasitikrinimas po 02: parodykite 02 sprendimą gyvai; kam neveikė `chmod` ar PR, kartu randame priežastį.
+Pastaba: ~10 min pasitikrinimas po 02: parodykite 02 sprendimą gyvai; kam neveikė `chmod` ar PR, kartu randame priežastį. Ritmas: skaidrės → jūsų demonstracija → užduotis Teams'e → jie daro patys. Užduotys eina viena gija: procesas → skriptas su kintamuoju → paketas → kodas → PR.
 
 === pagalvokime
 Kompiuteryje vienu metu veikia šimtai programų.
@@ -52,15 +52,21 @@ env | grep DEMO
 + `PATH` yra kelių sąrašas, kuriuose terminalas ieško komandų
 Pastaba: ~10 min. Kitas nei mokinių kintamasis (ne `PROJEKTO_VARDAS`). Dažna klaida: `export` viename lange, skriptas kitame.
 
-=== tekstas | Kodėl slaptažodis kintamajame
-- Kode jis patektų į Git ir į visų kopijas
-- Kintamasis lieka tik toje aplinkoje, kur programa paleista
-- `.env` nekeliamas į Git
-```python
-import os
-DB_HOST = os.environ.get("DB_HOST", "localhost")
+=== komanda | PATH: kaip terminalas randa komandas
+```bash
+echo $PATH
+which ls
 ```
-Pastaba: ~5 min. Paklauskite: kokia reikšmė, jei `DB_HOST` nenustatytas, o kokia po `export DB_HOST=duombaze`.
++ `PATH` yra aplankų sąrašas; terminalas ieško komandos juose paeiliui
++ Dabartinio aplanko ten nėra, todėl savo skriptą rašome `./skriptas.sh`
+Pastaba: ~3 min. Susiejame su 02: kodėl `./scripts/ataskaita.sh` reikia `./`.
+
+=== tekstas | Kodėl nustatymai kintamuosiuose
+- Kode jie patektų į Git ir į visų kopijas
+- Ta pati programa veikia skirtingai pagal aplinką (spalva, versija, duomenų bazė)
+- Kintamasis lieka tik toje aplinkoje, kur programa paleista
+- `.env` nekeliamas į Git; `.env.example` rodo, kokių kintamųjų reikia
+Pastaba: ~3 min. Tai pagrindas Docker ir Kubernetes etapui: ten kintamieji perduodami konteineriui.
 
 === demonstracija | Paketai: Mac ir Ubuntu
 | Veiksmas | Mac / Ubuntu (WSL) |
@@ -71,6 +77,19 @@ Pastaba: ~5 min. Paklauskite: kokia reikšmė, jei `DB_HOST` nenustatytas, o kok
 | Versija ir vieta | ?`htop --version`, `which htop` |
 Pastaba: ~15 min. Dažna klaida: `sudo apt install` be `apt update`; Mac studentas rašo `sudo brew`; Windows studentas diegia ne WSL.
 
+=== komanda | Kaip programa skaito aplinką
+```python
+import os
+
+color = os.environ.get("APP_COLOR", "blue")
+```
+```bash+
+APP_COLOR=red python3 -c "import os; print(os.environ.get('APP_COLOR', 'blue'))"
+python3 -c "import os; print(os.environ.get('APP_COLOR', 'blue'))"
+```
++ Nenustatytas: numatytoji reikšmė `blue`; nustatytas: jūsų reikšmė
+Pastaba: ~5 min. Jų `app.py` turi tokias eilutes (`grep -n "os.environ" app.py`). Kitas kintamasis nei užduotyje: `APP_VERSION`. Paklauskite: kas bus, jei `DB_HOST` nenustatytas.
+
 === klaida | Dažnos klaidos
 :: | `kill` su `grep` PID | Paimtas paties `grep` PID, ne programos
 :: | `Ctrl+Z` vietoj `Ctrl+C` | Procesas lieka fone: `ps`, `kill`
@@ -79,8 +98,8 @@ Pastaba: ~15 min. Dažna klaida: `sudo apt install` be `apt update`; Mac student
 Pastaba: ~3 min.
 
 === uzduotys | Užduotys
-@uzduotys: auto
-Pastaba: Skelbkite po vieną. Mac ir Ubuntu komandų lentelė 3 užduotyje: leiskite rašyti abi.
+@uzduotys: auto, tik sąrašas
+Pastaba: Skelbkite po vieną Teams'e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Užduotys eina viena gija viename projekte: procesas (1), skriptas su kintamuoju (2), paketas (3), kodas ir PR (4). Mac ir Ubuntu komandų lentelė 3 užduotyje: leiskite rašyti abi. Atsakymus į „Kodėl“ rašo `docs/procesai.md`.
 
 === kita | Kita pamoka
 Bash skriptai: kintamieji, sąlygos, ciklai
