@@ -1,8 +1,8 @@
 # 1 užduotis, sprendimas (dėstytojui): Procesai
 
-Numeriai atitinka užduoties žingsnius (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
 
-2–3. Nauja šaka:
+Pirma dalis, 1–2. Nauja šaka:
 
 ```bash
 cd ~/devops/devops-projektas
@@ -11,7 +11,7 @@ git pull
 git switch -c pamoka-03
 ```
 
-4–8. Procesas fone, PID, sustabdymas:
+Antra dalis, 1–5. Procesas fone, PID, sustabdymas:
 
 ```bash
 sleep 300 &
@@ -23,7 +23,7 @@ ps aux | grep sleep
 
 PID yra antras `ps aux` stulpelis `sleep 300` eilutėje. Eilutė `grep sleep` yra paties `grep` procesas.
 
-9–11. Užrašai ir commit:
+Trečia dalis, 1–3. Užrašai ir commit:
 
 ```bash
 mkdir -p docs
@@ -32,6 +32,6 @@ git add docs
 git commit -m "Pradėtas procesai.md"
 ```
 
-12. Papildomai: `sleep 300`, tada `Ctrl+C` (procesas baigiamas); `sleep 300`, tada `Ctrl+Z` (sustabdomas ir paliekamas fone), `jobs`, `kill %1`. `Ctrl+C` nutraukia procesą, `Ctrl+Z` tik pristabdo.
+Trečia dalis, 3. Papildomai: `sleep 300`, tada `Ctrl+C` (procesas baigiamas); `sleep 300`, tada `Ctrl+Z` (sustabdomas ir paliekamas fone), `jobs`, `kill %1`. `Ctrl+C` nutraukia procesą, `Ctrl+Z` tik pristabdo.
 
 Dažna klaida: `kill` su PID iš `grep` eilutės; `Ctrl+Z` vietoj `Ctrl+C`, procesas lieka fone.

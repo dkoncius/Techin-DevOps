@@ -1,8 +1,8 @@
 # 3 užduotis, sprendimas (dėstytojui): Srautai ir paieška
 
-Numeriai atitinka užduoties žingsnius (`3-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį.
+Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį.
 
-2–6. `komandos.txt` ir rūšiavimas:
+Pirma dalis, 1–5. `komandos.txt` ir rūšiavimas:
 
 ```bash
 cd ~/devops/devops-projektas/docs/pastabos
@@ -17,7 +17,7 @@ sort komandos.txt > komandos-abeceles.txt
 echo "grep" >> komandos.txt
 ```
 
-7–11. Peržiūra ir filtras:
+Antra dalis, 1–5. Peržiūra ir filtras:
 
 ```bash
 wc -l komandos.txt
@@ -29,7 +29,7 @@ echo "Terminalas yra programa, kurioje komandas rašome tekstu." > terminalas.tx
 
 Laukiama: `wc -l` rodo 6; `grep p` palieka `cp`, `pwd`, `grep`.
 
-12–14. Paieška projekte:
+Trečia dalis, 1–3. Paieška projekte:
 
 ```bash
 cd ~/devops/devops-projektas
@@ -40,7 +40,7 @@ find . -name "*.md" -not -path "./.git/*" > docs/failai.txt
 
 Be `--exclude-dir=docs` į rezultatą patektų ir pats `docs/health.txt`. Žr. `man grep`, `man find`.
 
-15. Commit:
+Ketvirta dalis, 1. Commit:
 
 ```bash
 git add docs

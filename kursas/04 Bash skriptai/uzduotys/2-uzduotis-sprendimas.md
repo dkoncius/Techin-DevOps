@@ -1,8 +1,8 @@
 # 2 užduotis, sprendimas (dėstytojui): Ciklas per įrankius
 
-Numeriai atitinka užduoties žingsnius (`2-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`2-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
 
-2–5. Skriptas (2 versija):
+Pirma dalis, 1–4. Skriptas (2 versija):
 
 ```bash
 cat > scripts/patikra.sh <<'EOS'
@@ -33,7 +33,7 @@ fi
 EOS
 ```
 
-6–8. Paleidimas:
+Antra dalis, 1–3. Paleidimas:
 
 ```bash
 ./scripts/patikra.sh; echo "kodas: $?"
@@ -43,7 +43,7 @@ EOS
 
 Laukiama kodai: 0, 1, 0.
 
-9–10. Užrašai ir commit:
+Trečia dalis, 1–2. Užrašai ir commit:
 
 ```bash
 printf '\nBe argumentų kodas 0 (visi trys įrankiai yra), su `git neegzistuoja kitas` kodas 1 (trūksta dviejų), tik su `git` kodas 0.\n' >> docs/bash.md

@@ -1,8 +1,8 @@
 # 3 užduotis, sprendimas (dėstytojui): Nusiklonuokite savo repozitoriją
 
-Numeriai atitinka užduoties žingsnius (`3-uzduotis.md`). Rodoma aplanke `devops`, tuo pačiu pavadinimu `git-bandymas` kaip studentų.
+Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Rodoma aplanke `devops`, tuo pačiu pavadinimu `git-bandymas` kaip studentų.
 
-2–8. Clone ir patikra:
+Pirma dalis, 1–7. Clone ir patikra:
 
 ```bash
 cd ~/Desktop/devops
@@ -14,7 +14,7 @@ git remote -v
 git log --oneline
 ```
 
-9–15. Dokumentas (pavyzdinis tekstas žemiau; kuriama redaktoriumi, pvz. VS Code):
+Antra dalis, 1–7. Dokumentas (pavyzdinis tekstas žemiau; kuriama redaktoriumi, pvz. VS Code):
 
 ```bash
 git add devops-dokumentas.md
@@ -28,7 +28,7 @@ Patikra GitHub:
 gh api repos/{owner}/{repo}/contents --jq '.[].name'
 ```
 
-16–22. Šaka `skyriai`:
+Trečia dalis, 1–7. Šaka `skyriai`:
 
 ```bash
 git switch -c skyriai
@@ -46,7 +46,7 @@ git branch
 grep "Kodėl DevOps" devops-dokumentas.md   # `main` šakoje nieko neturi rasti
 ```
 
-23–27. Sujungimas ir trynimas:
+Ketvirta dalis, 1–5. Sujungimas ir trynimas:
 
 ```bash
 git merge skyriai
@@ -56,14 +56,14 @@ git push origin --delete skyriai
 git log --oneline --graph --all
 ```
 
-28–31. `git branch --help` (ieškoti `-d` ir `-D`), parašyti skyrių „Git“ dokumente ir:
+Penkta dalis, 1–4. `git branch --help` (ieškoti `-d` ir `-D`), parašyti skyrių „Git“ dokumente ir:
 
 ```bash
 git commit -am "Pridėta apie šakų trynimą"
 git push
 ```
 
-32. Patikra: `grep -rniE "password|slaptažod|[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" .` (neturi rasti nieko)
+Penkta dalis, 5. Patikra: `grep -rniE "password|slaptažod|[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" .` (neturi rasti nieko)
 
 #### Pavyzdinis `devops-dokumentas.md`
 

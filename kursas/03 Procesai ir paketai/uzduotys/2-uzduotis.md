@@ -4,24 +4,24 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Tikslas:** Parašyti skriptą, kuris naudoja aplinkos kintamąjį su numatytąja reikšme, ir pamatyti, kad kintamasis gyvena tik savo terminale.
 
-**1 dalis: skriptas**
+**Pirma dalis: skriptas**
 
-2. Faile `scripts/aplinka.sh` parašykite skriptą (kaip `ataskaita.sh` per 02 pamoką): jis išveda kintamojo `PROJEKTO_VARDAS` reikšmę (o jei nenustatytas, žodį „nenustatyta“) ir kiek eilučių yra procesų sąrašo išvestyje.
-3. Padarykite skriptą vykdomą.
+1. Faile `scripts/aplinka.sh` parašykite skriptą (kaip `ataskaita.sh` per 02 pamoką): jis išveda kintamojo `PROJEKTO_VARDAS` reikšmę (o jei nenustatytas, žodį „nenustatyta“) ir kiek eilučių yra procesų sąrašo išvestyje.
+2. Padarykite skriptą vykdomą.
 
-**2 dalis: kintamasis vienai komandai**
+**Antra dalis: kintamasis vienai komandai**
 
-4. Paleiskite skriptą be kintamojo ir išvestį įrašykite į naują failą `docs/aplinka.txt`.
-5. Paleiskite skriptą su `PROJEKTO_VARDAS=mano` (kintamasis tik šiai komandai) ir išvestį **pridėkite** prie `docs/aplinka.txt`, nepersirašydami pirmos.
+1. Paleiskite skriptą be kintamojo ir išvestį įrašykite į naują failą `docs/aplinka.txt`.
+2. Paleiskite skriptą su `PROJEKTO_VARDAS=mano` (kintamasis tik šiai komandai) ir išvestį **pridėkite** prie `docs/aplinka.txt`, nepersirašydami pirmos.
 
-**3 dalis: kintamasis visam langui**
+**Trečia dalis: kintamasis visam langui**
 
-6. Nustatykite `PROJEKTO_VARDAS` visam terminalo langui, paleiskite skriptą ir patikrinkite, kad jis mato kintamąjį.
-7. Atidarykite naują terminalo langą, eikite į projektą ir paleiskite skriptą dar kartą. Pažiūrėkite, ar kintamasis ten yra.
-8. Išveskite, kur terminalas ieško komandų (kintamasis `PATH`).
-9. Suraskite, kuriame aplanke yra komanda `ls`.
+1. Nustatykite `PROJEKTO_VARDAS` visam terminalo langui, paleiskite skriptą ir patikrinkite, kad jis mato kintamąjį.
+2. Atidarykite naują terminalo langą, eikite į projektą ir paleiskite skriptą dar kartą. Pažiūrėkite, ar kintamasis ten yra.
+3. Išveskite, kur terminalas ieško komandų (kintamasis `PATH`).
+4. Suraskite, kuriame aplanke yra komanda `ls`.
 
-**4 dalis: du commit'ai**
+**Ketvirta dalis: du commit'ai**
 
-10. Pridėkite tik `scripts/aplinka.sh` ir padarykite commit su žinute „Pridėtas aplinka.sh“.
-11. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėta aplinkos išvestis“.
+1. Pridėkite tik `scripts/aplinka.sh` ir padarykite commit su žinute „Pridėtas aplinka.sh“.
+2. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėta aplinkos išvestis“.

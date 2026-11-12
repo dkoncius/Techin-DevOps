@@ -4,28 +4,28 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Tikslas:** Užpildyti pastabas, sujungti komandas per srautus ir išsaugoti paieškos rezultatus.
 
-**1 dalis: komandos.txt ir rūšiavimas**
+**Pirma dalis: komandos.txt ir rūšiavimas**
 
-2. Į failą `docs/pastabos/komandos.txt` įrašykite komandas po vieną eilutėje: `ls`, `cd`, `cp`, `mv`, `pwd`.
-3. Išveskite `komandos.txt` turinį į ekraną.
-4. Išveskite `komandos.txt` turinį surūšiuotą pagal abėcėlę.
-5. Surūšiuotą turinį įrašykite į naują failą `docs/pastabos/komandos-abeceles.txt`.
-6. Į `komandos.txt` pridėkite eilutę `grep` nepersirašydami senų.
+1. Į failą `docs/pastabos/komandos.txt` įrašykite komandas po vieną eilutėje: `ls`, `cd`, `cp`, `mv`, `pwd`.
+2. Išveskite `komandos.txt` turinį į ekraną.
+3. Išveskite `komandos.txt` turinį surūšiuotą pagal abėcėlę.
+4. Surūšiuotą turinį įrašykite į naują failą `docs/pastabos/komandos-abeceles.txt`.
+5. Į `komandos.txt` pridėkite eilutę `grep` nepersirašydami senų.
 
-**2 dalis: peržiūra ir filtras**
+**Antra dalis: peržiūra ir filtras**
 
-7. Suskaičiuokite `komandos.txt` eilutes.
-8. Išveskite pirmas 2 `komandos.txt` eilutes.
-9. Išveskite paskutines 2 `komandos.txt` eilutes.
-10. Viena komanda su vamzdžiu (`|`) išveskite tik tas `komandos.txt` eilutes, kuriose yra raidė `p`.
-11. Į `docs/pastabos/terminalas.txt` įrašykite vieną eilutę su bet kokiu tekstu (perrašant failą).
+1. Suskaičiuokite `komandos.txt` eilutes.
+2. Išveskite pirmas 2 `komandos.txt` eilutes.
+3. Išveskite paskutines 2 `komandos.txt` eilutes.
+4. Viena komanda su vamzdžiu (`|`) išveskite tik tas `komandos.txt` eilutes, kuriose yra raidė `p`.
+5. Į `docs/pastabos/terminalas.txt` įrašykite vieną eilutę su bet kokiu tekstu (perrašant failą).
 
-**3 dalis: paieška projekte**
+**Trečia dalis: paieška projekte**
 
-12. Projekto šaknyje suraskite, kuriuose failuose ir kuriose eilutėse yra žodis `health`.
-13. Tą patį paieškos rezultatą įrašykite į `docs/health.txt`, bet neįtraukite aplankų `.git` ir `docs` (pagal oficialią dokumentaciją; žingsnių čia nėra, tik tikslas).
-14. Suraskite komandą, kuri į `docs/failai.txt` įrašo visų `.md` failų sąrašą projekte, be `.git` aplanko (pagal oficialią dokumentaciją; žingsnių čia nėra, tik tikslas).
+1. Projekto šaknyje suraskite, kuriuose failuose ir kuriose eilutėse yra žodis `health`.
+2. Tą patį paieškos rezultatą įrašykite į `docs/health.txt`, bet neįtraukite aplankų `.git` ir `docs` (pagal oficialią dokumentaciją; žingsnių čia nėra, tik tikslas).
+3. Suraskite komandą, kuri į `docs/failai.txt` įrašo visų `.md` failų sąrašą projekte, be `.git` aplanko (pagal oficialią dokumentaciją; žingsnių čia nėra, tik tikslas).
 
-**4 dalis: užrašai ir commit**
+**Ketvirta dalis: užrašai ir commit**
 
-15. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėtos pastabos ir paieškos rezultatai“.
+1. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėtos pastabos ir paieškos rezultatai“.

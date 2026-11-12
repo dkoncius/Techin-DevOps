@@ -6,27 +6,27 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 
 
-**1 dalis: `.gitignore`**
+**Pirma dalis: `.gitignore`**
 
-2. Nukopijuokite `.env.example` į `.env` ir įsitikinkite, kad `git status` jo nerodo.
-3. Viena komanda parodykite, kuri `.gitignore` eilutė ignoruoja `.env`.
-4. Pridėkite į `.gitignore` eilutę `*.log`.
-5. Sukurkite failą `bandymas.log` ir įsitikinkite, kad Git jo nemato.
+1. Nukopijuokite `.env.example` į `.env` ir įsitikinkite, kad `git status` jo nerodo.
+2. Viena komanda parodykite, kuri `.gitignore` eilutė ignoruoja `.env`.
+3. Pridėkite į `.gitignore` eilutę `*.log`.
+4. Sukurkite failą `bandymas.log` ir įsitikinkite, kad Git jo nemato.
 
-**2 dalis: pakeitimų atšaukimas**
+**Antra dalis: pakeitimų atšaukimas**
 
-6. Sugadinkite `scripts/patikra.sh` (ištrinkite bet kurią eilutę).
-7. Atšaukite pakeitimą nenaudodami `git reset --hard`.
-8. Pakeiskite `scripts/patikra.sh` dar kartą ir įtraukite į staging.
-9. Atšaukite staging ir tada pakeitimą.
+1. Sugadinkite `scripts/patikra.sh` (ištrinkite bet kurią eilutę).
+2. Atšaukite pakeitimą nenaudodami `git reset --hard`.
+3. Pakeiskite `scripts/patikra.sh` dar kartą ir įtraukite į staging.
+4. Atšaukite staging ir tada pakeitimą.
 
-**3 dalis: commit'ai ir Pull Request**
+**Trečia dalis: commit'ai ir Pull Request**
 
-10. Pridėkite `.gitignore` ir padarykite commit su žinute „Ignoruojami .log failai“.
-11. Patikrinkite, kad `docs`, `scripts` ir commit'uose nėra `.env` ar slaptažodžių, ir pažiūrėkite istoriją: turi būti keturi jūsų commit'ai.
-12. Nusiųskite šaką `pamoka-04` į GitHub.
-13. GitHub'e atidarykite Pull Request į `main` pavadinimu „Bash skriptai“ su vieno sakinio aprašu.
-14. Peržiūrėkite **Files changed**: turi matytis jūsų failai.
-15. Sulieskite Pull Request, kompiuteryje persijunkite į `main` ir atnaujinkite jį.
-16. Ištrinkite šaką `pamoka-04` kompiuteryje ir GitHub'e.
-17. **Papildomai:** parašykite skriptą `scripts/dydis.sh`, kuris priima katalogą ir išveda, kiek jame yra failų ir kiek aplankų.
+1. Pridėkite `.gitignore` ir padarykite commit su žinute „Ignoruojami .log failai“.
+2. Patikrinkite, kad `docs`, `scripts` ir commit'uose nėra `.env` ar slaptažodžių, ir pažiūrėkite istoriją: turi būti keturi jūsų commit'ai.
+3. Nusiųskite šaką `pamoka-04` į GitHub.
+4. GitHub'e atidarykite Pull Request į `main` pavadinimu „Bash skriptai“ su vieno sakinio aprašu.
+5. Peržiūrėkite **Files changed**: turi matytis jūsų failai.
+6. Sulieskite Pull Request, kompiuteryje persijunkite į `main` ir atnaujinkite jį.
+7. Ištrinkite šaką `pamoka-04` kompiuteryje ir GitHub'e.
+8. **Papildomai:** parašykite skriptą `scripts/dydis.sh`, kuris priima katalogą ir išveda, kiek jame yra failų ir kiek aplankų.

@@ -4,21 +4,21 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Tikslas:** Pamatyti savo procesą, rasti jo PID ir jį sustabdyti.
 
-**1 dalis: nauja šaka**
+**Pirma dalis: nauja šaka**
 
-2. Eikite į savo `devops-projektas`, persijunkite į `main` ir atnaujinkite jį iš GitHub.
-3. Sukurkite šaką `pamoka-03` ir persijunkite į ją.
+1. Eikite į savo `devops-projektas`, persijunkite į `main` ir atnaujinkite jį iš GitHub.
+2. Sukurkite šaką `pamoka-03` ir persijunkite į ją.
 
-**2 dalis: procesas fone**
+**Antra dalis: procesas fone**
 
-4. Paleiskite komandą `sleep 300` fone.
-5. Pažiūrėkite fone veikiančių darbų sąrašą.
-6. Suraskite savo `sleep` proceso PID (per procesų sąrašą ir `grep`).
-7. Sustabdykite procesą pagal PID.
-8. Įsitikinkite, kad proceso nebėra.
+1. Paleiskite komandą `sleep 300` fone.
+2. Pažiūrėkite fone veikiančių darbų sąrašą.
+3. Suraskite savo `sleep` proceso PID (per procesų sąrašą ir `grep`).
+4. Sustabdykite procesą pagal PID.
+5. Įsitikinkite, kad proceso nebėra.
 
-**3 dalis: užrašai ir commit**
+**Trečia dalis: užrašai ir commit**
 
-9. Faile `docs/procesai.md` (aplanką `docs` sukurkite, jei jo nėra) parašykite antraštę „# Procesai ir paketai“ ir skyrių „## Procesas“ su savo komandomis ir PID.
-10. Pridėkite `docs` ir padarykite commit su žinute „Pradėtas procesai.md“.
-11. **Papildomai:** paleiskite `sleep 300` dar kartą, sustabdykite jį ne per `kill`, o klaviatūros sparčiuoju klavišu, ir paaiškinkite skirtumą tarp `Ctrl+C` ir `Ctrl+Z`.
+1. Faile `docs/procesai.md` (aplanką `docs` sukurkite, jei jo nėra) parašykite antraštę „# Procesai ir paketai“ ir skyrių „## Procesas“ su savo komandomis ir PID.
+2. Pridėkite `docs` ir padarykite commit su žinute „Pradėtas procesai.md“.
+3. **Papildomai:** paleiskite `sleep 300` dar kartą, sustabdykite jį ne per `kill`, o klaviatūros sparčiuoju klavišu, ir paaiškinkite skirtumą tarp `Ctrl+C` ir `Ctrl+Z`.

@@ -1,8 +1,8 @@
 # 1 užduotis, sprendimas (dėstytojui): Argumentas ir sąlyga
 
-Numeriai atitinka užduoties žingsnius (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
 
-2–3. Šaka:
+Pirma dalis, 1–2. Šaka:
 
 ```bash
 cd ~/devops/devops-projektas
@@ -11,7 +11,7 @@ git pull
 git switch -c pamoka-04
 ```
 
-4–8. Skriptas (1 versija):
+Pirma dalis, 3–7. Skriptas (1 versija):
 
 ```bash
 mkdir -p scripts
@@ -34,7 +34,7 @@ EOS
 chmod +x scripts/patikra.sh
 ```
 
-9–11. Paleidimas ir kodai:
+Antra dalis, 1–3. Paleidimas ir kodai:
 
 ```bash
 ./scripts/patikra.sh git; echo "kodas: $?"
@@ -44,7 +44,7 @@ chmod +x scripts/patikra.sh
 
 Laukiama kodai: 0, 1, 2. (Rašykite `echo $?` iškart po komandos, ne vėliau.)
 
-12–13. Užrašai ir commit:
+Trečia dalis, 1–2. Užrašai ir commit:
 
 ```bash
 mkdir -p docs

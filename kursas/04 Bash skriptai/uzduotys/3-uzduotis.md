@@ -4,18 +4,18 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Tikslas:** Pridėti tam pačiam skriptui projekto failų patikrą.
 
-**1 dalis: failų patikra**
+**Pirma dalis: failų patikra**
 
-2. Papildykite `scripts/patikra.sh`: po įrankių ciklo tikrina failus `app.py`, `requirements.txt`, `run.sh`, `.env.example` (kiekvienam „OK“ arba „TRŪKSTA“).
-3. Pridėkite aplanko `docs` patikrą.
-4. Į bendrą trūkstamų dalykų skaičių įtraukite ir trūkstamus failus bei aplanką.
+1. Papildykite `scripts/patikra.sh`: po įrankių ciklo tikrina failus `app.py`, `requirements.txt`, `run.sh`, `.env.example` (kiekvienam „OK“ arba „TRŪKSTA“).
+2. Pridėkite aplanko `docs` patikrą.
+3. Į bendrą trūkstamų dalykų skaičių įtraukite ir trūkstamus failus bei aplanką.
 
-**2 dalis: paleidimas iš skirtingų vietų**
+**Antra dalis: paleidimas iš skirtingų vietų**
 
-5. Paleiskite skriptą iš projekto šaknies.
-6. Paleiskite jį iš `docs` aplanko ir pažiūrėkite, ką jis rodo ir kokį kodą grąžina.
-7. Išsaugokite skripto išvestį iš projekto šaknies faile `docs/patikra.txt`.
+1. Paleiskite skriptą iš projekto šaknies.
+2. Paleiskite jį iš `docs` aplanko ir pažiūrėkite, ką jis rodo ir kokį kodą grąžina.
+3. Išsaugokite skripto išvestį iš projekto šaknies faile `docs/patikra.txt`.
 
-**3 dalis: commit**
+**Trečia dalis: commit**
 
-8. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Patikra tikrina projekto failus“.
+1. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Patikra tikrina projekto failus“.

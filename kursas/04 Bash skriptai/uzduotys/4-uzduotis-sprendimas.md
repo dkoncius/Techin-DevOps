@@ -1,8 +1,8 @@
 # 4 užduotis, sprendimas (dėstytojui): Tikras skriptas, ignoravimas ir Pull Request
 
-Numeriai atitinka užduoties žingsnius (`4-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`4-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
 
-2–5. `.env` ir `*.log`:
+Pirma dalis, 1–4. `.env` ir `*.log`:
 
 ```bash
 cp .env.example .env
@@ -15,7 +15,7 @@ git status --short
 
 Laukiama: `.env` ir `bandymas.log` `git status` nerodo; rodoma tik pakeista `.gitignore`.
 
-6–9. Sugadinimas ir atšaukimas:
+Antra dalis, 1–4. Sugadinimas ir atšaukimas:
 
 ```bash
 tail -n +2 scripts/patikra.sh > scripts/tmp.sh && mv scripts/tmp.sh scripts/patikra.sh
@@ -31,7 +31,7 @@ git status --short
 
 `git reset --hard` neišmokstame: jis ištrintų ir kitus neįrašytus pakeitimus.
 
-10–12. Commit'ai ir siuntimas:
+Trečia dalis, 1–3. Commit'ai ir siuntimas:
 
 ```bash
 git add .gitignore
@@ -40,7 +40,7 @@ git log --oneline
 git push -u origin pamoka-04
 ```
 
-13–16. GitHub'e: **Compare & pull request** → „Bash skriptai“ → aprašymas → **Files changed** → **Merge pull request**. Alternatyva: `gh pr create` ir `gh pr merge --merge`. Tada:
+Trečia dalis, 4–7. GitHub'e: **Compare & pull request** → „Bash skriptai“ → aprašymas → **Files changed** → **Merge pull request**. Alternatyva: `gh pr create` ir `gh pr merge --merge`. Tada:
 
 ```bash
 git switch main
@@ -49,7 +49,7 @@ git branch -d pamoka-04
 git push origin --delete pamoka-04
 ```
 
-17. Papildomai:
+Trečia dalis, 8. Papildomai:
 
 ```bash
 cat > scripts/dydis.sh <<'EOS'

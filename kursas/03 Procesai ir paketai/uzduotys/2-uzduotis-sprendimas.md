@@ -1,8 +1,8 @@
 # 2 užduotis, sprendimas (dėstytojui): Aplinkos kintamasis skripte
 
-Numeriai atitinka užduoties žingsnius (`2-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`2-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
 
-2–3. Skriptas:
+Pirma dalis, 1–2. Skriptas:
 
 ```bash
 mkdir -p scripts
@@ -14,7 +14,7 @@ EOS
 chmod +x scripts/aplinka.sh
 ```
 
-4–5. Be kintamojo ir su kintamuoju vienai komandai (`>` perrašo, `>>` prideda):
+Antra dalis, 1–2. Be kintamojo ir su kintamuoju vienai komandai (`>` perrašo, `>>` prideda):
 
 ```bash
 ./scripts/aplinka.sh > docs/aplinka.txt
@@ -22,7 +22,7 @@ PROJEKTO_VARDAS=mano ./scripts/aplinka.sh >> docs/aplinka.txt
 cat docs/aplinka.txt
 ```
 
-6–7. Kintamasis visam langui ir naujas langas:
+Trečia dalis, 1–2. Kintamasis visam langui ir naujas langas:
 
 ```bash
 export PROJEKTO_VARDAS=visas
@@ -31,14 +31,14 @@ export PROJEKTO_VARDAS=visas
 
 Naujame lange: `cd ~/devops/devops-projektas`, `echo $PROJEKTO_VARDAS` (tuščia), `./scripts/aplinka.sh` rodo „nenustatyta“. Greitas pakaitalas klasėje: `env -u PROJEKTO_VARDAS ./scripts/aplinka.sh`.
 
-8–9. `PATH` ir komandos vieta:
+Trečia dalis, 3–4. `PATH` ir komandos vieta:
 
 ```bash
 echo $PATH
 which ls
 ```
 
-10–11. Du commit'ai:
+Ketvirta dalis, 1–2. Du commit'ai:
 
 ```bash
 git add scripts/aplinka.sh

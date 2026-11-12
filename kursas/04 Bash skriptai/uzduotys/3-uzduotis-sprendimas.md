@@ -1,8 +1,8 @@
 # 3 užduotis, sprendimas (dėstytojui): Projekto failų patikra
 
-Numeriai atitinka užduoties žingsnius (`3-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
 
-2–4. Skriptas (galutinė versija):
+Pirma dalis, 1–3. Skriptas (galutinė versija):
 
 ```bash
 cat > scripts/patikra.sh <<'EOS'
@@ -53,7 +53,7 @@ fi
 EOS
 ```
 
-5–7. Iš šaknies ir iš `docs`:
+Antra dalis, 1–3. Iš šaknies ir iš `docs`:
 
 ```bash
 ./scripts/patikra.sh; echo "kodas: $?"
@@ -63,7 +63,7 @@ EOS
 
 Laukiama: iš šaknies kodas 0; iš `docs` visi failai „TRŪKSTA“ ir kodas 1 (skriptas ieško failų dabartiniame aplanke). Tai teisinga, bet mokiniai gali manyti, kad skriptas sugedęs.
 
-8. Commit:
+Trečia dalis, 1. Commit:
 
 ```bash
 git add scripts docs

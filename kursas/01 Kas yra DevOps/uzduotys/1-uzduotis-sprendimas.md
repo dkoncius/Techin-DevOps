@@ -1,8 +1,8 @@
 # 1 užduotis, sprendimas (dėstytojui): Sukurkite repozitoriją terminale
 
-Numeriai atitinka užduoties žingsnius (`1-uzduotis.md`). Rodoma aplanke `devops`, tuo pačiu pavadinimu `git-bandymas` kaip studentų.
+Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Rodoma aplanke `devops`, tuo pačiu pavadinimu `git-bandymas` kaip studentų.
 
-2–5. Aplankas:
+Pirma dalis, 1–4. Aplankas:
 
 ```bash
 cd ~/Desktop/devops
@@ -10,7 +10,7 @@ mkdir git-bandymas
 cd git-bandymas
 ```
 
-6–9. Failai ir patikra:
+Pirma dalis, 5–8. Failai ir patikra:
 
 ```bash
 echo "pirma pastaba" > pastabos.txt
@@ -19,7 +19,7 @@ ls
 cat pastabos.txt idejos.txt
 ```
 
-10–15. Repozitorija ir pirmas commit:
+Antra dalis, 1–6. Repozitorija ir pirmas commit:
 
 ```bash
 git init
@@ -30,7 +30,7 @@ git commit -m "Du failai"
 git log --oneline
 ```
 
-16–20. Šaka su pakeitimu:
+Trečia dalis, 1–5. Šaka su pakeitimu:
 
 ```bash
 git switch -c papildymas
@@ -40,7 +40,7 @@ git commit -am "Papildytas pastabos.txt"
 git log --oneline
 ```
 
-21–26. Sujungimas:
+Ketvirta dalis, 1–6. Sujungimas:
 
 ```bash
 git switch main
@@ -51,7 +51,7 @@ git branch -d papildymas
 git log --oneline --graph --all
 ```
 
-27. Papildomai (pakartoti 16–19 su nauja šaka ir prieš sujungimą papildyti `main`):
+Penkta dalis, 1–8. Papildomai (sujungimas su išsišakojimu):
 
 ```bash
 git switch -c antra-saka
@@ -64,4 +64,4 @@ git merge antra-saka -m "Sujungta antra-saka"
 git log --oneline --graph --all
 ```
 
-Pastaba: pirmas sujungimas (23) yra „fast-forward“, todėl istorija tiesi; tik šiame žingsnyje atsiranda sujungimo commit'as ir grafike matyti dvi šakos.
+Pastaba: pirmas sujungimas (ketvirta dalis, 3 žingsnis) yra „fast-forward“, todėl istorija tiesi; tik penktoje dalyje atsiranda sujungimo commit'as ir grafike matyti dvi šakos.

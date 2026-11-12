@@ -4,26 +4,26 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Tikslas:** Automatizuoti ranka darytus žingsnius skriptu, padaryti jį vykdomą ir nustatyti teises.
 
-**1 dalis: skriptas**
+**Pirma dalis: skriptas**
 
-2. Projekte sukurkite aplanką `scripts`.
-3. Faile `scripts/ataskaita.sh` parašykite skriptą, kuris išveda: aplanką, kuriame paleistas; kiek failų ir aplankų yra `docs/pastabos`; visų `.md` failų sąrašą (be `.git`); `app.py` eilutes su žodžiu `health`.
-4. Paleiskite skriptą iš projekto šaknies kaip programą.
+1. Projekte sukurkite aplanką `scripts`.
+2. Faile `scripts/ataskaita.sh` parašykite skriptą, kuris išveda: aplanką, kuriame paleistas; kiek failų ir aplankų yra `docs/pastabos`; visų `.md` failų sąrašą (be `.git`); `app.py` eilutes su žodžiu `health`.
+3. Paleiskite skriptą iš projekto šaknies kaip programą.
 
-**2 dalis: vykdymo teisė**
+**Antra dalis: vykdymo teisė**
 
-5. Padarykite skriptą vykdomą ir paleiskite iš naujo.
-6. Skripto išvestį įrašykite į failą `docs/ataskaita.txt`.
-7. Pažiūrėkite skripto teises ilguoju sąrašu.
+1. Padarykite skriptą vykdomą ir paleiskite iš naujo.
+2. Skripto išvestį įrašykite į failą `docs/ataskaita.txt`.
+3. Pažiūrėkite skripto teises ilguoju sąrašu.
 
-**3 dalis: slaptas failas**
+**Trečia dalis: slaptas failas**
 
-8. Aplanke `~/devops` (ne projekte) sukurkite failą `slaptas.txt`.
-9. Nustatykite teises taip, kad jį galėtų skaityti ir keisti tik savininkas.
-10. Patikrinkite teises ilguoju sąrašu.
+1. Aplanke `~/devops` (ne projekte) sukurkite failą `slaptas.txt`.
+2. Nustatykite teises taip, kad jį galėtų skaityti ir keisti tik savininkas.
+3. Patikrinkite teises ilguoju sąrašu.
 
-**4 dalis: du commit'ai**
+**Ketvirta dalis: du commit'ai**
 
-11. Pridėkite tik `scripts/ataskaita.sh` ir padarykite commit su žinute „Pridėtas ataskaita.sh“.
-12. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėta ataskaita“.
-13. **Papildomai:** nuimkite skriptui vykdymo teisę, paleiskite per `bash` ir paaiškinkite, kodėl jis vis tiek veikia; tada grąžinkite teisę.
+1. Pridėkite tik `scripts/ataskaita.sh` ir padarykite commit su žinute „Pridėtas ataskaita.sh“.
+2. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėta ataskaita“.
+3. **Papildomai:** nuimkite skriptui vykdymo teisę, paleiskite per `bash` ir paaiškinkite, kodėl jis vis tiek veikia; tada grąžinkite teisę.

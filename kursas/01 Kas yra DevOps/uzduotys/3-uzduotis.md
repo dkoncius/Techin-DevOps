@@ -4,49 +4,49 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Tikslas:** Nusiklonuoti `git-bandymas` į naują aplanką ir jame pakartoti darbą su šaka: pakeitimas, commit, sujungimas, šakos trynimas.
 
-**1 dalis: clone**
+**Pirma dalis: clone**
 
-2. Atidarykite terminalą ir pereikite į aplanką `devops`.
-3. Pažiūrėkite savo repozitorijos `git-bandymas` HTTPS nuorodą.
-4. Nusiklonuokite repozitoriją į aplanką `git-bandymas-kopija` (`git-bandymas` jau užimtas).
-5. Pereikite į `git-bandymas-kopija`.
-6. Patikrinkite failus: turi būti `pastabos.txt` ir `idejos.txt`.
-7. Patikrinkite nuotolinę nuorodą: ji rodo jūsų repozitoriją.
-8. Patikrinkite istoriją: yra 1 užduoties commit'ai.
+1. Atidarykite terminalą ir pereikite į aplanką `devops`.
+2. Pažiūrėkite savo repozitorijos `git-bandymas` HTTPS nuorodą.
+3. Nusiklonuokite repozitoriją į aplanką `git-bandymas-kopija` (`git-bandymas` jau užimtas).
+4. Pereikite į `git-bandymas-kopija`.
+5. Patikrinkite failus: turi būti `pastabos.txt` ir `idejos.txt`.
+6. Patikrinkite nuotolinę nuorodą: ji rodo jūsų repozitoriją.
+7. Patikrinkite istoriją: yra 1 užduoties commit'ai.
 
-**2 dalis: dokumentas** `main` **šakoje**
+**Antra dalis: dokumentas** `main` **šakoje**
 
-9. Sukurkite failą `devops-dokumentas.md` (pvz. VS Code arba terminale).
-10. Įrašykite antraštę „Kas yra DevOps“ ir 3–4 sakinius savais žodžiais, kas yra DevOps.
-11. Pridėkite skyrių „Kur gali lūžti“: 2 vietos, kur grandinė gali lūžti, kiekviena su vienu sakiniu kodėl.
-12. Pridėkite failą į Git.
-13. Padarykite commit su žinute „Pridėta, kur gali lūžti“.
-14. Nusiųskite į GitHub.
-15. Pažiūrėkite failus, esančius GitHub repozitorijoje: turi atsirasti `devops-dokumentas.md`.
+1. Sukurkite failą `devops-dokumentas.md` (pvz. VS Code arba terminale).
+2. Įrašykite antraštę „Kas yra DevOps“ ir 3–4 sakinius savais žodžiais, kas yra DevOps.
+3. Pridėkite skyrių „Kur gali lūžti“: 2 vietos, kur grandinė gali lūžti, kiekviena su vienu sakiniu kodėl.
+4. Pridėkite failą į Git.
+5. Padarykite commit su žinute „Pridėta, kur gali lūžti“.
+6. Nusiųskite į GitHub.
+7. Pažiūrėkite failus, esančius GitHub repozitorijoje: turi atsirasti `devops-dokumentas.md`.
 
-**3 dalis: šaka** `skyriai`
+**Trečia dalis: šaka** `skyriai`
 
-16. Sukurkite šaką `skyriai` ir persijunkite į ją.
-17. Papildykite dokumentą skyriumi „Kodėl DevOps“: 2 sakiniai, kuo DevOps naudingas komandai.
-18. Padarykite commit su žinute „Pridėta, kodėl DevOps“.
-19. Nusiųskite šaką `skyriai` į GitHub.
-20. Pažiūrėkite šakas GitHub repozitorijoje: turi būti `main` ir `skyriai`.
-21. Grįžkite į `main`.
-22. Atidarykite `devops-dokumentas.md` ir įsitikinkite, kad skyriaus „Kodėl DevOps“ dar nėra.
+1. Sukurkite šaką `skyriai` ir persijunkite į ją.
+2. Papildykite dokumentą skyriumi „Kodėl DevOps“: 2 sakiniai, kuo DevOps naudingas komandai.
+3. Padarykite commit su žinute „Pridėta, kodėl DevOps“.
+4. Nusiųskite šaką `skyriai` į GitHub.
+5. Pažiūrėkite šakas GitHub repozitorijoje: turi būti `main` ir `skyriai`.
+6. Grįžkite į `main`.
+7. Atidarykite `devops-dokumentas.md` ir įsitikinkite, kad skyriaus „Kodėl DevOps“ dar nėra.
 
-**4 dalis: sujungimas ir šakos trynimas**
+**Ketvirta dalis: sujungimas ir šakos trynimas**
 
-23. Sujunkite šaką `skyriai` į `main`.
-24. Nusiųskite `main` į GitHub.
-25. Ištrinkite šaką `skyriai` kompiuteryje.
-26. Ištrinkite šaką `skyriai` GitHub'e.
-27. Peržiūrėkite istoriją su šakomis.
+1. Sujunkite šaką `skyriai` į `main`.
+2. Nusiųskite `main` į GitHub.
+3. Ištrinkite šaką `skyriai` kompiuteryje.
+4. Ištrinkite šaką `skyriai` GitHub'e.
+5. Peržiūrėkite istoriją su šakomis.
 
-**5 dalis: šakos trynimas mažąja ir didžiąja raide**
+**Penkta dalis: šakos trynimas mažąja ir didžiąja raide**
 
-28. Atidarykite oficialią Git dokumentaciją apie šakos trynimą ir suraskite, kuo skiriasi mažoji ir didžioji raidė.
-29. Pridėkite dokumente skyrių „Git“ ir užrašykite atsakymą savais žodžiais.
-30. Padarykite commit su žinute „Pridėta apie šakų trynimą“.
-31. Nusiųskite į GitHub.
-32. Patikrinkite, kad dokumente ir repozitorijoje nėra slaptažodžių ar realių IP.
-33. **Papildomai:** pažaiskite [Learn Git Branching](https://learngitbranching.js.org/) pirmą lygių grupę arba parašykite dokumente, kas yra merge commit.
+1. Atidarykite oficialią Git dokumentaciją apie šakos trynimą ir suraskite, kuo skiriasi mažoji ir didžioji raidė.
+2. Pridėkite dokumente skyrių „Git“ ir užrašykite atsakymą savais žodžiais.
+3. Padarykite commit su žinute „Pridėta apie šakų trynimą“.
+4. Nusiųskite į GitHub.
+5. Patikrinkite, kad dokumente ir repozitorijoje nėra slaptažodžių ar realių IP.
+6. **Papildomai:** pažaiskite [Learn Git Branching](https://learngitbranching.js.org/) pirmą lygių grupę arba parašykite dokumente, kas yra merge commit.

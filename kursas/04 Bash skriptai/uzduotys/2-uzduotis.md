@@ -4,20 +4,20 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Tikslas:** Išplėsti tą patį skriptą, kad jis patikrintų įrankių sąrašą ir suskaičiuotų, kiek trūksta.
 
-**1 dalis: ciklas**
+**Pirma dalis: ciklas**
 
-2. Pakeiskite `scripts/patikra.sh`: dabar jis priima bet kiek argumentų (įrankių), o be argumentų tikrina `git`, `python3`, `curl`.
-3. Kiekvienam įrankiui ciklu išveskite „OK“ arba „TRŪKSTA“ ir pavadinimą.
-4. Suskaičiuokite, kiek įrankių trūksta.
-5. Jei trūksta bent vieno, išveskite į klaidų kanalą, kiek jų trūksta, ir baikite su kodu 1; kitaip su kodu 0.
+1. Pakeiskite `scripts/patikra.sh`: dabar jis priima bet kiek argumentų (įrankių), o be argumentų tikrina `git`, `python3`, `curl`.
+2. Kiekvienam įrankiui ciklu išveskite „OK“ arba „TRŪKSTA“ ir pavadinimą.
+3. Suskaičiuokite, kiek įrankių trūksta.
+4. Jei trūksta bent vieno, išveskite į klaidų kanalą, kiek jų trūksta, ir baikite su kodu 1; kitaip su kodu 0.
 
-**2 dalis: paleidimas**
+**Antra dalis: paleidimas**
 
-6. Paleiskite be argumentų ir pažiūrėkite išėjimo kodą.
-7. Paleiskite su `git neegzistuoja kitas` ir pažiūrėkite išėjimo kodą.
-8. Paleiskite tik su `git` ir pažiūrėkite išėjimo kodą.
+1. Paleiskite be argumentų ir pažiūrėkite išėjimo kodą.
+2. Paleiskite su `git neegzistuoja kitas` ir pažiūrėkite išėjimo kodą.
+3. Paleiskite tik su `git` ir pažiūrėkite išėjimo kodą.
 
-**3 dalis: užrašai ir commit**
+**Trečia dalis: užrašai ir commit**
 
-9. Skyriuje „Išėjimo kodai“ užrašykite, kuris paleidimas kokį kodą davė.
-10. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Skriptas tikrina įrankių sąrašą“.
+1. Skyriuje „Išėjimo kodai“ užrašykite, kuris paleidimas kokį kodą davė.
+2. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Skriptas tikrina įrankių sąrašą“.

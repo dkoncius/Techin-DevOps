@@ -1,8 +1,8 @@
 # 2 užduotis, sprendimas (dėstytojui): Navigacija ir failai
 
-Numeriai atitinka užduoties žingsnius (`2-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį.
+Numeriai: dalis ir žingsnis kaip užduotyje (`2-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį.
 
-2–7. Judėjimas:
+Pirma dalis, 1–6. Judėjimas:
 
 ```bash
 cd ~/devops/devops-projektas
@@ -14,7 +14,7 @@ cd ~/devops
 cd ~/devops/devops-projektas
 ```
 
-8–10. Aplankai ir failai:
+Antra dalis, 1–3. Aplankai ir failai:
 
 ```bash
 mkdir -p docs/pastabos/archyvas
@@ -23,7 +23,7 @@ touch terminalas.txt git.txt komandos.txt
 ls
 ```
 
-11–14. Kopijavimas, pervadinimas, perkėlimas:
+Trečia dalis, 1–4. Kopijavimas, pervadinimas, perkėlimas:
 
 ```bash
 cp terminalas.txt git.txt archyvas
@@ -33,6 +33,6 @@ mv archyvas/git-senas.txt .
 ls -R ..
 ```
 
-15. Papildomai: `man ls` (išeiti `q`); `ls -lS static`.
+Trečia dalis, 5. Papildomai: `man ls` (išeiti `q`); `ls -lS static`.
 
 Dažna klaida: tarpas aplanko varde be kabučių; `cp` / `mv` be paskirties aplanko; `cd` ne iš to aplanko (patikrinti `pwd`, `ls`, naudoti Tab).

@@ -1,8 +1,8 @@
 # 4 užduotis, sprendimas (dėstytojui): Teisės ir pirmas skriptas
 
-Numeriai atitinka užduoties žingsnius (`4-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį.
+Numeriai: dalis ir žingsnis kaip užduotyje (`4-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį.
 
-2–3. Skriptas (redaktoriumi arba taip):
+Pirma dalis, 1–2. Skriptas (redaktoriumi arba taip):
 
 ```bash
 cd ~/devops/devops-projektas
@@ -18,13 +18,13 @@ grep -n "health" app.py
 EOS
 ```
 
-4. Pirmas paleidimas (`Permission denied`):
+Pirma dalis, 3. Pirmas paleidimas (`Permission denied`):
 
 ```bash
 ./scripts/ataskaita.sh
 ```
 
-5–7. Vykdymo teisė, išvestis, `ls -l`:
+Antra dalis, 1–3. Vykdymo teisė, išvestis, `ls -l`:
 
 ```bash
 chmod +x scripts/ataskaita.sh
@@ -33,7 +33,7 @@ chmod +x scripts/ataskaita.sh
 ls -l scripts/ataskaita.sh
 ```
 
-8–10. Slaptas failas:
+Trečia dalis, 1–3. Slaptas failas:
 
 ```bash
 touch ~/devops/slaptas.txt
@@ -43,7 +43,7 @@ ls -l ~/devops/slaptas.txt
 
 Laukiama: `-rw-------`.
 
-11–12. Du commit'ai:
+Ketvirta dalis, 1–2. Du commit'ai:
 
 ```bash
 git add scripts/ataskaita.sh
@@ -53,7 +53,7 @@ git commit -m "Pridėta ataskaita"
 git log --oneline
 ```
 
-13. Papildomai:
+Ketvirta dalis, 3. Papildomai:
 
 ```bash
 chmod -x scripts/ataskaita.sh

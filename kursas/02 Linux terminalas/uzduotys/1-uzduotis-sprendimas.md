@@ -1,10 +1,10 @@
 # 1 užduotis, sprendimas (dėstytojui): Savo projektas
 
-Numeriai atitinka užduoties žingsnius (`1-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį.
+Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį.
 
-2–4. Naršyklėje (nėra komandos): šablono puslapis → **Use this template** → **Create a new repository** → pavadinimas `devops-projektas`, **Public**. Alternatyva terminale: `gh repo create devops-projektas --template dkoncius/devops-projektas-starter-template --public`.
+Pirma dalis, 1–3. Naršyklėje (nėra komandos): šablono puslapis → **Use this template** → **Create a new repository** → pavadinimas `devops-projektas`, **Public**. Alternatyva terminale: `gh repo create devops-projektas --template dkoncius/devops-projektas-starter-template --public`.
 
-5–8. Klonavimas ir patikra:
+Antra dalis, 1–4. Klonavimas ir patikra:
 
 ```bash
 cd ~/devops
@@ -15,7 +15,7 @@ git remote -v
 
 `git remote -v` turi rodyti `<JŪSŲ-VARDAS>/devops-projektas`, o ne `starter-template`.
 
-9–12. Šaka, `docs`, commit:
+Trečia dalis, 1–4. Šaka, `docs`, commit:
 
 ```bash
 git switch -c pamoka-02
