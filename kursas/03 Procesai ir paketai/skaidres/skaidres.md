@@ -106,7 +106,7 @@ Pastaba: ~3 min.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną Teams'e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Užduotys eina viena gija viename projekte: procesas (1), skriptas su kintamuoju (2), paketas (3), kodas ir PR (4). Mac ir Ubuntu komandų lentelė 3 užduotyje: leiskite rašyti abi. Atsakymus į „Kodėl“ rašo `docs/procesai.md`.
+Pastaba: Skelbkite po vieną Teams'e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Užduotys eina viena gija viename projekte: procesas (1), skriptas su kintamuoju (2), paketas (3), kodas ir PR (4). Mac ir Ubuntu komandų lentelė 3 užduotyje: leiskite rašyti abi.
 
 === kita | Kita pamoka
 Bash skriptai: kintamieji, sąlygos, ciklai

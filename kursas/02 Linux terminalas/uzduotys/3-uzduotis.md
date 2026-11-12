@@ -1,6 +1,6 @@
 # 3 užduotis: Srautai ir paieška
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`. Atsakymus į „Kodėl“ rašote faile `docs/terminalas.md`.
+Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`.
 
 **Tikslas:** Užpildyti pastabas, sujungti komandas per srautus ir išsaugoti paieškos rezultatus.
 
@@ -18,7 +18,7 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 8. Išveskite pirmas 2 `komandos.txt` eilutes.
 9. Išveskite paskutines 2 `komandos.txt` eilutes.
 10. Viena komanda su vamzdžiu (`|`) išveskite tik tas `komandos.txt` eilutes, kuriose yra raidė `p`.
-11. Į `docs/pastabos/terminalas.txt` įrašykite vieną sakinį, kas yra terminalas (perrašant failą).
+11. Į `docs/pastabos/terminalas.txt` įrašykite vieną eilutę su bet kokiu tekstu (perrašant failą).
 
 **3 dalis: paieška projekte**
 
@@ -28,5 +28,4 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **4 dalis: užrašai ir commit**
 
-15. **Kodėl:** faile `docs/terminalas.md` pridėkite skyrių „## Srautai“, užrašykite komandą iš 14 žingsnio ir vienu sakiniu, kuo `>` skiriasi nuo `>>` ir ką prarastumėte per klaidą pasirinkę `>`.
-16. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėtos pastabos ir paieškos rezultatai“.
+15. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėtos pastabos ir paieškos rezultatai“.

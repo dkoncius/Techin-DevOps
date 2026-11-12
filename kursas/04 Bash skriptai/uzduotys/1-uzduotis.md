@@ -1,6 +1,6 @@
 # 1 užduotis: Argumentas ir sąlyga
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`: 1–3 plečia tą patį skriptą `scripts/patikra.sh`. Atsakymus į „Kodėl“ rašote faile `docs/bash.md`.
+Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`: 1–3 plečia tą patį skriptą `scripts/patikra.sh`.
 
 **Tikslas:** Parašyti skriptą, kuris tikrina vieną įrankį pagal argumentą ir grąžina išėjimo kodą.
 
@@ -23,5 +23,4 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 **3 dalis: užrašai ir commit**
 
 12. Faile `docs/bash.md` (aplanką `docs` turite iš 02 ir 03) parašykite antraštę „# Bash skriptai“ ir skyrių „## Išėjimo kodai“ su trimis kodais, kuriuos gavote.
-13. **Kodėl:** skyriuje „Išėjimo kodai“ vienu sakiniu užrašykite, kodėl naudojimo žinutę rašome į klaidų kanalą, o ne į įprastą išvestį.
-14. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Pridėtas patikra.sh“.
+13. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Pridėtas patikra.sh“.

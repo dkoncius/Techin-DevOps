@@ -63,12 +63,11 @@ EOS
 
 Laukiama: iš šaknies kodas 0; iš `docs` visi failai „TRŪKSTA“ ir kodas 1 (skriptas ieško failų dabartiniame aplanke). Tai teisinga, bet mokiniai gali manyti, kad skriptas sugedęs.
 
-8–10. Testai, Kodėl, commit:
+8. Commit:
 
 ```bash
-printf '\n## Testai\n\n`[ ]` yra sena komanda, o `[[ ]]` yra Bash žodis: jame saugiau su tuščiais kintamaisiais ir galima naudoti `&&` bei `||`, bet jis veikia tik Bash.\n\n`set -e` sustabdo skriptą pirmoje nepavykusioje komandoje, kad klaida nesikauptų ir skriptas nesidarytų „sėkmingas“ po sugadinto žingsnio.\n' >> docs/bash.md
 git add scripts docs
 git commit -m "Patikra tikrina projekto failus"
 ```
 
-Oficiali dokumentacija: Bash Reference Manual, skyrius „Conditional Constructs“. Dažna klaida: `-f` vietoj `-d` aplankui.
+Dažna klaida: `-f` vietoj `-d` aplankui.

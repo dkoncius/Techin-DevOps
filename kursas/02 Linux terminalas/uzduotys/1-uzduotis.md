@@ -1,6 +1,6 @@
 # 1 užduotis: Savo projektas
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`. Atsakymus į „Kodėl“ rašote faile `docs/terminalas.md`.
+Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`.
 
 **Tikslas:** Pasidaryti savo projekto kopiją iš šablono, nusiklonuoti ir paruošti vietą darbui atskiroje šakoje.
 
@@ -20,7 +20,6 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 **3 dalis: šaka ir pirmas commit**
 
 9. Sukurkite šaką `pamoka-02` ir persijunkite į ją.
-10. Sukurkite aplanką `docs` ir faile `docs/terminalas.md` parašykite antraštę „# Terminalas“ ir skyrių „## Projektas“.
-11. **Kodėl:** skyriuje „Projektas“ vienu sakiniu užrašykite, kodėl dirbame savo kopijoje, o ne tiesiai šablone.
-12. Pažiūrėkite Git būseną: `docs` dar neįtrauktas.
-13. Pridėkite `docs` ir padarykite commit su žinute „Pradėtas terminalas.md“.
+10. Sukurkite aplanką `docs` ir faile `docs/terminalas.md` parašykite antraštę „# Terminalas“.
+11. Pažiūrėkite Git būseną: `docs` dar neįtrauktas.
+12. Pridėkite `docs` ir padarykite commit su žinute „Pradėtas terminalas.md“.

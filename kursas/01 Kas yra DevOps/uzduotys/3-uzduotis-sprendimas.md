@@ -65,8 +65,6 @@ git push
 
 32. Patikra: `grep -rniE "password|slaptažod|[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" .` (neturi rasti nieko)
 
-33. Kodėl (pavyzdys): `clone` nukopijuoja istoriją ir pats nustato `origin`, o `git init` su `git remote add` tą ryšį reikia sukurti rankomis.
-
 #### Pavyzdinis `devops-dokumentas.md`
 
 ````markdown

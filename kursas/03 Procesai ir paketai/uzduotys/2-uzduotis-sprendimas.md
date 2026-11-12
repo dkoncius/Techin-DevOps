@@ -38,10 +38,9 @@ echo $PATH
 which ls
 ```
 
-10–13. Užrašai ir du commit'ai:
+10–11. Du commit'ai:
 
 ```bash
-printf '\n## Aplinkos kintamieji\n\nSu `export PROJEKTO_VARDAS=visas` skriptas rodo „visas“. Naujame lange kintamojo nėra: jis gyvena tik tame lange, kuriame nustatytas.\n\n`./scripts/aplinka.sh` rašome su `./`, nes dabartinio aplanko nėra `PATH`; `ls` yra aplanke, įrašytame į `PATH`.\n' >> docs/procesai.md
 git add scripts/aplinka.sh
 git commit -m "Pridėtas aplinka.sh"
 git add docs

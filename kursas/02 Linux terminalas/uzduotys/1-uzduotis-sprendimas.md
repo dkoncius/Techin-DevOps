@@ -15,12 +15,12 @@ git remote -v
 
 `git remote -v` turi rodyti `<JŪSŲ-VARDAS>/devops-projektas`, o ne `starter-template`.
 
-9–13. Šaka, `docs`, commit:
+9–12. Šaka, `docs`, commit:
 
 ```bash
 git switch -c pamoka-02
 mkdir docs
-printf '# Terminalas\n\n## Projektas\n\nDirbame savo kopijoje, nes šablonas priklauso kitam ir mes negalime jo keisti.\n' > docs/terminalas.md
+echo "# Terminalas" > docs/terminalas.md
 git status
 git add docs
 git commit -m "Pradėtas terminalas.md"

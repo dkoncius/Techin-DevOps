@@ -30,18 +30,24 @@ description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paska
 
 ## Užduotys (`uzduotys/N-uzduotis.md`)
 1. `pamoka.md` skyrius `## Užduotys` yra viena pastraipa: kur yra failai, kad dėstytojas skelbia Teams'e po vieną (pirma demonstracija, tada darbas) ir kad sprendimai yra `uzduotys/N-uzduotis-sprendimas.md`. Užduočių teksto `pamoka.md` nekartoti.
-2. Failo `N-uzduotis.md` struktūra: `# N užduotis: <Pavadinimas>`; įvadas (1 kartą, ne po kiekvieno žingsnio): `Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame (1 etape; DI leidžiamas nuo Docker etapo, žr. di-kurse). Galite remtis ankstesnio dėstytojo Git komandų santrauka (git komandos.pdf, Teams'e).` Kai užduotys eina viena gija, įvade pridėti sakinį apie tai ir kur rašomi „Kodėl“ atsakymai. Laiko užduotyje nerašyti.
+2. Failo `N-uzduotis.md` struktūra: `# N užduotis: <Pavadinimas>`; įvadas (1 kartą, ne po kiekvieno žingsnio): `Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame (1 etape; DI leidžiamas nuo Docker etapo, žr. di-kurse). Galite remtis ankstesnio dėstytojo Git komandų santrauka (git komandos.pdf, Teams'e).` Kai užduotys eina viena gija, įvade pridėti sakinį apie tai. „Kodėl“ žingsnių nėra (dėstytojo sprendimas). Laiko užduotyje nerašyti.
 3. Po įvado: `**Tikslas:** <vienas sakinys>` (nenumeruotas; jį skaito skaidrių generatorius), toliau žingsniai suskirstyti į dalis `**1 dalis: <tema>**`, `**2 dalis: ...**`. Žingsnių numeracija ištisinė per visas dalis ir prasideda nuo 2 (1 yra Tikslas).
 4. Žingsnis yra atominis: vienas veiksmas, nurodyti visi pavadinimai (aplankai, failai, šakos, commit žinutės), be komandų ir atsakymų, trumpais sakiniais; kur tinka, pavadinti įrankį ar temą. Stilius pagal Edgaro užduotis (`praeitos temos/`).
-5. `**Kodėl:**` žingsniai (vienas sakinys užrašomas faile) ir `**Papildomai:**` (ne daugiau kaip 1 punktas užduotyje) yra tame pačiame sąraše.
+5. **Mokiniai užduotyse nerašo paaiškinimų** („paaiškinkite“, „užrašykite, ką pamatėte / kodėl“) jokiame atskirame dokumente (`docs/*.md`): tik praktika, komandos ir komandų rezultatų failai (`.txt`). Nenaudoti „Kodėl“ žingsnių. Kai žingsnis kuria failą, jis turi turėti tikrą turinį commit'ui (tuščias `git add docs` neturi atsirasti). Dėstytojo paaiškinimai lieka `pamoka.md` ir sprendimų pastabose.
+5. `**Papildomai:**` (ne daugiau kaip 1 punktas užduotyje) yra tame pačiame sąraše.
 6. Pateikimo ir DI punktų nėra: mokiniai tiesiog atlieka užduotis, tikrinama atsiskaityme. Kai pamoka moko PR, pateikimas yra PR į mokinio `devops-projektas` kopiją.
 7. Paprastai 3–5 užduotys, kurių suma telpa į užduočių laiką (~1,25–2,5 val.). Kiekvienoje pamokoje bent viena užduotis pagal oficialią dokumentaciją: „(pagal oficialią dokumentaciją; žingsnių čia nėra, tik tikslas)“.
 8. Užduotys parodo, ar mokiniai moka tai, ką dėstė Edgaras: Git (clone, branch, commit), Bash (paprastas skriptas), Python kodo skaitymas (pvz. `/health`), vėliau ir MySQL kodo skaitymas.
 9. `**Pavyzdys:**` tik jei tikrai padeda: vienas kodo blokas ar nuoroda. Netikra išvestis pažymėta „pavyzdinė išvestis“.
 
+## Komandų PDF (`uzduotys/<tema> komandos.pdf`)
+1. Kiekvienai temai: `linux komandos`, `procesai komandos`, `bash komandos` ir pan. Šaltinis `<tema> komandos.md`, PDF generuojamas (Chrome headless iš HTML). Pavyzdys: Edgaro `git komandos.pdf`.
+2. Tik komandos, naudojamos pamokoje ir užduotyse (skaidrės + sprendimai); bendra forma su vietos žymekliais (`cp ŠALTINIS TIKSLAS`), ne konkretus sprendimas.
+3. Formatas: `komanda → trumpas aprašymas`, **be nuorodų į dokumentaciją**, ~1 puslapis, didelis šriftas, komandos sugrupuotos į kelis trumpus blokus (`##` antraštės). Komandų, kurios jau yra kitame PDF (pvz. `git komandos.pdf`), nekartoti.
+
 ## Užduočių sprendimai (`uzduotys/N-uzduotis-sprendimas.md`)
 1. Antraštė `# N užduotis, sprendimas (dėstytojui): <Pavadinimas>`, eilutė, kad numeriai atitinka užduoties žingsnius, ir pastaba, kad demonstracijoje naudojamas kitas pavyzdys.
-2. Žingsniai grupuojami pagal užduoties numerius (`2–4.`, `5–8.`), po jais kodo blokai ```bash su komandomis, kur reikia „Laukiama: ...“ ir „Dažna klaida: ...“. „Kodėl“ ir „Papildomai“ žingsniams pateikti pavyzdinį atsakymą ar komandas.
+2. Žingsniai grupuojami pagal užduoties numerius (`2–4.`, `5–8.`), po jais kodo blokai ```bash su komandomis, kur reikia „Laukiama: ...“ ir „Dažna klaida: ...“. „Papildomai“ žingsniui pateikti pavyzdinį atsakymą ar komandas.
 3. Komandos veikia Mac ir Ubuntu (WSL); be GNU-only parametrų (žr. „Windows ir Mac“). Naršyklės žingsniai aprašomi tekstu (kur yra `gh` alternatyva, nurodyti ją).
 4. Tik tikri rezultatai: kodo blokus PALEISK iš eilės švarioje aplinkoje (prireikus laikina nuotolinė repozitorija vietoj GitHub) ir tik tada rašyk „Patikrinta“. DRAUDŽIAMA nepatikrinti skriptai.
 

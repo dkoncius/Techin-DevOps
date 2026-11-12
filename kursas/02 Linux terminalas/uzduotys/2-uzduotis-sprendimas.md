@@ -33,13 +33,6 @@ mv archyvas/git-senas.txt .
 ls -R ..
 ```
 
-15. Kodėl:
-
-```bash
-cd ~/devops/devops-projektas
-printf '\n## Failai\n\nPirma kopijuojame, nes kopija nieko nesugadina, o ištrintą ar perrašytą failą atgauti sunku.\n' >> docs/terminalas.md
-```
-
-16. Papildomai: `man ls` (išeiti `q`); `ls -lS static`.
+15. Papildomai: `man ls` (išeiti `q`); `ls -lS static`.
 
 Dažna klaida: tarpas aplanko varde be kabučių; `cp` / `mv` be paskirties aplanko; `cd` ne iš to aplanko (patikrinti `pwd`, `ls`, naudoti Tab).

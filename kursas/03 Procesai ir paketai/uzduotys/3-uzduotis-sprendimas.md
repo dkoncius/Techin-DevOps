@@ -28,10 +28,10 @@ tree docs > docs/medis.txt
 
 7. Ar įdiegtas: Mac `brew list tree`; Ubuntu `dpkg -s tree` (arba `apt list --installed`).
 
-8–10. Lentelė, Kodėl, commit:
+8–9. Lentelė ir commit:
 
 ```bash
-printf '\n## Paketas\n\n| Veiksmas | Mac | Ubuntu (WSL) |\n|---|---|---|\n| Įdiegti | `brew install tree` | `sudo apt update` ir `sudo apt install tree` |\n| Versija | `tree --version` | `tree --version` |\n| Ar įdiegtas | `brew list tree` | `dpkg -s tree` |\n\nPaketų tvarkyklė pati randa, įdiegia ir atnaujina programą iš patikimo šaltinio; ranka siųsti iš svetainių nesaugu ir sunku atnaujinti.\n' >> docs/procesai.md
+printf '\n## Paketas\n\n| Veiksmas | Mac | Ubuntu (WSL) |\n|---|---|---|\n| Įdiegti | `brew install tree` | `sudo apt update` ir `sudo apt install tree` |\n| Versija | `tree --version` | `tree --version` |\n| Ar įdiegtas | `brew list tree` | `dpkg -s tree` |\n' >> docs/procesai.md
 git add docs
 git commit -m "Pridėtas paketas ir medis"
 ```

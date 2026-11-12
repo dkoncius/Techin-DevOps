@@ -170,7 +170,7 @@ Pastaba: ~3 min. Prieš 5 užduotį (PR): parodykite `demo-projektas` PR: `git p
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną Teams'e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Pilni žingsniai yra Teams žinutėje ir pamoka.md. Užduotys eina viena gija viename projekte: pastabos (2), jų apdorojimas srautais (3), skriptas, kuris tai automatizuoja (4), PR (5). Atsakymus į „Kodėl“ rašo `docs/terminalas.md`.
+Pastaba: Skelbkite po vieną Teams'e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Pilni žingsniai yra Teams žinutėje ir pamoka.md. Užduotys eina viena gija viename projekte: pastabos (2), jų apdorojimas srautais (3), skriptas, kuris tai automatizuoja (4), PR (5).
 
 === kita | Kita pamoka
 Procesai, aplinkos kintamieji, paketų tvarkyklė

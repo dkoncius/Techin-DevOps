@@ -49,5 +49,4 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 30. Padarykite commit su žinute „Pridėta apie šakų trynimą“.
 31. Nusiųskite į GitHub.
 32. Patikrinkite, kad dokumente ir repozitorijoje nėra slaptažodžių ar realių IP.
-33. **Kodėl:** užrašykite vienu sakiniu, kuo `clone` skiriasi nuo `git init` su `git remote add` ir kodėl po `clone` nieko papildomai susieti nereikia.
-34. **Papildomai:** pažaiskite [Learn Git Branching](https://learngitbranching.js.org/) pirmą lygių grupę arba parašykite dokumente, kas yra merge commit.
+33. **Papildomai:** pažaiskite [Learn Git Branching](https://learngitbranching.js.org/) pirmą lygių grupę arba parašykite dokumente, kas yra merge commit.

@@ -43,10 +43,10 @@ EOS
 
 Laukiama kodai: 0, 1, 0.
 
-9–11. Užrašai ir commit:
+9–10. Užrašai ir commit:
 
 ```bash
-printf '\nBe argumentų kodas 0 (visi trys įrankiai yra), su `git neegzistuoja kitas` kodas 1 (trūksta dviejų), tik su `git` kodas 0.\n\nCI ir `&&` žiūri į išėjimo kodą, nes tekstą galima parašyti bet kaip, o kodas yra vienintelis patikimas „pavyko / nepavyko“ ženklas.\n' >> docs/bash.md
+printf '\nBe argumentų kodas 0 (visi trys įrankiai yra), su `git neegzistuoja kitas` kodas 1 (trūksta dviejų), tik su `git` kodas 0.\n' >> docs/bash.md
 git add scripts docs
 git commit -m "Skriptas tikrina įrankių sąrašą"
 ```

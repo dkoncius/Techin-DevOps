@@ -1,6 +1,6 @@
 # 2 užduotis: Ciklas per įrankius
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`: 1–3 plečia tą patį skriptą `scripts/patikra.sh`. Atsakymus į „Kodėl“ rašote faile `docs/bash.md`.
+Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`: 1–3 plečia tą patį skriptą `scripts/patikra.sh`.
 
 **Tikslas:** Išplėsti tą patį skriptą, kad jis patikrintų įrankių sąrašą ir suskaičiuotų, kiek trūksta.
 
@@ -20,5 +20,4 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 **3 dalis: užrašai ir commit**
 
 9. Skyriuje „Išėjimo kodai“ užrašykite, kuris paleidimas kokį kodą davė.
-10. **Kodėl:** to paties skyriaus pabaigoje vienu sakiniu paaiškinkite, kodėl CI ir `&&` žiūri į išėjimo kodą, o ne į tekstą „OK“.
-11. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Skriptas tikrina įrankių sąrašą“.
+10. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Skriptas tikrina įrankių sąrašą“.

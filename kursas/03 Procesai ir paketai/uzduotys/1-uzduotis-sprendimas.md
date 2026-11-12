@@ -27,7 +27,7 @@ PID yra antras `ps aux` stulpelis `sleep 300` eilutėje. Eilutė `grep sleep` yr
 
 ```bash
 mkdir -p docs
-printf '# Procesai ir paketai\n\n## Procesas\n\n`sleep 300 &` paleido procesą fone, `ps aux | grep sleep` parodė PID, `kill <PID>` jį sustabdė.\n\nPID imame iš `sleep` eilutės, nes `grep sleep` eilutė yra paties `grep` procesas, kuris po sekundės pasibaigia.\n' > docs/procesai.md
+printf '# Procesai ir paketai\n\n## Procesas\n\n`sleep 300 &` paleido procesą fone, `ps aux | grep sleep` parodė PID, `kill <PID>` jį sustabdė.\n' > docs/procesai.md
 git add docs
 git commit -m "Pradėtas procesai.md"
 ```

@@ -45,4 +45,3 @@ git push
 gh api repos/{owner}/{repo}/commits --jq '.[].commit.message'
 ```
 
-17. Kodėl (pavyzdys): `gh repo create` sukuria tuščią vietą GitHub'e, o `git push` nusiunčia ten jau esančią aplanko istoriją.

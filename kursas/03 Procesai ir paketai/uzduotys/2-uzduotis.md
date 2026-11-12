@@ -1,6 +1,6 @@
 # 2 užduotis: Aplinkos kintamasis skripte
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte` (`~/devops/devops-projektas`). Atsakymus į „Kodėl“ rašote faile `docs/procesai.md`.
+Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte` (`~/devops/devops-projektas`).
 
 **Tikslas:** Parašyti skriptą, kuris naudoja aplinkos kintamąjį su numatytąja reikšme, ir pamatyti, kad kintamasis gyvena tik savo terminale.
 
@@ -21,9 +21,7 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 8. Išveskite, kur terminalas ieško komandų (kintamasis `PATH`).
 9. Suraskite, kuriame aplanke yra komanda `ls`.
 
-**4 dalis: užrašai ir du commit'ai**
+**4 dalis: du commit'ai**
 
-10. Faile `docs/procesai.md` pridėkite skyrių „## Aplinkos kintamieji“ ir užrašykite, ką pamatėte 6 ir 7 žingsniuose.
-11. **Kodėl:** to paties skyriaus pabaigoje vienu sakiniu paaiškinkite, kodėl `./scripts/aplinka.sh` rašome su `./`, o `ls` be jo (kaip čia susiję `PATH`).
-12. Pridėkite tik `scripts/aplinka.sh` ir padarykite commit su žinute „Pridėtas aplinka.sh“.
-13. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėta aplinkos išvestis“.
+10. Pridėkite tik `scripts/aplinka.sh` ir padarykite commit su žinute „Pridėtas aplinka.sh“.
+11. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėta aplinkos išvestis“.

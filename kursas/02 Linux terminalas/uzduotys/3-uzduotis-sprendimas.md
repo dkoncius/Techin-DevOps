@@ -36,10 +36,9 @@ find . -name "*.md" -not -path "./.git/*" > docs/failai.txt
 
 Be `--exclude-dir=docs` į rezultatą patektų ir pats `docs/health.txt`. Žr. `man grep`, `man find`.
 
-15–16. Kodėl ir commit:
+15. Commit:
 
 ```bash
-printf '\n## Srautai\n\nKomanda: `find . -name "*.md" -not -path "./.git/*" > docs/failai.txt`\n\n`>` perrašo failą, o `>>` prideda gale; per klaidą pasirinkus `>` prarastume visą ankstesnį turinį.\n' >> docs/terminalas.md
 git add docs
 git commit -m "Pridėtos pastabos ir paieškos rezultatai"
 ```

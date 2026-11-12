@@ -40,5 +40,4 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 24. Dar kartą patikrinkite `pastabos.txt`: dabar dvi eilutės.
 25. Ištrinkite šaką `papildymas`.
 26. Peržiūrėkite visą istoriją su šakomis.
-27. **Kodėl:** užrašykite `pastabos.txt` vienu sakiniu, kuo commit istorija geresnė už failų keitimą be Git, ir kodėl pakeitimą geriau daryti šakoje, o ne tiesiai `main`.
-28. **Papildomai:** pakartokite 16–19 su nauja šaka. Prieš sujungimą `main` papildykite `idejos.txt` viena eilute ir padarykite commit, tada sujunkite su sujungimo žinute. Istorija parodys dvi šakas, kurios susijungia.
+27. **Papildomai:** pakartokite 16–19 su nauja šaka. Prieš sujungimą `main` papildykite `idejos.txt` viena eilute ir padarykite commit, tada sujunkite su sujungimo žinute. Istorija parodys dvi šakas, kurios susijungia.

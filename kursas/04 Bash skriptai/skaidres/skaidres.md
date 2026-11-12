@@ -144,7 +144,7 @@ Pastaba: ~3 min.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną Teams'e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Užduotys eina viena gija: vienas įrankis (1), įrankių sąrašas (2), projekto failai (3), `run.sh`, `.gitignore` ir PR (4). Atsakymus į „Kodėl“ rašo `docs/bash.md`.
+Pastaba: Skelbkite po vieną Teams'e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Užduotys eina viena gija: vienas įrankis (1), įrankių sąrašas (2), projekto failai (3), `run.sh`, `.gitignore` ir PR (4).
 
 === kita | Kita pamoka
 Tinklų pagrindai: IP, portai, DNS, HTTP, `curl`

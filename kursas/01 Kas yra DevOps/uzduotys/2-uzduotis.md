@@ -33,4 +33,3 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 14. Padarykite commit su žinute „Papildytas idejos.txt“.
 15. Nusiųskite į GitHub.
 16. Pažiūrėkite commit'us GitHub repozitorijoje: turi atsirasti naujas commit.
-17. **Kodėl:** užrašykite vienu sakiniu, ką sukuria `gh repo create` ir ką nusiunčia `git push`.

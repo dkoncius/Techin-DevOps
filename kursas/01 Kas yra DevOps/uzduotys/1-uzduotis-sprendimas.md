@@ -51,9 +51,7 @@ git branch -d papildymas
 git log --oneline --graph --all
 ```
 
-27. Kodėl (pavyzdys): istorija rodo, kas ir kada pasikeitė ir leidžia grįžti; šaka saugo veikiantį `main`, kol pakeitimas dar netikrintas.
-
-28. Papildomai (pakartoti 16–19 su nauja šaka ir prieš sujungimą papildyti `main`):
+27. Papildomai (pakartoti 16–19 su nauja šaka ir prieš sujungimą papildyti `main`):
 
 ```bash
 git switch -c antra-saka
