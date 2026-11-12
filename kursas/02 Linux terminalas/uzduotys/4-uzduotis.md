@@ -7,7 +7,7 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 **Pirma dalis: skriptas**
 
 1. Projekte sukurkite aplanką `scripts`.
-2. Faile `scripts/ataskaita.sh` parašykite skriptą, kuris išveda: aplanką, kuriame paleistas; kiek failų ir aplankų yra `docs/pastabos`; visų `.md` failų sąrašą (be `.git`); `app.py` eilutes su žodžiu `health`.
+2. Atidarykite iš terminalo redaktoriuje failą `scripts/ataskaita.sh` ir parašykite skriptą, kuris išveda: aplanką, kuriame paleistas; kiek failų ir aplankų yra `docs/pastabos`; visų `.md` failų sąrašą (be `.git`); `app.py` eilutes su žodžiu `health`.
 3. Paleiskite skriptą iš projekto šaknies kaip programą.
 
 **Antra dalis: vykdymo teisė**

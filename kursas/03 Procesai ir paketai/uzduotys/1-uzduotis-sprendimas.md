@@ -1,6 +1,6 @@
 # 1 užduotis, sprendimas (dėstytojui): Procesai
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–2. Nauja šaka:
 
@@ -27,7 +27,20 @@ Trečia dalis, 1–3. Užrašai ir commit:
 
 ```bash
 mkdir -p docs
-printf '# Procesai ir paketai\n\n## Procesas\n\n`sleep 300 &` paleido procesą fone, `ps aux | grep sleep` parodė PID, `kill <PID>` jį sustabdė.\n' > docs/procesai.md
+code docs/procesai.md
+```
+
+Failo `docs/procesai.md` turinys (įrašykite ir išsaugokite):
+
+```markdown
+# Procesai ir paketai
+
+## Procesas
+
+`sleep 300 &` paleido procesą fone, `ps aux | grep sleep` parodė PID, `kill <PID>` jį sustabdė.
+```
+
+```bash
 git add docs
 git commit -m "Pradėtas procesai.md"
 ```

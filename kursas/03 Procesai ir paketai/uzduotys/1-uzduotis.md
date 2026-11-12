@@ -19,6 +19,6 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Trečia dalis: užrašai ir commit**
 
-1. Faile `docs/procesai.md` (aplanką `docs` sukurkite, jei jo nėra) parašykite antraštę „# Procesai ir paketai“ ir skyrių „## Procesas“ su savo komandomis ir PID.
+1. Atidarykite iš terminalo redaktoriuje `docs/procesai.md` (aplanką `docs` sukurkite, jei jo nėra) ir parašykite antraštę `# Procesai ir paketai` ir skyrių `## Procesas` su savo komandomis ir PID.
 2. Pridėkite `docs` ir padarykite commit su žinute „Pradėtas procesai.md“.
 3. **Papildomai:** paleiskite `sleep 300` dar kartą, sustabdykite jį ne per `kill`, o klaviatūros sparčiuoju klavišu, ir paaiškinkite skirtumą tarp `Ctrl+C` ir `Ctrl+Z`.

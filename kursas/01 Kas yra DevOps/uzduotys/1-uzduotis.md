@@ -32,7 +32,7 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 4. Padarykite commit su žinute „Papildytas pastabos.txt“.
 5. Peržiūrėkite istoriją.
 
-**Ketvirta dalis: sujungimas į** `main`
+**Ketvirta dalis: sujungimas į main**
 
 1. Grįžkite į `main`.
 2. Patikrinkite `pastabos.txt`: turi būti tik viena eilutė.

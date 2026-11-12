@@ -1,6 +1,6 @@
 # 4 užduotis, sprendimas (dėstytojui): Tikras skriptas, ignoravimas ir Pull Request
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`4-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`4-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–4. `.env` ir `*.log`:
 
@@ -52,13 +52,20 @@ git push origin --delete pamoka-04
 Trečia dalis, 8. Papildomai:
 
 ```bash
-cat > scripts/dydis.sh <<'EOS'
+code scripts/dydis.sh
+```
+
+Failo `scripts/dydis.sh` turinys (įrašykite ir išsaugokite):
+
+```bash
 #!/usr/bin/env bash
 set -euo pipefail
 katalogas="${1:-.}"
 echo "Failų: $(find "$katalogas" -maxdepth 1 -type f | wc -l | tr -d ' ')"
 echo "Aplankų: $(find "$katalogas" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')"
-EOS
+```
+
+```bash
 chmod +x scripts/dydis.sh
 ./scripts/dydis.sh docs
 ```

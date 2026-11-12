@@ -11,6 +11,8 @@
 - `cp ŠALTINIS TIKSLAS` → copy: nukopijuoja
 - `mv ŠALTINIS TIKSLAS` → move: perkelia arba pervadina
 - `cat FAILAS` → concatenate: parodo failo turinį
+- `code FAILAS` → atidaro failą VS Code redaktoriuje (jei failo nėra, sukuria išsaugojus)
+- `nano FAILAS` → terminalo redaktorius (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`)
 
 ## Srautai ir paieška
 - `echo "TEKSTAS"` → išveda tekstą

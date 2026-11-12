@@ -1,6 +1,6 @@
 # 3 užduotis, sprendimas (dėstytojui): Paketas
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–4. Diegimas (Mac ir Ubuntu/WSL):
 
@@ -31,7 +31,22 @@ Antra dalis, 2. Ar įdiegtas: Mac `brew list tree`; Ubuntu `dpkg -s tree` (arba 
 Trečia dalis, 1–2. Lentelė ir commit:
 
 ```bash
-printf '\n## Paketas\n\n| Veiksmas | Mac | Ubuntu (WSL) |\n|---|---|---|\n| Įdiegti | `brew install tree` | `sudo apt update` ir `sudo apt install tree` |\n| Versija | `tree --version` | `tree --version` |\n| Ar įdiegtas | `brew list tree` | `dpkg -s tree` |\n' >> docs/procesai.md
+code docs/procesai.md
+```
+
+Pridėkite gale:
+
+```markdown
+## Paketas
+
+| Veiksmas | Mac | Ubuntu (WSL) |
+|---|---|---|
+| Įdiegti | `brew install tree` | `sudo apt update` ir `sudo apt install tree` |
+| Versija | `tree --version` | `tree --version` |
+| Ar įdiegtas | `brew list tree` | `dpkg -s tree` |
+```
+
+```bash
 git add docs
 git commit -m "Pridėtas paketas ir medis"
 ```

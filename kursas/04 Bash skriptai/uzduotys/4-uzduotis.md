@@ -6,7 +6,7 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 
 
-**Pirma dalis: `.gitignore`**
+**Pirma dalis: .gitignore**
 
 1. Nukopijuokite `.env.example` į `.env` ir įsitikinkite, kad `git status` jo nerodo.
 2. Viena komanda parodykite, kuri `.gitignore` eilutė ignoruoja `.env`.
@@ -29,4 +29,4 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 5. Peržiūrėkite **Files changed**: turi matytis jūsų failai.
 6. Sulieskite Pull Request, kompiuteryje persijunkite į `main` ir atnaujinkite jį.
 7. Ištrinkite šaką `pamoka-04` kompiuteryje ir GitHub'e.
-8. **Papildomai:** parašykite skriptą `scripts/dydis.sh`, kuris priima katalogą ir išveda, kiek jame yra failų ir kiek aplankų.
+8. **Papildomai:** atidarykite iš terminalo redaktoriuje ir parašykite skriptą `scripts/dydis.sh`, kuris priima katalogą ir išveda, kiek jame yra failų ir kiek aplankų.

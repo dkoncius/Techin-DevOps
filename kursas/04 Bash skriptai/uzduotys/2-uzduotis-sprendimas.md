@@ -1,11 +1,16 @@
 # 2 užduotis, sprendimas (dėstytojui): Ciklas per įrankius
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`2-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`2-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–4. Skriptas (2 versija):
 
 ```bash
-cat > scripts/patikra.sh <<'EOS'
+code scripts/patikra.sh
+```
+
+Failo `scripts/patikra.sh` turinys (įrašykite ir išsaugokite):
+
+```bash
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -30,7 +35,6 @@ if [ "$truksta" -gt 0 ]; then
   echo "Trūksta: $truksta" >&2
   exit 1
 fi
-EOS
 ```
 
 Antra dalis, 1–3. Paleidimas:
@@ -46,7 +50,16 @@ Laukiama kodai: 0, 1, 0.
 Trečia dalis, 1–2. Užrašai ir commit:
 
 ```bash
-printf '\nBe argumentų kodas 0 (visi trys įrankiai yra), su `git neegzistuoja kitas` kodas 1 (trūksta dviejų), tik su `git` kodas 0.\n' >> docs/bash.md
+code docs/bash.md
+```
+
+Pridėkite gale:
+
+```markdown
+Be argumentų kodas 0 (visi trys įrankiai yra), su `git neegzistuoja kitas` kodas 1 (trūksta dviejų), tik su `git` kodas 0.
+```
+
+```bash
 git add scripts docs
 git commit -m "Skriptas tikrina įrankių sąrašą"
 ```

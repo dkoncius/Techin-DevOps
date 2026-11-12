@@ -1,6 +1,6 @@
 # 1 užduotis, sprendimas (dėstytojui): Savo projektas
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį.
+Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–3. Naršyklėje (nėra komandos): šablono puslapis → **Use this template** → **Create a new repository** → pavadinimas `devops-projektas`, **Public**. Alternatyva terminale: `gh repo create devops-projektas --template dkoncius/devops-projektas-starter-template --public`.
 
@@ -20,7 +20,16 @@ Trečia dalis, 1–4. Šaka, `docs`, commit:
 ```bash
 git switch -c pamoka-02
 mkdir docs
-echo "# Terminalas" > docs/terminalas.md
+code docs/terminalas.md
+```
+
+Failo `docs/terminalas.md` turinys (įrašykite ir išsaugokite):
+
+```markdown
+# Terminalas
+```
+
+```bash
 git status
 git add docs
 git commit -m "Pradėtas terminalas.md"

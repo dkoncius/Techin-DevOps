@@ -18,5 +18,5 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Trečia dalis: užrašai ir commit**
 
-1. Faile `docs/procesai.md` pridėkite skyrių „## Paketas“ su lentele (stulpeliai: veiksmas, Mac, Ubuntu/WSL; eilutės: įdiegti, versija, ar įdiegtas) ir užpildykite abi sistemas.
+1. Atidarykite iš terminalo redaktoriuje `docs/procesai.md` ir pridėkite skyrių `## Paketas` su lentele (stulpeliai: veiksmas, Mac, Ubuntu/WSL; eilutės: įdiegti, versija, ar įdiegtas) ir užpildykite abi sistemas.
 2. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėtas paketas ir medis“.

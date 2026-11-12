@@ -6,7 +6,7 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Pirma dalis: ciklas**
 
-1. Pakeiskite `scripts/patikra.sh`: dabar jis priima bet kiek argumentų (įrankių), o be argumentų tikrina `git`, `python3`, `curl`.
+1. Atidarykite iš terminalo redaktoriuje `scripts/patikra.sh` ir pakeiskite jį: dabar jis priima bet kiek argumentų (įrankių), o be argumentų tikrina `git`, `python3`, `curl`.
 2. Kiekvienam įrankiui ciklu išveskite „OK“ arba „TRŪKSTA“ ir pavadinimą.
 3. Suskaičiuokite, kiek įrankių trūksta.
 4. Jei trūksta bent vieno, išveskite į klaidų kanalą, kiek jų trūksta, ir baikite su kodu 1; kitaip su kodu 0.

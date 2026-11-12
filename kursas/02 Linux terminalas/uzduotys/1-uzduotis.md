@@ -20,6 +20,6 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 **Trečia dalis: šaka ir pirmas commit**
 
 1. Sukurkite šaką `pamoka-02` ir persijunkite į ją.
-2. Sukurkite aplanką `docs` ir faile `docs/terminalas.md` parašykite antraštę „# Terminalas“.
+2. Sukurkite aplanką `docs`, atidarykite iš terminalo redaktoriuje failą `docs/terminalas.md` ir parašykite antraštę `# Terminalas`.
 3. Pažiūrėkite Git būseną: `docs` dar neįtrauktas.
 4. Pridėkite `docs` ir padarykite commit su žinute „Pradėtas terminalas.md“.

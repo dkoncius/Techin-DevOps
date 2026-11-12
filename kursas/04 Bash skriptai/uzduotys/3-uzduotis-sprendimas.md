@@ -1,11 +1,16 @@
 # 3 užduotis, sprendimas (dėstytojui): Projekto failų patikra
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–3. Skriptas (galutinė versija):
 
 ```bash
-cat > scripts/patikra.sh <<'EOS'
+code scripts/patikra.sh
+```
+
+Failo `scripts/patikra.sh` turinys (įrašykite ir išsaugokite):
+
+```bash
 #!/usr/bin/env bash
 # patikra.sh – patikrina, ar yra įrankiai ir projekto failai.
 # Naudojimas: ./scripts/patikra.sh [įrankis ...]  (be argumentų: git, python3, curl)
@@ -50,7 +55,6 @@ if [ "$truksta" -gt 0 ]; then
   echo "Trūksta: $truksta" >&2
   exit 1
 fi
-EOS
 ```
 
 Antra dalis, 1–3. Iš šaknies ir iš `docs`:

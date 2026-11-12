@@ -1,13 +1,18 @@
 # 4 užduotis, sprendimas (dėstytojui): Teisės ir pirmas skriptas
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`4-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį.
+Numeriai: dalis ir žingsnis kaip užduotyje (`4-uzduotis.md`). Rodoma su `docs/pastabos` ir `devops-projektas`; demonstracijoje naudokite kitą pavyzdį. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
-Pirma dalis, 1–2. Skriptas (redaktoriumi arba taip):
+Pirma dalis, 1–2. Skriptas:
 
 ```bash
 cd ~/devops/devops-projektas
 mkdir scripts
-cat > scripts/ataskaita.sh <<'EOS'
+code scripts/ataskaita.sh
+```
+
+Failo `scripts/ataskaita.sh` turinys (įrašykite ir išsaugokite):
+
+```bash
 #!/usr/bin/env bash
 echo "Aplankas: $(pwd)"
 echo "Failų ir aplankų docs/pastabos: $(ls docs/pastabos | wc -l | tr -d ' ')"
@@ -15,7 +20,6 @@ echo "Markdown failai:"
 find . -name "*.md" -not -path "./.git/*"
 echo "Eilutės su health:"
 grep -n "health" app.py
-EOS
 ```
 
 Pirma dalis, 3. Pirmas paleidimas (`Permission denied`):

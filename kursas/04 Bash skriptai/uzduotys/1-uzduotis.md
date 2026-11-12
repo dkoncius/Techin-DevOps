@@ -8,7 +8,7 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 1. Eikite į savo `devops-projektas`, persijunkite į `main` ir atnaujinkite jį iš GitHub.
 2. Sukurkite šaką `pamoka-04` ir persijunkite į ją.
-3. Sukurkite `scripts/patikra.sh` su `#!/usr/bin/env bash` ir `set -euo pipefail`.
+3. Sukurkite `scripts/patikra.sh`, atidarykite jį iš terminalo redaktoriuje ir parašykite `#!/usr/bin/env bash` ir `set -euo pipefail`.
 4. Skriptas priima vieną argumentą: įrankio pavadinimą.
 5. Jei argumento nėra, skriptas į klaidų kanalą parašo naudojimo žinutę ir baigia su kodu 2.
 6. Jei įrankis yra, skriptas išveda „OK“ ir pavadinimą; jei jo nėra, išveda „TRŪKSTA“ ir pavadinimą ir baigia su kodu 1.
@@ -22,5 +22,5 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 **Trečia dalis: užrašai ir commit**
 
-1. Faile `docs/bash.md` (aplanką `docs` turite iš 02 ir 03) parašykite antraštę „# Bash skriptai“ ir skyrių „## Išėjimo kodai“ su trimis kodais, kuriuos gavote.
+1. Atidarykite iš terminalo redaktoriuje `docs/bash.md` (aplanką `docs` turite iš 02 ir 03) ir parašykite antraštę `# Bash skriptai` ir skyrių `## Išėjimo kodai` su trimis kodais, kuriuos gavote.
 2. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Pridėtas patikra.sh“.

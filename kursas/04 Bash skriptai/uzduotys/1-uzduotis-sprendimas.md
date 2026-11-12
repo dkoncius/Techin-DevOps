@@ -1,6 +1,6 @@
 # 1 užduotis, sprendimas (dėstytojui): Argumentas ir sąlyga
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių.
+Numeriai: dalis ir žingsnis kaip užduotyje (`1-uzduotis.md`). Demonstracijoje naudokite kitą pavyzdį nei mokinių. Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`).
 
 Pirma dalis, 1–2. Šaka:
 
@@ -15,7 +15,12 @@ Pirma dalis, 3–7. Skriptas (1 versija):
 
 ```bash
 mkdir -p scripts
-cat > scripts/patikra.sh <<'EOS'
+code scripts/patikra.sh
+```
+
+Failo `scripts/patikra.sh` turinys (įrašykite ir išsaugokite):
+
+```bash
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -30,7 +35,9 @@ else
   echo "TRŪKSTA $1"
   exit 1
 fi
-EOS
+```
+
+```bash
 chmod +x scripts/patikra.sh
 ```
 
@@ -48,7 +55,20 @@ Trečia dalis, 1–2. Užrašai ir commit:
 
 ```bash
 mkdir -p docs
-printf '# Bash skriptai\n\n## Išėjimo kodai\n\n`./scripts/patikra.sh git` baigėsi kodu 0, `./scripts/patikra.sh neegzistuoja` kodu 1, o be argumento kodu 2.\n' > docs/bash.md
+code docs/bash.md
+```
+
+Failo `docs/bash.md` turinys (įrašykite ir išsaugokite):
+
+```markdown
+# Bash skriptai
+
+## Išėjimo kodai
+
+`./scripts/patikra.sh git` baigėsi kodu 0, `./scripts/patikra.sh neegzistuoja` kodu 1, o be argumento kodu 2.
+```
+
+```bash
 git add scripts docs
 git commit -m "Pridėtas patikra.sh"
 ```

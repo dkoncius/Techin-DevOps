@@ -1,6 +1,6 @@
 # 3 užduotis, sprendimas (dėstytojui): Nusiklonuokite savo repozitoriją
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Rodoma aplanke `devops`, tuo pačiu pavadinimu `git-bandymas` kaip studentų.
+Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Failus redaktoriuje atidarome iš terminalo: `code FAILAS` (VS Code); jei `code` neįdiegta, `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`). Rodoma aplanke `devops`, tuo pačiu pavadinimu `git-bandymas` kaip studentų.
 
 Pirma dalis, 1–7. Clone ir patikra:
 
@@ -14,7 +14,14 @@ git remote -v
 git log --oneline
 ```
 
-Antra dalis, 1–7. Dokumentas (pavyzdinis tekstas žemiau; kuriama redaktoriumi, pvz. VS Code):
+Antra dalis, 1–7. Dokumentas (pavyzdinis tekstas žemiau):
+
+```bash
+touch devops-dokumentas.md
+code devops-dokumentas.md
+```
+
+Po išsaugojimo:
 
 ```bash
 git add devops-dokumentas.md
@@ -32,7 +39,7 @@ Trečia dalis, 1–7. Šaka `skyriai`:
 
 ```bash
 git switch -c skyriai
-# papildyti dokumentą skyriumi „Kodėl DevOps“
+code devops-dokumentas.md   # pridėti skyrių `## Kodėl DevOps`
 git commit -am "Pridėta, kodėl DevOps"
 git push -u origin skyriai
 git switch main
@@ -56,7 +63,7 @@ git push origin --delete skyriai
 git log --oneline --graph --all
 ```
 
-Penkta dalis, 1–4. `git branch --help` (ieškoti `-d` ir `-D`), parašyti skyrių „Git“ dokumente ir:
+Penkta dalis, 1–4. `git branch --help` (ieškoti `-d` ir `-D`), parašyti skyrių `## Git` dokumente (`code devops-dokumentas.md`) ir:
 
 ```bash
 git commit -am "Pridėta apie šakų trynimą"
