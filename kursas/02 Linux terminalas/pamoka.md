@@ -12,11 +12,11 @@ Data: 2026-11-12 (ketvirtadienis)
    - Šablonas ir jūsų kopija: **Use this template** (kopija be senos istorijos) ir `git clone` (kopija į kompiuterį)
    - Demonstracija: dėstytojas atlieka „Savo projektas“ su kitu pavyzdžiu (~5 min)
 3. Komanda ir navigacija (~10 min teorijos ir demonstracijos), tada Užduotis 2 (~25 min): skaidrės 5–8
-   - Komanda, parametrai, argumentai; pagalba: `--help`, `man`, [GNU Coreutils dokumentacija](https://www.gnu.org/software/coreutils/manual/)
+   - Komanda, parametrai, argumentai; pagalba: `man KOMANDA` (Mac ir Ubuntu), `KOMANDA --help` (tik Ubuntu / WSL; Mac jo nepalaiko), [GNU Coreutils dokumentacija](https://www.gnu.org/software/coreutils/manual/)
    - Kur esu ir kas čia: `pwd`, `ls -la`, `cd`; Tab užbaigimas ir istorija (rodyklė aukštyn, `Ctrl+R`)
    - Keliai: `/`, `~`, `.`, `..`; absoliutus ir santykinis kelias
    - Failai: `mkdir -p`, `touch`, `cp`, `mv`; kodėl pirma kopijuoti, o ne trinti (`rm -rf` šiame kurse nenaudojame)
-   - Demonstracija: dėstytojas atlieka „Navigacija ir failai“ savo `demo-projektas` (aplankas `demo/vaisiai`, kiti failų vardai) (~8 min)
+   - Demonstracija: dėstytojas atlieka „Navigacija ir failai“ savo `demo-a` (aplankas `demo/vaisiai`, kiti failų vardai) (~8 min)
 4. Srautai ir paieška (~10 min teorijos ir demonstracijos), tada Užduotis 3 (~25 min): skaidrės 9–10
    - Peržiūra: `cat`, `head`, `tail`, `wc -l`, `sort`
    - Srautai: `|`, `>`, `>>`; kodėl viena komanda daro vieną darbą, o vamzdis jas jungia
@@ -31,7 +31,7 @@ Data: 2026-11-12 (ketvirtadienis)
    - Demonstracija: dėstytojas atlieka „Teisės ir pirmas skriptas“ su `labas.sh` (~8 min); mokiniai automatizuoja savo žingsnius skriptu `ataskaita.sh`
 7. Pull Request (~5 min demonstracijos), tada Užduotis 5 (~20 min): skaidrės 13–14 (Pull Request, dažnos klaidos)
    - Kodėl darbas eina per šaką ir PR, o ne tiesiai į `main`
-   - Demonstracija: dėstytojas atlieka „Pull Request“ savo `demo-projektas` kopijoje (~5 min)
+   - Demonstracija: dėstytojas atlieka „Pull Request“ savo `demo-a` kopijoje (~5 min)
 8. Kita paskaita: Procesai, aplinkos kintamieji, paketų tvarkyklė
 
 Nuorodos: [GitHub: creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template), [GitHub: about pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests), [GNU Coreutils](https://www.gnu.org/software/coreutils/manual/)
@@ -85,7 +85,7 @@ Patikrinta (2026-11-12): macOS (bash 3.2): visi `uzduotys/N-uzduotis-sprendimas.
 
 ### Demonstracijos žingsniai
 
-Laiko juosta (~155 min be pertraukos, rezervas ~25 min). Kiekviena tema: skaidrės → jūsų demonstracija su KITU pavyzdžiu (`demo-projektas`, `demo/vaisiai`, `vaisiai.txt`, `labas.sh`) → skelbiate užduotį Teams'e → mokiniai daro savo.
+Laiko juosta (~155 min be pertraukos, rezervas ~25 min). Kiekviena tema: skaidrės → jūsų demonstracija su KITU pavyzdžiu (`demo-a`, `demo/vaisiai`, `vaisiai.txt`, `labas.sh`) → skelbiate užduotį Teams'e → mokiniai daro savo.
 
 | Trukmė | Kas |
 |---|---|
@@ -101,12 +101,12 @@ Laiko juosta (~155 min be pertraukos, rezervas ~25 min). Kiekviena tema: skaidr�
 
 **1. (~5 min) 01 sprendimas.** Parodykite 01 `pamoka.md` skyrių „Pamokos eiga“ ir `uzduotys/N-uzduotis-sprendimas.md`: `devops-dokumentas.md` ir `git log --oneline --graph --all`. Mokiniai lygina su savo `git-bandymas`. Pasakykite: šiandien užduotys eina viena gija (pastabos → srautai → skriptas → PR).
 
-**2. Savo projektas (~5 min demonstracija, tada Užduotis 1 ~10 min).** Skaidrė „Savo projekto klonavimas“. Pirma naršyklėje: šablonas → **Use this template** → `demo-projektas`, **Public**. `<vartotojas>` pakeiskite savo GitHub vardu.
+**2. Savo projektas (~5 min demonstracija, tada Užduotis 1 ~10 min).** Skaidrė „Savo projekto klonavimas“. Pirma naršyklėje: šablonas → **Use this template** → `demo-a`, **Public**. `<vartotojas>` pakeiskite savo GitHub vardu.
 
 ```bash
 cd ~/devops
-git clone https://github.com/<vartotojas>/demo-projektas.git
-cd demo-projektas
+git clone https://github.com/<vartotojas>/demo-a.git
+cd demo-a
 ```
 
 ```bash
@@ -124,21 +124,38 @@ Paskelbkite 1 užduotį. Dažna klaida: klonuojamas pats šablonas (`starter-tem
 **3. Navigacija ir failai (~10 min demonstracija, tada Užduotis 2 ~25 min).** Skaidrės „Komanda, parametrai, argumentai“, „Kur esu ir kas čia“, „Keliai“, „Failai ir aplankai“.
 
 ```bash
-ls -l static
+ls
+```
+
+```bash
+ls -l
+```
+
+```bash
+ls -l a.txt
 ```
 
 ```bash
 pwd
+```
+
+```bash
 ls -la
-cd static
+```
+
+```bash
 cd ..
 ```
 
 ```bash
+cd demo-a
+```
+
+```bash
 cd ~
-cd ~/devops/demo-projektas
+cd ~/devops/demo-a
 cd ..
-cd demo-projektas
+cd demo-a
 ```
 
 ```bash

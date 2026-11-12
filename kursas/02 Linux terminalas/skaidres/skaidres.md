@@ -27,8 +27,8 @@ Pastaba: ~3 min. Šablonas ir fork skiriasi: Use this template sukuria naują re
 === demonstracija | Savo projekto klonavimas
 ```bash
 cd ~/devops
-git clone https://github.com/<vartotojas>/demo-projektas.git
-cd demo-projektas
+git clone https://github.com/<vartotojas>/demo-a.git
+cd demo-a
 ```
 ```bash+
 git remote -v
@@ -38,25 +38,37 @@ ls
 git switch -c pamoka-02
 git branch
 ```
-Pastaba: ~5 min. Kitas pavyzdys nei užduotyje: sava demo kopija `demo-projektas`. Pirma naršyklėje parodykite **Use this template** ir **Public**. Klonavimo adresas: HTTPS, kaip `gh auth login`. Po klonavimo `git remote -v` turi rodyti jūsų vardą (`origin`, `fetch`/`push`); paaiškinkite, kad `clone` pats nustato `origin`, o `remote -v` tik parodo, kur eis `push`. Paskelbkite 1 užduotį.
+Pastaba: ~5 min. Kitas pavyzdys nei užduotyje: sava demo kopija `demo-a`. Pirma naršyklėje parodykite **Use this template** ir **Public**. Klonavimo adresas: HTTPS, kaip `gh auth login`. Po klonavimo `git remote -v` turi rodyti jūsų vardą (`origin`, `fetch`/`push`); paaiškinkite, kad `clone` pats nustato `origin`, o `remote -v` tik parodo, kur eis `push`. Paskelbkite 1 užduotį.
 
 === tekstas | Komanda, parametrai, argumentai
 @plokštelės
 :: 01 | Komanda | Ką daryti: `ls`
 :: 02 | Parametras | Kaip daryti: `-l`
-:: 03 | Argumentas | Su kuo daryti: `static`
+:: 03 | Argumentas | Su kuo daryti: `a.txt`
 ```bash
-ls -l static
+ls
 ```
-+ Kai neprisimenate: `ls --help` arba `man ls`
-Pastaba: ~3 min. Jie tai jau moka, tik prisiminti. Principas: įrankiai keičiasi, bet komandos struktūra visur ta pati: kas + kaip + su kuo. `man`: išeiti `q`.
+```bash+
+ls -l
+```
+```bash+
+ls -l a.txt
+```
++ Kai neprisimenate: `man ls` (išeiti: `q`) arba `ls --help` (tik Ubuntu / WSL)
+Pastaba: ~3 min. Jie tai jau moka, tik prisiminti. Principas: įrankiai keičiasi, bet komandos struktūra visur ta pati: kas + kaip + su kuo. `man`: išeiti `q`. Mac `ls --help` nepalaiko (rodo „unrecognized option“ ir trumpą naudojimą): ten naudokite `man ls`.
 
 === komanda | Kur esu ir kas čia
 ```bash
 pwd
+```
+```bash+
 ls -la
-cd static
+```
+```bash+
 cd ..
+```
+```bash+
+cd demo-a
 ```
 + `pwd` kur esu, `ls -la` ką matau (įskaitant paslėptus failus), `cd` judėti
 + Tab užbaigia vardą, rodyklė aukštyn grąžina ankstesnę komandą
@@ -71,9 +83,9 @@ Pastaba: ~4 min. Parodykite Tab ir `Ctrl+R` (ieškoti istorijoje). Mac ir WSL el
 | `..` | ?Aplankas viršuje |
 ```bash+
 cd ~
-cd ~/devops/demo-projektas
+cd ~/devops/demo-a
 cd ..
-cd demo-projektas
+cd demo-a
 ```
 Pastaba: ~3 min. Pildykite kartu: klauskite, ką reiškia `~`, paskui paspauskite. Santykinis kelias priklauso nuo to, kur esate, absoliutus (nuo `/` arba `~`) visada tas pats. Dažna klaida: tarpas aplanko varde be kabučių (`cd Mano aplankas`).
 
@@ -157,7 +169,7 @@ git switch main
 git pull
 git branch -d pamoka-02
 ```
-Pastaba: ~5 min. Rodykite `demo-projektas`. Principas: darbas per šaką ir PR, o ne tiesiai į `main`: kitas žmogus gali peržiūrėti, `main` lieka veikiantis. Dažna klaida: PR sulietas GitHub'e, bet `main` kompiuteryje neatnaujintas (`git pull`); `git branch -d` atsisako. Paskelbkite 5 užduotį.
+Pastaba: ~5 min. Rodykite `demo-a`. Principas: darbas per šaką ir PR, o ne tiesiai į `main`: kitas žmogus gali peržiūrėti, `main` lieka veikiantis. Dažna klaida: PR sulietas GitHub'e, bet `main` kompiuteryje neatnaujintas (`git pull`); `git branch -d` atsisako. Paskelbkite 5 užduotį.
 
 === klaida | Dažnos klaidos
 +:: | Permission denied | Trūksta `x` teisės: `chmod +x`
@@ -166,7 +178,7 @@ Pastaba: ~5 min. Rodykite `demo-projektas`. Principas: darbas per šaką ir PR, 
 +:: | `>` vietoje `>>` | Failas perrašytas: prieš `>` pagalvokite, ar jo turinio nereikia
 +:: | PR sulietas, bet `main` senas | Kompiuteryje `git switch main`, `git pull`
 + Principas: klaidos tekstas dažniausiai pasako, ką daryti, todėl pirma jį perskaitykite
-Pastaba: ~3 min. Prieš 5 užduotį (PR): parodykite `demo-projektas` PR: `git push -u origin pamoka-02`, **Compare & pull request**, **Merge**, `git switch main`, `git pull`. Principas: darbas per šaką ir PR, o ne tiesiai į `main`: kitas žmogus gali peržiūrėti, `main` lieka veikiantis.
+Pastaba: ~3 min. Prieš 5 užduotį (PR): parodykite `demo-a` PR: `git push -u origin pamoka-02`, **Compare & pull request**, **Merge**, `git switch main`, `git pull`. Principas: darbas per šaką ir PR, o ne tiesiai į `main`: kitas žmogus gali peržiūrėti, `main` lieka veikiantis.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
