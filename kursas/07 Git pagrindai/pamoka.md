@@ -120,11 +120,11 @@ Užduotis skelbiu po vieną (Teams): pirma parodau gyvai, tada darote jūs.
 3. GitHub'e **Compare & pull request**, sulieti, tada `git switch main` ir `git pull`
 4. GitHub: **Delete branch**; kompiuteryje `git branch -d pamoka-07`
 
-## Sprendimas (dėstytojui)
+## Pamokos eiga (dėstytojui)
 
 Patikrinta: `git stash`/`stash pop`, `git revert --no-edit HEAD` (failas grįžo į seną turinį, istorijoje lieka `blogas` ir `Revert "blogas"`) ir `git pull` konfliktas tarp dviejų kopijų (`CONFLICT (content)`, būsena `UU`) paleisti macOS su lokalia „nuotoline“ repozitorija. Nepatikrinta: tas pats su GitHub ir WSL; `git clone` per SSH ir HTTPS; elgesys be `pull.rebase false` (Git 2.27+ klausia, kaip suderinti). Išbandyti prieš pamoką.
 
-### Kaip rodyti klasėje
+### Demonstracijos žingsniai
 
 1. (~10 min) Praeitos pamokos (06) sprendimas gyvai: parodykite `docs/ssh.md` ir `git log --oneline --graph`, kur matosi konflikto sujungimas.
 2. (~20 min) Commit'ai ir `diff`: kitas pavyzdys nei mokinių: failai `a.txt`, `b.txt` demo repo; parodykite `diff` prieš ir po `add`, gerą ir blogą žinutę („pakeitimai“). Dažna klaida: `git diff` tuščias, nes jau `add` (reikia `--staged`); viena didelė žinutė visam darbui.

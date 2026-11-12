@@ -7,7 +7,7 @@ description: Naudok, kai reikia sukurti DevOps pamokos (kursas/NN .../pamoka.md)
 
 Dvi dalys: (1) **šis skillas** parašo `kursas/<NN Pavadinimas>/skaidres.md`; (2) skillas `skaidres` jį paverčia į `skaidres.html`. Kai pamoka turi kelis rinkinius, juos numeruok pagal rodymo tvarką (`1-apie-mane.md`, `2-apie-kursa.md`, `3-skaidres.md`), o paveikslus laikyk `nuotraukos/`; pamokos `pamoka.md` tik nurodo skaidrių numerius ir nuorodas, o dėstytojo tekstas rašomas skaidrių `Pastaba:` eilutėse, ne `pamoka.md`. Skaidrės skirtos **teorijai ir dėstytojo demonstracijai** padengti. Užduotys studentams skelbiamos Teams'e po vieną; skaidrėse jos rodomos tik kaip priminimas (`@uzduotys: auto`), kad klasė matytų žingsnius dirbdama.
 
-Šaltinis tiesos yra `pamoka.md` (klasės darbas, schemos, „Kaip rodyti klasėje“, „Dažna klaida“). Skaidrės jo nekeičia ir neprieštarauja.
+Šaltinis tiesos yra `pamoka.md` (klasės darbas, schemos, „Demonstracijos žingsniai“, „Dažna klaida“). Skaidrės jo nekeičia ir neprieštarauja.
 
 ## 1. Ką išgauti iš `pamoka.md`
 
@@ -74,3 +74,6 @@ Skaidrės turi būti vaizdingos, bet **santūrios** (šviesi tema, vienas akcent
 1. Įrašyk `kursas/<NN Pavadinimas>/skaidres.md`.
 2. Paleisk skill `skaidres` (generatorių) ir patikrink įspėjimus.
 3. Atsakyk lietuviškai trumpai: skaidrių skaičius, kurios skaidrės yra `demonstracija` (co-fill) ir `jusu-eile`, ko trūksta pamokoje (jei skaidrėse radai spragą ar prieštaravimą `pamoka.md`).
+
+## Antraštės be paryškinimo ir komandų
+Skaidrių ir kortelių antraštėse (po `=== tipas |` ir kortelės `:: ženklas | Antraštė |`) nenaudok `**paryškinimo**` ir `` `komandų` ``: jos rašomos paprastu tekstu (pvz. „Sąlygos ir testai“, ne „`if` ir testai“). Komandos, failų vardai ir paryškinimas tik apraše (kortelės tekste, pastraipose, sąrašuose). Generatorius `build_deck.py` tokius ženklus antraštėse pašalina pats. Užduočių skaidrės imamos iš `uzduotys/N-uzduotis.md`.

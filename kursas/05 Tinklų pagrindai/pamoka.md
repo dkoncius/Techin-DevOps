@@ -117,11 +117,11 @@ Užduotis skelbiu po vieną (Teams): pirma parodau gyvai, tada darote jūs. Viso
 2. `nslookup localhost`
 5. `git push -u origin pamoka-05`, GitHub'e **Compare & pull request**, sulieti, tada `git switch main` ir `git pull`
 
-## Sprendimas (dėstytojui)
+## Pamokos eiga (dėstytojui)
 
 Patikrinta: `scripts/http-kodas.sh` paleistas macOS (Bash 3.2) su `python3 -m http.server`: 200 → kodas 0, 404 → kodas 1, sustabdytas serveris → `000` ir kodas 1; `lsof -nP -i :PORTAS` rodo PID. Nepatikrinta: `curl` tiesiai prie Flask starterio, `nslookup localhost` išvestis Ubuntu, `lsof`/`dnsutils` diegimas WSL. Išbandyti prieš pamoką.
 
-### Kaip rodyti klasėje
+### Demonstracijos žingsniai
 
 1. (~10 min) Praeitos pamokos (04) sprendimas gyvai: paleiskite `scripts/patikra.sh` su `git neegzistuoja` ir `echo $?`.
 2. (~5 min) Demonstracija pradžioje: `./run.sh` vienoje lango dalyje, `curl localhost:5001/health` kitoje; parodykite atsakymą.

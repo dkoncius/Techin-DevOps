@@ -3,7 +3,7 @@
 - Susikurti savo `devops-projektas` iš šablono ir nusiklonuoti
 - Judėti po failus ir sujungti komandas per srautus
 - Paaiškinti teises `rwx` ir paleisti pirmą skriptą
-Pastaba: ~5 min pasitikrinimas po 01: kam kas liko neaišku su šaka ir `merge`; parodykite 01 sprendimą gyvai (01 pamoka.md, skyrius „Sprendimas“). Šioje pamokoje kiekviena tema eina taip: skaidrės → jūsų demonstracija → užduotis Teams'e → jie daro patys. Užduotys eina viena gija: pastabos → srautai → skriptas → PR. Terminalą jie jau mokėjo (Edgaras), todėl einame greitai.
+Pastaba: ~5 min pasitikrinimas po 01: kam kas liko neaišku su šaka ir `merge`; parodykite 01 sprendimą gyvai (01 pamoka.md, skyrius „Pamokos eiga“). Šioje pamokoje kiekviena tema eina taip: skaidrės → jūsų demonstracija → užduotis Teams'e → jie daro patys. Užduotys eina viena gija: pastabos → srautai → skriptas → PR. Terminalą jie jau mokėjo (Edgaras), todėl einame greitai.
 
 === pagalvokime
 Serveris debesyje neturi nei pelės, nei lango.
@@ -69,6 +69,12 @@ Pastaba: ~4 min. Parodykite Tab ir `Ctrl+R` (ieškoti istorijoje). Mac ir WSL el
 | `~` | ?Jūsų namų aplankas |
 | `.` | ?Šiuo metu esamas aplankas |
 | `..` | ?Aplankas viršuje |
+```bash+
+cd ~
+cd ~/devops/demo-projektas
+cd ..
+cd demo-projektas
+```
 Pastaba: ~3 min. Pildykite kartu: klauskite, ką reiškia `~`, paskui paspauskite. Santykinis kelias priklauso nuo to, kur esate, absoliutus (nuo `/` arba `~`) visada tas pats. Dažna klaida: tarpas aplanko varde be kabučių (`cd Mano aplankas`).
 
 === komanda | Failai ir aplankai
@@ -93,6 +99,8 @@ Pastaba: ~8 min su demonstracija aplanke `demo` (kiti failų vardai nei užduoty
 === tekstas | Srautai: vamzdis ir nukreipimas
 >>+ vaisiai.txt | sort | rusiuota.txt
 ```bash
+printf 'obuolys\nanasas\nslyva\nbanana\n' > vaisiai.txt
+cat vaisiai.txt
 sort vaisiai.txt > rusiuota.txt
 echo "slyva" >> vaisiai.txt
 cat vaisiai.txt | grep an
@@ -131,10 +139,25 @@ echo 'echo "Labas, $(pwd)"' >> labas.sh
 ```
 ```bash+
 chmod +x labas.sh
+ls -l labas.sh
 ./labas.sh
 ```
 > Kaip raktas nuo kabineto: failas yra, bet be teisės jo nepaleisite.
 Pastaba: ~8 min. Pavyzdys `labas.sh` (kitas nei mokinių `ataskaita.sh`, kuris automatizuoja jų ranka darytus žingsnius). Išvestis pavyzdinė (zsh rodo `zsh: permission denied: ./labas.sh`). Pirma eilutė `#!/usr/bin/env bash` pasako, kuo skriptą paleisti. Dažna klaida: `bash labas.sh` veikia ir be `x`, o `./labas.sh` ne. Windows: CRLF (`bad interpreter`): kurti WSL redaktoriumi. Paskelbkite 4 užduotį.
+
+=== demonstracija | Pull Request
+```bash
+git add .
+git commit -m "Demo: pirmas pakeitimas"
+git push -u origin pamoka-02
+```
++ Naršyklėje: **Compare & pull request** → pavadinimas → **Files changed** → **Merge pull request**
+```bash+
+git switch main
+git pull
+git branch -d pamoka-02
+```
+Pastaba: ~5 min. Rodykite `demo-projektas`. Principas: darbas per šaką ir PR, o ne tiesiai į `main`: kitas žmogus gali peržiūrėti, `main` lieka veikiantis. Dažna klaida: PR sulietas GitHub'e, bet `main` kompiuteryje neatnaujintas (`git pull`); `git branch -d` atsisako. Paskelbkite 5 užduotį.
 
 === klaida | Dažnos klaidos
 +:: | Permission denied | Trūksta `x` teisės: `chmod +x`

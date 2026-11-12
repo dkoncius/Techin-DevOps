@@ -48,6 +48,13 @@ export DEMO=1
 echo $DEMO
 env | grep DEMO
 ```
+```bash+
+printf '#!/usr/bin/env bash\necho "DEMO: ${DEMO:-nenustatyta}"\n' > labas.sh
+chmod +x labas.sh
+./labas.sh
+DEMO=2 ./labas.sh
+env -u DEMO ./labas.sh
+```
 + Naujas terminalo langas kintamojo nemato
 + `PATH` yra kelių sąrašas, kuriuose terminalas ieško komandų
 Pastaba: ~10 min. Kitas nei mokinių kintamasis (ne `PROJEKTO_VARDAS`). Dažna klaida: `export` viename lange, skriptas kitame.

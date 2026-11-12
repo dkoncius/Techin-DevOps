@@ -272,9 +272,9 @@ Dėstytojas paskelbia repo `devops-projektas` kaip GitHub template **iki 01 pask
 
 Pilnos taisyklės yra `.claude/skills/pamoka-formatas/SKILL.md`.
 
-1. Vienas `pamoka.md` pamokai: `## Klasės darbas` (numeruotas, su minutėmis, „Demonstracija“, nuorodos į oficialią dokumentaciją), `## Schemos`, `## Užduotys`, `## Komandos`, `## Sprendimas (dėstytojui)`.
+1. Vienas `pamoka.md` pamokai: `## Klasės darbas` (numeruotas, su minutėmis, „Demonstracija“, nuorodos į oficialią dokumentaciją), `## Schemos`, `## Užduotys`, `## Komandos`, `## Pamokos eiga (dėstytojui)`.
 2. Užduotys: `### 1️⃣ <Pavadinimas>`, vienas numeruotas sąrašas: pirmas punktas `**Tikslas:**`, toliau po vieną smulkų veiksmą be komandų, pagal Edgaro stilių; ≥1 užduotis iš oficialios dokumentacijos (tik tikslas). Pateikimo ir savitikros nėra. Komandos atskirame skyriuje „Komandos“ pagal žingsnio numerį.
-3. Sprendimas: tik tikri rezultatai (kodas, konfigūracijos), „Patikrinta/Nepatikrinta“, „Kaip rodyti klasėje“ su minutėmis, lentelė „Darbas | Kur sprendime“, pavyzdiniai failai kodo blokuose (daug kodo: `sprendimai/` aplankas).
+3. Sprendimas: tik tikri rezultatai (kodas, konfigūracijos), „Patikrinta/Nepatikrinta“, „Demonstracijos žingsniai“ su minutėmis, lentelė „Darbas | Kur sprendime“, pavyzdiniai failai kodo blokuose (daug kodo: `sprendimai/` aplankas).
 4. Paskaita 3 val.: ~20–30 min. teorijos, likusi dalis praktika; užduočių suma ~1,25–2,5 val.
 5. Atsiskaitymo pamoka (tame pačiame `kursas/<NN Atsiskaitymas N>/` aplanke): `praktika.md`, `vertinimas.md` (lentelė kriterijus | taškai | kaip tikrinama), `testas.md` (30 klausimų, A–D), `atsakymai.md`. Studentams duodamos tik užduotys be atsakymų.
 
@@ -289,7 +289,7 @@ Eiga:
 
 1. Medžiagą kuria Claude Code privačiame `Techin DevOps`. Demonstruoji tik iš jo (arba iš atskiro bandomojo projekto, sukurto iš template).
 2. Pamokos dieną dėstytojas trumpai paaiškina temą, parodo gyvai kitu pavyzdžiu ir į Teams įkelia užduotį (skyrius „Užduotys“, prireikus „Komandos“). Mokiniai daro, baigę gauna kitą.
-3. Kitos pamokos pradžioje dėstytojas parodo praeitos pamokos sprendimą (skyrius „Sprendimas“) ir aptariama, kas liko neaišku.
+3. Kitos pamokos pradžioje dėstytojas parodo praeitos pamokos sprendimą (skyrius „Pamokos eiga“) ir aptariama, kas liko neaišku.
 4. Tikrinama tik atsiskaitymuose.
 
 ## 14. Šaltiniai

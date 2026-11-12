@@ -145,11 +145,11 @@ Užduotis skelbiu po vieną (Teams): pirma parodau gyvai, tada darote jūs. **Ni
 7. `git push -u origin pamoka-06`, GitHub'e **Compare & pull request**, sulieti, tada `git switch main` ir `git pull`
 9. `git merge --help` (skyrius apie `--abort`)
 
-## Sprendimas (dėstytojui)
+## Pamokos eiga (dėstytojui)
 
 Patikrinta: `ssh-keygen -t ed25519 -f ... -N "" -C kursas` (teisės `-rw-------` privačiam ir `-rw-r--r--` viešam) ir merge konflikto eiga (`CONFLICT (content)`, žymekliai, `UU` būsena) paleisti macOS. Nepatikrinta: `ssh -T git@github.com` (reali GitHub paskyra, `Host key verification failed` be tinklo bandymo aplinkoje), tikslus klaidos tekstas dėl `644` teisių (`WARNING: UNPROTECTED PRIVATE KEY FILE!` / `bad permissions`), `gh ssh-key add`, Ubuntu (WSL) ir `/mnt/c` elgesys. Išbandyti prieš pamoką abiejose sistemose.
 
-### Kaip rodyti klasėje
+### Demonstracijos žingsniai
 
 1. (~10 min) Praeitos pamokos (05) sprendimas gyvai: paleiskite `scripts/http-kodas.sh` su `/health` ir `/nera`; parodykite `docs/tinklai.md`.
 2. (~10 min) SSH pakartojimas: parodykite paprastą `ssh` prisijungimą, jei turite serverį, arba tik schemą; atsiminkite, kad jie tai jau darė su slaptažodžiu.

@@ -39,6 +39,11 @@ def inline(text):
     return t
 
 
+def plain(text):
+    """Pavadinimams: be paryškinimo ir kodo ženklų (jie tik apraše)."""
+    return inline(re.sub(r"\*\*([^*]+)\*\*", r"\1", text.replace("`", "")))
+
+
 def split_emoji(text):
     t = text.strip()
     if t and not t[0].isalnum() and ord(t[0]) > 0x2000:
@@ -160,7 +165,7 @@ def parse_slide(kind, title, lines, warnings, idx, deco=""):
                     step += 1
                     cls, attr = "card reveal", f' data-step="{step}"'
                 cards.append(f'<div class="{cls}"{attr}><div class="card__icon">{html.escape(icon)}</div>'
-                             f'<p class="card__title">{inline(title_c)}</p><p class="card__text">{inline(text_c)}</p></div>')
+                             f'<p class="card__title">{plain(title_c)}</p><p class="card__text">{inline(text_c)}</p></div>')
                 i += 1
             body.append(f'<div class="cards{" cards--path" if path_mode else ""}{" cards--tiles" if tiles_mode else ""}">' + "".join(cards) + "</div>")
         elif s.startswith(">>"):
@@ -251,8 +256,8 @@ def parse_slide(kind, title, lines, warnings, idx, deco=""):
     if eyebrow_txt:
         head += f'<p class="eyebrow">{inline(eyebrow_txt)}</p>'
     if title:
-        head += (f'<h1 class="title-main">{inline(title)}</h1>' if kind == "titulinė"
-                 else f'<h2 class="title">{inline(title)}</h2>')
+        head += (f'<h1 class="title-main">{plain(title)}</h1>' if kind == "titulinė"
+                 else f'<h2 class="title">{plain(title)}</h2>')
     cls = f"slide slide--{kind}" + (" slide--center" if kind in CENTER else "")
     note_attr = html.escape(" ".join(notes), quote=True)
     content = "".join(body)
@@ -273,32 +278,40 @@ def parse_slide(kind, title, lines, warnings, idx, deco=""):
 
 
 def read_tasks(pamoka: Path):
-    """Užduotys iš pamoka.md skyriaus „Užduotys“: [(numeris, pavadinimas, tikslas, [žingsniai])]."""
+    """Užduotys iš `uzduotys/N-uzduotis.md` (jei yra), kitaip iš pamoka.md skyriaus „Užduotys“:
+    [(numeris, pavadinimas, tikslas, [žingsniai])]."""
     if not pamoka.exists():
         raise SystemExit(f"Nerastas {pamoka}: reikalingas @uzduotys")
-    text = pamoka.read_text(encoding="utf-8")
-    m = re.search(r"(?ms)^## Užduotys\s*\n(.*?)(?=^## )", text)
-    if not m:
-        raise SystemExit("pamoka.md neturi skyriaus „## Užduotys“")
+    files = sorted((pamoka.parent / "uzduotys").glob("[0-9]*-uzduotis.md"), key=lambda p: int(p.name.split("-")[0]))
+    blocks = []
+    if files:
+        for f in files:
+            t = f.read_text(encoding="utf-8")
+            h = re.match(r"# (\d+) užduotis: (.*)", t)
+            blocks.append((h.group(1) if h else f.name.split("-")[0], h.group(2).strip() if h else f.stem, t))
+    else:
+        text = pamoka.read_text(encoding="utf-8")
+        m = re.search(r"(?ms)^## Užduotys\s*\n(.*?)(?=^## )", text)
+        if not m:
+            raise SystemExit("pamoka.md neturi skyriaus „## Užduotys“")
+        for blk in re.split(r"(?m)^### ", m.group(1))[1:]:
+            head, _, rest = blk.partition("\n")
+            num = re.match(r"(\d)", head)
+            title = head.split(" ", 1)[1].strip() if " " in head else head.strip()
+            blocks.append((num.group(1) if num else str(len(blocks) + 1), title, rest))
     tasks = []
-    for blk in re.split(r"(?m)^### ", m.group(1))[1:]:
-        head, _, rest = blk.partition("\n")
-        num = re.match(r"(\d)", head)
-        title = head.split(" ", 1)[1].strip() if " " in head else head.strip()
+    for num, title, rest in blocks:
         goal, steps = "", []
         for ln in rest.split("\n"):
-            mm = re.match(r"\d+\. (.*)", ln)
-            if not mm:
-                continue
-            t = mm.group(1).strip()
-            g = re.match(r"\*\*Tikslas:\*\*\s*(.*)", t)
+            ln = ln.strip()
+            g = re.match(r"(?:\d+\. )?\*\*Tikslas:\*\*\s*(.*)", ln)
             if g:
                 goal = g.group(1)
-            elif t.startswith("**Papildomai:**"):
-                steps.append(t)
-            else:
-                steps.append(t)
-        tasks.append((num.group(1) if num else str(len(tasks) + 1), title, goal, steps))
+                continue
+            mm = re.match(r"\d+\. (.*)", ln)
+            if mm:
+                steps.append(mm.group(1).strip())
+        tasks.append((num, title, goal, steps))
     return tasks
 
 
@@ -315,7 +328,7 @@ def expand_tasks(pamoka: Path, notes_line: str, skip_overview: bool = False, onl
         return out
     for n_, title, goal, steps in tasks:
         body = [goal, ""] + [f"{k}. {st}" for k, st in enumerate(steps, 1)]
-        body.append(f"Pastaba: Komandos šiai užduočiai: pamoka.md → „Komandos“, skyrius {n_}.")
+        body.append(f"Pastaba: Komandos šiai užduočiai: uzduotys/{n_}-uzduotis-sprendimas.md.")
         out.append(("uzduotis", f"{n_} užduotis: {title}", "\n".join(body)))
     return out[1:] if skip_overview else out
 

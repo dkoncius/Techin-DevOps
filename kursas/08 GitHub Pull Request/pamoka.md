@@ -101,11 +101,11 @@ Užduotis skelbiu po vieną (Teams): pirma parodau gyvai, tada darote jūs. Užd
 5. `git switch -c <šaka>`, `git commit -am "..."`, `git push -u origin <šaka>`, PR, sulieti
 7. `gh pr list --state all`
 
-## Sprendimas (dėstytojui)
+## Pamokos eiga (dėstytojui)
 
 Patikrinta: tik Git dalis (šaka, commit, `git push`, `git reset --soft`) paleista macOS su lokalia repozitorija. Nepatikrinta: viskas GitHub'e (Issue su `Closes #N`, bendradarbių kvietimas, review komentarai, branch apsauga su **Public** repozitorija, ar apsauga atmeta `git push`, `gh issue create`, `gh pr create`, `gh pr list`); reikia išbandyti prieš pamoką su dviem paskyromis. Pastaba: jei `devops-projektas` kopijos privačios, branch apsauga nemokamame plane gali neveikti (02 pamokoje liepiama Public).
 
-### Kaip rodyti klasėje
+### Demonstracijos žingsniai
 
 1. (~10 min) Praeitos pamokos (07) sprendimas gyvai: parodykite `git log --oneline --graph` su `Revert` ir konflikto sujungimu.
 2. (~20 min) PR: kitas pavyzdys nei mokinių: jūsų demo repozitorija, Issue „Pridėti `/about`“ (be kodo, tik `docs/about.md`), PR su aprašu ir `Closes #1`; parodykite, kaip PR uždaro Issue. Dažna klaida: PR atidarytas į ne tą repozitoriją (į šabloną); aprašas „pakeitimai“; Issue numeris be `#`.

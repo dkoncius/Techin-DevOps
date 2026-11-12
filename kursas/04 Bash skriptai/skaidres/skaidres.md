@@ -28,8 +28,12 @@ Pastaba: ~5 min. Pradėkite nuo vaizdo, tada kodas.
 
 === komanda | Skriptas ir argumentai
 ```bash
+mkdir -p ~/devops/demo-bash/scripts
+cd ~/devops/demo-bash
+cat > scripts/pridek.sh <<'EOS'
 #!/usr/bin/env bash
-echo "Sveiki, $1!"
+echo $(($1 + $2))
+EOS
 ```
 + `$1` pirmas argumentas, `$#` kiek jų, `"$@"` visi
 + Kintamuosius rašykite kabutėse: `"$1"`
@@ -39,15 +43,24 @@ chmod +x scripts/pridek.sh
 ```
 Pastaba: ~8 min. Kitas pavyzdys nei užduotyje: `pridek.sh` sudeda du skaičius per `$(($1 + $2))`. Pakartojimas: `#!`, `chmod +x`, kintamieji.
 
-=== komanda | `if` ir testai
+=== komanda | Sąlygos ir testai
 ```bash
+cat > pasveikink.sh <<'EOS'
+#!/usr/bin/env bash
 if [ "$#" -lt 1 ]; then
   echo "Naudojimas: $0 <vardas>" >&2
   exit 1
 fi
+echo "Sveiki, $1!"
+EOS
 ```
 - Failui: `-e`, `-f`, `-d`; tekstui: `=`, `-z`; skaičiams: `-eq`, `-gt`, `-lt`
 - Ar komanda yra: `command -v git`
+```bash+
+chmod +x pasveikink.sh
+./pasveikink.sh; echo $?
+./pasveikink.sh Ona
+```
 Pastaba: ~15 min. Dažna klaida: trūksta tarpų aplink `[` ir `]`; `=` vietoj `-eq`; `$x` be kabučių, kai tuščias.
 
 === tekstas | Išėjimo kodas
@@ -57,17 +70,32 @@ Pastaba: ~15 min. Dažna klaida: trūksta tarpų aplink `[` ir `]`; `=` vietoj `
 | `exit 1` | ?Klaida |
 | `exit 2` | ?Bloga įvestis (mūsų susitarimas) |
 | `$?` | ?Paskutinės komandos kodas |
+```bash+
+command -v git; echo $?
+command -v neegzistuoja; echo $?
+```
 Pastaba: ~5 min. Kitos programos (CI, `&&`) žiūri į kodą, o ne į tekstą.
 
-=== komanda | `for` ir saugus skriptas
+=== komanda | Ciklas ir saugus skriptas
 ```bash
-for failas in docs/*.md; do
+for failas in *.sh; do
   echo "$failas"
 done
 ```
 - `set -euo pipefail`: sustoja klaidoje, nenustatytame kintamajame ir nepavykusiame vamzdyje
 - Mac Bash 3.2: be `${var,,}`, `mapfile`, `declare -A`
 Pastaba: ~10 min. Dažna klaida: `for f in *.md`, kai failų nėra (cikle lieka pats šablonas).
+
+=== komanda | Failų patikra
+```bash
+touch README.md
+for failas in README.md package.json; do
+  if [ -f "$failas" ]; then echo "OK      $failas"; else echo "TRŪKSTA $failas"; fi
+done
+if [ -d src ]; then echo "OK      src/"; else echo "TRŪKSTA src/"; fi
+```
+- `-f` yra failas, `-d` yra aplankas
+Pastaba: ~5 min. Kito projekto failai (`package.json`, `README.md`): tas pats `if`, bet su `-f` ir `-d`. Dažna klaida: skriptas paleistas ne projekto šaknyje ir viskas „TRŪKSTA“; `-f` vietoj `-d` aplankui. Paskelbkite 3 užduotį.
 
 === demonstracija | Realus skriptas: run.sh
 | Eilutė | Ką daro |
@@ -76,15 +104,35 @@ Pastaba: ~10 min. Dažna klaida: `for f in *.md`, kai failų nėra (cikle lieka 
 | `python3 -m venv .venv` | ?Sukuria virtualią aplinką, bet tik jei `.venv` dar nėra |
 | `[ -f .env ] && { set -a; . ./.env; set +a; }` | ?Jei yra `.env`, įkelia kintamuosius |
 | `exec ... --port "${PORT:-5001}"` | ?Paleidžia serverį porte iš `PORT` arba 5001 |
+```bash+
+cd ~/devops/devops-projektas
+cat run.sh
+```
 Pastaba: ~10 min. Eikite eilutė po eilutės; jie jau matė aplinkos kintamuosius 03 pamokoje.
 
-=== tekstas | Git: `.gitignore` ir atšaukimas
+=== tekstas | Git: ignoravimas ir atšaukimas
 | Situacija | Komanda |
 |---|---|
 | Failas neturi patekti į Git | ?Eilutė `.gitignore` |
 | Atšaukti pakeitimą faile | ?`git restore failas` |
 | Atšaukti `git add` | ?`git restore --staged failas` |
 | Ištrinti visą darbą | ?`git reset --hard` (pavojinga) |
+```bash+
+mkdir -p ~/devops/demo-git
+cd ~/devops/demo-git
+git init -q
+echo "b" > b.txt
+git add b.txt
+git commit -qm "Pradinis"
+```
+```bash+
+echo "*.tmp" > .gitignore
+touch a.tmp
+git status --short
+echo "pakeista" >> b.txt
+git restore b.txt
+```
+
 Pastaba: ~10 min. Pakartojimas. Dažna klaida: failas jau buvo `git add` ir `.gitignore` nebeveikia (`git rm --cached`).
 
 === klaida | Dažnos klaidos

@@ -146,11 +146,11 @@ Užduotis skelbiu po vieną (Teams): pirma parodau gyvai, tada darote jūs. Daba
 6. `./paleisti.sh`, `echo $?`
 7. `git add docs/sablonas.md`, `git commit -m "..."`, `git push`
 
-## Sprendimas (dėstytojui)
+## Pamokos eiga (dėstytojui)
 
 Patikrinta: `paleisti.sh` paleistas macOS su tikru starteriu: sėkmė (`OK: /health atsakė 200`, kodas 0), kitas portas, užimtas portas (po 20 s kodas 1); `pytest` (3 praėjo); `.env` su `APP_COLOR=green` ir `APP_VERSION=1.2` pasirodė `/status`. Nepatikrinta: **Template repository** nustatymas ir `gh repo create --template ... --clone` (užduotis 5), Ubuntu (WSL; `python3-venv`), pirmas paleidimas su lėtu `pip` (laukimas 20 s gali nepakakti, pip diegimas vyksta prieš laukimo ciklą). Išbandyti prieš pamoką.
 
-### Kaip rodyti klasėje
+### Demonstracijos žingsniai
 
 1. (~10 min) Praeitos pamokos (08) sprendimas gyvai: parodykite PR su review ir branch apsaugos klaidą `git push` į `main`.
 2. (~5 min) Demonstracija: `./run.sh`, puslapis, `/health`, `/status`; `.env` su `APP_COLOR` ir pakartotinis paleidimas.
