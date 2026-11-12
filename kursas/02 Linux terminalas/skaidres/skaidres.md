@@ -42,7 +42,7 @@ Pastaba: ~5 min. Kitas pavyzdys nei užduotyje: sava demo kopija `demo-a`. Pirma
 
 === tekstas | Komanda, parametrai, argumentai
 @plokštelės
-:: 01 | Komanda | Ką daryti: `ls`
+:: 01 | Komanda | Ką daryti: `ls` (list)
 :: 02 | Parametras | Kaip daryti: `-l`
 :: 03 | Argumentas | Su kuo daryti: `a.txt`
 ```bash
@@ -59,13 +59,13 @@ Pastaba: ~3 min. Jie tai jau moka, tik prisiminti. Principas: įrankiai keičias
 
 === komanda | Kur esu ir kas čia
 ```bash
-pwd   # kur esu
+pwd   # print working directory: kur esu
 ```
 ```bash+
-ls -la   # failai, įskaitant paslėptus
+ls -la   # list: failai (-l ilgas sąrašas, -a visi, ir paslėpti)
 ```
 ```bash+
-cd ..   # viena pakopa aukštyn
+cd ..   # change directory: viena pakopa aukštyn
 ```
 ```bash+
 cd demo-a   # į aplanką
@@ -91,11 +91,11 @@ Pastaba: ~3 min. Pildykite kartu: klauskite, ką reiškia `~`, paskui paspauskit
 === demonstracija | Failai ir aplankai
 | Komanda | Ką daro |
 |---|---|
-| `mkdir -p KELIAS` | ?Sukuria aplanką (ir tarpinius) |
+| `mkdir -p KELIAS` | ?make directory: sukuria aplanką (ir tarpinius) |
 | `touch FAILAS` | ?Sukuria tuščią failą |
-| `cp ŠALTINIS TIKSLAS` | ?Nukopijuoja failą |
-| `mv ŠALTINIS TIKSLAS` | ?Perkelia arba pervadina |
-| `ls -R APLANKAS` | ?Parodo aplankų medį |
+| `cp ŠALTINIS TIKSLAS` | ?copy: nukopijuoja failą |
+| `mv ŠALTINIS TIKSLAS` | ?move: perkelia arba pervadina |
+| `ls -R APLANKAS` | ?list, -R recursive: parodo aplankų medį |
 ```bash+
 mkdir -p demo/vaisiai
 touch demo/vaisiai/obuolys.txt
@@ -105,12 +105,26 @@ ls -R demo
 ```
 Pastaba: ~8 min su demonstracija aplanke `demo` (kiti failų vardai nei užduotyje: ten `docs/pastabos`, `komandos.txt`). Pasakykite: šiame kurse nenaudojame `rm -rf`, pirma kopijuokite, o ne trinkite. Kodėl nekeliame `rm -rf`: ištrintas failas nepatenka į šiukšlinę. Paskelbkite 2 užduotį.
 
+=== demonstracija | Commit: išsaugome darbą
+```bash
+git status   # kas pasikeitė
+```
+```bash+
+git add .                                 # paruošia pakeitimus
+git commit -m "Demo: aplankai ir failai"  # išsaugo juos
+```
+```bash+
+git log --oneline   # commit'ų istorija
+```
++ Tą patį darome po kiekvienos temos
+Pastaba: ~2 min. Darykite commit'ą po šios temos ir pakartokite po „Srautai“ (`Demo: srautai`) bei „Pirmas skriptas“ (`Demo: labas.sh`): taip mokiniai mato, kad kiekvienoje užduotyje baigiame commit'u (užduotys 1, 3, 4). `git push` rodome tik prie Pull Request.
+
 === tekstas | Srautai: vamzdis ir nukreipimas
 >>+ vaisiai.txt | sort | rusiuota.txt
 ```bash
 # sukuria failą su keturiomis eilutėmis
 printf 'obuolys\nanasas\nslyva\nbanana\n' > vaisiai.txt
-cat vaisiai.txt                   # parodo turinį
+cat vaisiai.txt                   # concatenate: parodo turinį
 sort vaisiai.txt > rusiuota.txt   # surikiuotą įrašo į naują failą
 echo "slyva" >> vaisiai.txt       # prideda eilutę gale
 cat vaisiai.txt | grep an         # palieka eilutes su „an“
@@ -148,7 +162,7 @@ echo 'echo "Labas, $(pwd)"' >> labas.sh  # antra eilutė: ką daryti
 -bash: ./labas.sh: Permission denied
 ```
 ```bash+
-chmod +x labas.sh   # leidžia vykdyti
+chmod +x labas.sh   # change mode: leidžia vykdyti (x = execute)
 ls -l labas.sh      # rodo teises (atsirado x)
 ./labas.sh          # dabar veikia
 ```
@@ -157,9 +171,8 @@ Pastaba: ~8 min. Pavyzdys `labas.sh` (kitas nei mokinių `ataskaita.sh`, kuris a
 
 === demonstracija | Pull Request
 ```bash
-git add .                                # paruošia pakeitimus
-git commit -m "Demo: pirmas pakeitimas"  # išsaugo juos
-git push -u origin pamoka-02             # išsiunčia šaką į GitHub
+git log --oneline                  # jūsų commit'ai
+git push -u origin pamoka-02       # išsiunčia šaką į GitHub
 ```
 + Naršyklėje: **Compare & pull request** → pavadinimas → **Files changed** → **Merge pull request**
 ```bash+

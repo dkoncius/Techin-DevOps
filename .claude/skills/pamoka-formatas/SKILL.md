@@ -15,13 +15,13 @@ description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paska
 5. Duomenų bazė: MySQL. Platforma: GitHub (Pull Request kai mokomasi PR). Mokinio darbo projektas: GitHub template `devops-projektas`. Senuose pavyzdžiuose (`medziaga/saltiniai/`) yra PostgreSQL: konvertuok į MySQL tik tada, kai pamoka tuos pavyzdžius naudoja.
 
 ## pamoka.md
-0. Skyrių eilė: `# <NN> <tema>`, `## Klasės darbas`, (`## Kur skiriasi (Mac / Ubuntu)`, `## Schemos`), `## Užduotys` (tik nuoroda į `uzduotys/`), `## Pamokos eiga (dėstytojui)`. Skyriaus „Komandos“ nėra: komandos tik sprendimų failuose.
+0. Skyrių eilė (kaip `01 Kas yra DevOps/pamoka.md`): `# <NN> <tema>`, `Data: ...`, `## Klasės darbas`, `## Užduotys` (tik nuoroda į `uzduotys/`), `## Pamokos eiga (dėstytojui)`. Skyrių „Komandos“, „Kur skiriasi (Mac / Ubuntu)“ ir „Schemos“ `pamoka.md` NEBETURI: schemos ir komandos yra skaidrėse, o Mac / Ubuntu skirtumai pastabose prie skaidrės.
 1. Antraštė `# <NN> <tema>`, tada `## Klasės darbas`.
-2. Klasės darbas: numeruotas sąrašas (1., 2.), papunkčiai yra taškai (`-`), įtraukti 3 tarpais. Temos ir nuorodos, be komandų žingsnių (komandos tik paminėtos kaip temos).
+2. Klasės darbas: plokščias numeruotas sąrašas (1., 2.), VIENA eilutė per punktą be papunkčių: pavadinimas (~X min), „tada Užduotis K (~Y min)“, nuoroda į skaidres ir jų numeriai, trumpas temų sąrašas (pvz. `cp`, `mv`, commit). Trumpa įvadinė pastraipa (3 val., **N** rodo pastabas, ritmas, užduočių gija). Be komandų žingsnių.
 3. Nuorodos: oficiali dokumentacija ir patikimi mokymosi ištekliai. URL rašyti tik tuos, kuriuos tikrai žinai; kitaip „raskite oficialioje X dokumentacijoje skyrių apie Y“.
 4. Laikas klasės darbe žymimas skliaustuose prie punkto, pvz. „(~15 min)“.
 5. Paskutinis punktas visada „Kita paskaita: <tema>“ (pagal plano lentelę).
-6. Schemos: atskiras skyrius `## Schemos` po klasės darbo sąrašo, ne sąrašo viduje. Mermaid: `flowchart TD`, unikalūs mazgų ID, `subgraph … end`, viena rodyklė eilutėje, tuščios eilutės prieš ir po kodo bloko. Sudėtingesnėms schemoms Excalidraw (Mermaid → „Mermaid to Excalidraw“), ne draw.io.
+6. Schemos ir diagramos tik skaidrėse (Excalidraw skaidrės `diagramos/`), `pamoka.md` jų neturi.
 7. Versti iš `medziaga/saltiniai/` galima tik tekstą, su eilute „Šaltinis: <kursas, skyrius>, autorius <vardas>, išversta autoriaus leidimu.“ ir ženklu „[pritaikyta: kodėl]“. Paveikslėlių nenaudoti, nebent peržiūrėti ir patvirtinti. Katalogo `_saltiniai/nuorodos-medziaga/` neskaityti be aiškaus prašymo.
 8. Kartojamos temos (Linux, Bash, Git, kuriuos mokė Edgaras) praeinamos greičiau per užduotis, bet nepraleidžiamos.
 9. Kur tinka, pamoka prasideda veikiančiu rezultatu (demonstracija), toliau išardyti, sugadinti, perstatyti.
@@ -70,9 +70,9 @@ description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paska
 8. Pirmoji paskaita (01) turi telpti į 3 val.: gyvai ~95 min., užduotys ~75 min.; aplinkos žingsniai, atliekami kartu klasėje (git config, prisijungimas), į užduotis nededami.
 
 ## Skyrius „Pamokos eiga (dėstytojui)“ (pamoka.md)
-1. Tai pamokos demonstracijų planas, ne užduočių sprendimai (jie yra `uzduotys/`). Tik tikri rezultatai: demonstracijų komandas paleisk ir patikrink.
-2. Struktūra: (a) „Patikrinta/Nepatikrinta“ viena eilutė tuoj po antraštės: „Patikrinta: <kur paleista>“ arba „Nepatikrinta: reikia išbandyti <aplinka> prieš pamoką“; (b) `### Demonstracijos žingsniai`: laiko juostos lentelė (Trukmė | Kas), po jos žingsnis po žingsnio panašiai kaip sprendimų failuose.
-3. Kiekviena dalis: `**N. <Tema> (~X min demonstracija, tada Užduotis K ~Y min).** Skaidrės ...`, po jos taškai (`-`) su kodo blokais (komandos su KITU pavyzdžiu nei mokinių), „Paskelbkite K užduotį“ ir „Dažna klaida: …“. Pirma dalis: praeitos pamokos sprendimas (jos `uzduotys/N-uzduotis-sprendimas.md`).
+1. Formatas kaip `01 Kas yra DevOps/pamoka.md`: demonstracijų komandų `pamoka.md` NEDUBLIUOJA, jos yra tik skaidrėse (`skaidres/skaidres.md` → `skaidres.html`), kiekviena komanda su aprašu (komentaras `# ...` arba lentelė „Komanda | Ką daro“; prie trumpinio angliškas žodis: `cp` copy, `mv` move, be lietuviško vertimo skliaustuose). Klasės darbe prie kiekvienos temos nurodoma tik skaidrių numeriai ir nuoroda į `skaidres.html`.
+2. Struktūra: (a) „Patikrinta/Nepatikrinta“ viena eilutė tuoj po antraštės: „Patikrinta: <kur paleista>“ arba „Nepatikrinta: reikia išbandyti <aplinka> prieš pamoką“; (b) `### Demonstracijos žingsniai`: viena pastraipa: komandos yra skaidrėse, laikas, dažnos klaidos ir kada skelbti užduotį skaidrių pastabose (**N**), sprendimai `uzduotys/1-uzduotis-sprendimas.md` … Laiko juostos lentelės ir kodo blokų čia nėra (laikas jau yra klasės darbe).
+3. Demonstracija rodoma KITU pavyzdžiu nei užduotyje (pvz. `demo-a`, `demo/vaisiai`); pastabų, ką paskelbti ir dažnų klaidų vieta: skaidrių `Pastaba:`. Pirma klasės darbo dalis: praeitos pamokos sprendimas (jos `uzduotys/N-uzduotis-sprendimas.md`).
 4. Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas tik atsiskaitymuose. Skyriaus „Dažniausios problemos“, lentelės „Sprendimas pagal darbus“ ir „Pavyzdinių failų“ nėra (jie dubliuotų sprendimų failus).
 5. Teorinėms pamokoms be kodo pakanka lentelės.
 6. Projekto būsenos atskiro aplanko nėra: jei pamoka keičia studento projektą, tai nurodoma sprendimų faile (kai starteris bus paskelbtas).

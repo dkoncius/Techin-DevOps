@@ -3,7 +3,7 @@
 ## Procesai
 - `KOMANDA &` → paleidžia procesą fone (pvz. `sleep 300 &`)
 - `jobs` → procesai, paleisti šiame lange
-- `ps aux` → visi veikiantys procesai (PID yra antras stulpelis)
+- `ps aux` → process status: visi veikiantys procesai (PID yra antras stulpelis)
 - `ps aux | grep VARDAS` → randa procesą pagal vardą
 - `kill PID` → prašo procesą baigti
 - `kill -9 PID` → priverstinai nutraukia
@@ -13,7 +13,7 @@
 ## Aplinkos kintamieji
 - `export VARDAS=reikšmė` → nustato kintamąjį šiam langui
 - `echo $VARDAS` → parodo kintamojo reikšmę
-- `env` → visi aplinkos kintamieji
+- `env` → environment: visi aplinkos kintamieji
 - `VARDAS=reikšmė ./SKRIPTAS.sh` → kintamasis tik vienai komandai
 - `echo $PATH` → aplankai, kuriuose ieškoma komandų
 - `which KOMANDA` → kur komanda yra
