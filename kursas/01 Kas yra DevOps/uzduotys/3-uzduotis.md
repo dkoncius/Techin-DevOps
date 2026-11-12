@@ -55,7 +55,7 @@ Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsiraš
 
 Galite įklijuoti į `devops-dokumentas.md` ir pakeisti tekstą savais žodžiais:
 
-````markdown
+```markdown
 # Kas yra DevOps
 
 DevOps yra būdas, kaip kūrėjai ir sistemų administratoriai dirba kartu, kad programa greitai ir saugiai pasiektų vartotoją. Pagrindinė idėja: kuo daugiau žingsnių automatizuoti ir kuo dažniau išleisti mažus pakeitimus. Tai ne vienas įrankis, o darbo kultūra ir procesas.
@@ -64,4 +64,4 @@ DevOps yra būdas, kaip kūrėjai ir sistemų administratoriai dirba kartu, kad 
 
 1. Testai: jei jų nėra, klaida pasiekia vartotoją.
 2. Diegimas: ranka diegiant, galima pamiršti žingsnį ir serveris veiks kitaip nei kompiuteryje.
-````
+```
