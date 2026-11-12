@@ -6,7 +6,11 @@ Numeriai atitinka užduoties žingsnius (`3-uzduotis.md`). Rodoma su `docs/pasta
 
 ```bash
 cd ~/devops/devops-projektas/docs/pastabos
-printf 'ls\ncd\ncp\nmv\npwd\n' > komandos.txt
+echo ls > komandos.txt
+echo cd >> komandos.txt
+echo cp >> komandos.txt
+echo mv >> komandos.txt
+echo pwd >> komandos.txt
 cat komandos.txt
 sort komandos.txt
 sort komandos.txt > komandos-abeceles.txt

@@ -122,11 +122,11 @@ Pastaba: ~2 min. Darykite commit'ą po šios temos ir pakartokite po „Srautai�
 === tekstas | Srautai: vamzdis ir nukreipimas
 >>+ vaisiai.txt | sort | rusiuota.txt
 ```bash
-# sukuria failą su keturiomis eilutėmis
-printf 'obuolys\nanasas\nslyva\nbanana\n' > vaisiai.txt
+echo obuolys > vaisiai.txt        # sukuria failą su eilute
+echo anasas >> vaisiai.txt        # prideda eilutę gale
+echo banana >> vaisiai.txt        # dar viena eilutė
 cat vaisiai.txt                   # concatenate: parodo turinį
 sort vaisiai.txt > rusiuota.txt   # surikiuotą įrašo į naują failą
-echo "slyva" >> vaisiai.txt       # prideda eilutę gale
 cat vaisiai.txt | grep an         # palieka eilutes su „an“
 ```
 > Kaip vamzdis: viena komanda daro vieną darbą, o `|` perduoda rezultatą kitai.
@@ -152,22 +152,24 @@ Pastaba: ~3 min. Leiskite spėlioti: `a b c`, `a b` ar `c`. Dažna klaida: mokin
 | `-rw-------` (600) | ?Tik savininkas: tinka raktams ir `.env` |
 Pastaba: ~7 min. Pildykite kartu. Pirmas simbolis `-` failas, `d` aplankas; toliau trys trynukai: savininkas, grupė, kiti. Principas: slapti dalykai (`.env`, privatūs raktai) turi būti skaitomi tik savininkui. Parodykite `ls -l run.sh` projekte: jis jau vykdomas.
 
-=== komanda | Pirmas skriptas
-```bash
-echo '#!/usr/bin/env bash' > labas.sh     # pirma eilutė: kuo paleisti
-echo 'echo "Labas, $(pwd)"' >> labas.sh  # antra eilutė: ką daryti
-./labas.sh                                # paleidžia skriptą
+=== demonstracija | Pirmas skriptas
+| Komanda | Ką daro |
+|---|---|
+| `#!/usr/bin/env bash` | ?Pirma skripto eilutė: kuo jį paleisti |
+| `chmod +x FAILAS` | ?change mode: leidžia vykdyti (x = execute) |
+| `./FAILAS` | ?Paleidžia skriptą iš šio aplanko |
+```bash+
+echo '#!/usr/bin/env bash' > labas.sh
+echo 'echo Labas' >> labas.sh
+./labas.sh      # Permission denied: nėra teisės vykdyti
+chmod +x labas.sh
+ls -l labas.sh  # atsirado x
+./labas.sh      # dabar veikia
 ```
 ```output+
--bash: ./labas.sh: Permission denied
+Labas
 ```
-```bash+
-chmod +x labas.sh   # change mode: leidžia vykdyti (x = execute)
-ls -l labas.sh      # rodo teises (atsirado x)
-./labas.sh          # dabar veikia
-```
-> Kaip raktas nuo kabineto: failas yra, bet be teisės jo nepaleisite.
-Pastaba: ~8 min. Pavyzdys `labas.sh` (kitas nei mokinių `ataskaita.sh`, kuris automatizuoja jų ranka darytus žingsnius). Išvestis pavyzdinė (zsh rodo `zsh: permission denied: ./labas.sh`). Pirma eilutė `#!/usr/bin/env bash` pasako, kuo skriptą paleisti. Dažna klaida: `bash labas.sh` veikia ir be `x`, o `./labas.sh` ne. Windows: CRLF (`bad interpreter`): kurti WSL redaktoriumi. Paskelbkite 4 užduotį.
+Pastaba: ~8 min. Analogija: raktas nuo kabineto, failas yra, bet be teisės jo nepaleisite. Pavyzdys `labas.sh` (kitas nei mokinių `ataskaita.sh`, kuris automatizuoja jų ranka darytus žingsnius). Išvestis pavyzdinė (zsh rodo `zsh: permission denied: ./labas.sh`). Pirma eilutė `#!/usr/bin/env bash` pasako, kuo skriptą paleisti. Dažna klaida: `bash labas.sh` veikia ir be `x`, o `./labas.sh` ne. Windows: CRLF (`bad interpreter`): kurti WSL redaktoriumi. Paskelbkite 4 užduotį.
 
 === demonstracija | Pull Request
 ```bash
