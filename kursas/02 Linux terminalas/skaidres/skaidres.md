@@ -117,7 +117,7 @@ git commit -m "Demo: aplankai ir failai"  # išsaugo juos
 git log --oneline   # commit'ų istorija
 ```
 + Tą patį darome po kiekvienos temos
-Pastaba: ~2 min. Darykite commit'ą po šios temos ir pakartokite po „Srautai“ (`Demo: srautai`) bei „Pirmas skriptas“ (`Demo: labas.sh`): taip mokiniai mato, kad kiekvienoje užduotyje baigiame commit'u (užduotys 1, 3, 4). `git push` rodome tik prie Pull Request.
+Pastaba: ~2 min. `demo-a` turi būti Git repozitorija (jei ne: `git init`, pirmas commit prieš pamoką). Darykite commit'ą po šios temos ir pakartokite po „Srautai“ (`Demo: srautai`) bei „Pirmas skriptas“ (`Demo: labas.sh`): taip mokiniai mato, kad kiekvienoje užduotyje baigiame commit'u (užduotys 1, 3, 4). `git push` rodome tik prie Pull Request.
 
 === tekstas | Srautai: vamzdis ir nukreipimas
 >>+ vaisiai.txt | sort | rusiuota.txt
