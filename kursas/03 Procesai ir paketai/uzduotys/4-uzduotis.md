@@ -1,26 +1,13 @@
-# 4 užduotis: Kodas ir Pull Request
+# 4 užduotis: Pull Request
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte` (`~/devops/devops-projektas`).
+1. **Tikslas:** pateikti šios pamokos darbą per Pull Request. Programos `app.py` dar nėra.
+2. Patikrinkite savo skriptą: `cd ~/Desktop/devops/git-bandymas`, `grep -n "PROJEKTO_VARDAS" scripts/aplinka.sh`. Eilutėje yra numatytoji reikšmė `nenustatyta`.
+3. Patikra: `grep -rniE "password|token|secret" docs scripts`. Neturi rasti slaptažodžio ar rakto.
+4. Commit: `git add docs scripts`, `git commit -m "Pridėti procesų užrašai"`. `git log --oneline` viršuje ta žinutė.
+5. Nusiųskite: `git push -u origin pamoka-03`. `git status` seka `origin/pamoka-03`.
+6. GitHub'e Pull Request iš `pamoka-03` į `main`. Pavadinimas „Procesai ir paketai“, Description vienas sakinys. **Files changed** rodo `docs` ir `scripts`. **Merge pull request**. Terminale: `gh pr create --title "Procesai ir paketai" --body "Procesai, aplinkos kintamasis ir paketas tree."`, tada `gh pr merge --merge`.
+7. Atnaujinkite ir ištrinkite šaką: `git switch main`, `git pull`, `git branch -d pamoka-03`, `git push origin --delete pamoka-03`. `git branch` rodo tik `main`.
+8. **Papildomai:** `kill PID` prašo procesą baigti. `kill -9 PID` nutraukia iš karto. Antrą naudokite tik kai procesas nebereaguoja į pirmą.
+9. **Pateikimas:** sulieto Pull Request nuotrauka ir GitHub nuotrauka, kur liko tik `main`.
 
-**Tikslas:** Pamatyti, kaip tikra programa skaito savo nustatymus iš aplinkos, ir pateikti visą darbą per Pull Request.
-
-**Pirma dalis: kodo skaitymas**
-
-1. Projekto šaknyje suraskite visas `app.py` eilutes su `os.environ` ir įrašykite jas į `docs/nustatymai.txt`.
-2. Patikrinkite, kad Git ignoruoja failą `.env` (pagal oficialią dokumentaciją; žingsnių čia nėra, tik tikslas: kuri komanda parodo, ar failas ignoruojamas).
-
-**Antra dalis: patikra, commit ir siuntimas**
-
-1. Patikrinkite, kad `docs` ir `scripts` nėra slaptažodžių, raktų, tokenų ar `.env` turinio.
-2. Pridėkite `docs` ir padarykite commit su žinute „Pridėti nustatymai“.
-3. Pažiūrėkite commit istoriją: turi būti penki jūsų commit'ai.
-4. Nusiųskite šaką `pamoka-03` į GitHub.
-
-**Trečia dalis: Pull Request**
-
-1. GitHub'e atidarykite Pull Request iš `pamoka-03` į `main` pavadinimu „Procesai ir paketai“ su vieno sakinio aprašu.
-2. Peržiūrėkite **Files changed**: turi matytis jūsų failai.
-3. Sulieskite Pull Request.
-4. Kompiuteryje persijunkite į `main` ir atnaujinkite jį.
-5. Ištrinkite šaką `pamoka-03` kompiuteryje ir GitHub'e.
-6. **Papildomai:** paaiškinkite skirtumą tarp `kill` ir `kill -9` ir kada naudotumėte antrą.
+Jei užstrigote, pasižiūrėkite `procesai komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

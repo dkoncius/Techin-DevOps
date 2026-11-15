@@ -1,29 +1,26 @@
 # 4 užduotis: Teisės ir pirmas skriptas
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`.
+1. **Tikslas:** automatizuoti ranka darytus žingsnius skriptu, padaryti jį vykdomą ir nustatyti teises.
+2. Grįžkite į šaknį: `cd ~/Desktop/devops/git-bandymas`. Sukurkite aplanką `scripts`. Komandą rasite `linux komandos.pdf`.
+3. Atidarykite `nano scripts/ataskaita.sh` (redaktorius kaip 1 užduotyje) ir įrašykite skriptą žemiau.
 
-**Tikslas:** Automatizuoti ranka darytus žingsnius skriptu, padaryti jį vykdomą ir nustatyti teises.
+```bash
+#!/usr/bin/env bash
+echo "Aplankas: $(pwd)"
+echo "Failų ir aplankų uzrasai: $(ls uzrasai | wc -l | tr -d ' ')"
+echo "Markdown failai:"
+find . -name "*.md" -not -path "./.git/*"
+echo "Eilutės su Terminalas:"
+grep -n "Terminalas" uzrasai.md
+```
 
-**Pirma dalis: skriptas**
+4. Paleiskite iš projekto šaknies: `./scripts/ataskaita.sh`. Laukiama: `Permission denied` (zsh rašo `permission denied`), nes dar nėra teisės vykdyti.
+5. Suteikite teisę ir paleiskite: `chmod +x scripts/ataskaita.sh`, tada `./scripts/ataskaita.sh`. Išvestyje yra aplankas, skaičius, `.md` sąrašas ir eilutė su `Terminalas`.
+6. Išvestį įrašykite į `ataskaita.txt`. Nukreipimas `>` kaip 3 užduotyje. `cat ataskaita.txt` rodo tą pačią išvestį.
+7. Pažiūrėkite teises: `ls -l scripts/ataskaita.sh`. Savininko grupėje yra `x`.
+8. Aplanke `~/devops`, ne projekte, sukurkite tuščią `slaptas.txt` (komanda yra `linux komandos.pdf`) ir uždarykite kitiems: `chmod 600 ~/devops/slaptas.txt`. `ls -l ~/devops/slaptas.txt` rodo `-rw-------`.
+9. Du commit'ai ta pačia eiga kaip 1 užduotyje. Pirma tik `scripts/ataskaita.sh`, žinutė „Pridėtas ataskaita.sh“. Antra `ataskaita.txt`, žinutė „Pridėta ataskaita“. Istorijos viršuje šios dvi žinutės. Komandas rasite Git cheat sheet.
+10. **Papildomai:** `chmod -x scripts/ataskaita.sh`, tada `bash scripts/ataskaita.sh` (veikia, nes `bash` skaito failą), tada `chmod +x scripts/ataskaita.sh`. `./scripts/ataskaita.sh` vėl veikia.
+11. **Pateikimas:** terminalo nuotrauka po `ls -l scripts/ataskaita.sh` ir `cat ataskaita.txt`.
 
-1. Projekte sukurkite aplanką `scripts`.
-2. Atidarykite iš terminalo redaktoriuje failą `scripts/ataskaita.sh` ir parašykite skriptą, kuris išveda: aplanką, kuriame paleistas; kiek failų ir aplankų yra `docs/pastabos`; visų `.md` failų sąrašą (be `.git`); `app.py` eilutes su žodžiu `health`.
-3. Paleiskite skriptą iš projekto šaknies kaip programą.
-
-**Antra dalis: vykdymo teisė**
-
-1. Padarykite skriptą vykdomą ir paleiskite iš naujo.
-2. Skripto išvestį įrašykite į failą `docs/ataskaita.txt`.
-3. Pažiūrėkite skripto teises ilguoju sąrašu.
-
-**Trečia dalis: slaptas failas**
-
-1. Aplanke `~/devops` (ne projekte) sukurkite failą `slaptas.txt`.
-2. Nustatykite teises taip, kad jį galėtų skaityti ir keisti tik savininkas.
-3. Patikrinkite teises ilguoju sąrašu.
-
-**Ketvirta dalis: du commit'ai**
-
-1. Pridėkite tik `scripts/ataskaita.sh` ir padarykite commit su žinute „Pridėtas ataskaita.sh“.
-2. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėta ataskaita“.
-3. **Papildomai:** nuimkite skriptui vykdymo teisę, paleiskite per `bash` ir paaiškinkite, kodėl jis vis tiek veikia; tada grąžinkite teisę.
+Jei užstrigote, pasižiūrėkite `linux komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

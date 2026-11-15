@@ -1,24 +1,23 @@
 # 1 užduotis: Procesai
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte` (`~/devops/devops-projektas`).
+1. **Tikslas:** pamatyti savo procesą, rasti jo PID ir jį sustabdyti.
+2. Eikite į projektą, atnaujinkite `main` ir sukurkite šaką: `cd ~/Desktop/devops/git-bandymas`, `git switch main`, `git pull`, `git switch -c pamoka-03`. `git branch` rodo žvaigždutę prie `pamoka-03`.
+3. Paleiskite procesą fone: `sleep 300 &`. `jobs` rodo `sleep`.
+4. Raskite PID: `ps aux | grep sleep`. PID yra antras stulpelis eilutėje `sleep 300`. Eilutė su `grep sleep` yra pats `grep`, ne jūsų procesas.
+5. Sustabdykite: `kill <PID>`. Dar kartą `ps aux | grep sleep`: `sleep 300` nebėra.
+6. Užrašykite: `mkdir -p docs`, `nano docs/procesai.md`. Įrašykite:
 
-**Tikslas:** Pamatyti savo procesą, rasti jo PID ir jį sustabdyti.
+```markdown
+# Procesai ir paketai
 
-**Pirma dalis: nauja šaka**
+## Procesas
 
-1. Eikite į savo `devops-projektas`, persijunkite į `main` ir atnaujinkite jį iš GitHub.
-2. Sukurkite šaką `pamoka-03` ir persijunkite į ją.
+`sleep 300 &` paleido procesą fone. `ps aux | grep sleep` parodė PID. `kill` tą PID sustabdė.
+```
 
-**Antra dalis: procesas fone**
+Išsaugokite `Ctrl+O`, `Enter`, išeikite `Ctrl+X`.
+7. Išsaugokite Git: `git add docs`, `git commit -m "Pradėtas procesai.md"`. `git log --oneline` viršuje ta žinutė.
+8. **Papildomai:** `sleep 300`, tada `Ctrl+C` (procesas baigiasi). Dar kartą `sleep 300`, tada `Ctrl+Z` (pristabdo), `jobs`, `kill %1`.
+9. **Pateikimas:** terminalo nuotrauka, kur `ps` rodo `sleep` PID, ir nuotrauka po `kill`, kai to proceso nebėra.
 
-1. Paleiskite komandą `sleep 300` fone.
-2. Pažiūrėkite fone veikiančių darbų sąrašą.
-3. Suraskite savo `sleep` proceso PID (per procesų sąrašą ir `grep`).
-4. Sustabdykite procesą pagal PID.
-5. Įsitikinkite, kad proceso nebėra.
-
-**Trečia dalis: užrašai ir commit**
-
-1. Atidarykite iš terminalo redaktoriuje `docs/procesai.md` (aplanką `docs` sukurkite, jei jo nėra) ir parašykite antraštę `# Procesai ir paketai` ir skyrių `## Procesas` su savo komandomis ir PID.
-2. Pridėkite `docs` ir padarykite commit su žinute „Pradėtas procesai.md“.
-3. **Papildomai:** paleiskite `sleep 300` dar kartą, sustabdykite jį ne per `kill`, o klaviatūros sparčiuoju klavišu, ir paaiškinkite skirtumą tarp `Ctrl+C` ir `Ctrl+Z`.
+Jei užstrigote, pasižiūrėkite `procesai komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

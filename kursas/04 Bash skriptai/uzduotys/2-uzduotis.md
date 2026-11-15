@@ -1,23 +1,40 @@
 # 2 užduotis: Ciklas per įrankius
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`: 1–3 plečia tą patį skriptą `scripts/patikra.sh`.
+1. **Tikslas:** išplėsti tą patį `scripts/patikra.sh`, kad jis patikrintų įrankių sąrašą ir suskaičiuotų, kiek trūksta.
+2. Perrašykite `nano scripts/patikra.sh` šiuo turiniu:
 
-**Tikslas:** Išplėsti tą patį skriptą, kad jis patikrintų įrankių sąrašą ir suskaičiuotų, kiek trūksta.
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-**Pirma dalis: ciklas**
+if [ "$#" -gt 0 ]; then
+  irankiai=("$@")
+else
+  irankiai=(git python3 curl)
+fi
 
-1. Atidarykite iš terminalo redaktoriuje `scripts/patikra.sh` ir pakeiskite jį: dabar jis priima bet kiek argumentų (įrankių), o be argumentų tikrina `git`, `python3`, `curl`.
-2. Kiekvienam įrankiui ciklu išveskite „OK“ arba „TRŪKSTA“ ir pavadinimą.
-3. Suskaičiuokite, kiek įrankių trūksta.
-4. Jei trūksta bent vieno, išveskite į klaidų kanalą, kiek jų trūksta, ir baikite su kodu 1; kitaip su kodu 0.
+truksta=0
 
-**Antra dalis: paleidimas**
+for irankis in "${irankiai[@]}"; do
+  if command -v "$irankis" >/dev/null 2>&1; then
+    echo "OK      $irankis"
+  else
+    echo "TRŪKSTA $irankis"
+    truksta=$((truksta + 1))
+  fi
+done
 
-1. Paleiskite be argumentų ir pažiūrėkite išėjimo kodą.
-2. Paleiskite su `git neegzistuoja kitas` ir pažiūrėkite išėjimo kodą.
-3. Paleiskite tik su `git` ir pažiūrėkite išėjimo kodą.
+if [ "$truksta" -gt 0 ]; then
+  echo "Trūksta: $truksta" >&2
+  exit 1
+fi
+```
 
-**Trečia dalis: užrašai ir commit**
+3. Be argumentų: `./scripts/patikra.sh; echo "kodas: $?"`. Trys eilutės `OK` (`git`, `python3`, `curl`), kodas 0.
+4. Su trūkstamais: `./scripts/patikra.sh git neegzistuoja kitas; echo "kodas: $?"`. Dvi `TRŪKSTA`, klaidų kanale `Trūksta: 2`, kodas 1.
+5. Tik su `git`: `./scripts/patikra.sh git; echo "kodas: $?"`. Viena `OK`, kodas 0.
+6. Gale `docs/bash.md` pridėkite sakinį: be argumentų kodas 0, su `git neegzistuoja kitas` kodas 1, tik su `git` kodas 0.
+7. Commit: `git add scripts docs`, `git commit -m "Skriptas tikrina įrankių sąrašą"`.
+8. **Pateikimas:** terminalo nuotrauka su trimis kodais 0, 1 ir 0.
 
-1. Skyriuje „Išėjimo kodai“ užrašykite, kuris paleidimas kokį kodą davė.
-2. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Skriptas tikrina įrankių sąrašą“.
+Jei užstrigote, pasižiūrėkite `bash komandos.md`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

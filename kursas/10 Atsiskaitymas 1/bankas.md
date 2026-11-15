@@ -62,23 +62,23 @@
     - C. Atskirti kelias paslaugas tame pačiame kompiuteryje (pvz., 5001 programai)
     - D. Rodyti IP adresą
 
-41. (06) Kuris iš raktų failų yra viešas ir keliamas į GitHub?
-    - A. `id_ed25519_kursas.pub`
-    - B. `id_ed25519_kursas`
-    - C. Abu failai
-    - D. Nė vienas
+41. (06) Ką daro GitHub **Use this template**?
+    - A. Sukuria naują jūsų repozitoriją iš šablono
+    - B. Klonuoja dėstytojo kurso repozitoriją
+    - C. Ištrina `main`
+    - D. Įkelia `.env`
 
-42. (06) Ką daro `ssh -T git@github.com`?
-    - A. Sukuria raktų porą
-    - B. Įkelia failus į GitHub
-    - C. Ištrina raktą
-    - D. Patikrina, ar SSH prisijungimas prie GitHub veikia
+42. (06) Kur klonuoti `devops-projektas`?
+    - A. Į Desktop
+    - B. Į `/mnt/c`
+    - C. Į iCloud
+    - D. Į `~/devops`
 
-43. (07) Ką daro `git stash`?
-    - A. Ištrina visus pakeitimus negrįžtamai
-    - B. Laikinai pašalina neįkomituotus pakeitimus, kad vėliau juos būtų galima grąžinti per `git stash pop`
-    - C. Sujungia šaką į `main`
-    - D. Nusiunčia pakeitimus į GitHub
+43. (03) Ką daro `kill` be `-9`?
+    - A. Iškart nutraukia procesą
+    - B. Prašo procesą baigti
+    - C. Ištrina failą
+    - D. Sukuria šaką
 
 44. (08) Kas yra Pull Request?
     - A. Komanda failams atsisiųsti
@@ -106,9 +106,9 @@
 | 38 | 04 | D | `restore` grąžina paskutinio commit'o versiją. |
 | 39 | 05 | B | 5xx = serverio klaida. |
 | 40 | 05 | C | Portas atskiria paslaugas viename kompiuteryje. |
-| 41 | 06 | A | `.pub` viešas, be `.pub` privatus. |
-| 42 | 06 | D | `ssh -T` išbando SSH prisijungimą. |
-| 43 | 07 | B | `stash` atideda pakeitimus, `stash pop` grąžina. |
+| 41 | 06 | A | Use this template sukuria jūsų kopiją. |
+| 42 | 06 | D | Klonuojama į `~/devops`. |
+| 43 | 03 | B | `kill` prašo baigti. `kill -9` nutraukia iš karto. |
 | 44 | 08 | C | PR yra prašymas sujungti su peržiūra. |
 | 45 | 09 | D | `trap ... EXIT` vykdoma skriptui baigiantis. |
 

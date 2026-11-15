@@ -72,7 +72,7 @@ Pastaba: ~3 min. Susiejame su 02: kodėl `./scripts/ataskaita.sh` reikia `./`.
 - Kode jie patektų į Git ir į visų kopijas
 - Ta pati programa veikia skirtingai pagal aplinką (spalva, versija, duomenų bazė)
 - Kintamasis lieka tik toje aplinkoje, kur programa paleista
-- `.env` nekeliamas į Git; `.env.example` rodo, kokių kintamųjų reikia
+- Slaptažodis nekeliamas į Git. Failas `.env` bus 06 pamokoje
 Pastaba: ~3 min. Tai pagrindas Docker ir Kubernetes etapui: ten kintamieji perduodami konteineriui.
 
 === demonstracija | Paketai: Mac ir Ubuntu
@@ -95,7 +95,7 @@ APP_COLOR=red python3 -c "import os; print(os.environ.get('APP_COLOR', 'blue'))"
 python3 -c "import os; print(os.environ.get('APP_COLOR', 'blue'))"
 ```
 + Nenustatytas: numatytoji reikšmė `blue`; nustatytas: jūsų reikšmė
-Pastaba: ~5 min. Jų `app.py` turi tokias eilutes (`grep -n "os.environ" app.py`). Kitas kintamasis nei užduotyje: `APP_VERSION`. Paklauskite: kas bus, jei `DB_HOST` nenustatytas.
+Pastaba: ~5 min. `app.py` dar nėra. Rodote tik šią vieną eilutę. Užduotyje kintamasis yra `PROJEKTO_VARDAS`, ne `APP_COLOR`.
 
 === klaida | Dažnos klaidos
 :: | `kill` su `grep` PID | Paimtas paties `grep` PID, ne programos

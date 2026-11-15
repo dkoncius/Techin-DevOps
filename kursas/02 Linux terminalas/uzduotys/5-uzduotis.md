@@ -1,25 +1,12 @@
 # 5 užduotis: Pull Request
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`.
+1. **Tikslas:** pateikti šakos `pamoka-02` darbą per Pull Request ir sujungti į `main`.
+2. Patikrinkite, kad užrašuose nėra slaptų reikšmių: `cd ~/Desktop/devops/git-bandymas`, `grep -rniE "password|token|secret|key" uzrasai scripts`. Neturi rasti slaptažodžio, rakto ar tokeno.
+3. Istorijoje turi būti keturi commit'ai: „Pradėtas terminalas.md“, „Pridėtos pastabos ir paieškos rezultatai“, „Pridėtas ataskaita.sh“, „Pridėta ataskaita“. Kaip pažiūrėti: Git cheat sheet.
+4. Nusiųskite šaką `pamoka-02` (01 pamokoje darėte `git push -u origin`). Būsena seka `origin/pamoka-02`.
+5. GitHub'e atidarykite Pull Request iš `pamoka-02` į `main`. Pavadinimas „Terminalas“. Description: vienas sakinys, ką pakeitėte. **Files changed** rodo `uzrasai` ir `scripts`. Tada **Merge pull request**. Terminale tą patį daro `gh pr create --title "Terminalas" --body "Pridėti užrašai, paieška ir ataskaita.sh."`, tada `gh pr merge --merge`.
+6. Grįžkite į `main` ir atsisiųskite sulietą darbą. Komandos yra Git cheat sheet (`switch`, `pull`). `ls` rodo `scripts/ataskaita.sh`, `ataskaita.txt` ir `uzrasai.md`.
+7. Ištrinkite šaką kompiuteryje (Git cheat sheet, „delete a branch“) ir GitHub'e: `git push origin --delete pamoka-02`. Šakos sąraše liko tik `main`.
+8. **Pateikimas:** sulieto Pull Request nuotrauka ir GitHub nuotrauka, kur liko tik `main`.
 
-**Tikslas:** Pateikti visą savo darbą per Pull Request ir sujungti jį į `main`.
-
-**Pirma dalis: patikra ir siuntimas**
-
-1. Patikrinkite, kad `docs` ir `scripts` nėra slaptažodžių, raktų, tokenų ar `.env` turinio.
-2. Pažiūrėkite commit istoriją: turi būti keturi jūsų commit'ai.
-3. Nusiųskite šaką `pamoka-02` į GitHub.
-
-**Antra dalis: Pull Request**
-
-1. GitHub'e atidarykite Pull Request iš `pamoka-02` į `main` pavadinimu „Terminalas“.
-2. Pull Request aprašyme (Description) vienu sakiniu parašykite, ką pakeitėte ir kodėl.
-3. Peržiūrėkite Pull Request skirtumus (**Files changed**): turi matytis jūsų failai.
-4. Sulieskite Pull Request GitHub'e.
-
-**Trečia dalis: atnaujinimas ir tvarka**
-
-1. Kompiuteryje persijunkite į `main` ir atnaujinkite jį iš GitHub.
-2. Patikrinkite, kad `main` yra `scripts/ataskaita.sh`, `docs/ataskaita.txt` ir `docs/terminalas.md`, o commit istorijoje matyti visi commit'ai.
-3. Ištrinkite šaką `pamoka-02` kompiuteryje.
-4. Ištrinkite šaką `pamoka-02` GitHub'e.
+Jei užstrigote, pasižiūrėkite `linux komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

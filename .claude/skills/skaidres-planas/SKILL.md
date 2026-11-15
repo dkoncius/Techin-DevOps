@@ -22,9 +22,20 @@ Dvi dalys: (1) **šis skillas** parašo `kursas/<NN Pavadinimas>/skaidres.md`; (
 | „Dažna klaida“ iš sprendimo | viena `klaida` skaidrė (3–4 punktai) |
 | „Kita paskaita: …“ | paskutinė `kita` skaidrė |
 
-**Užduotys:** pamokos pabaigoje (prieš „Kita pamoka“) dėk vieną skaidrę `=== uzduotys | Užduotys` su eilute `@uzduotys: auto`: generatorius pats paima užduotis iš `uzduotys/N-uzduotis.md` (apžvalga + po skaidrę kiekvienai). Užduočių ranka nerašyk ir nekeisk, kad tekstas sutaptų su Teams. `Pastaba:` apačioje yra dėstytojui (kaip skelbti po vieną).
+**Užduotys:** pamokos pabaigoje (prieš „Kita pamoka“) dėk vieną skaidrę `=== uzduotys | Užduotys` su `@uzduotys: auto`. Kai žingsniai ilgi ir pilnas tekstas eina per Teams, naudok `@uzduotys: auto, tik sąrašas` (taip yra 01 pamokoje). Užduočių ranka nerašyk. `Pastaba:` pasako, po kurios demonstracijos skelbti kitą užduotį.
 
-Nekelk į skaidres: sprendimų, užduočių komandų, sprendimų, pilnų failų pavyzdžių iš „Sprendimas“, slaptų reikšmių, realių IP ir domenų.
+Nekelk į skaidres mokinių užduoties teksto, sprendimo failo ir slaptų reikšmių. Demonstracijos komandos skaidrėje yra, bet su kitais vardais nei užduotyje, ta pačia veiksmų eile.
+
+## Git demonstracija (pagal patikrintą 01)
+Nauja Git pamoka kartoja šią eilę, ne seną `git remote add` prieš `git init` ir ne `gh repo create VARDAS --public`:
+
+1. Aplankas ir failai (`echo`), `git init`, `git branch -m main`, `git add .`, commit. GitHub šioje skaidrėje dar nėra.
+2. Šaka ir sujungimas vietoje, prieš siuntimą.
+3. `gh auth status`, tada `gh repo create` be argumento. Pasirinkimus rodyk `output` bloke (Push an existing local repository, kelias `.`, Public, remote `origin`, push Yes). Po to `git remote -v` ir `git status`. Čia baigiasi 1 užduotis; 2 užduotį skelbti, kai `main` jau GitHub'e.
+4. Tame pačiame aplanke naujas failas, `git add .`, commit, `git push`. Tada šaka, `git push -u origin ŠAKA`, `merge`, `git push`, `git branch -d`, `git push origin --delete`. Pastaboje parašyk, kad trynimo GitHub'e komandos cheat sheet nėra.
+5. Clone: `cd ..`, nuoroda iš GitHub (Code, Local, HTTPS), ne ZIP ir ne `gh repo view`. `origin` ateina su clone, `git init` ir `git remote add` nekartojami. Kopija šalia, ne vietoje jau esančio aplanko.
+6. Po clone naujas failas, ne esamo taisymas: `git add`, ne `git commit -am`.
+7. `nano` galima parodyti, bet 01 užduotyse jo nėra. Dažnų klaidų skaidrėje palik ir „Add a remote buvo No“ (`git remote add` tik tada) bei „kas pirmiau“: aplankas su commit jau yra, tada `gh repo create`; istorija jau GitHub'e, aplanko nėra, tada `git clone`.
 
 ## 2. Skaidrių tipai (eyebrow)
 
@@ -45,7 +56,7 @@ Nekelk į skaidres: sprendimų, užduočių komandų, sprendimų, pilnų failų 
 
 ## 3. Struktūra ir ritmas
 
-1. **10–13 skaidrių** pamokai; daugiau nei 14 negalima (generatorius įspėja).
+1. **10–13 skaidrių** pamokai; daugiau nei 14 generatorius įspėja. 01 pamokos `3-skaidres` ilgesnis, nes jame teorija ir trijų užduočių demonstracijos: tai Git eigos pavyzdys, ne skaidrių skaičiaus pavyzdys. Naujai pamokai laikykitės 10–14.
 2. Ritmas: hook → teorija → demonstracija → dažna klaida → kita pamoka. Nedėk daugiau nei dviejų `tekstas` skaidrių iš eilės.
 3. **Viena mintis skaidrei.** Ekrane ≤ ~40 žodžių; gilumas eina į `Pastaba:`.
 4. Komandos kodo bloke: tikros, veikiančios Mac ir Ubuntu (kaip `pamoka.md`). Išvestį žymėk „pavyzdinė išvestis“ ir nerašyk išgalvotų realių adresų ar PID kaip faktų.

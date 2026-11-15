@@ -32,37 +32,37 @@ Laikas: 35 min. 30 klausimų, vienas teisingas atsakymas kiekvienam. Be internet
    - C. Sujungia `papildymas` į `main`
    - D. Parodo šakų sąrašą
 
-6. Ką rodo `git diff --staged`?
-   - A. Pakeitimus, kurie pridėti į staging, bet dar nesukommit'inti
-   - B. Pakeitimus, kurie dar nepridėti
-   - C. Visą commit istoriją
-   - D. Nuotolinės šakos pakeitimus
+6. Ką rodo `git status` po `git add`, bet prieš `git commit`?
+   - A. Failas paruoštas commit'ui
+   - B. Failas ištrintas
+   - C. Failas jau yra GitHub'e
+   - D. Failas ignoruojamas
 
-7. Kuri komanda atšaukia commit'ą, bet palieka istoriją ir jį mato kiti?
-   - A. `git reset --hard`
-   - B. `git restore`
-   - C. `git stash`
-   - D. `git revert`
+7. Kada naudojate `git restore failas`?
+   - A. Norite ištrinti repozitoriją
+   - B. Norite nusiųsti į GitHub
+   - C. Norite sukurti šaką
+   - D. Norite grąžinti neišsaugotą pakeitimą į paskutinį commit
 
-8. Kada atsiranda merge konfliktas?
-   - A. Kai šaka per ilga
-   - B. Kai nėra interneto
-   - C. Kai dvi šakos pakeitė tą pačią failo vietą skirtingai
-   - D. Kai commit'o žinutė per trumpa
+8. Kam reikalingas Pull Request?
+   - A. Ištrinti `main`
+   - B. Įdiegti Python
+   - C. Aptarti ir sulieti šakos pakeitimą į `main`
+   - D. Sustabdyti procesą
 
-9. Ką reikia padaryti išsprendus konfliktą faile?
-   - A. Ištrinti `.git` aplanką
-   - B. Pašalinti žymeklius, `git add` ir `git commit`
-   - C. Paleisti `git init`
-   - D. Tik uždaryti redaktorių
+9. Kaip pirmą kartą nusiųsti naują šaką į GitHub?
+   - A. `git init`
+   - B. `git push -u origin ŠAKA`
+   - C. `git merge`
+   - D. Ištrinti `.git`
 
-10. Kuo `git fetch` skiriasi nuo `git pull`?
-    - A. `fetch` tik atsisiunčia pakeitimus, `pull` dar ir sujungia
-    - B. `fetch` išsiunčia pakeitimus į GitHub
-    - C. `pull` ištrina vietinius failus
-    - D. Skirtumo nėra
+10. Ką daro `git pull`, kai esate `main`?
+    - A. Atsisiunčia ir sujungia GitHub pakeitimus
+    - B. Ištrina šakas
+    - C. Sukuria `.env`
+    - D. Paleidžia Docker
 
-11. Ką reiškia `chmod 600 raktas`?
+11. Ką reiškia `chmod 600 failas`?
     - A. Visi gali skaityti ir vykdyti
     - B. Tik grupė gali rašyti
     - C. Failas tampa vykdomas
@@ -152,29 +152,29 @@ Laikas: 35 min. 30 klausimų, vienas teisingas atsakymas kiekvienam. Be internet
     - C. Saugoti slaptažodžius
     - D. Paleisti programas
 
-26. Kaip elgtis su privačiu SSH raktu?
-    - A. Siųsti kolegai el. paštu
-    - B. Įkelti į GitHub repozitoriją
-    - C. Niekada neperduoti ir nekelti į Git
-    - D. Įklijuoti į DI pokalbį
+26. Ką mato naujas terminalo langas po `export PROJEKTO_VARDAS=visas` senajame?
+    - A. Tą pačią reikšmę
+    - B. Tuščią kintamąjį: `export` galioja tik tam langui
+    - C. Reikšmę, įrašytą į Git
+    - D. Sustabdytus procesus
 
-27. Kodėl SSH atsisako rakto su teisėmis `644`?
-    - A. Teisės per atviros: kiti vartotojai galėtų jį skaityti
-    - B. Raktas per ilgas
-    - C. Raktas pasenęs
-    - D. Reikia perkrauti kompiuterį
+27. Ką reiškia `curl` išvestas kodas `000`?
+    - A. Serveris atsakė 200
+    - B. Puslapis nerastas
+    - C. Reikia slaptažodžio
+    - D. Niekas neklauso to adreso
 
-28. Ką daryti, jei privatų raktą įkėlėte į viešą repozitoriją?
-    - A. Nieko, jei failą ištrynėte
-    - B. Pervadinti failą
-    - C. Padaryti repozitoriją privačią ir tęsti
-    - D. Laikyti raktą nutekėjusiu, pašalinti iš GitHub ir sukurti naują porą
+28. Kur WSL klonuoti projektą?
+    - A. Į `/mnt/c`
+    - B. Į Desktop
+    - C. Į `~/devops`
+    - D. Į `/tmp`
 
-29. Ką daro branch apsauga `main` šakai?
-    - A. Pagreitina `git push`
-    - B. Neleidžia keisti `main` be Pull Request
-    - C. Ištrina senas šakas
-    - D. Šifruoja failus
+29. Ką daro `.gitignore` eilutė `*.log`?
+    - A. Git nemato naujų `.log` failų
+    - B. Ištrina visus logus iš disko
+    - C. Paleidžia testus
+    - D. Sukuria šaką
 
 30. Kodėl `.env` nekeliamas į Git?
     - A. Nes jis per didelis

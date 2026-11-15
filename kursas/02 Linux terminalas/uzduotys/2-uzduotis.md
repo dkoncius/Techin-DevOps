@@ -1,28 +1,15 @@
 # 2 užduotis: Navigacija ir failai
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`.
+1. **Tikslas:** judėti po `git-bandymas` ir sukurti užrašų aplankų struktūrą.
+2. Eikite į tą patį aplanką ir pažiūrėkite, kur esate: `cd ~/Desktop/devops/git-bandymas`, `pwd`. Kelias baigiasi `git-bandymas`.
+3. Pažiūrėkite turinį su paslėptais failais: `ls -la`. Sąraše yra `.git`.
+4. Pereikite į `static` ir grįžkite santykiniu keliu: `cd static`, tada `cd ..`. `pwd` vėl projekto šaknis.
+5. Išeikite absoliučiu keliu ir grįžkite: `cd ~/Desktop/devops`, tada `cd ~/Desktop/devops/git-bandymas`. `pwd` rodo `git-bandymas`.
+6. Sukurkite grandinę, kurios dar nėra: `mkdir -p uzrasai/archyvas`.
+7. Sukurkite tuščius failus: `cd uzrasai`, `touch terminalas.txt git.txt komandos.txt`. `ls` rodo `archyvas`, `terminalas.txt`, `git.txt`, `komandos.txt`.
+8. Nukopijuokite du failus: `cp terminalas.txt git.txt archyvas`. `ls archyvas` rodo `terminalas.txt` ir `git.txt`.
+9. Pervadinkite ir perkelkite atgal: `mv archyvas/git.txt archyvas/git-senas.txt`, tada `mv archyvas/git-senas.txt .`. `ls` rodo `git-senas.txt`, `ls archyvas` rodo tik `terminalas.txt`.
+10. **Papildomai:** `man ls` (išeiti `q`) suraskite rikiavimą pagal dydį ir išbandykite: `ls -lS ~/Desktop/devops/git-bandymas`.
+11. **Pateikimas:** terminalo nuotrauka po `ls -R uzrasai`.
 
-**Tikslas:** Judėti po projektą ir sukurti jame pastabų aplankų struktūrą.
-
-**Pirma dalis: kur esu**
-
-1. Eikite į `~/devops/devops-projektas` ir pažiūrėkite, kur esate.
-2. Pažiūrėkite aplanko turinį, įskaitant paslėptus failus.
-3. Pereikite į aplanką `static`.
-4. Grįžkite į projekto šaknį santykiniu keliu.
-5. Pereikite į `~/devops` absoliučiu keliu.
-6. Grįžkite į `devops-projektas` keliu, kuris prasideda `~`.
-
-**Antra dalis: aplankai ir failai**
-
-1. Viena komanda sukurkite aplankų grandinę `docs/pastabos/archyvas` (aplanko `pastabos` dar nėra).
-2. Aplanke `docs/pastabos` sukurkite tuščius failus: `terminalas.txt`, `git.txt`, `komandos.txt`.
-3. Pažiūrėkite aplanko `docs/pastabos` turinį.
-
-**Trečia dalis: kopijavimas ir perkėlimas**
-
-1. Nukopijuokite `terminalas.txt` ir `git.txt` į `archyvas`.
-2. Pažiūrėkite aplanko `archyvas` turinį.
-3. Aplanke `archyvas` pervadinkite `git.txt` į `git-senas.txt`.
-4. Perkelkite `git-senas.txt` į `docs/pastabos`.
-5. **Papildomai:** pagal `man ls` suraskite, kaip surūšiuoti failus pagal dydį, ir išbandykite aplanke `static`.
+Jei užstrigote, pasižiūrėkite `linux komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

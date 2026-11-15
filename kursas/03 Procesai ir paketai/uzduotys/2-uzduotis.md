@@ -1,27 +1,22 @@
 # 2 užduotis: Aplinkos kintamasis skripte
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte` (`~/devops/devops-projektas`).
+1. **Tikslas:** parašyti skriptą, kuris skaito aplinkos kintamąjį, ir pamatyti, kad kintamasis gyvena tik savo terminale.
+2. Atidarykite `nano scripts/aplinka.sh` (`mkdir -p scripts`, jei aplanko nėra) ir įrašykite:
 
-**Tikslas:** Parašyti skriptą, kuris naudoja aplinkos kintamąjį su numatytąja reikšme, ir pamatyti, kad kintamasis gyvena tik savo terminale.
+```bash
+#!/usr/bin/env bash
+echo "PROJEKTO_VARDAS: ${PROJEKTO_VARDAS:-nenustatyta}"
+echo "Proceso eilučių ps išvestyje: $(ps -e | wc -l | tr -d ' ')"
+```
 
-**Pirma dalis: skriptas**
+Išsaugokite ir išeikite. `chmod +x scripts/aplinka.sh`.
+3. Be kintamojo: `./scripts/aplinka.sh > docs/aplinka.txt`. `cat docs/aplinka.txt` rodo `nenustatyta`.
+4. Kintamasis tik vienai komandai, sena eilutė lieka: `PROJEKTO_VARDAS=mano ./scripts/aplinka.sh >> docs/aplinka.txt`. `cat docs/aplinka.txt` turi dvi poras eilučių, antroje yra `mano`.
+5. Kintamasis visam langui: `export PROJEKTO_VARDAS=visas`, tada `./scripts/aplinka.sh`. Išvestyje `visas`.
+6. Naujame terminalo lange: `cd ~/Desktop/devops/git-bandymas`, `echo $PROJEKTO_VARDAS` (tuščia), `./scripts/aplinka.sh` vėl rodo `nenustatyta`.
+7. Kur ieškoma komandų: `echo $PATH`. Kur yra `ls`: `which ls`. Kelias rodo aplanką, kuriame guli `ls`.
+8. Pirmas commit, tik skriptas: `git add scripts/aplinka.sh`, `git commit -m "Pridėtas aplinka.sh"`.
+9. Antras commit: `git add docs`, `git commit -m "Pridėta aplinkos išvestis"`.
+10. **Pateikimas:** `docs/aplinka.txt` nuotrauka, kur matosi ir `nenustatyta`, ir `mano`.
 
-1. Atidarykite iš terminalo redaktoriuje `scripts/aplinka.sh` ir parašykite skriptą (kaip `ataskaita.sh` per 02 pamoką): jis išveda kintamojo `PROJEKTO_VARDAS` reikšmę (o jei nenustatytas, žodį „nenustatyta“) ir kiek eilučių yra procesų sąrašo išvestyje.
-2. Padarykite skriptą vykdomą.
-
-**Antra dalis: kintamasis vienai komandai**
-
-1. Paleiskite skriptą be kintamojo ir išvestį įrašykite į naują failą `docs/aplinka.txt`.
-2. Paleiskite skriptą su `PROJEKTO_VARDAS=mano` (kintamasis tik šiai komandai) ir išvestį **pridėkite** prie `docs/aplinka.txt`, nepersirašydami pirmos.
-
-**Trečia dalis: kintamasis visam langui**
-
-1. Nustatykite `PROJEKTO_VARDAS` visam terminalo langui, paleiskite skriptą ir patikrinkite, kad jis mato kintamąjį.
-2. Atidarykite naują terminalo langą, eikite į projektą ir paleiskite skriptą dar kartą. Pažiūrėkite, ar kintamasis ten yra.
-3. Išveskite, kur terminalas ieško komandų (kintamasis `PATH`).
-4. Suraskite, kuriame aplanke yra komanda `ls`.
-
-**Ketvirta dalis: du commit'ai**
-
-1. Pridėkite tik `scripts/aplinka.sh` ir padarykite commit su žinute „Pridėtas aplinka.sh“.
-2. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėta aplinkos išvestis“.
+Jei užstrigote, pasižiūrėkite `procesai komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

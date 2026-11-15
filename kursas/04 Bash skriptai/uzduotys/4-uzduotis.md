@@ -1,32 +1,24 @@
-# 4 užduotis: Tikras skriptas, ignoravimas ir Pull Request
+# 4 užduotis: Ignoravimas ir Pull Request
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`: 1–3 plečia tą patį skriptą `scripts/patikra.sh`.
+1. **Tikslas:** patikrinti `.gitignore`, atšaukti pakeitimą be `git reset --hard` ir pateikti darbą per Pull Request.
+2. Sukurkite ignoravimo failą: `cd ~/Desktop/devops/git-bandymas`, `echo "*.log" > .gitignore`, `touch bandymas.log`. `git status --short` rodo `.gitignore`, ne `bandymas.log`.
+3. Kuri eilutė ignoruoja: `git check-ignore -v bandymas.log`. Išvestyje yra `.gitignore` eilutė `*.log`.
+4. Sugadinkite skriptą ir atšaukite: `echo "# sugadinta" >> scripts/patikra.sh`, `git status --short` rodo pakeitimą, `git restore scripts/patikra.sh`. `git status --short` skripto neberodo.
+5. Įtraukite ir atšaukite staging: `echo "# pakeista" >> scripts/patikra.sh`, `git add scripts/patikra.sh`, `git restore --staged scripts/patikra.sh`, `git restore scripts/patikra.sh`. `git status --short` švarus, skriptas kaip buvęs.
+6. Commit: `git add .gitignore`, `git commit -m "Ignoruojami .log failai"`. `git log --oneline` turi keturis jūsų commit'us.
+7. Nusiųskite: `git push -u origin pamoka-04`.
+8. Pull Request iš `pamoka-04` į `main`, pavadinimas „Bash skriptai“, vieno sakinio aprašas. **Files changed** rodo `.gitignore` ir `scripts`. **Merge pull request**. Terminale: `gh pr create --title "Bash skriptai" --body "Skriptas patikra.sh, ignoruojami .log."`, `gh pr merge --merge`.
+9. Atnaujinkite ir ištrinkite šaką: `git switch main`, `git pull`, `git branch -d pamoka-04`, `git push origin --delete pamoka-04`. `git branch` rodo tik `main`.
+10. **Papildomai:** `nano scripts/dydis.sh` su turiniu žemiau, `chmod +x scripts/dydis.sh`, `./scripts/dydis.sh uzrasai`. Išvestyje du skaičiai.
 
-**Tikslas:** Patikrinti `.gitignore`, išbandyti pakeitimų atšaukimą ir pateikti visą darbą per Pull Request.
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+katalogas="${1:-.}"
+echo "Failų: $(find "$katalogas" -maxdepth 1 -type f | wc -l | tr -d ' ')"
+echo "Aplankų: $(find "$katalogas" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')"
+```
 
+11. **Pateikimas:** sulieto Pull Request nuotrauka ir `git status --short`, kur nėra `bandymas.log`.
 
-
-**Pirma dalis: .gitignore**
-
-1. Nukopijuokite `.env.example` į `.env` ir įsitikinkite, kad `git status` jo nerodo.
-2. Viena komanda parodykite, kuri `.gitignore` eilutė ignoruoja `.env`.
-3. Pridėkite į `.gitignore` eilutę `*.log`.
-4. Sukurkite failą `bandymas.log` ir įsitikinkite, kad Git jo nemato.
-
-**Antra dalis: pakeitimų atšaukimas**
-
-1. Sugadinkite `scripts/patikra.sh` (ištrinkite bet kurią eilutę).
-2. Atšaukite pakeitimą nenaudodami `git reset --hard`.
-3. Pakeiskite `scripts/patikra.sh` dar kartą ir įtraukite į staging.
-4. Atšaukite staging ir tada pakeitimą.
-
-**Trečia dalis: commit'ai ir Pull Request**
-
-1. Pridėkite `.gitignore` ir padarykite commit su žinute „Ignoruojami .log failai“.
-2. Patikrinkite, kad `docs`, `scripts` ir commit'uose nėra `.env` ar slaptažodžių, ir pažiūrėkite istoriją: turi būti keturi jūsų commit'ai.
-3. Nusiųskite šaką `pamoka-04` į GitHub.
-4. GitHub'e atidarykite Pull Request į `main` pavadinimu „Bash skriptai“ su vieno sakinio aprašu.
-5. Peržiūrėkite **Files changed**: turi matytis jūsų failai.
-6. Sulieskite Pull Request, kompiuteryje persijunkite į `main` ir atnaujinkite jį.
-7. Ištrinkite šaką `pamoka-04` kompiuteryje ir GitHub'e.
-8. **Papildomai:** atidarykite iš terminalo redaktoriuje ir parašykite skriptą `scripts/dydis.sh`, kuris priima katalogą ir išveda, kiek jame yra failų ir kiek aplankų.
+Jei užstrigote, pasižiūrėkite `bash komandos.md`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

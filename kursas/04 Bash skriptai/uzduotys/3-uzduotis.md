@@ -1,21 +1,56 @@
 # 3 užduotis: Projekto failų patikra
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`: 1–3 plečia tą patį skriptą `scripts/patikra.sh`.
+1. **Tikslas:** pridėti tam pačiam skriptui projekto failų patikrą.
+2. Perrašykite `nano scripts/patikra.sh` šiuo turiniu:
 
-**Tikslas:** Pridėti tam pačiam skriptui projekto failų patikrą.
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-**Pirma dalis: failų patikra**
+if [ "$#" -gt 0 ]; then
+  irankiai=("$@")
+else
+  irankiai=(git python3 curl)
+fi
+failai=(uzrasai.md scripts/ataskaita.sh scripts/aplinka.sh)
 
-1. Atidarykite iš terminalo redaktoriuje `scripts/patikra.sh` ir papildykite jį: po įrankių ciklo tikrina failus `app.py`, `requirements.txt`, `run.sh`, `.env.example` (kiekvienam „OK“ arba „TRŪKSTA“).
-2. Pridėkite aplanko `docs` patikrą.
-3. Į bendrą trūkstamų dalykų skaičių įtraukite ir trūkstamus failus bei aplanką.
+truksta=0
 
-**Antra dalis: paleidimas iš skirtingų vietų**
+for irankis in "${irankiai[@]}"; do
+  if command -v "$irankis" >/dev/null 2>&1; then
+    echo "OK      $irankis"
+  else
+    echo "TRŪKSTA $irankis"
+    truksta=$((truksta + 1))
+  fi
+done
 
-1. Paleiskite skriptą iš projekto šaknies.
-2. Paleiskite jį iš `docs` aplanko ir pažiūrėkite, ką jis rodo ir kokį kodą grąžina.
-3. Išsaugokite skripto išvestį iš projekto šaknies faile `docs/patikra.txt`.
+for failas in "${failai[@]}"; do
+  if [ -f "$failas" ]; then
+    echo "OK      $failas"
+  else
+    echo "TRŪKSTA $failas"
+    truksta=$((truksta + 1))
+  fi
+done
 
-**Trečia dalis: commit**
+if [ -d docs ]; then
+  echo "OK      docs/"
+else
+  echo "TRŪKSTA docs/"
+  truksta=$((truksta + 1))
+fi
 
-1. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Patikra tikrina projekto failus“.
+if [ "$truksta" -gt 0 ]; then
+  echo "Trūksta: $truksta" >&2
+  exit 1
+fi
+```
+
+3. Iš projekto šaknies: `cd ~/Desktop/devops/git-bandymas`, `./scripts/patikra.sh; echo "kodas: $?"`. Visi `OK`, kodas 0.
+4. Iš `docs`: `(cd docs && ../scripts/patikra.sh; echo "kodas: $?")`. Failai `TRŪKSTA`, kodas 1. Skriptas ieško failų tame aplanke, kuriame paleistas.
+5. Išsaugokite išvestį: `./scripts/patikra.sh > docs/patikra.txt`. `cat docs/patikra.txt` rodo `OK` eilutes.
+6. Commit: `git add scripts docs`, `git commit -m "Patikra tikrina projekto failus"`.
+7. **Pateikimas:** terminalo nuotrauka iš šaknies (kodas 0) ir iš `docs` (kodas 1).
+
+Jei užstrigote, pasižiūrėkite `bash komandos.md`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

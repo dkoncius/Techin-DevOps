@@ -328,7 +328,11 @@ def expand_tasks(pamoka: Path, notes_line: str, skip_overview: bool = False, onl
         return out
     for n_, title, goal, steps in tasks:
         body = [goal, ""] + [f"{k}. {st}" for k, st in enumerate(steps, 1)]
-        body.append(f"Pastaba: Komandos šiai užduočiai: uzduotys/{n_}-uzduotis-sprendimas.md.")
+        sol = pamoka.parent / "uzduotys" / f"{n_}-uzduotis-sprendimas.md"
+        if sol.exists():
+            body.append(f"Pastaba: Komandos šiai užduočiai: uzduotys/{n_}-uzduotis-sprendimas.md.")
+        else:
+            body.append("Pastaba: Komandos yra pačioje užduotyje. Atskiro sprendimo failo nėra.")
         out.append(("uzduotis", f"{n_} užduotis: {title}", "\n".join(body)))
     return out[1:] if skip_overview else out
 

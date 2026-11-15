@@ -1,22 +1,23 @@
 # 3 užduotis: Paketas
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte` (`~/devops/devops-projektas`).
+1. **Tikslas:** įdiegti paketą `tree` savo sistemoje ir žinoti abiejų sistemų komandas.
+2. Atnaujinkite sąrašą ir įdiekite. Mac: `brew update`, `brew install tree`. Ubuntu / WSL: `sudo apt update`, `sudo apt install tree`. Paleiskite tik savo sistemos eilutes. Mac'e nerašykite `sudo brew`.
+3. Patikrinkite: `tree --version` išveda versiją. `which tree` rodo kelią.
+4. Ar jau įdiegtas. Mac: `brew list tree`. Ubuntu / WSL: `dpkg -s tree`. Komanda baigiasi be klaidos.
+5. Medis: `tree docs > docs/medis.txt`. `cat docs/medis.txt` rodo `docs` aplankų medį.
+6. Papildykite `docs/procesai.md` skyriumi (atidarykite `nano docs/procesai.md`):
 
-**Tikslas:** Įdiegti paketą savo paketų tvarkykle ir žinoti abi sistemų komandas.
+```markdown
+## Paketas
 
-**Pirma dalis: diegimas**
+| Veiksmas | Mac | Ubuntu (WSL) |
+|---|---|---|
+| Įdiegti | `brew install tree` | `sudo apt update` ir `sudo apt install tree` |
+| Versija | `tree --version` | `tree --version` |
+| Ar įdiegtas | `brew list tree` | `dpkg -s tree` |
+```
 
-1. Atnaujinkite paketų sąrašą savo sistemoje.
-2. Įdiekite paketą `tree`.
-3. Patikrinkite, kad `tree` įdiegtas: parodykite jo versiją.
-4. Parodykite kelią, kur jis yra.
+7. Išsaugokite: `git add docs`, `git commit -m "Pridėtas paketas ir medis"`.
+8. **Pateikimas:** terminalo nuotrauka su `tree --version` ir `docs/medis.txt` turiniu.
 
-**Antra dalis: naudojimas**
-
-1. Išveskite `docs` aplanko medį ir įrašykite jį į `docs/medis.txt`.
-2. Suraskite, kaip savo paketų tvarkyklėje patikrinti, ar paketas jau įdiegtas (pagal oficialią dokumentaciją; žingsnių čia nėra, tik tikslas).
-
-**Trečia dalis: užrašai ir commit**
-
-1. Atidarykite iš terminalo redaktoriuje `docs/procesai.md` ir pridėkite skyrių `## Paketas` su lentele (stulpeliai: veiksmas, Mac, Ubuntu/WSL; eilutės: įdiegti, versija, ar įdiegtas) ir užpildykite abi sistemas.
-2. Pridėkite visą aplanką `docs` ir padarykite commit su žinute „Pridėtas paketas ir medis“.
+Jei užstrigote, pasižiūrėkite `procesai komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

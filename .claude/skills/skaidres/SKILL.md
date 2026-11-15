@@ -1,6 +1,6 @@
 ---
 name: skaidres
-description: Naudok, kai reikia sugeneruoti DevOps pamokos skaidres kaip vieną savarankišką HTML failą iš skaidres.md (tamsi tema, atskleidimo žingsniai, mermaid, pastabos dėstytojui). Pirmiau naudok skillą skaidres-planas.
+description: Naudok, kai reikia sugeneruoti DevOps pamokos skaidres kaip vieną savarankišką HTML failą iš skaidres.md (šviesi popieriaus tema, atskleidimo žingsniai, mermaid, pastabos dėstytojui). Pirmiau naudok skillą skaidres-planas.
 ---
 
 # Skaidrės: `skaidres.md` → `skaidres.html`
@@ -39,7 +39,8 @@ Skaidrės skiriamos eilute `=== tipas | Antraštė` (trečias laukas, jei yra, i
 | `>> 💻 curl \| 🚪 Portas \| ✅ Atsakymas` | kelio „žetonai“ su rodyklėmis (vietoj mermaid); `>>+` žetonai atsiranda po vieną |
 | `> 🏨 tekstas` | kalbos debesėlis su analogija; `+>` atsiranda paspaudus |
 | `@iliustracija: pastatas` | SVG iliustracija dešinėje: `pastatas` (IP + portai), `knyga` (DNS), `laiškas` (užklausa/atsakymas), `serveris`, `raktas` (privatus/viešas), `šaka` (Git) |
-| ```` ```output ```` … | žalias „pavyzdinė išvestis“ langas (`output+` atsiranda paspaudus) |
+| ```` ```output ```` … | žalias „pavyzdinė išvestis“ langas (`output+` atsiranda paspaudus). 01 pamokoje taip rodomi `gh repo create` klausimai ir atsakymai |
+| `@video: https://youtu.be/ID` | YouTube grotuvas (youtube-nocookie). Pastaboje parašyk, kad paspaudus grotuvą rodyklės gali nebeperjungti skaidrių |
 | `@uzduotys: auto` (skaidrėje `=== uzduotys \| Užduotys`); `@uzduotys: auto, be sąrašo` praleidžia apžvalgos skaidrę ir palieka tik po vieną skaidrę užduočiai; `@uzduotys: auto, tik sąrašas` palieka tik apžvalgos skaidrę (kai žingsniai netelpa ir pilnos užduotys keliamos per Teams) | **užduotys iš `uzduotys/N-uzduotis.md`**: viena apžvalgos skaidrė su kortelėmis (pavadinimas + `**Tikslas:**`) ir po vieną skaidrę kiekvienai užduočiai. Tikslas skaitomas ir iš `1. **Tikslas:**`. `pamoka.md` užduočių teksto nekartoja. Šios skaidrės neįskaičiuojamos į 14 skaidrių ribą |
 | `Pastaba: ...` | pastaba dėstytojui (rodoma klavišu N), lietuviškai |
 

@@ -1,151 +1,175 @@
-# DevOps kursas VH-DO: ką išmoksite ir link ko einame
+# DevOps kursas
 
-Kursas: 80 paskaitų po 3 valandas (17:30–20:40), keturios per savaitę, 2026-11-11 – 2027-05-27 (datos nuo 2027 m. orientacinės). Dėstytojas Deividas Koncius.
+80 paskaitų po 3 valandas (17:30–20:40), 2026-11-11 – 2027-05-27. Datos nuo 2027 m. orientacinės. Dėstytojas Deividas Koncius.
 
-## Kursas vienu sakiniu
+## 1 etapas. Linux, Bash ir projekto paleidimas (30 val.)
 
-Paimsite mažą Python (Flask) web programą su MySQL duomenų baze ir per metus išmoksite ją **supakuoti, patikrinti, paleisti ir prižiūrėti taip, kaip tai daro DevOps inžinieriai**: nuo komandos terminale iki automatinio diegimo į debesį (Azure).
+1.1. Kas yra DevOps ir pirmas Git kelias aplanke `git-bandymas`
+1.2. Linux terminalas tame pačiame aplanke: failai, srautai, teisės, skriptas ir pirmas Pull Request
+1.3. Procesai, aplinkos kintamieji ir paketai
+1.4. Bash: argumentai, sąlygos, ciklai, išėjimo kodai, `.gitignore`
+1.5. Tinklai: IP, portai, DNS, HTTP ir `curl`
+1.6. Savo projekto kopija iš šablono, paleidimas vietoje, `.env` ir `paleisti.sh`
+1.7. Docker pradžia: kodėl „pas mane veikia“, `run`, `ps`, `logs`, `exec`, `stop`
+1.8. Image: konkretus tag'as, sluoksniai, dydis, registras
+1.9. Pasiruošimas atsiskaitymui
+1.10. Atsiskaitymas: Linux, Git, Bash, tinklai ir projekto paleidimas
 
-## Kelias
+*Šiame etape studentai dirba terminale ir tęsia `git-bandymas`, kol 1.6 pamokoje susikuria Flask projektą iš šablono ir jį paleidžia. Atsiskaitymas 2026-11-30 tikrina terminalą, Git, Bash, tinklus ir `paleisti.sh`. Docker pamokos vyksta prieš atsiskaitymą, bet į jį neįeina.*
 
-```mermaid
-flowchart TD
-    a[1. Linux ir Git] --> b[2. Docker]
-    b --> c[3. GitHub Actions]
-    c --> d[4. Kubernetes pagrindai]
-    d --> e[5. Kubernetes praktikoje]
-    e --> f[6. Azure]
-    f --> g[7. Pilnas pipeline ir baigiamasis projektas]
-```
+## 2 etapas. Docker ir pirmas workflow (33 val.)
 
-Po kiekvieno etapo yra atsiskaitymas (testas + praktika). Tarp etapų žinios sudedamos vienos ant kitų: tą pačią programą pirma paleidžiate lokaliai, tada konteineryje, paskui automatizuojate, perkeliate į Kubernetes ir galiausiai į Azure.
+2.1. Pirmasis Dockerfile projektui
+2.2. Mažesnis image: cache, `.dockerignore`, multi-stage
+2.3. Docker Compose: programa ir MySQL, volume ir tinklas toje pačioje pamokoje
+2.4. Ne root vartotojas ir image skenavimas
+2.5. Sugadintų Dockerfile ir Compose taisymas
+2.6. Pirmas GitHub Actions workflow: `on`, `jobs`, `steps`
+2.7. Testai kiekviename Pull Request
+2.8. `main` apsauga: PR nesijungia, jei testai raudoni
+2.9. Workflow, kuris paleidžia `docker build` ir dar nekelia į registrą
+2.10. Docker kartojimas prieš atsiskaitymą
+2.11. Atsiskaitymas: `docker compose up`, mažesnis image, veikia be root
 
-## Etapai
+*Šiame etape studentai supakuoja tą patį projektą į konteinerį ir paleidžia jį kartu su MySQL viena komanda. Taip pat parašo pirmą workflow, kuris paleidžia testus. Atsiskaitymas 2026-12-17 tikrina Docker, ne registrą.*
 
-### 1. DevOps pagrindai, Linux, Git (01–10, iki 2026-11-30)
+## 3 etapas. GitHub Actions tęsinys (33 val.)
 
-**Ką išmoksite:**
-1. Kas yra DevOps ir kuo jis padeda: kodo kelias nuo kūrėjo iki vartotojo.
-2. Linux terminalas: navigacija, failai, teisės, procesai, paketai, aplinkos kintamieji.
-3. Bash skriptai: kintamieji, sąlygos, ciklai.
-4. Tinklai: IP, portai, DNS, HTTP, `curl`; SSH ir raktai.
-5. Git ir GitHub: commit, šakos, sujungimas, konfliktai, Pull Request, code review.
-6. Kurso projekto paleidimas lokaliai.
+3.1. Runner'iai ir actions iš Marketplace
+3.2. Image įkėlimas į GitHub Container Registry
+3.3. Secrets ir aplinkos
+3.4. Cache, matrix ir artefaktai
+3.5. Image tag'as ir release
+3.6. Pakartotinai naudojami workflow
+3.7. Sugadintų workflow taisymas
+3.8. Praktika: nuo PR testo iki image
+3.9. Ta pati seka kitu pavyzdžiu
+3.10. Kartojimas prieš atsiskaitymą
+3.11. Atsiskaitymas: PR paleidžia testus, `main` šaka sukuria ir išsaugo image
 
-**Rezultatas:** jaučiatės patogiai terminale ir dirbate su Git per Pull Request'us. Atsiskaitymas 2026-11-30.
+*Šiame etape studentai pratęsia gruodį pradėtą workflow: image atsiranda registre, o paslaptys lieka Secrets. Atsiskaitymas 2027-01-20.*
 
-### 2. Docker (11–21, iki 2026-12-17)
+## 4 etapas. Kubernetes pagrindai (39 val.)
 
-**Ką išmoksite:**
-1. Kodėl konteineriai (problema „pas mane veikia“), Docker komandos, image'ai ir registrai.
-2. Savo Dockerfile projektui, gerosios praktikos ir multi-stage build.
-3. Volume'ai ir duomenų išsaugojimas, Docker tinklai.
-4. Docker Compose: programa ir MySQL kartu.
-5. Docker saugumas (ne root, image skenavimas) ir sugadintų konteinerių taisymas.
+4.1. Kam reikia Kubernetes ir kaip jis sudėtas
+4.2. Lokalus klasteris ir `kubectl`
+4.3. Pod: paleidimas, log'ai, exec
+4.4. YAML ir `kubectl apply`
+4.5. Deployment, rolling update ir rollback
+4.6. Service
+4.7. ConfigMap ir Secret
+4.8. Namespace ir labels
+4.9. Liveness ir readiness probe'ai
+4.10. Ingress
+4.11. Requests ir limits
+4.12. Sugadintų Pod ir Service taisymas
+4.13. Atsiskaitymas: projektas ir duomenų bazė veikia klasteryje
 
-**Rezultatas:** projektas su duomenų baze paleidžiamas viena komanda bet kuriame kompiuteryje. Atsiskaitymas 2026-12-17.
+*Šiame etape studentai paleidžia projektą lokaliame klasteryje ir pasiekia jį per Ingress. Tarp 4.5 ir 4.6 yra duomenų bazių modulis, todėl po pertraukos pirma pamoka skiriama kartojimui. Atsiskaitymas 2027-03-04.*
 
-### 3. GitHub Actions (22–32, sausis 2027)
+## 5 etapas. Kubernetes praktikoje (33 val.)
 
-**Ką išmoksite:**
-1. CI/CD idėja, pirmas workflow, runner'iai ir actions iš Marketplace.
-2. Testai ir lint'as per kiekvieną Pull Request, branch apsauga.
-3. Secrets ir aplinkos, Docker image build'as ir push'as į GitHub Container Registry.
-4. Cache, matrix, artefaktai, image tag'ai ir release'ai, pakartotiniai workflow.
+5.1. PersistentVolume, PVC ir StorageClass
+5.2. StatefulSet duomenų bazei
+5.3. Jobs ir CronJobs
+5.4. Helm: esamų chart'ų naudojimas
+5.5. Savo Helm chart'as
+5.6. Helm values skirtingoms aplinkoms
+5.7. Automatinis plėtimasis ir apkrovos testas
+5.8. Prometheus ir Grafana
+5.9. Log'ai ir trikčių paieška
+5.10. RBAC ir NetworkPolicy
+5.11. Atsiskaitymas: diegimas su Helm ir trijų klaidų taisymas klasteryje
 
-**Rezultatas:** kiekvienas commit automatiškai patikrinamas, o `main` šakoje sukuriamas ir išsaugomas image.
+*Šiame etape studentai supakuoja projektą kaip Helm chart, išsaugo duomenis ir moka rasti, kodėl Pod nepasileidžia. Atsiskaitymas 2027-03-25.*
 
-### 4. Kubernetes pagrindai (33–45, sausis – kovas 2027)
+## 6 etapas. Azure (36 val.)
 
-**Ką išmoksite:**
-1. Kam reikia Kubernetes ir kaip jis sudėtas; lokalus klasteris ir `kubectl`.
-2. Pod, Deployment, rolling update ir rollback.
-3. Service, Ingress, ConfigMap, Secret, namespace'ai ir labels.
-4. Probe'ai, resursų requests ir limits, sugedusių Kubernetes objektų taisymas.
+6.1. SSH raktas, tada Azure portalas, subscription ir resource group
+6.2. Azure CLI ir kaštų kontrolė
+6.3. Entra ID ir RBAC
+6.4. Azure Container Registry
+6.5. Container Apps arba App Service
+6.6. AKS klasteris ir registras
+6.7. Helm chart'o įdiegimas į AKS
+6.8. Valdoma MySQL ir Key Vault
+6.9. Infrastruktūra kodu: Bicep arba Terraform
+6.10. AKS ir registras aprašyti kodu
+6.11. Azure Monitor
+6.12. Atsiskaitymas: infrastruktūra sukuriama iš kodo, po darbo resursai ištrinami
 
-**Rezultatas:** projektas veikia lokaliame klasteryje ir pasiekiamas iš naršyklės.
+*Šiame etape studentai perkelia projektą į Azure ir aprašo infrastruktūrą kodu, kad resursai būtų kuriami ir trinami viena komanda. SSH raktas dėstomas šio etapo pradžioje. Atsiskaitymas 2027-05-06.*
 
-### 5. Kubernetes praktikoje (46–56, kovas 2027)
+## 7 etapas. Pilnas pipeline ir baigiamasis projektas (36 val.)
 
-**Ką išmoksite:**
-1. Duomenų saugojimas: PersistentVolume, StatefulSet duomenų bazei, Jobs ir CronJobs (atsarginė kopija).
-2. Helm: esami ir savo chart'ai, values skirtingoms aplinkoms.
-3. Automatinis plėtimasis (HPA) ir apkrovos testas.
-4. Stebėsena (Prometheus, Grafana), log'ai ir trikčių paieška.
-5. Saugumas: RBAC, ServiceAccount, NetworkPolicy.
+7.1. Diegimas į Azure iš GitHub Actions per OIDC, be slaptažodžio
+7.2. Pilnas pipeline: testas, build, registras, Helm į AKS
+7.3. Staging ir production, rankinis patvirtinimas
+7.4. Deploy strategijos: rolling, blue-green, canary, rollback
+7.5. Infrastruktūros pipeline
+7.6. GitOps apžvalga
+7.7. DevSecOps: priklausomybių ir image skenavimas pipeline'e
+7.8. Incidento imitacija
+7.9. Baigiamasis projektas
+7.10. Baigiamasis projektas, konsultacijos
+7.11. Kartojimas prieš egzaminą
+7.12. Baigiamojo projekto gynimas
 
-**Rezultatas:** projektas supakuotas kaip Helm chart, stebimas ir pats prisitaiko prie apkrovos.
+*Šiame etape `push` į `main` pats pasiekia AKS. Studentai paaiškina kiekvieną žingsnį gynime 2027-05-27.*
 
-### 6. Azure (57–68, balandis – gegužė 2027)
+## Baigiamoji užduotis (9 val.)
 
-**Ką išmoksite:**
-1. Debesų pagrindai, Azure portalas, Azure CLI, kaštų kontrolė.
-2. Prieigos valdymas (Entra ID, RBAC), konteinerių registras (ACR).
-3. Container Apps ir AKS klasteris, Helm į AKS.
-4. Valdomos paslaugos (MySQL, Key Vault), Azure Monitor.
-5. Infrastruktūra kodu: Bicep arba Terraform.
+1. Reikalavimų apžvalga: trys lygiai, kiekvienas apima ankstesnį
+2. Savarankiškas darbas ir dėstytojo konsultacijos
+3. Gynimas: kelias nuo commit iki serverio, pakeitimas per Pull Request, sugadintos dalies taisymas
+4. Rezultatų apžvalga
 
-**Rezultatas:** visa infrastruktūra aprašyta kodu ir sukuriama bei ištrinama viena komanda, kad kreditai būtų naudojami tik pamokų metu.
-
-### 7. Pilnas pipeline ir baigiamasis projektas (69–80, gegužė 2027)
-
-**Ką išmoksite:**
-1. Diegimas į Azure iš GitHub Actions per OIDC, pilnas pipeline: testas → build → ACR → AKS.
-2. Aplinkos (staging, production), patvirtinimai, deploy strategijos (rolling, blue-green, canary), rollback.
-3. Infrastruktūros pipeline, GitOps apžvalga, DevSecOps.
-4. Incidentų imitacija: kažkas sulūžta, komanda taiso.
-5. Baigiamasis projektas ir jo gynimas.
-
-**Rezultatas:** `push` į `main` automatiškai pasiekia AKS, o jūs galite paaiškinti kiekvieną žingsnį.
+*Vertinama, ar studentas paleidžia programą su duomenų baze, sujungia testus, image ir diegimą, o gynime paaiškina tą kelią ir pataiso sugadintą dalį. Darbas individualus. Galima daryti poroje, gynimas individualus. Klasėje tam skirtos trys paskaitos: dvi darbui ir viena gynimui. Etalonas yra aplanke `kursas/Finalinis projektas/`.*
 
 ## Kaip vyksta pamoka
 
 1. Dėstytojas trumpai paaiškina temą ir gyvai parodo kitu pavyzdžiu.
-2. Užduotis atsiduria Teams'e; ją darote savo kompiuteryje, baigę gaunate kitą.
+2. Užduotis atsiduria Teams'e. Ją darote savo kompiuteryje, baigę gaunate kitą.
 3. Kitos pamokos pradžioje dėstytojas parodo sprendimą ir aptariate, kas liko neaišku.
-4. Kasdienių užduočių dėstytojas netikrina, vertinama atsiskaitymuose.
-5. Kiekvieną užduotį galite daryti su DI pagalba (paaiškinti klaidą, pasiūlyti komandą), bet atsakymą visada patikrinate patys. Slaptažodžių, raktų, tokenų ir `.env` turinio niekada nekeliate į DI ar į Git.
+4. Kasdienių užduočių dėstytojas netikrina. Vertinama atsiskaitymuose.
+5. Užduotį galite daryti su DI pagalba, bet atsakymą patikrinate patys. Slaptažodžių, raktų, tokenų ir `.env` turinio nekeliate į DI ir į Git.
 
 ## Kurso projektas
 
-Vienas projektas visą kursą: Python (Flask) web API su MySQL (`/health` ir 2–3 maršrutai, pvz. `/items`). Jį gaunate kaip GitHub šabloną `devops-projektas`, susikuriate savo kopiją ir kiekvienoje pamokoje joje keičiate. Iš pradžių projektą tik skaitote ir paleidžiate lokaliai, o Dockerfile, Compose, workflow ir Helm chart'us kuriate patys.
+Vienas projektas visą kursą: Python (Flask) su MySQL, keliai `/health` ir `/items`. 1 etapo pradžioje dirbate `git-bandymas`. 1.6 pamokoje iš GitHub šablono susikuriate savo `devops-projektas`. Dockerfile, Compose, workflow ir Helm chart'ą rašote patys.
 
 ## Atsiskaitymai
 
-Kiekvienas atsiskaitymas: teorijos testas (30 klausimų, 35 min.) ir praktika (~2 val.).
+Kiekvienas atsiskaitymas: testas (30 klausimų, 35 min.) ir praktika (~2 val.).
 
-| Nr | Data | Sritis |
+| Etapas | Data | Sritis |
 |---|---|---|
-| 1 | 2026-11-30 | Linux, Bash, Git, GitHub, projekto paleidimas |
-| 2 | 2026-12-17 | Docker, Compose, MySQL konteineryje |
-| 3 | 2027-01-20 | GitHub Actions: CI, image push |
-| 4 | 2027-03-04 | Kubernetes pagrindai |
-| 5 | 2027-03-25 | Helm, duomenys, stebėsena, derinimas |
-| 6 | 2027-05-06 | Azure, infrastruktūra kodu, AKS |
-| 7 | 2027-05-27 | Baigiamojo projekto gynimas |
+| 1 etapas | 2026-11-30 | Linux, Bash, Git, tinklai, projekto paleidimas |
+| 2 etapas | 2026-12-17 | Docker, Compose, MySQL konteineryje |
+| 3 etapas | 2027-01-20 | GitHub Actions: testai per PR, image registre |
+| 4 etapas | 2027-03-04 | Kubernetes pagrindai |
+| 5 etapas | 2027-03-25 | Helm, duomenys, stebėsena, derinimas |
+| 6 etapas | 2027-05-06 | Azure, infrastruktūra kodu, AKS |
+| 7 etapas | 2027-05-27 | Baigiamojo projekto gynimas |
 
-Pirmų dviejų datos patvirtintos, kitos orientacinės. Atsiskaitymų praktikos įvertinimai skaičiuojami paprastu vidurkiu ir sudaro 40 % egzamino praktikos įvertinimo (žr. žemiau).
-
-## Baigiamasis projektas
-
-Individualus (galima daryti poroje, gynimas individualus). Užduotys pagal lygius, kiekvienas apima ankstesnį, ir etaloninis sprendimas yra aplanke `kursas/Finalinis projektas/`.
+Pirmų dviejų datos patvirtintos, kitos orientacinės. Atsiskaitymų praktikos įvertinimai skaičiuojami paprastu vidurkiu ir sudaro 40 % egzamino praktikos įvertinimo.
 
 ## DI kurse
 
-DI galima naudoti klaidoms paaiškinti ir komandoms pasiūlyti, bet rezultatą reikia paleisti ir patikrinti patiems. Slaptų duomenų į DI nekeliame. Atsiskaitymuose ir testuose DI nenaudojamas. Kiekviename etape bus trumpa užduotis: paprašyti DI, patikrinti rezultatą ir pataisyti bent vieną dalyką. Daugiau: `medziaga/di-kurse.md`.
+DI galima naudoti klaidoms paaiškinti ir komandoms pasiūlyti. Rezultatą reikia paleisti ir patikrinti patiems. Slaptų duomenų į DI nekeliame. Atsiskaitymuose ir testuose DI nenaudojamas. Daugiau: `medziaga/di-kurse.md`.
 
 ## Egzaminai kurso pabaigoje
 
 Kurso pabaigoje laikomi du egzaminai (tikėtina birželio 15–25 d., datas mokykla paskelbs 2027 sausį):
 
-1. **Teorijos egzaminas.** 80–100 klausimų iš visų modulių, 2 val., kompiuteriu, niekuo naudotis negalima. Rezultatas iškart.
-2. **Praktikos egzaminas.** 3–4 val., mokyklos kompiuteriais. Jį laikyti galite tik jei teorijos egzamine surinkote **50 % ar daugiau**. Neišlaikius teorijos, rašomas prašymas perlaikymui (nauja data po 1–3 mėn.).
+1. **Teorijos egzaminas.** 80–100 klausimų iš visų etapų, 2 val., kompiuteriu, niekuo naudotis negalima. Rezultatas iškart.
+2. **Praktikos egzaminas.** 3–4 val., mokyklos kompiuteriais. Jį laikyti galite, jei teorijos egzamine surinkote 50 % ar daugiau. Neišlaikius teorijos, rašomas prašymas perlaikymui.
 
-Kurso eigoje surinkti **praktinių atsiskaitymų** įvertinimai sudaro 40 % egzamino praktikos įvertinimo (visi atsiskaitymai 10 → 4 balai). Egzaminą vis tiek reikia laikyti. Baigiamasis projektas yra praktinis atsiskaitymas ir didesnio svorio neturi. Pažymiai du: už teoriją ir už praktiką.
+Kurso eigoje surinkti praktinių atsiskaitymų įvertinimai sudaro 40 % egzamino praktikos įvertinimo. Egzaminą vis tiek reikia laikyti. Baigiamasis projektas yra praktinis atsiskaitymas ir didesnio svorio neturi. Pažymiai du: už teoriją ir už praktiką.
 
-Praktikos egzamine galima naudotis savo darbais, sukeltais į GitHub, todėl užduotis ir sprendimus laikykite savo GitHub paskyroje. Egzaminų uždavinių nerašo dėstytojas; praktikos pavyzdį mokykla gali duoti likus nuo mėnesio iki kelių dienų. Komisijoje: išorės vertintojas ir du TECHIN dėstytojai. Pasiruošti padeda atsiskaitymai kurso eigoje ir kartojimo pamoka (79). Klausimus apie egzaminų organizavimą spręskite su IT skyriaus vadybininke Justina.
+Praktikos egzamine galima naudotis savo darbais GitHub'e. Egzaminų uždavinių nerašo dėstytojas. Komisijoje: išorės vertintojas ir du TECHIN dėstytojai. Klausimus apie egzaminų organizavimą spręskite su IT skyriaus vadybininke Justina.
 
 ## Ką žinoti dar
 
-1. Datos po 2027-01-01 skaičiuotos ir gali keistis (pavasario atostogos, kito mokytojo savaitės, duomenų bazių modulis 2027-02-01 – 02-19).
-2. Detali 80 pamokų lentelė, datos ir darbo sprendimai: `medziaga/kurso-planas.md`.
+1. Datos po 2027-01-01 skaičiuotos ir gali keistis. Duomenų bazių modulis yra 2027-02-01 – 02-19.
+2. Detali 80 pamokų lentelė: `medziaga/kurso-planas.md`.

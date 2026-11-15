@@ -2,8 +2,8 @@
 04 pamoka · 1 etapas
 - Parašyti skriptą su argumentais ir `if`
 - Naudoti `for` ir grąžinti teisingą išėjimo kodą
-- Perskaityti realų projekto `run.sh`
-Pastaba: ~10 min pasitikrinimas po 03: parodykite 03 sprendimą gyvai. Ritmas: skaidrės → jūsų demonstracija → užduotis Teams'e → jie daro patys. Visos užduotys plečia vieną skriptą `scripts/patikra.sh`, kuris taps `paleisti.sh` (atsiskaitymui) pagrindu.
+- Parašyti `.gitignore` ir atšaukti pakeitimą su `git restore`
+Pastaba: ~10 min pasitikrinimas po 03. Dirbame `git-bandymas`. `run.sh` bus 06 pamokoje. Užduotys plečia `scripts/patikra.sh`.
 
 === pagalvokime
 Tą pačią komandų seką reikia paleisti dvidešimt kartų.
@@ -97,18 +97,10 @@ if [ -d src ]; then echo "OK      src/"; else echo "TRŪKSTA src/"; fi
 - `-f` yra failas, `-d` yra aplankas
 Pastaba: ~5 min. Kito projekto failai (`package.json`, `README.md`): tas pats `if`, bet su `-f` ir `-d`. Dažna klaida: skriptas paleistas ne projekto šaknyje ir viskas „TRŪKSTA“; `-f` vietoj `-d` aplankui. Paskelbkite 3 užduotį.
 
-=== demonstracija | Realus skriptas: run.sh
-| Eilutė | Ką daro |
-|---|---|
-| `set -euo pipefail` | ?Sustoja pirmoje klaidoje |
-| `python3 -m venv .venv` | ?Sukuria virtualią aplinką, bet tik jei `.venv` dar nėra |
-| `[ -f .env ] && { set -a; . ./.env; set +a; }` | ?Jei yra `.env`, įkelia kintamuosius |
-| `exec ... --port "${PORT:-5001}"` | ?Paleidžia serverį porte iš `PORT` arba 5001 |
-```bash+
-cd ~/devops/devops-projektas
-cat run.sh
-```
-Pastaba: ~10 min. Eikite eilutė po eilutės; jie jau matė aplinkos kintamuosius 03 pamokoje.
+=== tekstas | Kas bus 06 pamokoje
+- `run.sh` ir `paleisti.sh` atsiras, kai bus šablonas
+- Šiandien tik `patikra.sh`, `.gitignore` ir `git restore`
+Pastaba: ~2 min. Neatidarykite `run.sh`. Jo dar nėra.
 
 === tekstas | Git: ignoravimas ir atšaukimas
 | Situacija | Komanda |
@@ -144,7 +136,7 @@ Pastaba: ~3 min.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną Teams'e: kiekvieną užduotį po demonstracijos, kitą tik kai baigia. Užduotys eina viena gija: vienas įrankis (1), įrankių sąrašas (2), projekto failai (3), `run.sh`, `.gitignore` ir PR (4).
+Pastaba: Skelbkite po vieną. Užduotys: vienas įrankis (1), sąrašas (2), failai `uzrasai.md` ir skriptai (3), `.gitignore` ir PR (4).
 
 === kita | Kita pamoka
 Tinklų pagrindai: IP, portai, DNS, HTTP, `curl`

@@ -9,11 +9,11 @@
 | 3 | 01 | A | `/health` leidžia įrankiams patikrinti, ar programa gyva. |
 | 4 | 01 | C | Commit yra išsaugotas pakeitimų taškas. |
 | 5 | 01 | B | `-c` sukuria šaką ir persijungia. |
-| 6 | 07 | A | `--staged` rodo jau pridėtus pakeitimus. |
-| 7 | 07 | D | `revert` sukuria naują commit'ą, istorija lieka. |
-| 8 | 06 | C | Konfliktas atsiranda, kai ta pati vieta pakeista skirtingai. |
-| 9 | 06 | B | Žymekliai pašalinami, tada `git add` ir `git commit`. |
-| 10 | 07 | A | `fetch` tik atsisiunčia, `pull` = `fetch` + `merge`. |
+| 6 | 01 | A | Po `git add` failas yra paruoštas commit'ui. |
+| 7 | 04 | D | `git restore` grąžina neišsaugotą failą. |
+| 8 | 02 | C | Pull Request sujungia šaką į `main`. |
+| 9 | 01 | B | Pirmas šakos siuntimas yra `git push -u origin`. |
+| 10 | 02 | A | `git pull` atsisiunčia ir sujungia. |
 | 11 | 06 | D | `600`: savininkas skaito ir rašo, kiti nieko. |
 | 12 | 02 | C | Trūksta `x` teisės: `chmod +x`. |
 | 13 | 03 | A | `kill` siunčia SIGTERM, `kill -9` SIGKILL. |
@@ -29,10 +29,10 @@
 | 23 | 05 | A | `lsof -i :PORTAS` rodo procesą, naudojantį portą. |
 | 24 | 05 | D | `localhost` yra šis kompiuteris (127.0.0.1). |
 | 25 | 05 | B | DNS paverčia vardą IP adresu. |
-| 26 | 06 | C | Privatus raktas lieka pas jus. |
-| 27 | 06 | A | SSH atsisako rakto, kurį gali skaityti kiti. |
-| 28 | 06 | D | Raktas laikomas nutekėjusiu: pašalinti iš GitHub, sukurti naują porą. |
-| 29 | 08 | B | Branch apsauga reikalauja PR prieš sujungimą. |
+| 26 | 03 | B | `export` galioja tik tam terminalo langui. |
+| 27 | 05 | D | `000` reiškia, kad niekas neklauso. |
+| 28 | 06 | C | Projektas klonuojamas į `~/devops`. |
+| 29 | 04 | A | `*.log` paslepia naujus logus nuo Git. |
 | 30 | 09 | C | `.env` gali turėti slaptažodžių; `.env.example` keliamas. |
 
 Teisingų atsakymų pasiskirstymas: A 7, B 8, C 8, D 7.
@@ -67,7 +67,7 @@ echo "Portas $1 laisvas"
 
 ### `paleisti.sh`
 
-Pagrindas yra 09 pamokos `paleisti.sh`. Atsiskaitymui pakeičiama sėkmės dalis, kad būtų išvedamas ir `/status`:
+Pagrindas yra 06 pamokos `paleisti.sh`. Atsiskaitymui pakeičiama sėkmės dalis, kad būtų išvedamas ir `/status`:
 
 ````bash
   if [ "$kodas" = "200" ]; then
@@ -91,13 +91,9 @@ Pagrindas yra 09 pamokos `paleisti.sh`. Atsiskaitymui pakeičiama sėkmės dalis
 
 (pavyzdinė išvestis; kompiuterio vardas skirsis)
 
-## Konfliktas
-
-Išspręsta: abi mintys sujungtos viena eilute, žymeklių nėra.
-
 ## Klausimai
 
 a) 404 reiškia, kad resurso nėra (kliento klaida), o 500 reiškia serverio klaidą.
 b) `set -e` sustabdo skriptą pirmoje klaidoje, kad jis neveiktų toliau su sugedusia būsena.
-c) Privatus raktas yra slaptas: jei jis pateko į Git, istorija lieka visiems. Raktą reikia pašalinti iš GitHub paskyros, sukurti naują porą ir pridėti naują viešą raktą.
+c) `.env` gali turėti slaptažodžių, o Git istorija lieka. Į Git keliamas `.env.example`.
 ````

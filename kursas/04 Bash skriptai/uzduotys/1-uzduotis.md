@@ -1,26 +1,41 @@
 # 1 užduotis: Argumentas ir sąlyga
 
-Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame. Galite remtis ankstesnio dėstytojo pateikta Git komandų santrauka (`git komandos.pdf`, Teams'e). Užduotys eina viena gija ir visos vyksta jūsų `devops-projekte`: 1–3 plečia tą patį skriptą `scripts/patikra.sh`.
+1. **Tikslas:** parašyti skriptą, kuris tikrina vieną įrankį pagal argumentą ir grąžina išėjimo kodą.
+2. Atnaujinkite ir sukurkite šaką: `cd ~/Desktop/devops/git-bandymas`, `git switch main`, `git pull`, `git switch -c pamoka-04`.
+3. Atidarykite `nano scripts/patikra.sh` (`mkdir -p scripts`) ir įrašykite:
 
-**Tikslas:** Parašyti skriptą, kuris tikrina vieną įrankį pagal argumentą ir grąžina išėjimo kodą.
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-**Pirma dalis: nauja šaka ir skriptas**
+if [ "$#" -lt 1 ]; then
+  echo "Naudojimas: ./scripts/patikra.sh įrankis" >&2
+  exit 2
+fi
 
-1. Eikite į savo `devops-projektas`, persijunkite į `main` ir atnaujinkite jį iš GitHub.
-2. Sukurkite šaką `pamoka-04` ir persijunkite į ją.
-3. Sukurkite `scripts/patikra.sh`, atidarykite jį iš terminalo redaktoriuje ir parašykite `#!/usr/bin/env bash` ir `set -euo pipefail`.
-4. Skriptas priima vieną argumentą: įrankio pavadinimą.
-5. Jei argumento nėra, skriptas į klaidų kanalą parašo naudojimo žinutę ir baigia su kodu 2.
-6. Jei įrankis yra, skriptas išveda „OK“ ir pavadinimą; jei jo nėra, išveda „TRŪKSTA“ ir pavadinimą ir baigia su kodu 1.
-7. Padarykite skriptą vykdomą.
+if command -v "$1" >/dev/null 2>&1; then
+  echo "OK      $1"
+else
+  echo "TRŪKSTA $1"
+  exit 1
+fi
+```
 
-**Antra dalis: paleidimas ir kodai**
+`chmod +x scripts/patikra.sh`.
+4. Su `git`: `./scripts/patikra.sh git; echo "kodas: $?"`. Išvestis `OK      git`, kodas 0. `echo $?` rašykite iškart, ne po kitos komandos.
+5. Su neegzistuojančiu: `./scripts/patikra.sh neegzistuoja; echo "kodas: $?"`. `TRŪKSTA neegzistuoja`, kodas 1.
+6. Be argumento: `./scripts/patikra.sh; echo "kodas: $?"`. Žinutė klaidų kanale, kodas 2.
+7. Užrašykite `nano docs/bash.md` (`mkdir -p docs`):
 
-1. Paleiskite skriptą su `git` ir pažiūrėkite išėjimo kodą.
-2. Paleiskite jį su `neegzistuoja` ir pažiūrėkite išėjimo kodą.
-3. Paleiskite jį be argumento ir pažiūrėkite išėjimo kodą.
+```markdown
+# Bash skriptai
 
-**Trečia dalis: užrašai ir commit**
+## Išėjimo kodai
 
-1. Atidarykite iš terminalo redaktoriuje `docs/bash.md` (aplanką `docs` turite iš 02 ir 03) ir parašykite antraštę `# Bash skriptai` ir skyrių `## Išėjimo kodai` su trimis kodais, kuriuos gavote.
-2. Pridėkite `scripts` ir `docs` ir padarykite commit su žinute „Pridėtas patikra.sh“.
+`./scripts/patikra.sh git` baigėsi kodu 0, `neegzistuoja` kodu 1, be argumento kodu 2.
+```
+
+8. Commit: `git add scripts docs`, `git commit -m "Pridėtas patikra.sh"`.
+9. **Pateikimas:** terminalo nuotrauka su trimis paleidimais ir kodais 0, 1 ir 2.
+
+Jei užstrigote, pasižiūrėkite `bash komandos.md`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

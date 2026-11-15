@@ -3,7 +3,7 @@
 - Paaiškinti IP adresą, portą, DNS ir HTTP kodus
 - Naudoti `curl` ir perskaityti atsakymą
 - Rasti, kuris procesas klauso porto
-Pastaba: ~1 min. Praeitos pamokos (04) sprendimą parodykite prieš šią skaidrę (~10 min). Paleiskite projektą `./run.sh` ir palikite veikti.
+Pastaba: ~1 min. Flask dar nėra. Demonstracijoje `python3 -m http.server 8080`. Mokiniai naudoja portą 5001.
 
 === pagalvokime
 Programa veikia jūsų kompiuteryje. Rašote adresą ir gaunate atsakymą.
@@ -18,16 +18,16 @@ Pastaba: ~3 min. Spauskite po žingsnį ir klauskite klasės, kas čia „adresa
 
 === demonstracija | Vienas klauso, kitas klausia
 ```bash
-./run.sh
+python3 -m http.server 8080
 ```
 ```bash+
-curl localhost:5001/health
+curl -s -o /dev/null -w "%{http_code}\n" localhost:8080/
 ```
 ```output+
-{"status": "ok"}
+200
 ```
 > 🧑‍🏫 Kairėje serveris, dešinėje `curl`: du terminalai, vienas ryšys.
-Pastaba: ~5 min. Rodykite lango dalimis. Mac studentams primename: numatytasis portas yra 5001 (5000 užima AirPlay).
+Pastaba: ~5 min. Jūsų portas 8080. Mokinių portas 5001. 5000 užima AirPlay.
 
 === schema | Bendras vaizdas: kas su kuo kalba
 ```excalidraw
@@ -89,8 +89,8 @@ Pastaba: ~5 min. Išvestis pavyzdinė. Kitas pavyzdys nei užduotyje: `python3 -
 - **Užklausa:** metodas (`GET`, `POST`), kelias
 - **Atsakymas:** kodas ir turinys
 - `curl -i` parodo ir kodą, ir antraštes
-- `/health` atsako 200: taip kiti įrankiai žino, kad programa gyva
-Pastaba: ~5 min. Parodykite `curl -i localhost:5001/health` ir raskite eilutę su kodu.
+- Paprastas serveris atsako 200, jei failas yra
+Pastaba: ~5 min. Parodykite `curl -i localhost:8080/` ir raskite eilutę su kodu. `/health` bus 06 pamokoje.
 
 === tekstas | HTTP kodai: keturios šeimos
 :: ✅ | 2xx | Pavyko
@@ -106,17 +106,16 @@ Pastaba: ~3 min. Paprašykite pateikti po vieną pavyzdį iš kasdienybės (pusl
 | 404 | ?Resurso nėra (jūsų klaida) |
 | 500 | ?Serverio klaida |
 | 000 | ?Niekas neklauso porto |
-Pastaba: ~4 min. Kiekvienai eilutei pirma paklauskite klasės, tada paspauskite. Pabaigoje: `curl -s -o /dev/null -w "%{http_code}\n" localhost:5001/nera`.
+Pastaba: ~4 min. Kiekvienai eilutei pirma paklauskite klasės, tada paspauskite. Pabaigoje: `curl -s -o /dev/null -w "%{http_code}\n" localhost:8080/nera`.
 
 === klaida | Dažnos klaidos
-:: 🔁 | Portas užimtas | Antras `./run.sh` tame pačiame porte. Naudokite `PORT=5002`
-:: 📮 | `POST` be antraštės | Trūksta `Content-Type: application/json`
+:: 🔁 | Portas užimtas | Antras `python3 -m http.server 8080`. Kitam langui naudokite `8081`
 :: ⏸️ | `Ctrl+Z` | Serveris lieka fone. Naudokite `Ctrl+C` arba `kill`
 :: 🕳️ | Kodas `000` | Niekas neklauso porto: serveris išjungtas
 Pastaba: ~3 min. Tai dažniausios klaidos iš pamokos sprendimo skyriaus.
 
 === uzduotys | Užduotys
-@uzduotys: auto
+@uzduotys: auto, tik sąrašas
 Pastaba: Dabar paskelbkite pirmą užduotį Teams'e. Kiekvieną skelbkite po vieną: pirma demonstracija gyvai su kitu pavyzdžiu, tada mokiniai daro savo. Skaidrės su žingsniais skirtos rodyti, kol jie dirba.
 
 === kita | Kita pamoka | 🔑
