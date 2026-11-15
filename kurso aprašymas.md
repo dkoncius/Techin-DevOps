@@ -2,20 +2,19 @@
 
 80 paskaitų po 3 valandas (17:30–20:40), 2026-11-11 – 2027-05-27. Datos nuo 2027 m. orientacinės. Dėstytojas Deividas Koncius.
 
-## 1 etapas. Linux, Bash ir projekto paleidimas (30 val.)
+## 1 etapas. Linux, Bash ir projekto paleidimas (27 val.)
 
 1.1. Kas yra DevOps ir pirmas Git kelias aplanke `git-bandymas`
-1.2. Linux terminalas tame pačiame aplanke: failai, srautai, teisės, skriptas ir pirmas Pull Request
-1.3. Procesai, aplinkos kintamieji ir paketai
-1.4. Bash: argumentai, sąlygos, ciklai, išėjimo kodai, `.gitignore`
-1.5. Tinklai: IP, portai, DNS, HTTP ir `curl`
-1.6. Savo projekto kopija iš šablono, paleidimas vietoje, `.env` ir `paleisti.sh`
-1.7. Docker pradžia: kodėl „pas mane veikia“, `run`, `ps`, `logs`, `exec`, `stop`
-1.8. Image: konkretus tag'as, sluoksniai, dydis, registras
-1.9. Pasiruošimas atsiskaitymui
-1.10. Atsiskaitymas: Linux, Git, Bash, tinklai ir projekto paleidimas
+1.2. Linux terminalas: žinomas terminalas, skriptas, `export`, paketas ir pirmas Pull Request
+1.3. Bash: argumentai, sąlygos, ciklai, išėjimo kodai, `.gitignore`
+1.4. Tinklai: IP, portai, DNS, HTTP ir `curl`
+1.5. Savo projekto kopija iš šablono, paleidimas vietoje, `.env` ir `paleisti.sh`
+1.6. Docker pradžia: kodėl „pas mane veikia“, `run`, `ps`, `logs`, `exec`, `stop`
+1.7. Image: konkretus tag'as, sluoksniai, dydis, registras
+1.8. Pasiruošimas atsiskaitymui
+1.9. Atsiskaitymas: Linux, Git, Bash, tinklai ir projekto paleidimas
 
-*Šiame etape studentai dirba terminale ir tęsia `git-bandymas`, kol 1.6 pamokoje susikuria Flask projektą iš šablono ir jį paleidžia. Atsiskaitymas 2026-11-30 tikrina terminalą, Git, Bash, tinklus ir `paleisti.sh`. Docker pamokos vyksta prieš atsiskaitymą, bet į jį neįeina.*
+*Šiame etape 1.2 yra viena pamoka vietoje dviejų: `pwd`, `ls`, `grep` ir `ps` tik pasitikrinami, nes tai jau išlaikyta pas Edgarą. Nauja ten yra skriptas, `export` ir pirmas Pull Request. Flask programos nerašo: 1.5 pamokoje iš paruošto šablono susikuria savo GitHub repozitoriją, ją nusiklonuoja, paleidžia ir parašo `paleisti.sh`. Ten pat trumpai randa `/health` funkciją `app.py`. SQL šiame etape nėra. Atsiskaitymas 2026-11-30 tikrina terminalą, Git, Bash, tinklus ir šį paleidimą. Docker pamokos vyksta prieš atsiskaitymą, bet į jį neįeina.*
 
 ## 2 etapas. Docker ir pirmas workflow (33 val.)
 
@@ -31,9 +30,9 @@
 2.10. Docker kartojimas prieš atsiskaitymą
 2.11. Atsiskaitymas: `docker compose up`, mažesnis image, veikia be root
 
-*Šiame etape studentai supakuoja tą patį projektą į konteinerį ir paleidžia jį kartu su MySQL viena komanda. Taip pat parašo pirmą workflow, kuris paleidžia testus. Atsiskaitymas 2026-12-17 tikrina Docker, ne registrą.*
+*Šiame etape studentai supakuoja tą patį projektą į konteinerį ir paleidžia jį kartu su MySQL viena komanda. SQL nerašo: duomenų bazės modulis dar nepraėjęs. Taip pat parašo pirmą workflow, kuris paleidžia testus. Atsiskaitymas 2026-12-17 tikrina Docker, ne registrą.*
 
-## 3 etapas. GitHub Actions tęsinys (33 val.)
+## 3 etapas. GitHub Actions tęsinys (27 val.)
 
 3.1. Runner'iai ir actions iš Marketplace
 3.2. Image įkėlimas į GitHub Container Registry
@@ -42,12 +41,10 @@
 3.5. Image tag'as ir release
 3.6. Pakartotinai naudojami workflow
 3.7. Sugadintų workflow taisymas
-3.8. Praktika: nuo PR testo iki image
-3.9. Ta pati seka kitu pavyzdžiu
-3.10. Kartojimas prieš atsiskaitymą
-3.11. Atsiskaitymas: PR paleidžia testus, `main` šaka sukuria ir išsaugo image
+3.8. Viena praktika: nuo PR testo iki image
+3.9. Atsiskaitymas: PR paleidžia testus, `main` šaka sukuria ir išsaugo image
 
-*Šiame etape studentai pratęsia gruodį pradėtą workflow: image atsiranda registre, o paslaptys lieka Secrets. Atsiskaitymas 2027-01-20.*
+*Šiame etape studentai pratęsia gruodį pradėtą workflow: image atsiranda registre, o paslaptys lieka Secrets. Trys praktikos sujungtos į vieną. Atsiskaitymas 2027-01-18.*
 
 ## 4 etapas. Kubernetes pagrindai (39 val.)
 
@@ -58,16 +55,16 @@
 4.5. Deployment, rolling update ir rollback
 4.6. Service
 4.7. ConfigMap ir Secret
-4.8. Namespace ir labels
+4.8. Kartojimas po DB modulio ir namespace
 4.9. Liveness ir readiness probe'ai
 4.10. Ingress
 4.11. Requests ir limits
 4.12. Sugadintų Pod ir Service taisymas
 4.13. Atsiskaitymas: projektas ir duomenų bazė veikia klasteryje
 
-*Šiame etape studentai paleidžia projektą lokaliame klasteryje ir pasiekia jį per Ingress. Tarp 4.5 ir 4.6 yra duomenų bazių modulis, todėl po pertraukos pirma pamoka skiriama kartojimui. Atsiskaitymas 2027-03-04.*
+*Šiame etape studentai paleidžia projektą lokaliame klasteryje ir pasiekia jį per Ingress. DB modulis yra tarp 4.7 ir 4.8. Python kodą skaito iš to, ką išmoko pas Karoliną, SQL iš DB modulio. Atsiskaitymas 2027-03-02.*
 
-## 5 etapas. Kubernetes praktikoje (33 val.)
+## 5 etapas. Kubernetes praktikoje (39 val.)
 
 5.1. PersistentVolume, PVC ir StorageClass
 5.2. StatefulSet duomenų bazei
@@ -80,8 +77,10 @@
 5.9. Log'ai ir trikčių paieška
 5.10. RBAC ir NetworkPolicy
 5.11. Atsiskaitymas: diegimas su Helm ir trijų klaidų taisymas klasteryje
+5.12. TLS ir sertifikatai ant jau veikiančio Ingress
+5.13. PromQL, Alertmanager ir Loki
 
-*Šiame etape studentai supakuoja projektą kaip Helm chart, išsaugo duomenis ir moka rasti, kodėl Pod nepasileidžia. Atsiskaitymas 2027-03-25.*
+*Šiame etape studentai supakuoja projektą kaip Helm chart ir moka rasti, kodėl Pod nepasileidžia. Duomenų bazės pamoka prasideda trumpu SQL prisiminimu, nes vasario modulis jau būna pasibaigęs, o jis eina po Karolinos Python kurso. Atsiskaitymas 2027-03-23 to netikrina. 5.12 ir 5.13 eina po jo, kai klasteris jau stovi.*
 
 ## 6 etapas. Azure (36 val.)
 
@@ -107,15 +106,15 @@
 7.3. Staging ir production, rankinis patvirtinimas
 7.4. Deploy strategijos: rolling, blue-green, canary, rollback
 7.5. Infrastruktūros pipeline
-7.6. GitOps apžvalga
-7.7. DevSecOps: priklausomybių ir image skenavimas pipeline'e
-7.8. Incidento imitacija
-7.9. Baigiamasis projektas
-7.10. Baigiamasis projektas, konsultacijos
-7.11. Kartojimas prieš egzaminą
+7.6. GitOps ir skenavimas pipeline'e, viena pamoka
+7.7. Terraform moduliai ir state
+7.8. Ansible jau turimam serveriui
+7.9. Incidento imitacija
+7.10. Baigiamasis projektas
+7.11. Baigiamasis projektas, konsultacijos
 7.12. Baigiamojo projekto gynimas
 
-*Šiame etape `push` į `main` pats pasiekia AKS. Studentai paaiškina kiekvieną žingsnį gynime 2027-05-27.*
+*Pipeline iki AKS sudedamas 7.1–7.5. Tada, kai tą kelią jau moka, eina Terraform moduliai ir Ansible. Incidente prisimena Python ir SQL ir pataiso vieną eilutę. Gynimas 2027-05-27.*
 
 ## Baigiamoji užduotis (9 val.)
 
@@ -136,7 +135,7 @@
 
 ## Kurso projektas
 
-Vienas projektas visą kursą: Python (Flask) su MySQL, keliai `/health` ir `/items`. 1 etapo pradžioje dirbate `git-bandymas`. 1.6 pamokoje iš GitHub šablono susikuriate savo `devops-projektas`. Dockerfile, Compose, workflow ir Helm chart'ą rašote patys.
+Vienas projektas visą kursą: Python (Flask) su MySQL, keliai `/health` ir `/items`. Programos ir SQL iš naujo nerašote: Python skaitote iš to, ką išmokote pas Karoliną, SQL iš vasario DB modulio. 1 etapo pradžioje dirbate `git-bandymas`. 1.6 pamokoje iš GitHub šablono susikuriate savo `devops-projektas`. Dockerfile, Compose, workflow ir Helm chart'ą rašote patys.
 
 ## Atsiskaitymai
 
@@ -146,9 +145,9 @@ Kiekvienas atsiskaitymas: testas (30 klausimų, 35 min.) ir praktika (~2 val.).
 |---|---|---|
 | 1 etapas | 2026-11-30 | Linux, Bash, Git, tinklai, projekto paleidimas |
 | 2 etapas | 2026-12-17 | Docker, Compose, MySQL konteineryje |
-| 3 etapas | 2027-01-20 | GitHub Actions: testai per PR, image registre |
-| 4 etapas | 2027-03-04 | Kubernetes pagrindai |
-| 5 etapas | 2027-03-25 | Helm, duomenys, stebėsena, derinimas |
+| 3 etapas | 2027-01-18 | GitHub Actions: testai per PR, image registre |
+| 4 etapas | 2027-03-02 | Kubernetes pagrindai |
+| 5 etapas | 2027-03-23 | Helm, duomenys, stebėsena, derinimas |
 | 6 etapas | 2027-05-06 | Azure, infrastruktūra kodu, AKS |
 | 7 etapas | 2027-05-27 | Baigiamojo projekto gynimas |
 

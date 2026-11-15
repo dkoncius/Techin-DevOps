@@ -45,6 +45,7 @@ Atnaujinta: 2026-11-15. Dėstytojas: Deividas Koncius. Grupė: VH-DO (DevOps), 3
 11. Naujos pamokos kuriamos naujame projekte. Seno projekto veikiantys pavyzdžiai (Docker, Compose, Actions, Kubernetes, Terraform, Azure) kopijuojami į `medziaga/` ir pritaikomi, o ne perrašomi.
 12. Užduotys parodo, ar mokiniai išmoko tai, ką dėstė Edgaras (Git, Bash, Python kodo skaitymas), o vėliau ir MySQL kodo skaitymą. Atskiro įvadinio testo tam nereikia.
 13. **2026-11-15, eiga iki Actions.** 01–05 jau išmoko šaką, `merge` ir Pull Request, todėl atskiros 07 Git ir 08 PR paskaitos nebedėstomos. SSH neprieš Docker: raktas dėstomas 57 pamokos pradžioje, prieš Azure portalą. `main` apsauga dėstoma tada, kai yra CI (18), ne prieš tai. Iki 1 atsiskaitymo (data nejuda): 06 paleidžia projektą vietoje, 07 yra viena 3 val. Docker pamoka: pradžioje trumpas palyginimas, likęs laikas `run`, `ps`, `logs`, `exec`, `stop`. 08 yra kita 3 val. pamoka, image ir registrai. 09 yra 3 val. repeticija. Atskira „kodėl konteineriai“ paskaita nėra. Gruodį Docker sutrumpėja (volume ir tinklas įeina į Compose). Po Dockerfile, 16–19, prasideda Actions (workflow, testai per PR, apsauga, `docker build` be registro). 20 yra Docker kartojimas, 21 atsiskaitymas lieka Docker. Sausį Actions tęsiasi nuo image į registrą, ne nuo „kas yra workflow“. Datos 2026-11-30 ir 2026-12-17 patvirtintos ir nejuda. Aplankai `kursas/02`–`10` perrašyti 2026-11-15. Senos SSH, Git ir PR pamokos yra `medziaga/atideta/`. Nuo 11 pamokos aplankų pavadinimai diske dar seni.
+14. **2026-11-15, išpūstos pamokos.** Trys sausio Actions praktikos sujungtos į vieną (29), atsiskaitymas 3 yra 30 pamoka (2027-01-18, data orientacinė). Kubernetes prasideda 31 pamoka. Po 5 etapo atsiskaitymo, kai lokalus klasteris jau veikia, eina TLS ir gilesnė stebėsena (55–56). Kai pipeline iki AKS jau sudėtas, 75–76 yra Terraform moduliai ir Ansible. GitOps ir pipeline skenavimas telpa į vieną pamoką (74). Python ir MySQL pagrindai dėstomi kitų mokytojų, čia tik kodo skaitymas ir taisymas. DI nuo 14 pamokos: paprašyti, paleisti, pataisyti vieną dalyką pačiam.
 
 ## 3. Kalendorius ir pertraukos
 
@@ -69,25 +70,25 @@ Mokyklos tvarkaraštis (Justina Balsė, 2026-10-26) žinomas tik iki 2027-01-01.
 
 | Etapas | Tema | Paskaitos | Datos | Atsiskaitymas |
 |---|---|---|---|---|
-| 1 etapas | Linux, Bash, projekto paleidimas | 1–10 (10) | 2026-11-11 – 2026-11-30 | 2026-11-30 |
+| 1 etapas | Linux, Bash, projekto paleidimas | 01–02 ir 04–10 (9) | 2026-11-11 – 2026-11-30 | 2026-11-30 |
 | 2 etapas | Docker, tada pirmas workflow | 7–8 ir 11–21 | 2026-11-23 – 2026-12-17 | 2026-12-17 |
-| 3 etapas | GitHub Actions (tęsinys) | 22–32 (11) | 2027-01-04 – 2027-01-20 | 2027-01-20 |
-| 4 etapas | Kubernetes pagrindai | 33–45 (13) | 2027-01-21 – 2027-03-04 | 2027-03-04 |
-| 5 etapas | Kubernetes praktikoje | 46–56 (11) | 2027-03-08 – 2027-03-25 | 2027-03-25 |
+| 3 etapas | GitHub Actions (tęsinys) | 22–30 (9) | 2027-01-04 – 2027-01-18 | 2027-01-18 |
+| 4 etapas | Kubernetes pagrindai | 31–43 (13) | 2027-01-19 – 2027-03-02 | 2027-03-02 |
+| 5 etapas | Kubernetes praktikoje, tada TLS ir stebėsena | 44–56 (13) | 2027-03-03 – 2027-03-25 | 2027-03-23 |
 | 6 etapas | Azure | 57–68 (12) | 2027-04-19 – 2027-05-06 | 2027-05-06 |
-| 7 etapas | Pilnas pipeline ir baigiamasis projektas | 69–80 (12) | 2027-05-10 – 2027-05-27 | 2027-05-27 |
+| 7 etapas | Pipeline, papildomos temos, baigiamasis | 69–80 (12) | 2027-05-10 – 2027-05-27 | 2027-05-27 |
 
-4 etapas (Kubernetes pagrindai) paskaitos 33–37 patenka į sausio pabaigą, o 38–45 į vasario pabaigą ir kovą, nes viduryje yra DB modulis. Po pertraukos pirmą paskaitą verta skirti kartojimui.
+4 etapas prasideda 31 pamoka (2027-01-19). 31–37 yra iki DB modulio, 38 yra kartojimas ir namespace po jo. Atsiskaitymas yra 43 pamoka (2027-03-02).
 
 Tikslai:
 
 1 etapas. Linux, Bash, projekto paleidimas: terminalas, skriptas, kuris paleidžia projektą, ir jau turimas Pull Request. Atskiras Git kartojimas nedėstomas.
 2 etapas. Docker: projektas su duomenų baze paleidžiamas viena komanda. Pradžia 11-23, atsiskaitymas 12-17.
-3 etapas. GitHub Actions: pirmas workflow ir testai per PR dar gruodį (16–19), po Dockerfile. `main` apsauga yra 18 pamoka. Sausį image keliamas į registrą.
+3 etapas. GitHub Actions: pirmas workflow ir testai per PR dar gruodį (16–19). Sausį image keliamas į registrą. Trys praktikos sujungtos į 29 pamoką. Atsiskaitymas 30 pamoka.
 4 etapas. Kubernetes pagrindai: Projektas veikia lokaliame klasteryje (kind arba minikube) ir pasiekiamas iš naršyklės.
-5 etapas. Kubernetes praktikoje: Projektas supakuotas kaip Helm chart, stebimas ir pats prisitaiko prie apkrovos.
+5 etapas. Kubernetes praktikoje: projektas supakuotas kaip Helm chart. Po atsiskaitymo, kai klasteris jau veikia, TLS ir gilesnė stebėsena.
 6 etapas. Azure: Visa infrastruktūra aprašyta kodu ir sukuriama bei ištrinama viena komanda, kad kreditai būtų naudojami tik pamokų metu.
-7 etapas. Pilnas pipeline ir baigiamasis projektas: Push į main automatiškai pasiekia AKS, o mokinys gali paaiškinti kiekvieną žingsnį.
+7 etapas. Pipeline iki AKS, tada Terraform moduliai ir Ansible, tada baigiamasis projektas. GitOps ir skenavimas yra viena pamoka.
 
 ## 5. Paskaitų lentelė (80)
 
@@ -96,18 +97,18 @@ Datos nuo 2027-01-01 orientacinės. Stulpelis „Aplankas“ yra aplankas `kursa
 | Nr | Data | Aplankas | Tema | Būsena |
 |---|---|---|---|---|
 | 01 | 2026-11-11 | 01 Kas yra DevOps | Kas yra DevOps ir Git nuo nulio aplanke `git-bandymas`. | dėstyta |
-| 02 | 2026-11-12 | 02 Linux terminalas | Tas pats `git-bandymas`: navigacija, failai, srautai, teisės, skriptas, pirmas Pull Request. Šablono nėra. | parašyta, pamoka dar neįvyko |
-| 03 | 2026-11-16 | 03 Procesai ir paketai | Procesai, aplinkos kintamieji, paketai. Tas pats `git-bandymas`. | parašyta |
+| 02 | 2026-11-16 | 02 Linux terminalas | 02 ir 03 sujungtos. Pasitikrinimas to, ką išlaikė pas Edgarą, tada skriptas, `export`, `brew`/`apt`, pirmas Pull Request. 2026-11-12 pamoka neįvyko. | parašyta, pamoka dar neįvyko |
+| 03 | — | sujungta į 02 | Atskira pamoka nedėstoma. Medžiaga `medziaga/atideta/03 Procesai ir paketai`. | sujungta |
 | 04 | 2026-11-17 | 04 Bash skriptai | Argumentai, `if`, `for`, išėjimo kodai, `.gitignore`, `git restore`. Tas pats `git-bandymas`. | parašyta |
 | 05 | 2026-11-18 | 05 Tinklų pagrindai | IP, portai, DNS, HTTP, `curl`. Serveris `python3 -m http.server`. Flask dar nėra. | parašyta |
-| 06 | 2026-11-19 | 06 Projekto paleidimas lokaliai | Šablonas `devops-projektas`, `./run.sh`, `/health`, `.env`, `paleisti.sh`. SSH ne čia. | parašyta |
+| 06 | 2026-11-19 | 06 Projekto paleidimas lokaliai | Šablonas `devops-projektas`, `./run.sh`, `/health`, `.env`, `paleisti.sh`. Trumpai randa `/health` faile `app.py`. SQL nėra. | parašyta |
 | 07 | 2026-11-23 | 07 Docker pradžia | 3 val. Pradžioje „pas mane veikia“ ir VM prieš konteinerį. Toliau `run`, `ps`, `logs`, `exec`, `stop`. | parašyta |
 | 08 | 2026-11-24 | 08 Image ir registrai | Tag'as, sluoksniai, dydis. `docker login` su access token, ne slaptažodžiu. | parašyta |
 | 09 | 2026-11-26 | 09 Pasiruošimas atsiskaitymui 1 | `paleisti.sh`, šablono repo, bent 3 sulieti PR aplanke `git-bandymas`. Naujos temos nėra. 11-25 paskaitos nėra. | parašyta |
 | 10 | 2026-11-30 | 10 Atsiskaitymas 1 | Linux, Git, Bash, tinklai ir `paleisti.sh`. Trys PR yra `git-bandymas`. Docker nevertinamas. | parašyta: testas, praktika, vertinimas |
 | 11 | 2026-12-01 | 11 Pirmasis Dockerfile | Dockerfile projektui. | yra pagrindas iš senos 12.2; PostgreSQL pakeisti į MySQL |
 | 12 | 2026-12-02 | 12 Mažesnis image | cache, `.dockerignore`, multi-stage. | perkelta iš buvusios 15 |
-| 13 | 2026-12-03 | 13 Docker Compose | app + MySQL, volume ir tinklas šioje pamokoje, ne atskirai. | yra pagrindas iš senos 12.3; PostgreSQL pakeisti į MySQL |
+| 13 | 2026-12-03 | 13 Docker Compose | app + MySQL, volume ir tinklas šioje pamokoje. SQL nerašomas: DB modulis dar nepraėjęs. | yra pagrindas iš senos 12.3; PostgreSQL pakeisti į MySQL |
 | 14 | 2026-12-07 | 14 Docker saugumas | ne-root vartotojas, image skenavimas (pvz. Trivy). | perkelta iš buvusios 19 |
 | 15 | 2026-12-08 | 15 Sulaužyk ir pataisyk Docker | Sugedę Dockerfile ir compose failai. | gali naudoti sugadintas/ iš senos 12.3 |
 | 16 | 2026-12-09 | 16 Pirmas workflow | `on`, `jobs`, `steps`. Pirmas Actions, dar be registro. | perkelta iš buvusios 22 |
@@ -123,34 +124,34 @@ Datos nuo 2027-01-01 orientacinės. Stulpelis „Aplankas“ yra aplankas `kursa
 | 26 | 2027-01-11 | 26 Image tag ir release | Tag pagal commit SHA ir versiją, release. | perkelta iš buvusios 29 |
 | 27 | 2027-01-12 | 27 Pakartotiniai workflow | Pakartotinai naudojami workflow ir composite actions. | perkelta iš buvusios 30 |
 | 28 | 2027-01-13 | 28 Sulaužyk ir pataisyk Actions | Neveikiantys workflow, log'ai, teisės. | perkelta iš buvusios 31 |
-| 29 | 2027-01-14 | 29 Actions praktika | Nuo PR testo iki image. Naujos temos nėra. | reikia sukurti |
-| 30 | 2027-01-18 | 30 Actions praktika | Tas pats pipeline kitu pavyzdžiu. Naujos temos nėra. | reikia sukurti |
-| 31 | 2027-01-19 | 31 Actions kartojimas | Prieš atsiskaitymą. Naujos temos nėra. | reikia sukurti |
-| 32 | 2027-01-20 | 32 Atsiskaitymas 3 | Atsiskaitymas: pipeline, kuris PR'e paleidžia testus, o main šakoje sukuria ir išsaugo image. | reikia sukurti: testas.md, praktika.md, vertinimas.md, sprendimai/ |
-| 33 | 2027-01-21 | 33 Kubernetes architektūra | Kam reikia orkestravimo, Kubernetes architektūra. | reikia sukurti |
-| 34 | 2027-01-25 | 34 Lokalus klasteris ir kubectl | Lokalaus klasterio paruošimas, kubectl pagrindai. | reikia sukurti |
-| 35 | 2027-01-26 | 35 Pod | Pod'ai: paleidimas, log'ai, exec, describe. | reikia sukurti |
-| 36 | 2027-01-27 | 36 YAML ir kubectl apply | Deklaratyvus YAML ir kubectl apply. | reikia sukurti |
-| 37 | 2027-01-28 | 37 Deployment ir rollback | Deployment ir ReplicaSet, rolling update ir rollback. | reikia sukurti |
-| 38 | 2027-02-22 | 38 Service | Service: ClusterIP, NodePort, LoadBalancer. | reikia sukurti |
-| 39 | 2027-02-23 | 39 ConfigMap ir Secret | ConfigMap ir Secret. | reikia sukurti |
-| 40 | 2027-02-24 | 40 Namespace ir labels | Namespace'ai ir labels/selectors. | reikia sukurti |
-| 41 | 2027-02-25 | 41 Probe | Liveness ir readiness probe'ai. | reikia sukurti |
-| 42 | 2027-03-01 | 42 Ingress | Ingress: prieiga per HTTP maršrutus. | reikia sukurti |
-| 43 | 2027-03-02 | 43 Requests ir limits | Resource requests ir limits. | reikia sukurti |
-| 44 | 2027-03-03 | 44 Sulaužyk ir pataisyk Kubernetes | „Sulaužyk ir pataisyk“: CrashLoopBackOff, ImagePullBackOff, neveikiantis Service. | reikia sukurti |
-| 45 | 2027-03-04 | 45 Atsiskaitymas 4 | Atsiskaitymas: projektas (app + DB) veikia klasteryje su Ingress, probe'ais ir konfigūracija ConfigMap/Secret. | reikia sukurti: testas.md, praktika.md, vertinimas.md, sprendimai/ |
-| 46 | 2027-03-08 | 46 PV, PVC ir StorageClass | Duomenų saugojimas: PersistentVolume, PVC, StorageClass. | reikia sukurti |
-| 47 | 2027-03-09 | 47 StatefulSet duomenų bazei | StatefulSet duomenų bazei (MySQL). | reikia sukurti |
-| 48 | 2027-03-10 | 48 Jobs ir CronJobs | Jobs ir CronJobs (pvz., DB atsarginė kopija). | reikia sukurti |
-| 49 | 2027-03-15 | 49 Helm pagrindai | Helm: kas tai, esamų chart'ų naudojimas. | reikia sukurti |
-| 50 | 2027-03-16 | 50 Savo Helm chart | Savo Helm chart'as projektui. | reikia sukurti |
-| 51 | 2027-03-17 | 51 Helm values aplinkoms | Helm values skirtingoms aplinkoms (dev, prod). | reikia sukurti |
-| 52 | 2027-03-18 | 52 HPA ir apkrovos testas | Horizontal Pod Autoscaler ir apkrovos testas. | reikia sukurti |
-| 53 | 2027-03-22 | 53 Prometheus ir Grafana | Stebėsena: Prometheus ir Grafana. | reikia sukurti |
-| 54 | 2027-03-23 | 54 Log ir trikčių paieška | Log'ų rinkimas ir trikčių paieška. | reikia sukurti |
-| 55 | 2027-03-24 | 55 RBAC ir NetworkPolicy | Saugumas: RBAC, ServiceAccount, NetworkPolicy. | reikia sukurti |
-| 56 | 2027-03-25 | 56 Atsiskaitymas 5 | Atsiskaitymas: projektas įdiegiamas su Helm, plius praktinė derinimo užduotis, kurioje reikia rasti ir pataisyti 3 klaidas klasteryje. | reikia sukurti: testas.md, praktika.md, vertinimas.md, sprendimai/ |
+| 29 | 2027-01-14 | 29 Actions praktika | Viena praktika nuo PR testo iki image. Sujungtos buvusios trys praktikos. | reikia sukurti |
+| 30 | 2027-01-18 | 30 Atsiskaitymas 3 | Atsiskaitymas: pipeline, kuris PR'e paleidžia testus, o main šakoje sukuria ir išsaugo image. | reikia sukurti: testas.md, praktika.md, vertinimas.md |
+| 31 | 2027-01-19 | 31 Kubernetes architektūra | Kam reikia orkestravimo, Kubernetes architektūra. | reikia sukurti |
+| 32 | 2027-01-20 | 32 Lokalus klasteris ir kubectl | Lokalaus klasterio paruošimas, kubectl pagrindai. | reikia sukurti |
+| 33 | 2027-01-21 | 33 Pod | Pod'ai: paleidimas, log'ai, exec, describe. | reikia sukurti |
+| 34 | 2027-01-25 | 34 YAML ir kubectl apply | Deklaratyvus YAML ir kubectl apply. | reikia sukurti |
+| 35 | 2027-01-26 | 35 Deployment ir rollback | Deployment ir ReplicaSet, rolling update ir rollback. | reikia sukurti |
+| 36 | 2027-01-27 | 36 Service | Service: ClusterIP, NodePort, LoadBalancer. Iki DB modulio. | reikia sukurti |
+| 37 | 2027-01-28 | 37 ConfigMap ir Secret | ConfigMap ir Secret. | reikia sukurti |
+| 38 | 2027-02-22 | 38 Kartojimas ir namespace | Po DB modulio: kartojimas ir namespace bei labels. | reikia sukurti |
+| 39 | 2027-02-23 | 39 Probe | Liveness ir readiness probe'ai. | reikia sukurti |
+| 40 | 2027-02-24 | 40 Ingress | Ingress: prieiga per HTTP maršrutus. | reikia sukurti |
+| 41 | 2027-02-25 | 41 Requests ir limits | Resource requests ir limits. | reikia sukurti |
+| 42 | 2027-03-01 | 42 Sulaužyk ir pataisyk Kubernetes | CrashLoopBackOff, ImagePullBackOff, neveikiantis Service. | reikia sukurti |
+| 43 | 2027-03-02 | 43 Atsiskaitymas 4 | Projektas ir DB veikia klasteryje su Ingress, probe'ais ir ConfigMap/Secret. | reikia sukurti: testas.md, praktika.md, vertinimas.md |
+| 44 | 2027-03-03 | 44 PV, PVC ir StorageClass | Duomenų saugojimas: PersistentVolume, PVC, StorageClass. | reikia sukurti |
+| 45 | 2027-03-04 | 45 StatefulSet duomenų bazei | StatefulSet duomenų bazei. Pradžioje trumpas SQL prisiminimas: perskaito `schema.sql`. DB modulis jau būna pasibaigęs. | reikia sukurti |
+| 46 | 2027-03-08 | 46 Jobs ir CronJobs | Jobs ir CronJobs (pvz., DB atsarginė kopija). | reikia sukurti |
+| 47 | 2027-03-09 | 47 Helm pagrindai | Helm: kas tai, esamų chart'ų naudojimas. | reikia sukurti |
+| 48 | 2027-03-10 | 48 Savo Helm chart | Savo Helm chart'as projektui. | reikia sukurti |
+| 49 | 2027-03-15 | 49 Helm values aplinkoms | Helm values skirtingoms aplinkoms (dev, prod). | reikia sukurti |
+| 50 | 2027-03-16 | 50 HPA ir apkrovos testas | Horizontal Pod Autoscaler ir apkrovos testas. | reikia sukurti |
+| 51 | 2027-03-17 | 51 Prometheus ir Grafana | Stebėsena: Prometheus ir Grafana, be PromQL gylio. | reikia sukurti |
+| 52 | 2027-03-18 | 52 Log ir trikčių paieška | Log'ų rinkimas ir trikčių paieška. | reikia sukurti |
+| 53 | 2027-03-22 | 53 RBAC ir NetworkPolicy | Saugumas: RBAC, ServiceAccount, NetworkPolicy. | reikia sukurti |
+| 54 | 2027-03-23 | 54 Atsiskaitymas 5 | Helm diegimas ir 3 klaidų taisymas klasteryje. | reikia sukurti: testas.md, praktika.md, vertinimas.md |
+| 55 | 2027-03-24 | 55 TLS ir sertifikatai | TLS ant jau veikiančio Ingress. Papildoma tema, ne 5 atsiskaitymo dalis. | reikia sukurti |
+| 56 | 2027-03-25 | 56 Stebėsena plačiau | PromQL, Alertmanager, Loki. Papildoma tema, klasteris jau stovi. | reikia sukurti |
 | 57 | 2027-04-19 | 57 Debesų pagrindai ir Azure | Pradžioje SSH raktas (perkelta iš buvusios 06), tada portalas, subscription ir resource group. | reikia sukurti |
 | 58 | 2027-04-20 | 58 Azure CLI ir kaštai | Azure CLI, kaštų kontrolė: budget alert'ai, resursų trynimas po pamokos. | reikia sukurti |
 | 59 | 2027-04-21 | 59 Entra ID ir RBAC | Microsoft Entra ID, RBAC ir service principal'ai. | reikia sukurti |
@@ -168,12 +169,12 @@ Datos nuo 2027-01-01 orientacinės. Stulpelis „Aplankas“ yra aplankas `kursa
 | 71 | 2027-05-12 | 71 Aplinkos ir approve | Aplinkos ir patvirtinimai: staging ir production, rankinis approve. | reikia sukurti |
 | 72 | 2027-05-13 | 72 Deploy strategijos | Deploy strategijos: rolling, blue-green, canary, rollback. | reikia sukurti |
 | 73 | 2027-05-17 | 73 Infrastruktūros pipeline | Infrastruktūros pipeline: Bicep/Terraform per Actions. | reikia sukurti |
-| 74 | 2027-05-18 | 74 GitOps apžvalga | GitOps idėja (Argo CD arba Flux) kaip apžvalga. | reikia sukurti |
-| 75 | 2027-05-19 | 75 DevSecOps | DevSecOps: priklausomybių ir image skenavimas pipeline'e. | reikia sukurti |
-| 76 | 2027-05-20 | 76 Incidentų imitacija | Incidentų imitacija: kažkas sulūžta production, komanda taiso. | reikia sukurti |
-| 77 | 2027-05-24 | 77 Baigiamasis projektas 1 | Baigiamojo projekto darbas. | reikia sukurti |
-| 78 | 2027-05-25 | 78 Baigiamasis projektas 2 | Baigiamojo projekto darbas, konsultacijos. | reikia sukurti |
-| 79 | 2027-05-26 | 79 Kartojimas | Kartojimas prieš egzaminą. | reikia sukurti |
+| 74 | 2027-05-18 | 74 GitOps ir skenavimas | GitOps apžvalga ir skenavimas pipeline'e. Viena pamoka, ne dvi. | reikia sukurti |
+| 75 | 2027-05-19 | 75 Terraform moduliai ir state | Moduliai ir state. Pagrindai jau buvo 65–66, pipeline jau yra. | reikia sukurti |
+| 76 | 2027-05-20 | 76 Ansible | Ansible jau turimam serveriui. Papildoma tema prieš projektą. | reikia sukurti |
+| 77 | 2027-05-24 | 77 Incidentų imitacija | Kažkas sulūžta. Prisiminus Python ir SQL, pataiso vieną eilutę `app.py` arba užklausoje. | reikia sukurti |
+| 78 | 2027-05-25 | 78 Baigiamasis projektas 1 | Baigiamojo projekto darbas. | reikia sukurti |
+| 79 | 2027-05-26 | 79 Baigiamasis projektas 2 | Baigiamojo projekto darbas, konsultacijos. | reikia sukurti |
 | 80 | 2027-05-27 | 80 Baigiamojo projekto gynimas | Atsiskaitymas: baigiamojo projekto gynimas, 10–15 min. kiekvienam: demonstracija ir klausimai apie pipeline'ą. | reikia sukurti: testas.md, praktika.md, vertinimas.md, sprendimai/ |
 
 ## 6. Atsiskaitymai
@@ -184,9 +185,9 @@ Kiekvienas atsiskaitymas: teorijos testas (30 klausimų, 35 min.) ir praktika (u
 |---|---|---|---|
 | 1 | 2026-11-30 (patvirtinta) | 10 Atsiskaitymas 1 | Linux, Bash, Git, GitHub, projekto paleidimas |
 | 2 | 2026-12-17 (patvirtinta) | 21 Atsiskaitymas 2 | Docker, Compose, MySQL konteineryje |
-| 3 | 2027-01-20 | 32 Atsiskaitymas 3 | GitHub Actions: CI, image push |
-| 4 | 2027-03-04 | 45 Atsiskaitymas 4 | Kubernetes pagrindai |
-| 5 | 2027-03-25 | 56 Atsiskaitymas 5 | Helm, duomenys, stebėsena, derinimas |
+| 3 | 2027-01-18 | 30 Atsiskaitymas 3 | GitHub Actions: CI, image push |
+| 4 | 2027-03-02 | 43 Atsiskaitymas 4 | Kubernetes pagrindai |
+| 5 | 2027-03-23 | 54 Atsiskaitymas 5 | Helm, duomenys, stebėsena, derinimas |
 | 6 | 2027-05-06 | 68 Atsiskaitymas 6 | Azure, infrastruktūra kodu, AKS |
 | 7 | 2027-05-27 | 80 Baigiamojo projekto gynimas | Baigiamojo projekto gynimas |
 
@@ -218,16 +219,16 @@ Kiekvienas atsiskaitymas: teorijos testas (30 klausimų, 35 min.) ir praktika (u
 
 Senas projektas lieka nepakeistas, naujas kuriamas atskirame aplanke. Senas programos failas `visi-metai-iki-finalinio-projekto.md` nebenaudojamas. Excel `DevOps_mokymo_planas_2026-2027.xlsx` (senas ISP planas) reikia atnaujinti pagal šį failą.
 
-## 8. Vėliau, pagal tempą
+## 8. Papildomos temos
 
-Šios temos svarbios, bet dabar nededamos, kad kursas nebūtų per sunkus. Sprendimas sausio viduryje, kai bus matyti mokinių tempas ir kiek laiko liko:
+Įdėtos ten, kur studentas jau moka tai, ant ko jos stovi. Atsirado sujungus tris Actions praktikas į vieną ir GitOps su skenavimu į vieną pamoką.
 
-1. Gilesnis saugumas (tinklo saugumas, TLS ir sertifikatai, pažeidžiamumų valdymas, paslapčių valdymas).
-2. Monitoringas ir žurnalai plačiau (PromQL, Alertmanager, Loki).
-3. Terraform plačiau (moduliai, state).
-4. Ansible.
+1. TLS ir sertifikatai: 55 pamoka, po 5 atsiskaitymo, kai Ingress jau veikia.
+2. PromQL, Alertmanager, Loki: 56 pamoka, kai Prometheus ir log'ai jau būna (51–52).
+3. Terraform moduliai ir state: 75 pamoka, kai pagrindai (65–66) ir pipeline (73) jau yra.
+4. Ansible: 76 pamoka, kai Azure serveris jau būna.
 
-Jau yra plane: image skenavimas (14), Secrets ir RBAC/NetworkPolicy (39, 55), Prometheus ir Grafana (53), Bicep/Terraform pradmenys (65, 66), DevSecOps ir GitOps apžvalga (74, 75). SSH ir raktai dėstomi 57 pamokos pradžioje, prieš Azure portalą.
+Pagrindai, ant kurių tai stovi: image skenavimas (14), ConfigMap/Secret (37), RBAC (53), Prometheus (51), Terraform pradmenys (65–66), GitOps ir skenavimas vienoje pamokoje (74). SSH yra 57 pamokos pradžia. Python skaito iš Karolinos kurso, SQL iš vasario DB modulio. Atskiros jų paskaitos čia nededamos.
 
 ## 9. Pradinis projektas (Python + Flask + MySQL)
 
@@ -236,7 +237,7 @@ Dėstytojas paskelbia repo `devops-projektas` kaip GitHub template iki 06 pamoko
 1. Flask API su `/health` ir 2–3 maršrutais (pvz. `/items` sąrašas ir pridėjimas).
 2. Prisijungimas prie MySQL tik per aplinkos kintamuosius (`DB_HOST`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`); `.env.example` be tikrų reikšmių, `.env` į `.gitignore`.
 3. Lokalus paleidimas be MySQL (SQLite pagal numatytuosius), kad 06 pamokoje nereikėtų diegti MySQL. MySQL įjungiama 13 pamokoje su Compose.
-4. `schema.sql` ir `seed.sql`, kad mokiniams nereikėtų rašyti SQL.
+4. `schema.sql` ir `seed.sql`. Iki DB modulio pabaigos (2027-02-19) studentai SQL nerašo ir neredaguoja. MySQL tik paleidžiama. Po modulio, kuris eina po Karolinos Python kurso, ten, kur reikia skaityti ar taisyti SQL, pamoka prasideda trumpu prisiminimu. Python prisiminimas trumpas nuo 06 pamokos: randa `/health` faile `app.py` ir kodo neperrašo.
 5. `requirements.txt`, vienas paprastas `pytest` testas (17 pamokai) ir `README` su paleidimu viena komanda.
 6. Be Dockerfile, docker-compose ir workflow: tai mokiniai kuria patys 11, 13 ir 16–19 bei 23 paskaitose.
 7. Paskelbtas kaip GitHub „Template repository“. Prieš tai patikrinti, kad repo nėra privačių duomenų.
@@ -259,7 +260,7 @@ Dėstytojas paskelbia repo `devops-projektas` kaip GitHub template iki 06 pamoko
 
 1. **Tvarkaraštis po 2027-01-01.** Žinomas tik iki sausio 1 d. ir vasario DB modulis.
 2. **Pavasario atostogos, STVA savaitės ir birželio konsultacijos** paimtos iš Excel plano ir nepatikrintos. Nuo jų priklauso, ar yra laisvų paskaitų.
-3. **Linux paskaitos 02–05.** Edgaras mokė OS (2026-09-07 – 10-02). 06 jau yra paleidimas, ne Linux kartojimas.
+3. **Linux paskaitos.** Edgaras mokė OS (2026-09-07 – 10-02). 02 ir 03 sujungtos į vieną patikrą 2026-11-16. 04 yra Bash, 05 tinklai, 06 paleidimas.
 4. **Vertinimas.** Iš dalies išspręsta (žr. 6 skyrių: 40 % egzamino praktikos iš atsiskaitymų). Kaupiama paprastu vidurkiu (Justina 2026-11-12); neaišku tik galutinis kurso pažymys.
 5. **Azure kreditai.** Pagal užrašus baigiasi apie 2026-12-06, o Azure pradedamas 2027-04-19. Reikia naujų kreditų ar mokyklos laiško.
 6. **Pradinis repo.** Template `devops-projektas` reikalingas 06 pamokoje (2026-11-19). Iki tol mokiniai tęsia `git-bandymas`.
@@ -326,25 +327,14 @@ Etapo tikslas [planas]: terminalas, skriptas, kuris paleidžia projektą, ir jau
   4. sukurti šaką, persijungti (`git switch`), sujungti į `main` (`git merge`) ir nusiųsti.
 - **Pastaba:** 02–05 tęsia `git-bandymas`. Šablonas `devops-projektas` atsiranda 06 pamokoje, kai projektą reikia paleisti.
 
-#### 02 Linux terminalas (2026-11-12)
+#### 02 Linux terminalas (2026-11-16)
 
-- **Pamoka:** pasitikrinimas po 01, tas pats `git-bandymas` (be šablono), navigacija, failai, srautai, teisės, pirmas skriptas ir pirmas Pull Request.
+- **Pamoka:** 02 ir 03 sujungtos į vieną 3 val. pamoką. `pwd`, `ls`, `mkdir`, `grep`, `ps` tik pasitikrinami. Nauja: skriptas, `chmod 600`, `export` tik šiam langui, `brew`/`apt`, pirmas Pull Request. Tas pats `git-bandymas`.
 - **Studentas po pamokos gali:**
-  1. tęsti `~/Desktop/devops/git-bandymas` ir dirbti šakoje `pamoka-02`;
-  2. naršyti (`pwd`, `ls`, `cd`), kurti, kopijuoti ir perkelti failus bei aplankus;
-  3. peržiūrėti ir filtruoti tekstą srautais (`cat`, `head`, `tail`, `wc`, `sort`, `|`, `>`, `>>`, `grep`, `find`);
-  4. paaiškinti teises (`rwx`) ir nustatyti jas su `chmod`, suprasti `Permission denied`;
-  5. parašyti ir paleisti pirmą skriptą (`scripts/ataskaita.sh`);
-  6. atlikti darbą šakoje ir atidaryti Pull Request GitHub svetainėje.
-
-#### 03 Procesai ir paketai (2026-11-16)
-
-- **Pamoka:** procesai, aplinkos kintamieji, `PATH`, paketų tvarkyklė. Tas pats `git-bandymas`. `app.py` dar nėra.
-- **Studentas po pamokos gali:**
-  1. parodyti procesus (`ps`, `jobs`) ir sustabdyti procesą (`kill`);
-  2. nustatyti ir perskaityti aplinkos kintamąjį (`export`, `echo $VAR`), paaiškinti `PATH`;
-  3. įdiegti paketą (`apt` WSL, `brew` Mac) ir patikrinti versiją;
-  4. pamatyti, kad `export` galioja tik tam terminalo langui. `.env` bus 06 pamokoje.
+  1. tęsti `~/Desktop/devops/git-bandymas` šakoje `pamoka-02`;
+  2. parašyti ir paleisti `scripts/ataskaita.sh`;
+  3. sustabdyti `sleep` pagal PID ir pamatyti, kad `export` naujame lange neveikia;
+  4. įdiegti `tree` (`brew` arba `apt`) ir pateikti Pull Request.
 
 #### 04 Bash skriptai (2026-11-17)
 
@@ -368,7 +358,7 @@ Etapo tikslas [planas]: terminalas, skriptas, kuris paleidžia projektą, ir jau
 - **Pamoka:** `./run.sh`, `/health`, `/status`, `.env`, `paleisti.sh`. SSH ne čia.
 - **Studentas po pamokos gali:**
   1. paleisti projektą (`./run.sh`) ir atidaryti `/health` ir `/status`;
-  2. paleisti testus (`.venv/bin/pytest`);
+  2. paleisti testus (`.venv/bin/pytest`) ir rasti `/health` funkciją `app.py`, kodo nekeičiant;
   3. nustatyti `APP_COLOR` ir `APP_VERSION` per `.env` ir pamatyti pokytį;
   4. paaiškinti, kodėl `.env` į Git nekeliamas, ir parašyti `paleisti.sh`.
 
@@ -434,7 +424,7 @@ Etapo tikslas [planas]: projektas su duomenų baze paleidžiamas viena komanda. 
 - **Pamoka:** app + MySQL, volume ir tinklas šioje pačioje pamokoje.
 - **Studentas po pamokos gali:**
   1. parašyti `compose.yml` su programa ir MySQL;
-  2. prijungti volume ir pasiekti MySQL pagal konteinerio vardą, ne per `localhost`;
+  2. prijungti volume ir pasiekti MySQL pagal konteinerio vardą, ne per `localhost`. SQL nerašyti;
   3. paleisti `docker compose up` ir patikrinti `/status`.
 
 #### 14 Docker saugumas (2026-12-07)

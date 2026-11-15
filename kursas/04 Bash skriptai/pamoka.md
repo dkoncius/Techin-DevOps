@@ -6,7 +6,7 @@ Data: 2026-11-17 (antradienis)
 
 3 val. Skaidrėse **N** rodo pastabas. Kiekviena tema: skaidrės → jūsų demonstracija kitu pavyzdžiu → užduotis Teams'e → mokiniai daro savo. Užduotys eina viena gija: skriptas `scripts/patikra.sh` auga per 1–3 užduotis, 4 užduotis baigiama Pull Request.
 
-1. Pasitikrinimas po 03 (~10 min): parodykite 03 užduotis (komandos yra pačiose užduotyse); kam neveikė procesų stabdymas, paketų diegimas ar PR, kartu randame priežastį
+1. Pasitikrinimas po 02 (~10 min): 02 ir 03 buvo viena pamoka. Parodykite 02 užduotis. Kam neveikė `export`, `tree` ar Pull Request, kartu randame priežastį
 2. Argumentai, sąlyga ir išėjimo kodas (~25 min), tada Užduotis 1 (~20 min): [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/04%20Bash%20skriptai/skaidres/skaidres.html), 1–6 skaidrės; argumentai, sąlyga, išėjimo kodas
 3. Ciklas ir saugus skriptas (~10 min), tada Užduotis 2 (~20 min): skaidrė 7; masyvas, aritmetika, išėjimas pirmoje klaidoje
 4. Pertrauka (~15 min)

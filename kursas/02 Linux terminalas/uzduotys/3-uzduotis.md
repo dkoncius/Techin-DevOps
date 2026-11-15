@@ -1,23 +1,23 @@
-# 3 užduotis: Srautai ir paieška
+# 3 užduotis: Procesas, kintamasis ir paketas
 
-1. **Tikslas:** užpildyti pastabas, sujungti komandas per srautus ir išsaugoti paieškos rezultatus.
-2. Eikite į užrašus, jei dar ne ten: `cd ~/Desktop/devops/git-bandymas/uzrasai`. Į `komandos.txt` įrašykite po vieną eilutę:
-   - `echo ls > komandos.txt`
-   - `echo cd >> komandos.txt`
-   - `echo cp >> komandos.txt`
-   - `echo mv >> komandos.txt`
-   - `echo pwd >> komandos.txt`
-   `cat komandos.txt` rodo penkias eilutes ta tvarka. Pirma eilutė naudoja `>`, kitos `>>`.
-3. Surūšiuokite ekrane: `sort komandos.txt`. Įrašykite į naują failą: `sort komandos.txt > komandos-abeceles.txt`. `cat komandos-abeceles.txt` rodo tas pačias eilutes abėcėlės tvarka.
-4. Pridėkite eilutę neperrašydami senų: `echo grep >> komandos.txt`. `cat komandos.txt` gale turi `grep`.
-5. Suskaičiuokite: `wc -l komandos.txt`. Rodo 6.
-6. Pirmos dvi eilutės: `head -n 2 komandos.txt`. Paskutinės dvi: `tail -n 2 komandos.txt`.
-7. Vamzdis: `cat komandos.txt | grep p`. Lieka eilutės su raide `p`: `cp`, `pwd`, `grep`.
-8. Perrašykite `terminalas.txt`: `echo "Terminalas yra programa, kurioje komandas rašome tekstu." > terminalas.txt`. `cat terminalas.txt` rodo vieną eilutę.
-9. Grįžkite į aplanko šaknį: `cd ~/Desktop/devops/git-bandymas`. Suraskite žodį `Terminalas`: `grep -rn "Terminalas" . --exclude-dir=.git`. Sąraše yra `uzrasai.md`, `.git` nėra.
-10. Tą patį rezultatą be aplanko `uzrasai` įrašykite: `grep -rn "Terminalas" . --exclude-dir=.git --exclude-dir=uzrasai > paieska.txt`. `cat paieska.txt` nerodo kelių iš `uzrasai/`.
-11. Visų `.md` sąrašas be `.git`: `find . -name "*.md" -not -path "./.git/*" > failai.txt`. `cat failai.txt` turi `./uzrasai.md` ir neturi `.git`.
-12. Išsaugokite ta pačia eiga kaip 1 užduotyje. Žinutė: „Pridėtos pastabos ir paieškos rezultatai“. Istorijos viršuje turi būti ta žinutė. Komandas rasite Git cheat sheet.
-13. **Pateikimas:** terminalo nuotrauka, kur matosi `grep` rezultatas su `Terminalas`.
+1. **Tikslas:** sustabdyti savo procesą, pamatyti, kad `export` galioja tik šiam langui, ir įdiegti `tree`.
+2. `cd ~/Desktop/devops/git-bandymas`. Paleiskite foninį procesą: `sleep 30 &`.
+3. Raskite jį: `ps aux | grep sleep`. PID yra antras stulpelis eilutėje `sleep 30`. Eilutė su `grep` yra ne jūsų procesas.
+4. Sustabdykite: `kill` ir tas PID. Dar kartą `ps aux | grep sleep`. `sleep 30` nebėra.
+5. `nano scripts/aplinka.sh` ir įrašykite:
+
+```bash
+#!/usr/bin/env bash
+echo "PROJEKTO_VARDAS: ${PROJEKTO_VARDAS:-nenustatyta}"
+```
+
+Išsaugokite `Ctrl+O`, `Enter`, `Ctrl+X`.
+6. Leiskite vykdyti: `chmod +x scripts/aplinka.sh`.
+7. Sukurkite aplanką ir paleiskite: `mkdir -p docs`, tada `./scripts/aplinka.sh > docs/aplinka.txt`. `cat docs/aplinka.txt` rodo `nenustatyta`.
+8. Nustatykite kintamąjį šiam langui: `export PROJEKTO_VARDAS=visas`, tada `./scripts/aplinka.sh`. Išvestyje `visas`.
+9. Atidarykite naują terminalo langą: `cd ~/Desktop/devops/git-bandymas`, `echo $PROJEKTO_VARDAS`. Išvestis tuščia. `export` liko senajame lange.
+10. Įdiekite `tree`. Mac: `brew install tree`. Ubuntu / WSL: `sudo apt update`, tada `sudo apt install tree`. Mac'e nerašykite `sudo brew`. `tree --version` rodo versiją. `which tree` rodo kelią.
+11. Išsaugokite: `git add scripts/aplinka.sh docs`, `git commit -m "Aplinka ir paketas"`.
+12. **Pateikimas:** nuotrauka, kur naujas langas nerodo `visas`, ir `tree --version`.
 
 Jei užstrigote, pasižiūrėkite `linux komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

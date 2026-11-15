@@ -1,34 +1,31 @@
-# Linux komandos pradedantiesiems
+# Linux komandos
 
-## Judėjimas
-- `pwd` → print working directory: kur esu
-- `ls` → list: parodo failus (`ls -l` su detalėmis, `ls -a` su paslėptais, `ls -R` su pogrupiais)
-- `cd APLANKAS` → change directory: pereina į aplanką (`cd ..` aukštyn, `cd ~` į namus)
-
-## Failai ir aplankai
-- `mkdir -p KELIAS` → make directory: sukuria aplanką (ir tarpinius)
+## Vieta ir failai
+- `pwd` → kur esu
+- `ls` → kas yra aplanke (`ls -l` su teisėmis)
+- `cd APLANKAS` → pereina (`cd ..` aukštyn)
+- `mkdir -p KELIAS` → sukuria aplanką
 - `touch FAILAS` → sukuria tuščią failą
-- `cp ŠALTINIS TIKSLAS` → copy: nukopijuoja
-- `mv ŠALTINIS TIKSLAS` → move: perkelia arba pervadina
-- `cat FAILAS` → concatenate: parodo failo turinį
-- `nano FAILAS` → terminalo redaktorius (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`)
+- `nano FAILAS` → redaktorius (`Ctrl+O`, `Enter`, `Ctrl+X`)
+- `cat FAILAS` → parodo turinį
+- `grep -n "TEKSTAS" FAILAS` → randa eilutę su numeriu
+- `KOMANDA > FAILAS` → rezultatą įrašo į failą
 
-## Srautai ir paieška
-- `echo "TEKSTAS"` → išveda tekstą
-- `KOMANDA > FAILAS` → rezultatą įrašo į failą (perrašo)
-- `KOMANDA >> FAILAS` → rezultatą prideda gale
-- `KOMANDA1 | KOMANDA2` → pirmos rezultatą perduoda antrai
-- `sort FAILAS` → surikiuoja eilutes
-- `head -n 2 FAILAS` → pirmos eilutės (`tail` paskutinės)
-- `wc -l FAILAS` → suskaičiuoja eilutes
-- `grep "TEKSTAS" FAILAS` → randa eilutes su tekstu (`-r` aplanke, `-n` su numeriu)
-- `find . -name "*.md"` → randa failus pagal vardą
-
-## Teisės ir skriptai
-- `ls -l FAILAS` → rodo teises (`rwx`: skaityti, rašyti, vykdyti)
-- `chmod +x FAILAS` → change mode: leidžia vykdyti (x = execute)
+## Teisės ir skriptas
+- `chmod +x FAILAS` → leidžia vykdyti
 - `chmod 600 FAILAS` → tik savininkas skaito ir rašo
 - `./SKRIPTAS.sh` → paleidžia skriptą
 
-## Pagalba
-- `man KOMANDA` → manual: pagalba (išeiti `q`)
+## Procesas ir kintamasis
+- `KOMANDA &` → paleidžia fone, pvz. `sleep 30 &`
+- `ps aux | grep VARDAS` → randa procesą (PID yra antras stulpelis)
+- `kill PID` → prašo procesą baigti
+- `export VARDAS=reikšmė` → kintamasis tik šiam langui
+- `echo $VARDAS` → parodo kintamąjį
+- `which KOMANDA` → kur komanda yra
+
+## Paketas
+- `brew install PAKETAS` → Mac, be `sudo`
+- `sudo apt update` → Ubuntu / WSL, atnaujina sąrašą
+- `sudo apt install PAKETAS` → Ubuntu / WSL
+- `PROGRAMA --version` → versija

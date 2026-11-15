@@ -1,132 +1,124 @@
 === titulinė | Linux terminalas
 02 pamoka · 1 etapas
-- Tęsti `git-bandymas` iš 01 pamokos
-- Pakartoti terminalą ir tą patį darbą padaryti skriptu
-- Pateikti pirmą Pull Request
-Pastaba: ~5 min pasitikrinimas po 01. Parodykite 01 užduotis: 1 ir 2 komandos yra pačioje užduotyje, 3 užduoties sprendimas `3-uzduotis-sprendimas.md`. Šablono `devops-projektas` šioje pamokoje nėra: dirbame `~/Desktop/devops/git-bandymas`. Linux komandas jie jau mokėjo pas Edgarą. Nauja: skriptas, kuris pakartoja ranka darytą paiešką, teisės `600` ir pirmas Pull Request.
+- Kam terminalas, kai serveryje nėra pelės
+- Pagrindinės komandos: failai, procesas, paketas
+- Skriptas yra išsaugota komandų eilė
+Pastaba: ~2 min. Pirma tęsiame 01 projektą kita šaka, tada komandos. Pull Request lieka 4 užduotyje. `if` ir `for` yra 04 pamoka.
 
 === pagalvokime
-Serveris debesyje neturi nei pelės, nei lango.
-# Kaip jį valdyti tik tekstu?
-@iliustracija: serveris
-> Kaip pokalbis telefonu: nėra paveikslėlio, tik žodžiai, bet tiksliai ir greitai.
-Pastaba: ~3 min. Paklauskite, ką jie darė su Ubuntu. Mintis: tą pačią komandą galima įrašyti į skriptą. Šiandien jie pirma padarys paiešką ranka, paskui tą patį paleis skriptu.
+Instrukcija prasideda: „atidarykite terminalą“.
+# Kas yra terminalas?
+> Langas. Jame shell skaito jūsų eilutę ir paleidžia komandą.
+Pastaba: ~4 min. Be diagramos. Shell pas mus yra bash, ir Mac, ir Ubuntu. Prompt yra eilutė, kuri laukia. Jei po komandos iškart naujas prompt ir nėra teksto, dažniausiai pavyko.
 
-=== demonstracija | Tas pats aplankas, nauja šaka
+=== tekstas | Terminale nėra pelės
+- Renkatės eilute, ne paspaudimu
+- Serveris dažnai neturi langų
+- Komandos trumpos: `cd`, `ls`, `mv`
+Pastaba: ~3 min. Anksčiau terminalas buvo klaviatūra ir ekranas. Siuntė klavišus, atgal gavo tekstą. Todėl vardai liko trumpi. Schemos čia nerodykite.
+
+=== schema | Kaip veikia terminalas?
+```excalidraw
+file: terminalas-kaip-veikia
+box komanda | Terminalo\nkomanda | 0,0 | blue
+box skriptas | Bash\nskriptas | 1,0 | purple
+box programa | Programa\npaleidžiama | 2,0 | orange
+arrow komanda -> skriptas
+arrow skriptas -> programa
+```
+Pastaba: ~3 min. Komanda terminale gali būti bash skriptas. Skriptas paleidžia programą, pavyzdžiui `grep`. `if` ir `for` čia dar nėra: skriptas tik išsaugo komandas.
+
+=== demonstracija | Tęsiame tą patį projektą
 ```bash
 cd ~/Desktop/devops/demo-a
 git switch main
 git pull
+git status
 git switch -c demo-02
-nano pradzia.md
-git add pradzia.md
-git commit -m "Demo: pradžia"
-```
-+ `demo-a` jau yra iš 01 demonstracijos. Naujo `git clone` nėra
-Pastaba: ~8 min. Kiti vardai nei užduotyje: aplankas `demo-a`, šaka `demo-02`, failas `pradzia.md` su `# Demo` (ne `uzrasai.md`). `nano`: `Ctrl+O`, `Enter`, `Ctrl+X` (Mac'e Control, ne Cmd). Šią Git eigą rodote vieną kartą. Paskelbkite 1 užduotį.
-
-=== demonstracija | Kur esu
-```bash
-pwd
-ls -la
-cd demo
-cd ..
-cd ~/devops/demo-a
-```
-+ `/` šaknis, `~` namai, `.` čia, `..` aukštyn
-+ Kai neprisimenate vėliavos: `man ls` (išeiti `q`). Mac `ls --help` neveikia
-Pastaba: ~4 min. Jie tai moka. Tab užbaigia vardą, rodyklė aukštyn grąžina komandą. `man` reikės 2 užduoties papildomai (`ls -lS`).
-
-=== demonstracija | Aplankai ir failai
-```bash
-mkdir -p demo/vaisiai
-touch demo/vaisiai/obuolys.txt demo/vaisiai/kriause.txt
-cp demo/vaisiai/obuolys.txt demo/vaisiai/kriause.txt
-mv demo/vaisiai/kriause.txt demo/slyva.txt
-ls -R demo
-```
-+ `cp` kopijuoja, `mv` perkelia arba pervadina
-Pastaba: ~6 min. Vardai kiti nei užduotyje (`uzrasai`, `komandos.txt`, `archyvas`). Kurse nenaudojame `rm -rf`. Paskelbkite 2 užduotį. `mkdir`, `cp` ir `mv` daugiau užduotyse neberašome: yra `linux komandos.pdf`.
-
-=== demonstracija | Srautai
->>+ obuolys | sort | rusiuota.txt
-```bash
-echo obuolys > vaisiai.txt
-echo anasas >> vaisiai.txt
-echo banana >> vaisiai.txt
-sort vaisiai.txt > rusiuota.txt
-wc -l vaisiai.txt
-head -n 2 vaisiai.txt
-tail -n 2 vaisiai.txt
-cat vaisiai.txt | grep an
-```
-+ `>` perrašo visą failą, `>>` prideda gale
-Pastaba: ~8 min. Failas `vaisiai.txt`, ne mokinių `komandos.txt`. Greitas patikrinimas: `echo a > lapas.txt`, `echo b >> lapas.txt`, `echo c > lapas.txt`. `cat` rodo tik `c`. Dažna klaida: `>` vietoje `>>`.
-
-=== demonstracija | Paieška
-```bash
-grep -rn "obuolys" demo
-find demo -name "*.txt"
-```
-+ Tą pačią paiešką užduotyje jie darys žodžiui `Terminalas`
-Pastaba: ~5 min. Neieškokite `Terminalas` ir nerašykite į `uzrasai/`. Commit „Demo: srautai“ ta pačia eiga kaip pirma demonstracija. Paskelbkite 3 užduotį.
-
-=== tekstas | Teisės
-@iliustracija: raktas
-| Sakinys | Reiškia |
-|---|---|
-| `-rw-r--r--` (644) | ?Savininkas skaito ir rašo, kiti tik skaito |
-| `-rwxr-xr-x` (755) | ?Visi gali vykdyti, savininkas ir keisti |
-| `-rw-------` (600) | ?Tik savininkas: tinka raktams ir `.env` |
-Pastaba: ~5 min. Pildykite kartu. Pirmas simbolis `-` failas, `d` aplankas. Trys trynukai: savininkas, grupė, kiti. Parodykite `ls -l run.sh` projekte: jis jau vykdomas.
-
-=== demonstracija | Skriptas kartoja rankų darbą
-```bash
-#!/usr/bin/env bash
-echo "Aplankas: $(pwd)"
-echo "Vaisiai: $(ls demo/vaisiai | wc -l | tr -d ' ')"
-find demo -name "*.txt"
-grep -n "an" vaisiai.txt
-```
-```bash+
-nano labas.sh
-./labas.sh
-chmod +x labas.sh
-./labas.sh > demo/saskaita.txt
-touch ~/devops/demo-raktas.txt
-chmod 600 ~/devops/demo-raktas.txt
+git branch
 ```
 ```output+
-Aplankas: /Users/.../demo-a
-Vaisiai: 1
+* demo-02
+  main
 ```
-Pastaba: ~8 min. `labas.sh` daro tą patį, ką ranka: skaičius, `find`, `grep`. Kiti vardai nei `scripts/ataskaita.sh` ir `~/devops/slaptas.txt`. Pirmas `./labas.sh` baigiasi permission denied. Paskelbkite 4 užduotį.
++ Kodėl šaka? `main` lieka kaip po 01 pamokos. Šios dienos failai jo neliečia, kol nesujungsite.
+Pastaba: ~8 min. Tas pats aplankas, naujo repo nėra. Ne `git-bandymas`, ne `pamoka-02`. `git status` prieš šaką turi būti švarus. Commit darote kitoje skaidrėje, kai failas jau yra.
 
-=== demonstracija | Pull Request
+=== demonstracija | Failas, paieška, commit
 ```bash
-git push -u origin demo-02
+pwd
+ls
+mkdir -p juodrastis
+nano pradzia.md
+grep -n "Demo" pradzia.md
 ```
-+ **Compare & pull request** → pavadinimas „Vaisiai“ → **Files changed** → **Merge pull request**
+```output+
+1:# Demo
+```
 ```bash+
-git switch main
-git pull
-git branch -d demo-02
-git push origin --delete demo-02
+git add pradzia.md
+git status
+git commit -m "Demo: pradžia"
+git log --oneline
 ```
-Pastaba: ~6 min. Pavadinimas ne „Terminalas“, šaka `demo-02`. `git push origin --delete` cheat sheet nėra, todėl ji lieka ir mokinių 5 užduotyje. `switch`, `pull` ir `branch -d` yra cheat sheet: užduotyje jų neberašome, čia parodote vieną kartą. Dažna klaida: PR sulietas, bet kompiuteryje nepadarytas `git pull`. Paskelbkite 5 užduotį.
++ Faile tik `# Demo`. Išsaugoti `Ctrl+O`, `Enter`, `Ctrl+X` (Mac Control, ne Cmd).
+> `grep` randa eilutę. `pwd` ir `ls` tik patikrina, kur esate.
+Pastaba: ~10 min. Šaka jau `demo-02`. Ne `uzrasai.md`. `mkdir` ir `grep` jie moka, čia jie ruošia commit. Paskelbkite 1 užduotį.
 
-=== klaida | Dažnos klaidos
-+:: | Permission denied | Trūksta `x`: `chmod +x`. `bash skriptas` veikia ir be jos
-+:: | Klonuota į `/mnt/c` | Perkelkite į `~/devops`
-+:: | Ne tas aplankas | Tęskite `git-bandymas`, ne naują repozitoriją
-+:: | `>` vietoje `>>` | Failas perrašytas
-+:: | PR sulietas, `main` senas | `git switch main`, tada `git pull`
-Pastaba: ~3 min. Klaidos tekstą perskaitykite pirma. Jei komandos neprisimena, `linux komandos.pdf` ir [Git cheat sheet](https://git-scm.com/cheat-sheet).
+=== demonstracija | Nuo komandos iki skripto
+```bash
+nano labas.sh
+./labas.sh
+```
+```output+
+permission denied
+```
+```bash+
+chmod +x labas.sh
+./labas.sh
+./labas.sh > rezultatas.txt
+cat rezultatas.txt
+touch ~/Desktop/devops/demo-raktas.txt
+chmod 600 ~/Desktop/devops/demo-raktas.txt
+ls -l ~/Desktop/devops/demo-raktas.txt
+```
+```output+
+-rw-------  1 vardas  staff  0 demo-raktas.txt
+```
++ Faile `labas.sh`: `echo` aplanko ir `grep -n "Demo" pradzia.md`. Ne `ataskaita.sh`.
+> Kodėl skriptas? Tą patį `grep` paleidžiate dar kartą neberašydami ranka.
+Pastaba: ~12 min. Pirma parodykite `permission denied`, tik tada `chmod +x`. `demo-raktas.txt`, ne `slaptas.txt`. `ls -l` turi rodyti `-rw-------`. Čia nėra `if` ir `for`. Paskelbkite 2 užduotį.
+
+=== demonstracija | Procesas, langas, paketas
+```bash
+sleep 20 &
+jobs
+ps aux | grep sleep
+```
+```output+
+sleep 20     PID yra antras stulpelis
+grep sleep   šitos eilutės neliesti
+```
+```bash+
+kill PID
+export SPALVA=raudona
+echo "SPALVA yra $SPALVA"
+```
++ Naujas langas, tas pats aplankas: `echo $SPALVA` tuščia. `export` liko senajame.
++ Mac: `brew install jq`. Ubuntu: `sudo apt update`, tada `sudo apt install jq`.
+> `sudo brew` neveikia. Paketas demonstracijoje `jq`, užduotyje bus `tree`.
+Pastaba: ~12 min. `kill` tik `sleep` eilutės PID. Po `kill` dar kartą `ps aux | grep sleep`: `sleep 20` nebėra. Paskelbkite 3 užduotį. Pull Request lieka 4 užduotyje, šioje skaidrėje jo nėra.
+
+=== klaida | Kas stringa
+:: | `kill` su grep PID | Paimtas `grep`, ne `sleep`
+:: | `sudo brew` | Mac `brew` be `sudo`
+:: | `PWD` | Rašykite `pwd`. Didžiosios raidės yra kita komanda
+Pastaba: ~3 min.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Pilni žingsniai yra Teams'e. 1 užduotis rašo kelią pirmą kartą. 3–5 užduotys jau nueitos Git ir `nano` eigos nebekartoja: mokinys prisimena arba atsidaro lapą. Naujos komandos (`chmod`, `grep` projekte, `git push origin --delete`) užduotyje vis tiek parašytos.
 
-=== kita | Kita pamoka
-Procesai, aplinkos kintamieji, paketų tvarkyklė
-Pastaba: Kitą pamoką tęsiame tą patį `git-bandymas`: `uzrasai.md` ir `scripts/ataskaita.sh`.
+=== kita | 04 Bash skriptai
+Čia skriptas tik kartoja komandas.
+- Ten jis sprendžia: argumentas, `if`, `for`, išėjimo kodas
+- `.gitignore`
