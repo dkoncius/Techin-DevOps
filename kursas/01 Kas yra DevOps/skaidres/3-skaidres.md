@@ -128,18 +128,19 @@ Pastaba: ~2 min. Tik prisiminti: Git jau mokėjote. Principas: darbas be istorij
 
 === demonstracija | Nuo aplanko iki commit
 ```bash
-# Susikurti DevOps aplankalą darbalaukyje
-# Atsidaryti DevOps aplankalą per terminalą
 mkdir demo-a
 cd demo-a
 echo "a" > a.txt
 echo "b" > b.txt
 ls
-cat a.txt   # patikrinti, ar failas ne tuščias
+cat a.txt b.txt
 ```
 ```bash+
 git init
-git add a.txt b.txt
+git branch -m main
+git status
+git add .
+git status
 git commit -m "Du failai"
 git log --oneline
 ```
@@ -158,7 +159,8 @@ Pastaba: ~3 min. Leiskite studentams spėlioti, kas nutinka, kai abu keičia tą
 ```bash
 git switch -c bugFix           # nauja šaka
 echo "fix" >> a.txt            # pakeitimas šakoje
-git commit -am "Pataisymas"    # commit šakoje
+git add .                      # paruošti commit
+git commit -m "Pataisymas"     # commit šakoje
 git switch main                # main nepaliestas
 git merge bugFix               # sujungti į main
 git branch -d bugFix           # ištrinti šaką
@@ -167,61 +169,87 @@ git branch -d bugFix           # ištrinti šaką
 + Kodėl šaka? Veikiantis `main` lieka saugus, o klaidą pagauname prieš sujungimą
 Pastaba: ~20 min su demonstracija aplanke `demo-a`: `bugFix`, pakeitimas `main`, `merge`, `git log --oneline --graph --all`. Nuotolinės šakos dar nėra, nes GitHub bus kitoje skaidrėje. Principas: nestabilų darbą laikyti atskirai nuo veikiančio. Būtent tuo remiasi Pull Request ir CI/CD vėlesnėse pamokose.
 
-=== demonstracija | Tuščia repozitorija ir susiejimas
+=== demonstracija | Įkėlimas į GitHub
 ```bash
 gh auth status
-gh repo create demo-a --public
-gh repo view demo-a --json url -q .url
+gh repo create
+```
+```output
+What would you like to do? Push an existing local repository to github.com
+Path to local repository: .
+Repository name: demo-a
+Repository owner: jusu-paskyra
+Description:
+Visibility: Public
+Add a remote? Yes
+What should the new remote be called? origin
+Would you like to push commits from the current branch to "origin"? Yes
 ```
 ```bash+
-git remote add origin <nuoroda>
 git remote -v
-git push -u origin main
 git status
 ```
-+ `origin` yra nuorodos vardas, `-u` įsimena, kad `main` siunčiamas į `origin/main`. Todėl vėliau užtenka `git push`
-+ Kodėl taip? `gh repo create` sukuria tuščią vietą GitHub'e, o `git push` nusiunčia jau esančią aplanko istoriją
-Pastaba: ~6 min. Tai 2 užduoties demonstracija su `demo-a` (studentai tą patį daro su `git-bandymas`), viskas terminale. Komandas vykdyti aplanke `demo-a` (patikrinti `pwd`). `gh repo create` be `--source`: susiejimą darome patys, kad matytųsi, kaip veikia `git remote add`. Jei `gh auth status` rodo neprisijungus: `gh auth login`. `git remote -v` turi rodyti dvi eilutes (fetch ir push); `git status` po push: „up to date with 'origin/main'“. Dažna klaida: repozitorija sukurta su README (pvz. per `--add-readme`), tada `git push` atmestas.
+Pastaba: ~6 min. Tai 1 užduoties pabaiga: studentai tą patį daro su `git-bandymas`, pasirinkimai yra užduotyje. Demonstracijai `demo-a`. `gh repo create` be argumento. Jei `gh auth status` rodo neprisijungus: `gh auth login`. 2 užduotį skelbkite, kai jų `main` jau yra GitHub'e.
 
 === demonstracija | Toliau tame pačiame aplanke
 ```bash
 echo "c" > c.txt
-git add c.txt
-git commit -m "Trečias failas"
+ls
+cat c.txt
+git add .
+git status
+git commit -m "Naujas failas c.txt"
 git push
+git status
 ```
 + Susiejimas daromas vieną kartą. Toliau kasdienis ciklas: pakeitimas → `add` → `commit` → `push`
-+ Kodėl? Darbas vyksta kompiuteryje, o `push` tik nusiunčia jau išsaugotus commit'us į GitHub
-Pastaba: ~3 min. Tas pats `demo-a` aplankas, jokio naujo `clone`. Po `push` parodykite `c.txt` GitHub'e: `gh api repos/{owner}/{repo}/contents --jq '.[].name'`. Studentai tą patį daro 2 užduotyje su `git-bandymas`. Kai visi turi repozitoriją GitHub'e, skelbkite 3 užduotį.
+Pastaba: ~4 min. Tas pats aplankas `demo-a`, jokio naujo `clone`. 2 užduoties pradžia: naujas failas ir `push` į `main` (studentai kuria `main.txt`, demonstracijai `c.txt`). Šaką rodote kitoje skaidrėje.
 
-=== demonstracija | Clone: repozitorija į kompiuterį
-```bash+
-gh repo view demo-a --json url -q .url
-git clone <nuoroda> demo-c
-cd demo-c
-git log --oneline
-```
-```bash+
-echo "atnaujinimas" >> a.txt
-git commit -am "Atnaujinimas kompiuteryje"
-git push
-```
-+ Kodėl `clone`? Nusiųsta istorija atsiranda naujame aplanke, o ryšys su GitHub nustatomas pats
-Pastaba: ~4 min. Tai 3 užduoties pradžia. Klonuokite į `demo-c`, ne į `demo-a`: aplankas `demo-a` jau yra. `git log` rodo tuos pačius commit'us, kuriuos nusiuntėte. Toliau studentai savarankiškai.
-
-=== demonstracija | Šaka po clone
+=== demonstracija | Šaka, sujungimas ir trynimas
 ```bash+
 git switch -c bugFix
-echo "fix" >> b.txt
-git commit -am "Pataisymas šakoje"
+echo "fix" >> c.txt
+cat c.txt
+git branch
+git add .
+git commit -m "Atnaujintas c.txt"
 git push -u origin bugFix
+git log --oneline origin/bugFix
 git switch main
 git merge bugFix
 git push
 git branch -d bugFix
 git push origin --delete bugFix
 ```
-Pastaba: ~4 min. Tas pats, ką darėme su `demo-a`, dabar `demo-c` aplanke, tik šį kartą šaka ir jos trynimas matomi ir GitHub'e. Taip matyti, kad tolesnis darbas vyksta kompiuteryje, o `push` tik nusiunčia rezultatą.
+Pastaba: ~6 min. 2 užduoties šaka. Studentai: `atnaujinimas` ir `main.txt`, tada tą patį kelią kartoja su `antras` ir `trecias`. Demonstracijai `bugFix` ir `c.txt`. `git push origin --delete` cheat sheet nėra. 3 užduotį skelbkite baigus 2.
+
+=== demonstracija | Clone: repozitorija į kompiuterį
+```bash
+cd ..
+git clone <nuoroda> demo-c
+cd demo-c
+ls
+git log --oneline
+```
++ Nuorodą nukopijuokite iš GitHub: žalias Code, Local, HTTPS. Download ZIP nenaudokite
++ Kodėl `clone`? Nusiųsta istorija atsiranda naujame aplanke, o `origin` įsirašo pats. Aplanko dar nebuvo, todėl `git init` nereikia
+Pastaba: ~4 min. Tai 3 užduoties pradžia. Esate `demo-a`, `cd ..` grįžta į `devops`, kopija `demo-c` atsiranda šalia. Studentai iš `git-bandymas` išeina `cd ..` ir klonuoja `git-bandymas-kopija`. Po clone `git remote -v` jau rodo `origin`: `git remote add` nekartojamas. `git log` rodo tuos pačius commit'us.
+
+=== demonstracija | Šaka po clone
+```bash+
+git switch -c extra
+echo "d" > d.txt
+git add d.txt
+git status
+git commit -m "Naujas failas d.txt"
+git push -u origin extra
+git switch main
+git merge extra
+git push
+git branch -d extra
+git push origin --delete extra
+```
+Pastaba: ~6 min. 3 užduotis kopijoje `demo-c`. Esamų failų nekeiskite: naujas `d.txt`, todėl `git add` ir `git status`, ne `git commit -am`. Studentai: šaka `pridejimas`, failas `klonas.txt`. `git push origin --delete` cheat sheet nėra.
 
 === demonstracija | Failų kūrimas ir redagavimas terminale
 | Komanda | Ką daro |
@@ -232,7 +260,7 @@ Pastaba: ~4 min. Tas pats, ką darėme su `demo-a`, dabar `demo-c` aplanke, tik 
 ```bash+
 nano pavyzdys.md
 ```
-Pastaba: ~5 min. Rodoma prieš dažnas klaidas ir 3 užduotį, nes joje pirmą kartą rašoma failas terminale: `nano pavyzdys.md`, įrašyti `# Pavyzdys`, `Control+O`, `Enter`, `Control+X`. Visada rašykite failo vardą (`nano FAILAS`), kitaip `Control+O` klaus „File Name to write“ (įrašykite vardą ir `Enter`, `Control+C` atšaukia). Išsaugojus `Control+X` išeina į terminalą; jei klausia „Save modified buffer?“, spauskite `Y` ir `Enter` (arba `N`, jei nenorite išsaugoti). Esamo failo redagavimas: rodyklės juda po tekstą (pele žymeklio perkelti negalima), tekstas įterpiamas ten, kur žymeklis; `Control+K` iškerpa eilutę, `Control+U` įklijuoja, `Control+A`/`Control+E` žymeklis į eilutės pradžią/pabaigą, `Control+W` paieška. Mac'e vietoj `Ctrl` spaudžiama Control (ne Cmd). Mac'e `nano` yra Pico (`nano --version` rodo „UW PICO“): Cmd+Z ir atšaukimo ten nėra; Ubuntu/WSL `nano` atšaukia `Alt+U`, grąžina `Alt+E`. Išsaugojus patikrinkite `cat FAILAS`. Pavyzdžio failas kitas nei užduotyje (`devops-dokumentas.md`).
+Pastaba: ~5 min. Šioje pamokoje užduotyse nenaudojama. Rodoma kaip terminalo redaktorius kitam kartui: `nano pavyzdys.md`, įrašyti `# Pavyzdys`, `Control+O`, `Enter`, `Control+X`. Visada rašykite failo vardą (`nano FAILAS`), kitaip `Control+O` klaus „File Name to write“ (įrašykite vardą ir `Enter`, `Control+C` atšaukia). Išsaugojus `Control+X` išeina į terminalą; jei klausia „Save modified buffer?“, spauskite `Y` ir `Enter` (arba `N`, jei nenorite išsaugoti). Esamo failo redagavimas: rodyklės juda po tekstą (pele žymeklio perkelti negalima), tekstas įterpiamas ten, kur žymeklis; `Control+K` iškerpa eilutę, `Control+U` įklijuoja, `Control+A`/`Control+E` žymeklis į eilutės pradžią/pabaigą, `Control+W` paieška. Mac'e vietoj `Ctrl` spaudžiama Control (ne Cmd). Mac'e `nano` yra Pico (`nano --version` rodo „UW PICO“): Cmd+Z ir atšaukimo ten nėra; Ubuntu/WSL `nano` atšaukia `Alt+U`, grąžina `Alt+E`. Išsaugojus patikrinkite `cat FAILAS`.
 
 === klaida | Dažnos klaidos
 +:: | Šaka `master` | Neįrašytas `init.defaultBranch`: `git branch -m main`
@@ -244,12 +272,14 @@ Pastaba: ~5 min. Rodoma prieš dažnas klaidas ir 3 užduotį, nes joje pirmą k
 +:: | Push `rejected` | Repozitorija nebuvo tuščia (README): sukurkite naują be README arba `git pull --rebase origin main`
 +:: | Push prašo slaptažodžio | Paprastas slaptažodis nebetinka: `gh auth login` arba asmeninis prieigos raktas
 +:: | Rašybos klaida (`eacho`) | „command not found“: patikrinkite komandos pavadinimą; rodyklė aukštyn paleistų tą pačią klaidingą komandą
++:: | Nesusietas aplankas | Add a remote buvo No, `git remote -v` tuščias: `git remote add origin <nuoroda>` ir `git push -u origin main`
++:: | Kas pirmiau | Aplankas su commit jau yra: `gh repo create` ir Push an existing local repository. Istorija jau GitHub'e, aplanko nėra: `git clone`
 + Principas: klaidos tekstas dažniausiai pasako, ką daryti, todėl pirma jį perskaitykite
 Pastaba: ~3 min. Pabrėžkite įprotį: perskaityti klaidą, ieškoti dokumentacijoje, tik tada klausti.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną Teams'e: 1 užduotį po demonstracijos, 2 užduotį kartu 18 skaidrėje, 3 užduotį baigus 2. Pilni žingsniai yra Teams žinutėje ir pamoka.md.
+Pastaba: Skelbkite po vieną Teams'e: 1 užduotį po vietinio commit demonstracijos (ją tęsia iki GitHub `main`), 2 užduotį kai `main` jau GitHub'e ir parodyta šaka, 3 užduotį baigus 2. Pilni žingsniai yra Teams žinutėje.
 
 === kita | Kita pamoka
 Pakartosime Linux terminalo temą: navigacija, failai, teisės

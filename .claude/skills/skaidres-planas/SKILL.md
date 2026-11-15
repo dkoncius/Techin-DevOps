@@ -22,7 +22,7 @@ Dvi dalys: (1) **šis skillas** parašo `kursas/<NN Pavadinimas>/skaidres.md`; (
 | „Dažna klaida“ iš sprendimo | viena `klaida` skaidrė (3–4 punktai) |
 | „Kita paskaita: …“ | paskutinė `kita` skaidrė |
 
-**Užduotys:** pamokos pabaigoje (prieš „Kita pamoka“) dėk vieną skaidrę `=== uzduotys | Užduotys` su eilute `@uzduotys: auto`: generatorius pats paima užduotis iš `pamoka.md` (apžvalga + po skaidrę kiekvienai). Užduočių ranka nerašyk ir nekeisk, kad tekstas sutaptų su Teams. `Pastaba:` apačioje yra dėstytojui (kaip skelbti po vieną).
+**Užduotys:** pamokos pabaigoje (prieš „Kita pamoka“) dėk vieną skaidrę `=== uzduotys | Užduotys` su eilute `@uzduotys: auto`: generatorius pats paima užduotis iš `uzduotys/N-uzduotis.md` (apžvalga + po skaidrę kiekvienai). Užduočių ranka nerašyk ir nekeisk, kad tekstas sutaptų su Teams. `Pastaba:` apačioje yra dėstytojui (kaip skelbti po vieną).
 
 Nekelk į skaidres: sprendimų, užduočių komandų, sprendimų, pilnų failų pavyzdžių iš „Sprendimas“, slaptų reikšmių, realių IP ir domenų.
 

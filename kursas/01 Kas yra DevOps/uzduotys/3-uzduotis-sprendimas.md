@@ -1,89 +1,45 @@
-# 3 užduotis, sprendimas (dėstytojui): Nusiklonuokite savo repozitoriją
+# 3 užduotis, sprendimas (dėstytojui): Nusiklonuokite kitur
 
-Numeriai: dalis ir žingsnis kaip užduotyje (`3-uzduotis.md`). Failus redaktoriuje atidarome iš terminalo: `nano FAILAS` (išsaugoti `Ctrl+O`, `Enter`, išeiti `Ctrl+X`). Rodoma aplanke `devops`, tuo pačiu pavadinimu `git-bandymas` kaip studentų.
+Numeriai kaip užduotyje (`3-uzduotis.md`). Kopija kuriama aplanke `devops`, šalia `git-bandymas`. Demonstracijai klonuokite į `demo-c`, ne į `git-bandymas-kopija`.
 
-Pirma dalis, 1–7. Clone ir patikra:
+2–4 žingsnis. Nuoroda iš GitHub svetainės: **Code** → **Local** → **HTTPS**. **Download ZIP** nenaudokite. Tada clone šalia:
 
 ```bash
-cd ~/Desktop/devops
-gh repo view git-bandymas --json url -q .url
+cd ..
 git clone https://github.com/<vartotojas>/git-bandymas.git git-bandymas-kopija
 cd git-bandymas-kopija
 ls
-git remote -v
 git log --oneline
 ```
 
-Antra dalis, 1–7. Dokumentas (pavyzdinis tekstas žemiau):
+`ls` rodo `pastabos.txt` ir `idejos.txt`. `git log --oneline` rodo 1 ir 2 užduočių commit'us.
+
+5 žingsnis. Šaka ir naujas failas. Esamų failų nekeisti. `git commit -am` naujo failo neįtraukia, todėl reikia `git add`. Po `git add` `git status` rodo `klonas.txt` paruoštą commit:
 
 ```bash
-nano devops-dokumentas.md
+git switch -c pridejimas
+echo "klonas" > klonas.txt
+git add klonas.txt
+git status
+git commit -m "Naujas failas klonas.txt"
+git push -u origin pridejimas
 ```
 
-Po išsaugojimo:
+6 žingsnis. Sujungimas:
 
 ```bash
-git add devops-dokumentas.md
-git commit -m "Pridėta, kur gali lūžti"
-git push
-```
-
-Patikra GitHub:
-
-```bash
-gh api repos/{owner}/{repo}/contents --jq '.[].name'
-```
-
-Trečia dalis, 1–7. Šaka `skyriai`:
-
-```bash
-git switch -c skyriai
-nano devops-dokumentas.md   # pridėti skyrių `## Kodėl DevOps`
-git commit -am "Pridėta, kodėl DevOps"
-git push -u origin skyriai
 git switch main
+git merge pridejimas
+git push
 ```
 
-Patikra GitHub šakų ir `main` failo:
+7 žingsnis. Trynimas kompiuteryje ir GitHub'e:
 
 ```bash
-git ls-remote --heads origin
+git branch -d pridejimas
+git push origin --delete pridejimas
 git branch
-grep "Kodėl DevOps" devops-dokumentas.md   # `main` šakoje nieko neturi rasti
+git ls-remote --heads origin
 ```
 
-Ketvirta dalis, 1–5. Sujungimas ir trynimas:
-
-```bash
-git merge skyriai
-git push
-git branch -d skyriai
-git push origin --delete skyriai
-git log --oneline --graph --all
-```
-
-Penkta dalis, 1–4. `git branch --help` (ieškoti `-d` ir `-D`), parašyti skyrių `## Git` dokumente (`nano devops-dokumentas.md`) ir:
-
-```bash
-git commit -am "Pridėta apie šakų trynimą"
-git push
-```
-
-Penkta dalis, 5. Patikra: `grep -rniE "password|slaptažod|[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" .` (neturi rasti nieko)
-
-#### Pavyzdinis `devops-dokumentas.md`
-
-```markdown
-# Kas yra DevOps
-
-DevOps yra būdas, kaip kūrėjai ir sistemų administratoriai dirba kartu, kad programa greitai ir saugiai pasiektų vartotoją. Pagrindinė idėja: kuo daugiau žingsnių automatizuoti ir kuo dažniau išleisti mažus pakeitimus. Tai ne vienas įrankis, o darbo kultūra ir procesas.
-
-## Kur gali lūžti
-
-1. Testai: jei jų nėra, klaida pasiekia vartotoją.
-2. Diegimas: ranka diegiant, galima pamiršti žingsnį ir serveris veiks kitaip nei kompiuteryje.
-
-## Kodėl DevOps
-
-DevOps leidžia komandai išleisti pakeitimus greičiau ir su mažesne rizika, nes daug žingsnių atlieka automatika. Klaidas randame anksti, o ne pas vartotoją.
-```
+`git branch` rodo tik `main`. GitHub'e šakos `pridejimas` nėra.

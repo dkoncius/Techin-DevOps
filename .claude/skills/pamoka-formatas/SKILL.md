@@ -30,15 +30,20 @@ description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paska
 
 ## Užduotys (`uzduotys/N-uzduotis.md`)
 1. `pamoka.md` skyrius `## Užduotys` yra viena pastraipa: kur yra failai, kad dėstytojas skelbia Teams'e po vieną (pirma demonstracija, tada darbas) ir kad sprendimai yra `uzduotys/N-uzduotis-sprendimas.md`. Užduočių teksto `pamoka.md` nekartoti.
-2. Failo `N-uzduotis.md` struktūra: `# N užduotis: <Pavadinimas>`; įvadas (1 kartą, ne po kiekvieno žingsnio): `Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame (1 etape; DI leidžiamas nuo Docker etapo, žr. di-kurse). Galite remtis ankstesnio dėstytojo Git komandų santrauka (git komandos.pdf, Teams'e).` Kai užduotys eina viena gija, įvade pridėti sakinį apie tai. „Kodėl“ žingsnių nėra (dėstytojo sprendimas). Laiko užduotyje nerašyti.
-3. Po įvado: `**Tikslas:** <vienas sakinys>` (nenumeruotas; jį skaito skaidrių generatorius), toliau žingsniai suskirstyti į dalis `**Pirma dalis: <tema>**`, `**Antra dalis: ...**` (dalių pavadinimai žodžiais). Žingsnių numeracija kiekvienoje dalyje prasideda iš naujo nuo 1 (taip numeruoja ir Teams; nuorodų į žingsnių numerius kitoje dalyje nerašyti).
-4. Žingsnis yra atominis: vienas veiksmas, nurodyti visi pavadinimai (aplankai, failai, šakos, commit žinutės), be komandų ir atsakymų, trumpais sakiniais; kur tinka, pavadinti įrankį ar temą. Stilius pagal Edgaro užduotis (`praeitos temos/`).
-5. **Mokiniai užduotyse nerašo paaiškinimų** („paaiškinkite“, „užrašykite, ką pamatėte / kodėl“) jokiame atskirame dokumente (`docs/*.md`): tik praktika, komandos ir komandų rezultatų failai (`.txt`). Nenaudoti „Kodėl“ žingsnių. Kai žingsnis kuria failą, jis turi turėti tikrą turinį commit'ui (tuščias `git add docs` neturi atsirasti). Dėstytojo paaiškinimai lieka `pamoka.md` ir sprendimų pastabose.
-5. `**Papildomai:**` (ne daugiau kaip 1 punktas užduotyje) yra tame pačiame sąraše.
-6. Pateikimo ir DI punktų nėra: mokiniai tiesiog atlieka užduotis, tikrinama atsiskaityme. Kai pamoka moko PR, pateikimas yra PR į mokinio `devops-projektas` kopiją.
-7. Paprastai 3–5 užduotys, kurių suma telpa į užduočių laiką (~1,25–2,5 val.). Kiekvienoje pamokoje bent viena užduotis pagal oficialią dokumentaciją: „(pagal oficialią dokumentaciją; žingsnių čia nėra, tik tikslas)“.
-8. Užduotys parodo, ar mokiniai moka tai, ką dėstė Edgaras: Git (clone, branch, commit), Bash (paprastas skriptas), Python kodo skaitymas (pvz. `/health`), vėliau ir MySQL kodo skaitymas.
-9. `**Pavyzdys:**` tik jei tikrai padeda: vienas kodo blokas ar nuoroda. Netikra išvestis pažymėta „pavyzdinė išvestis“.
+2. Failo struktūra, vienas plokščias sąrašas, be dalių „Pirma dalis“:
+   `# N užduotis: <Pavadinimas>`, tada viena įvado eilutė, tada `1️⃣ <trumpas vardas>`, tada numeriai nuo 1. Pirmas punktas yra `1. **Tikslas:** <vienas sakinys>` (pusjuodis, jį skaito skaidrių generatorius iš `uzduotys/`, ne iš `pamoka.md`). „Kodėl“ žingsnių ir laiko užduotyje nėra.
+3. Įvadas, vieną kartą: `Jei kas neveikia: perskaitykite klaidą, ieškokite dokumentacijoje ir užsirašykite, kas padėjo. Dirbtinio intelekto šiose užduotyse nenaudojame.` Git užduotyse dokumentacija yra [Git cheat sheet](https://git-scm.com/cheat-sheet), ne `git komandos.pdf`. Lapas yra komandai rasti, ne klaidai taisyti: į jį nesiųsk ieškoti `reset --hard`, `rebase` ar Discard. 1 etape DI draudžiamas; nuo Docker etapo leidžiamas (žr. di-kurse).
+4. Žingsnis yra vienas veiksmas. Pavadinimai konkretūs: aplankas, failas, šaka. Kai žingsnis keičia failą ir siunčia į GitHub, jame turi būti commit, tada push. Vien „nusiųskite“ neužtenka: `git push` neišsiunčia neišsaugoto teksto. Failo keitimo būdas įvardintas (`echo`, vėlesnėse pamokose `nano`).
+5. Komandos užduotyje: pirmą kartą einamą kelią mokinys atkartoja, todėl komanda ir laukiamas rezultatas yra tame pačiame žingsnyje. Tą patį kelią kartojančioje užduotyje komandų nėra, mokinys jas randa cheat sheet. Komandą, kurios lape nėra, įrašyk žingsnyje: `gh`, `git branch -m main`, `git push origin --delete ŠAKA`.
+6. Mokiniai nerašo paaiškinimų atskirame dokumente. Kai žingsnis kuria failą, jame yra tikras turinys commit'ui. `**Papildomai:**` ne daugiau kaip vienas punktas tame pačiame sąraše. Paskutinis punktas yra `**Pateikimas:**`. 01 pamokoje: 1 ir 2 užduotis baigiama GitHub commit'ų lango ekrano nuotrauka, 3 užduotis terminalo nuotrauka po šakų trynimo ir GitHub nuotrauka, kur liko tik `main`. Kai pamoka moko PR, pateikimas yra PR į mokinio `devops-projektas` kopiją.
+7. Paprastai 3–5 užduotys, suma telpa į ~1,25–2,5 val. Git pamokoje oficiali nuoroda yra cheat sheet, ne atskira užduotis „tik tikslas, be žingsnių“.
+8. Užduotys parodo, ar mokiniai moka Git (clone, branch, commit), Bash, Python kodo skaitymą, vėliau MySQL.
+
+## 01 Git užduotys (neperrašyk atgal į dalis ir pdf)
+1. 1 užduotis: aplankas `git-bandymas`, du failai, `git init`, `git branch -m main`, commit, tada `gh repo create` be vardo ir be vėliavų. Pasirinkimai: Push an existing local repository, kelias `.`, vardas `git-bandymas`, Visibility Public, Add a remote Yes (`origin`), push Yes. `gh` pats prideda `origin` ir nusiunčia `main`. Atskiro `git remote add` žingsnio nėra. `gh repo create git-bandymas` meniu neatidaro. Komandos žingsniuose. Šakos nėra. Atskiras `1-uzduotis-sprendimas.md` nėra: sprendimas yra pati užduotis. Nekurk jo iš naujo.
+2. 2 užduotis: tas pats aplankas, naujo `cd` nėra. Pradžia: naujas failas `echo "…" > main.txt`, `git add .`, commit, `git push` į `main`. Toliau šaka `atnaujinimas`, eilutė `>> main.txt`, commit, `git push -u origin atnaujinimas`, `git switch main`, `git merge`, `git push`, `git branch -d`, `git push origin --delete`. Tą patį kelią pakartoti su šakomis `antras` ir `trecias`, komandos irgi žingsniuose. Atskiras `2-uzduotis-sprendimas.md` nėra.
+3. 3 užduotis: `cd ~`, `git clone` į `git-bandymas-kopija`. Prieiga: `gh auth status` ir `git remote -v`. `git remote add` nekartojamas. Tada šaka `keitimas`, commit, push, sujungimas, trynimas kompiuteryje ir GitHub'e. `nano` šiose trijose užduotyse nenaudojamas.
+4. Įžangos eilutės nėra. Sąrašas prasideda nuo `1. **Tikslas:**`. Cheat sheet, DI draudimo ir `q` į užduotį negrąžink.
 
 ## Komandų PDF (`uzduotys/<tema> komandos.pdf`)
 1. Kiekvienai temai: `linux komandos`, `procesai komandos`, `bash komandos` ir pan. Šaltinis `<tema> komandos.md`, PDF generuojamas (Chrome headless iš HTML). Pavyzdys: Edgaro `git komandos.pdf`.
@@ -46,8 +51,8 @@ description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paska
 3. Formatas: `komanda → trumpas aprašymas`, **be nuorodų į dokumentaciją**, ~1 puslapis, didelis šriftas, komandos sugrupuotos į kelis trumpus blokus (`##` antraštės). Komandų, kurios jau yra kitame PDF (pvz. `git komandos.pdf`), nekartoti.
 
 ## Užduočių sprendimai (`uzduotys/N-uzduotis-sprendimas.md`)
-1. Antraštė `# N užduotis, sprendimas (dėstytojui): <Pavadinimas>`, eilutė, kad numeriai (dalis ir žingsnis) atitinka užduotį, ir pastaba, kad demonstracijoje naudojamas kitas pavyzdys.
-2. Failai, kuriuos mokiniai rašo ar papildo, atidaromi iš terminalo (`nano FAILAS`: veikia Linux ir Mac, kitų redaktorių nenaudojame) ir jų turinys pateikiamas atskirame bloke (ne `cat <<EOS`/`printf`); užduoties žingsnyje rašoma „atidarykite iš terminalo redaktoriuje“ be komandos. Žingsniai grupuojami pagal dalį ir žingsnius (`Pirma dalis, 1–4.`, `Antra dalis, 1–6.`), po jais kodo blokai ```bash su komandomis, kur reikia „Laukiama: ...“ ir „Dažna klaida: ...“. „Papildomai“ žingsniui pateikti pavyzdinį atsakymą ar komandas.
+1. Antraštė `# N užduotis, sprendimas (dėstytojui): <Pavadinimas>`, eilutė, kad numeriai atitinka užduoties žingsnius, ir pastaba, kad demonstracijoje naudojamas kitas pavyzdys. Jei užduotyje jau yra visos komandos ir laukiamas rezultatas, atskiro failo nėra. 01 pamokos 1 ir 2 užduotys tokio failo neturi.
+2. Po žingsnio numerio ```bash blokas. Kur reikia, „Laukiama: ...“. 01 Git užduotyse failo eilutę prideda `echo`, ne `nano`. Vėlesnėse pamokose failą, kurį mokinys rašo, atidaro `nano FAILAS` (Linux ir Mac). Turinį dėk atskirame bloke, ne per `cat <<EOS`.
 3. Komandos veikia Mac ir Ubuntu (WSL); be GNU-only parametrų (žr. „Windows ir Mac“). Naršyklės žingsniai aprašomi tekstu (kur yra `gh` alternatyva, nurodyti ją).
 4. Tik tikri rezultatai: kodo blokus PALEISK iš eilės švarioje aplinkoje (prireikus laikina nuotolinė repozitorija vietoj GitHub) ir tik tada rašyk „Patikrinta“. DRAUDŽIAMA nepatikrinti skriptai.
 
@@ -67,7 +72,7 @@ description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paska
 5. Paketai: `apt` (Ubuntu/WSL) ir `brew` (Mac), ta pati užduotis su abiem komandomis.
 6. Prisijungimas prie GitHub: pagrindinis kelias `gh auth login` (HTTPS), SSH tik papildomai. `gh` diegimas pagal oficialią GitHub CLI dokumentaciją.
 7. Sprendimų failai ir „Dažna klaida“ nurodo ir platformai specifines klaidas (WSL `/mnt/c`, CRLF, `sudo brew`).
-8. Pirmoji paskaita (01) turi telpti į 3 val.: gyvai ~95 min., užduotys ~75 min.; aplinkos žingsniai, atliekami kartu klasėje (git config, prisijungimas), į užduotis nededami.
+8. Pirmoji paskaita (01) turi telpti į 3 val. `git config` ir aplankas `devops` daromi aplinkos patikroje, ne užduotyje. `gh auth status` 1 užduotyje yra patikra: `gh auth login` tik jei dar neprisijungta. Git užduočių eiga: skyrius „01 Git užduotys“.
 
 ## Skyrius „Pamokos eiga (dėstytojui)“ (pamoka.md)
 1. Formatas kaip `01 Kas yra DevOps/pamoka.md`: demonstracijų komandų `pamoka.md` NEDUBLIUOJA, jos yra tik skaidrėse (`skaidres/skaidres.md` → `skaidres.html`), kiekviena komanda su aprašu (komentaras `# ...` arba lentelė „Komanda | Ką daro“; prie trumpinio angliškas žodis: `cp` copy, `mv` move, be lietuviško vertimo skliaustuose). Klasės darbe prie kiekvienos temos nurodoma tik skaidrių numeriai ir nuoroda į `skaidres.html`.

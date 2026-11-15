@@ -13,21 +13,21 @@ Data: 2026-11-11 (trečiadienis)
 5. Kas yra DevOps (~20 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/skaidres/3-skaidres.html), 1–13 skaidrės; [roadmap.sh/devops](https://roadmap.sh/devops)
 6. Pertrauka (~15 min): Windows perkrauna ir vieną kartą paleidžia Ubuntu; Mac patikrina `xcode-select`
 7. Aplinkos patikra (~10 min): [WSL diegimo sąrašas](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/checklists/WSL%20diegimo%20s%C4%85ra%C5%A1as.html), kurį paskelbiate ir Teams'e prie paskaitos (žingsniai su komanda ir laukiamu rezultatu); jei WSL nepavyksta, sąraše „Jei WSL nepavyko“ (turi būti išspręsta prieš 02 pamoką).
-8. Užduotis 1 (~45 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/skaidres/3-skaidres.html), 14–17 ir 24 skaidrės; nuo aplanko iki commit, šaka ir sujungimas, be GitHub; užduotys skelbiamos po vieną Teams'e
-9. Užduotis 2 (~15 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/skaidres/3-skaidres.html), 18–19 skaidrės; tuščia repozitorija GitHub per terminalą ir susiejimas su aplanku, žingsnius darome kartu su dėstytoju
-10. Užduotis 3 (~40 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/skaidres/3-skaidres.html), 20–22 skaidrės (24 skaidrėje visos užduotys); 22 skaidrė: failų kūrimas ir redagavimas terminale (`touch`, `nano`), ~5 min, rodoma prieš užduotį 3; `clone` į naują aplanką, šaka, sujungimas, šakos trynimas, savarankiškai
+8. Užduotis 1 (~45 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/skaidres/3-skaidres.html), 14–19 skaidrės; nuo aplanko iki įkėlimo į `main` per GitHub, komandos užduotyje; skelbiate po vietinio commit demonstracijos
+9. Užduotis 2 (~20 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/skaidres/3-skaidres.html), 19–20 skaidrės; naujas failas, commit ir push į `main`, tada šaka, sujungimas ir trynimas, komandos užduotyje; skelbiate, kai `main` jau yra GitHub'e
+10. Užduotis 3 (~20 min): [3-skaidres](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/01%20Kas%20yra%20DevOps/skaidres/3-skaidres.html), 21–22 skaidrės; `clone` šalia `git-bandymas` aplanke `devops`, prieiga, šaka, commit, push, sujungimas ir trynimas kompiuteryje bei GitHub'e
 11. Kita paskaita: pakartosime Linux terminalo temą (navigacija, failai, teisės)
 
-Nuorodos: [GitHub Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world), [Learn Git Branching](https://learngitbranching.js.org/), [Pro Git](https://git-scm.com/book/en/v2)
+Nuorodos: [GitHub Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world), [Learn Git Branching](https://learngitbranching.js.org/), [Git cheat sheet](https://git-scm.com/cheat-sheet), [Pro Git](https://git-scm.com/book/en/v2)
 
 ## Užduotys
 
-Užduotys yra atskiruose failuose `uzduotys/1-uzduotis.md` … `3-uzduotis.md` (dėstytojas skelbia Teams'e po vieną: pirma demonstracija, tada darbas). Visos per terminalą: 1 – `git-bandymas` vietoje (`init`, commit, šaka, `merge`), 2 – tuščia repozitorija GitHub per `gh` ir rankinis susiejimas, 3 – `clone`, dokumentas, šaka, sujungimas ir šakos trynimas. Vardas ir el. paštas (`git config`), darbalaukio aplankas `devops` ir `gh auth login` daromi aplinkos patikroje ir į užduotis neįeina. Projekto šablono klonavimas bus 02 pamokoje.
+Užduotys yra atskiruose failuose `uzduotys/1-uzduotis.md` … `3-uzduotis.md` (dėstytojas skelbia Teams'e po vieną: pirma demonstracija, tada darbas). Visos per terminalą: 1 – `git-bandymas` nuo aplanko iki įkėlimo į `main` per GitHub, komandos užduotyje, 2 – tame pačiame aplanke naujas failas, commit ir push į `main`, tada šaka, sujungimas ir trynimas, komandos užduotyje, 3 – `clone` šalia `git-bandymas` aplanke `devops`, prieiga, šaka, commit, push, sujungimas ir trynimas kompiuteryje bei GitHub'e. Vardas ir el. paštas (`git config`), darbalaukio aplankas `devops` ir `gh auth login` daromi aplinkos patikroje ir į užduotis neįeina. Projekto šablono klonavimas bus 02 pamokoje.
 
 ## Pamokos eiga (dėstytojui)
 
-Patikrinta: klasės ir užduočių Git eiga (`git init`, commit, šaka, `merge`, tada `git remote add` į laikiną nuotolinę repozitoriją, `push`, `clone` į kitą aplanką) paleista macOS. Nepatikrinta: tikra GitHub paskyra (Public, tuščia repozitorija, `GH007` dėl privataus el. pašto) ir WSL2 Ubuntu; daroma ranka prieš pamoką.
+Patikrinta: klasės ir užduočių Git eiga (`git init`, commit, šaka, `merge`, `clone` į kitą aplanką) paleista macOS. 1 užduoties pabaiga `gh repo create` be vardo (Push an existing local repository, kelias `.`, Public, remote `origin`, push Yes) paleista macOS ir `main` atsirado GitHub'e. Nepatikrinta: WSL2 Ubuntu ir `GH007` dėl privataus el. pašto.
 
 ### Demonstracijos žingsniai
 
-Demonstracijos komandos ir sprendimai yra atskiruose failuose: `uzduotys/1-uzduotis-sprendimas.md`, `2-uzduotis-sprendimas.md`, `3-uzduotis-sprendimas.md` (rodoma tuo pačiu pavadinimu `git-bandymas`; demonstracijai naudokite kitą pavyzdį, žr. skaidres). Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas yra tik atsiskaitymuose.
+1 ir 2 užduočių atskiro sprendimo nėra: visos komandos ir laukiamas rezultatas yra `uzduotys/1-uzduotis.md` ir `2-uzduotis.md`. 3 užduoties sprendimas yra `uzduotys/3-uzduotis-sprendimas.md`. Demonstracijai naudokite kitą pavyzdį nei `git-bandymas` (žr. skaidres). Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas yra tik atsiskaitymuose.
