@@ -63,10 +63,21 @@ git log --oneline
 ```
 + Faile tik `# Demo`. Išsaugoti `Ctrl+O`, `Enter`, `Ctrl+X` (Mac Control, ne Cmd).
 > `grep` randa eilutę. `pwd` ir `ls` tik patikrina, kur esate.
-Pastaba: ~10 min. Šaka jau `demo-02`. Ne `uzrasai.md`. `mkdir` ir `grep` jie moka, čia jie ruošia commit. Paskelbkite 1 užduotį.
+Pastaba: ~10 min. Šaka jau `demo-02`. Ne `produktai.txt`. `mkdir` ir `grep` jie moka, čia jie ruošia commit. Paskelbkite 1 užduotį. Joje yra ir nano: rasti eilutę, ištrinti, pataisyti.
+
+=== tekstas | Pirmoji skripto eilutė
+@plokštelės
++:: #! | Paleisk | Šauktukas: šitą failą vykdyti
++:: env | Surask | `/usr/bin/env` randa `bash` ir Mac, ir Ubuntu
++:: bash | Programa | Komandas faile skaito bash
++ Atsiminkite tris dalis iš eilės: `#!/usr/bin/env bash`
+> Kaip užrašas ant viršelio: atidaryti su bash.
+Pastaba: ~3 min. Liepkite pasakyti garsiai: šauktukas, env, bash. Tada visa eilutė. Tai pirma failo eilutė, ne komanda prompt'e. Kodėl ne `/bin/bash`: kelias Mac ir Ubuntu gali skirtis, `env` pats suranda. Kitą skaidrę pradėkite įrašydami būtent šią eilutę į `labas.sh`.
 
 === demonstracija | Nuo komandos iki skripto
 ```bash
+echo Demo > ~/Desktop/devops/demo-raktas.txt
+chmod 600 ~/Desktop/devops/demo-raktas.txt
 nano labas.sh
 ./labas.sh
 ```
@@ -75,19 +86,15 @@ permission denied
 ```
 ```bash+
 chmod +x labas.sh
-./labas.sh
 ./labas.sh > rezultatas.txt
 cat rezultatas.txt
-touch ~/Desktop/devops/demo-raktas.txt
-chmod 600 ~/Desktop/devops/demo-raktas.txt
-ls -l ~/Desktop/devops/demo-raktas.txt
 ```
 ```output+
--rw-------  1 vardas  staff  0 demo-raktas.txt
+1:# Demo
 ```
-+ Faile `labas.sh`: `echo` aplanko ir `grep -n "Demo" pradzia.md`. Ne `ataskaita.sh`.
-> Kodėl skriptas? Tą patį `grep` paleidžiate dar kartą neberašydami ranka.
-Pastaba: ~12 min. Pirma parodykite `permission denied`, tik tada `chmod +x`. `demo-raktas.txt`, ne `slaptas.txt`. `ls -l` turi rodyti `-rw-------`. Čia nėra `if` ir `for`. Paskelbkite 2 užduotį.
++ Į `labas.sh` pirma `#!/usr/bin/env bash` (šauktukas, `env`, `bash`). Tada `echo` aplanko ir `grep -n -f ~/Desktop/devops/demo-raktas.txt pradzia.md`. Žodžio `Demo` skripte nėra. Ne `ataskaita.sh`.
+> Kodėl skriptas? Žodį saugo atskiras failas. Skriptas jį perskaito ir paleidžia paiešką dar kartą.
+Pastaba: ~12 min. Pirma eilutė ta, kurią ką tik išskaidėte. `demo-raktas.txt` turi vieną žodį `Demo`, tada `chmod 600`. Ne `slaptas.txt` ir ne `kava`. Tada `permission denied`, tik po to `chmod +x`. `rezultatas.txt` rodo `1:# Demo`. Be rakto failo `grep` neturi ko ieškoti. Čia nėra `if` ir `for`. Paskelbkite 2 užduotį.
 
 === demonstracija | Procesas, langas, paketas
 ```bash
