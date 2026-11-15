@@ -19,10 +19,7 @@
 - `chmod 600 FAILAS` → tik savininkas skaito ir rašo
 - `./SKRIPTAS.sh` → paleidžia skriptą
 
-## Procesas ir kintamasis
-- `KOMANDA &` → paleidžia fone, pvz. `sleep 30 &`
-- `ps aux | grep VARDAS` → randa procesą (PID yra antras stulpelis)
-- `kill PID` → prašo procesą baigti
+## Kintamasis
 - `export VARDAS=reikšmė` → kintamasis tik šiam langui
 - `echo $VARDAS` → parodo kintamąjį
 - `which KOMANDA` → kur komanda yra

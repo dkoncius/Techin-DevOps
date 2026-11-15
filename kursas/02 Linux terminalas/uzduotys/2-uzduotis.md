@@ -10,8 +10,9 @@ mkdir -p scripts
 ls
 ```
 
-   - Žvaigždutė prie `pamoka-02` (dirbame toje pačioje šakoje kaip 1 užduotyje)
-   - `ls` rodo `scripts` ir `uzrasai`
+- Žvaigždutė prie `pamoka-02` (dirbame toje pačioje šakoje kaip 1 užduotyje)
+- `ls` rodo `scripts` ir `uzrasai`
+
 3. Sukurti žodžio failą aplanke `devops` (vienu lygiu aukščiau už projektą).
    - Jame nėra programos, tik viena eilutė `kava`. Skripte šio žodžio nebus: `grep` jį perskaitys iš čia ir ieškos 1 užduoties sąraše `uzrasai/produktai.txt`.
    - Failas yra už projekto ribų, todėl niekada nepateks į Git.
@@ -25,12 +26,14 @@ cat slaptas.txt
 ls -l slaptas.txt
 ```
 
-   - `cat` rodo `kava`
-   - `ls -l` eilutės pradžioje rodo `-rw-------`
+- `cat` rodo `kava`
+- `ls -l` eilutės pradžioje rodo `-rw-------`
+
 4. Grįžti į projektą ir atidaryti naują skriptą su `nano`:
 
 ```bash
 cd git-bandymas
+mkdir -p scripts
 nano scripts/ataskaita.sh
 ```
 
@@ -47,25 +50,30 @@ echo "Eilutės:"
 grep -n -f ../slaptas.txt uzrasai/produktai.txt
 ```
 
-   - Išsaugokite ir išeikite: `Ctrl+O`, `Enter`, `Ctrl+X`. Nano klavišai yra 1 užduotyje.
+- Išsaugokite ir išeikite: `Ctrl+O`, `Enter`, `Ctrl+X`. Nano klavišai yra 1 užduotyje.
+
 6. Paleisti skriptą.
 
 ```bash
 ./scripts/ataskaita.sh
 ```
 
-   - Klaida `Permission denied`: failas sukurtas, bet dar neturi leidimo būti paleistas.
-   - Patikrinkite: `ls -l scripts/ataskaita.sh` rodo `-rw-r--r--`, `x` raidės nėra.
+- Klaida `Permission denied`: failas sukurtas, bet dar neturi leidimo būti paleistas.
+- Patikrinkite: `ls -l scripts/ataskaita.sh` rodo `-rw-r--r--`, `x` raidės nėra.
+
 7. Leisti paleisti ir paleisti dar kartą.
 
 ```bash
 chmod +x scripts/ataskaita.sh
 ls -l scripts/ataskaita.sh
-./scripts/ataskaita.sh
+
 ```
 
-   - `ls -l` rodo `-rwxr-xr-x`, atsirado `x`
-   - Išvestis:
+- `ls -l` rodo `-rwxr-xr-x`, atsirado `x`
+
+```bash
+./scripts/ataskaita.sh
+```
 
 ```
 Aplankas: git-bandymas
@@ -73,7 +81,8 @@ Eilutės:
 4:kava 3.50 €
 ```
 
-   - Skriptą paleiskite tik iš `git-bandymas` aplanko: keliai `../slaptas.txt` ir `uzrasai/produktai.txt` skaičiuojami nuo ten, kur esate.
+- Skriptą paleiskite tik iš `git-bandymas` aplanko: keliai `../slaptas.txt` ir `uzrasai/produktai.txt` skaičiuojami nuo ten, kur esate.
+
 8. Išvestį įrašyti į failą. `ataskaita.txt` kurti nereikia, `>` jį sukuria. `./` reiškia „šiame aplanke“.
 
 ```bash
@@ -81,7 +90,8 @@ Eilutės:
 cat ataskaita.txt
 ```
 
-   - `cat` rodo tą pačią išvestį kaip 7 žingsnyje, su `4:kava 3.50 €`
+- `cat` rodo tą pačią išvestį kaip 7 žingsnyje, su `4:kava 3.50 €`
+
 9. Išsaugoti skriptą Git'e. Į commit dedamas tik skriptas. `ataskaita.txt` lieka jūsų kompiuteryje, nes joje yra slaptas žodis. `slaptas.txt` yra už projekto ribų, todėl Git jo net nemato.
 
 ```bash
@@ -91,8 +101,9 @@ git commit -m "Pridėtas ataskaita.sh"
 git log --oneline
 ```
 
-   - `git status`: paruoštas commit tik `scripts/ataskaita.sh`, `ataskaita.txt` rodomas kaip „Untracked“, `slaptas.txt` nerodomas
-   - `git log --oneline`: viršuje `Pridėtas ataskaita.sh`
+- `git status`: paruoštas commit tik `scripts/ataskaita.sh`, `ataskaita.txt` rodomas kaip „Untracked“, `slaptas.txt` nerodomas
+- `git log --oneline`: viršuje `Pridėtas ataskaita.sh`
+
 10. **Pateikimas:** nuotrauka po `cat ataskaita.txt` ir `git log --oneline`.
 
 Jei užstrigote, pasižiūrėkite `linux komandos.pdf`. Nano klavišams: [Nano cheat sheet](https://linuxize.com/cheatsheet/nano/). Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

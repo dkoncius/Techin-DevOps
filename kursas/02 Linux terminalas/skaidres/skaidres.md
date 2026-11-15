@@ -1,7 +1,7 @@
 === titulinė | Linux terminalas
 02 pamoka · 1 etapas
 - Kam terminalas, kai serveryje nėra pelės
-- Pagrindinės komandos: failai, procesas, paketas
+- Pagrindinės komandos: failai, skriptas, paketas
 - Skriptas yra išsaugota komandų eilė
 Pastaba: ~2 min. Pirma tęsiame 01 projektą kita šaka, tada komandos. Pull Request lieka 4 užduotyje. `if` ir `for` yra 04 pamoka.
 
@@ -96,31 +96,25 @@ cat rezultatas.txt
 > Kodėl skriptas? Žodį saugo atskiras failas. Skriptas jį perskaito ir paleidžia paiešką dar kartą.
 Pastaba: ~12 min. Pirma eilutė ta, kurią ką tik išskaidėte. `demo-raktas.txt` turi vieną žodį `Demo`, tada `chmod 600`. Ne `slaptas.txt` ir ne `kava`. Tada `permission denied`, tik po to `chmod +x`. `rezultatas.txt` rodo `1:# Demo`. Be rakto failo `grep` neturi ko ieškoti. Čia nėra `if` ir `for`. Paskelbkite 2 užduotį.
 
-=== demonstracija | Procesas, langas, paketas
+=== demonstracija | Langas ir paketas
 ```bash
-sleep 20 &
-jobs
-ps aux | grep sleep
-```
-```output+
-sleep 20     PID yra antras stulpelis
-grep sleep   šitos eilutės neliesti
-```
-```bash+
-kill PID
 export SPALVA=raudona
 echo "SPALVA yra $SPALVA"
+```
+```output+
+SPALVA yra raudona
 ```
 + Naujas langas, tas pats aplankas: `echo $SPALVA` tuščia. `export` liko senajame.
 + Mac: `brew install jq`. Ubuntu: `sudo apt update`, tada `sudo apt install jq`.
 > `sudo brew` neveikia. Paketas demonstracijoje `jq`, užduotyje bus `tree`.
-Pastaba: ~12 min. `kill` tik `sleep` eilutės PID. Po `kill` dar kartą `ps aux | grep sleep`: `sleep 20` nebėra. Paskelbkite 3 užduotį. Pull Request lieka 4 užduotyje, šioje skaidrėje jo nėra.
+Pastaba: ~12 min. `ps` ir `kill` čia nerodote: tai jau pas Edgarą, 05 vėl prireiks prie porto. Prieš 3 užduotį parodykite kitą skaidrę: jei Mac `brew` stringa, taisome ten. Pull Request lieka 4 užduotyje.
 
 === klaida | Kas stringa
-:: | `kill` su grep PID | Paimtas `grep`, ne `sleep`
 :: | `sudo brew` | Mac `brew` be `sudo`
+:: | `/opt/homebrew` | Neįrašomas: kopijuokite `sudo chown -R` eilutę, kurią parašė brew
+:: | Naujas langas | `export` ten tuščias — taip ir turi būti
 :: | `PWD` | Rašykite `pwd`. Didžiosios raidės yra kita komanda
-Pastaba: ~3 min.
+Pastaba: ~4 min. Mac. Jei `brew` rašo `/opt/homebrew is not writable` ir `Permission denied`, po klaidos yra eilutė `sudo chown -R`, mokinio vardas ir `/opt/homebrew`. Liepkite nukopijuoti tą eilutę. `sudo brew` ne. Slaptažodžio rašant nematyti. Tada vėl `brew install`. Ilgas tekstas (`Auto-updating Homebrew`, analytics, `Downloading`, pabaigoje `Extracting`) nėra klaida: laukti, kol grįš `%`. `brew: command not found` reiškia, kad Homebrew neįdiegtas (brew.sh). Tada skelbkite 3 užduotį.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas

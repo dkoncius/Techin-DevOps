@@ -4,7 +4,7 @@
   "source": "https://excalidraw.com",
   "elements": [
     {
-      "id": "5eebeeb7836a4166",
+      "id": "9ca9d90e4717414d",
       "type": "rectangle",
       "x": 0.0,
       "y": 0.0,
@@ -30,11 +30,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "178e722c80b443ce"
+          "id": "d360e12520bf4e16"
         },
         {
           "type": "arrow",
-          "id": "17501861118a471e"
+          "id": "42219c2ee98a46d5"
         }
       ],
       "updated": 1,
@@ -42,7 +42,7 @@
       "locked": false
     },
     {
-      "id": "178e722c80b443ce",
+      "id": "d360e12520bf4e16",
       "type": "text",
       "x": 10.0,
       "y": 30.0,
@@ -72,13 +72,13 @@
       "text": "Terminalo\nkomanda",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "5eebeeb7836a4166",
+      "containerId": "9ca9d90e4717414d",
       "originalText": "Terminalo\nkomanda",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "f85eb7a003b646b4",
+      "id": "2263a5193dda4dbe",
       "type": "rectangle",
       "x": 300.0,
       "y": 0.0,
@@ -104,15 +104,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "f345823418234a52"
+          "id": "01b7acd3b05c4ccd"
         },
         {
           "type": "arrow",
-          "id": "17501861118a471e"
+          "id": "42219c2ee98a46d5"
         },
         {
           "type": "arrow",
-          "id": "59bd3de25c0e4ebf"
+          "id": "f875f1166a9d4033"
         }
       ],
       "updated": 1,
@@ -120,7 +120,7 @@
       "locked": false
     },
     {
-      "id": "f345823418234a52",
+      "id": "01b7acd3b05c4ccd",
       "type": "text",
       "x": 310.0,
       "y": 30.0,
@@ -150,13 +150,13 @@
       "text": "Bash\nskriptas",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "f85eb7a003b646b4",
+      "containerId": "2263a5193dda4dbe",
       "originalText": "Bash\nskriptas",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "855b6718589843f9",
+      "id": "63d40dc9b0e34342",
       "type": "rectangle",
       "x": 600.0,
       "y": 0.0,
@@ -182,11 +182,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "cc56e99a380a4a72"
+          "id": "b237eb5e810e4b31"
         },
         {
           "type": "arrow",
-          "id": "59bd3de25c0e4ebf"
+          "id": "f875f1166a9d4033"
         }
       ],
       "updated": 1,
@@ -194,7 +194,7 @@
       "locked": false
     },
     {
-      "id": "cc56e99a380a4a72",
+      "id": "b237eb5e810e4b31",
       "type": "text",
       "x": 610.0,
       "y": 30.0,
@@ -224,13 +224,13 @@
       "text": "Programa\npaleidžiama",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "855b6718589843f9",
+      "containerId": "63d40dc9b0e34342",
       "originalText": "Programa\npaleidžiama",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "17501861118a471e",
+      "id": "42219c2ee98a46d5",
       "type": "arrow",
       "x": 240.0,
       "y": 50.0,
@@ -269,12 +269,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "5eebeeb7836a4166",
+        "elementId": "9ca9d90e4717414d",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "f85eb7a003b646b4",
+        "elementId": "2263a5193dda4dbe",
         "focus": 0,
         "gap": 4
       },
@@ -282,7 +282,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "59bd3de25c0e4ebf",
+      "id": "f875f1166a9d4033",
       "type": "arrow",
       "x": 540.0,
       "y": 50.0,
@@ -321,12 +321,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "f85eb7a003b646b4",
+        "elementId": "2263a5193dda4dbe",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "855b6718589843f9",
+        "elementId": "63d40dc9b0e34342",
         "focus": 0,
         "gap": 4
       },

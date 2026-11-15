@@ -4,14 +4,14 @@ Data: 2026-11-16 (pirmadienis)
 
 ## Klasės darbas
 
-3 val. Skaidrėse **N** rodo pastabas. Buvusi 03 pamoka sujungta čia. Pirma kas yra terminalas ir kad jame nėra pelės, tada tęsiame 01 projektą nauja šaka, ir tik tada terminalo komandos. Pull Request lieka 4 užduotyje. Skriptas čia tik išsaugota komandų eilė. `if`, `for` ir išėjimo kodas yra 04 pamokoje.
+3 val. Skaidrėse **N** rodo pastabas. Pirma kas yra terminalas ir kad jame nėra pelės, tada tęsiame 01 projektą nauja šaka, tada skriptas, `export`, paketas ir PR. `ps` ir `kill` čia nepraktikuoja: tai jau pas Edgarą, vėl prireiks 05 (portas). `if`, `for` ir išėjimo kodas yra 04 pamokoje.
 
 1. Kas yra terminalas ir kad jame nėra pelės (~12 min): [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/02%20Linux%20terminalas/skaidres/skaidres.html), 1–4 skaidrės
 2. Tęsiame Git projektą, gyvai iki `git branch` (~8 min): skaidrė 5
 3. Failas, `grep` ir commit (~10 min), tada Užduotis 1 (~30 min). Joje ir `nano`: rasti, ištrinti, pataisyti. Skaidrė 6
 4. Pertrauka (~15 min)
 5. Pirmoji skripto eilutė, tada skriptas: pirma klaida, tada `chmod` (~15 min), tada Užduotis 2 (~18 min): skaidrės 7–8
-6. Procesas, `export`, paketas (~12 min), tada Užduotis 3 (~22 min): skaidrė 9
+6. `export` ir paketas (~12 min), tada Užduotis 3 (~22 min): skaidrė 9
 7. Pull Request tik iš užduoties (~18 min): skaidrės 10–11
 8. Kita paskaita: Bash skriptai. Ten skriptas jau sprendžia: argumentas, `if`, `for`, išėjimo kodas
 
@@ -29,5 +29,5 @@ Nepatikrinta šiame sujungime: naujos 1–4 užduotys iš eilės GitHub'e ir WSL
 
 1. `demo-a`: `git status`, šaka `demo-02`, `git branch`. Tada `juodrastis`, `pradzia.md`, `grep`, commit „Demo: pradžia“.
 2. `demo-raktas.txt` turi vieną žodį `Demo` ir uždaromas `chmod 600`. `labas.sh` prasideda `#!/usr/bin/env bash` ir ieško to žodžio su `grep -f`. Tada `./labas.sh` be teisių, `chmod +x`, išvestis į `rezultatas.txt`. Ataskaita rodo `1:# Demo`. Be rakto failo paieška neturi ko ieškoti.
-3. `sleep 20`, PID ne iš `grep`, `export SPALVA=raudona`, naujas langas tuščias, paketas `jq`.
+3. `export SPALVA=raudona`, naujas langas tuščias, paketas `jq`. `ps` / `kill` nedemonstruojate.
 4. Pull Request skaidrėje nedemonstruojate. Komandos yra 4 užduotyje.
