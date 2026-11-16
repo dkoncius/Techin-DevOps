@@ -4,19 +4,21 @@ Data: 2026-11-17 (antradienis)
 
 ## Klasės darbas
 
-3 val. Skaidrėse **N** rodo pastabas. Kiekviena tema: skaidrės → jūsų demonstracija kitu pavyzdžiu → užduotis Teams'e → mokiniai daro savo. Užduotys eina viena gija: skriptas `scripts/patikra.sh` auga per 1–3 užduotis, 4 užduotis baigiama Pull Request.
+Anksčiau mokėsi: pas Edgarą Bash skriptą su kintamaisiais ir `wc -l`, 02 pamokoje `ataskaita.sh`. Argumentų, `if`, `for` ir išėjimo kodo dar nemokėsi.
 
-1. Pasitikrinimas po 02 (~10 min): parodykite 02 užduotis. Kam neveikė `export`, `tree` ar Pull Request, kartu randame priežastį
-2. Argumentai, sąlyga ir išėjimo kodas (~25 min), tada Užduotis 1 (~20 min): [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/03%20Bash%20skriptai/skaidres/skaidres.html), 1–6 skaidrės; argumentai, sąlyga, išėjimo kodas
-3. Ciklas ir saugus skriptas (~10 min), tada Užduotis 2 (~20 min): skaidrė 7; masyvas, aritmetika, išėjimas pirmoje klaidoje
-4. Pertrauka (~15 min)
-5. Failų patikra (~5 min), tada Užduotis 3 (~20 min): skaidrė 8; failų ir aplankų patikra, skriptas iš projekto šaknies
-6. Tikras Bash ir Git (~15 min), tada Užduotis 4 (~35 min): skaidrės 9–10; ignoravimas, pakeitimų atšaukimas, Pull Request
+Prisiminsime skriptą su kintamaisiais, o mokysimės argumentų, `if`, `for`, išėjimo kodo, failų patikros ir `.gitignore`.
+
+1. Pasitikrinimas po 02: parodykite 02 užduotis. Kam neveikė `export`, `tree` ar Pull Request, kartu randame priežastį
+2. Argumentai, sąlyga ir išėjimo kodas, tada Užduotis 1: [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/03%20Bash%20skriptai/skaidres/skaidres.html), 1–6 skaidrės; argumentai, sąlyga, išėjimo kodas
+3. Ciklas ir saugus skriptas, tada Užduotis 2: skaidrė 7; masyvas, aritmetika, išėjimas pirmoje klaidoje
+4. Pertrauka
+5. Failų patikra, tada Užduotis 3: skaidrė 8; failų ir aplankų patikra, skriptas iš projekto šaknies
+6. Tikras Bash ir Git, tada Užduotis 4: skaidrės 9–10; ignoravimas, pakeitimų atšaukimas, Pull Request
 7. Kita paskaita: Tinklų pagrindai: IP, portai, DNS, HTTP
 
 ## Užduotys
 
-Užduotys yra `uzduotys/1-uzduotis.md` … `4-uzduotis.md`. Skelbiate Teams'e po vieną: pirma demonstracija, tada darbas. 1–3 užduotys plečia tą patį `scripts/patikra.sh`, 4 užduotis baigiama Pull Request. Komandos yra pačiose užduotyse. Atskiro sprendimo failo nėra. Lapas: `uzduotys/bash komandos.md`.
+Užduotys yra `uzduotys/1-uzduotis.md` … `4-uzduotis.md`. Skelbiate Teams'e po vieną: pirma demonstracija, tada darbas. 1–3 užduotys plečia tą patį `scripts/patikra.sh`, 4 užduotis baigiama Pull Request. Mokiniai skriptus rašo patys pagal aprašą. Pilni skriptai ir laukiami rezultatai yra `uzduotys/1-uzduotis-sprendimas.md` … `3-uzduotis-sprendimas.md` (4 užduotis be sprendimo failo). Lapas: `uzduotys/bash komandos.md`.
 
 ## Pamokos eiga (dėstytojui)
 

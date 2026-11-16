@@ -1,7 +1,11 @@
 # 4 užduotis: paleisti.sh ir Pull Request
 
-1. **Tikslas:** parašyti skriptą, kuris paleidžia projektą, palaukia `/health` 200 ir jį sustabdo, tada pateikti Pull Request.
-2. `nano paleisti.sh` ir įrašykite:
+**1.** **Tikslas:** parašyti skriptą, kuris paleidžia projektą, palaukia `/health` 200 ir jį sustabdo, tada pateikti Pull Request.
+
+**2.** Atidaryti failą skriptui:
+
+- `nano paleisti.sh`
+- Įklijuoti visą tekstą žemiau (**Mac: Cmd+V**; Ubuntu / WSL: `Ctrl+Shift+V`), tada `Ctrl+O`, `Enter`, `Ctrl+X`
 
 ```bash
 #!/usr/bin/env bash
@@ -35,15 +39,61 @@ echo "Nepavyko: /health neatsakė per 20 s" >&2
 exit 1
 ```
 
-`chmod +x paleisti.sh`.
-3. Sėkmė: `./paleisti.sh; echo "kodas: $?"`. Išvestis `OK: /health atsakė 200`, kodas 0. Kitas portas: `PORT=5002 ./paleisti.sh; echo "kodas: $?"`. Vėl 0.
-4. Užimtas portas: kitame lange `python3 -m http.server 5003`. Tada `PORT=5003 ./paleisti.sh; echo "kodas: $?"`. Po maždaug 20 sekundžių klaida ir kodas 1. Serverį sustabdykite `Ctrl+C`.
-5. `README.md` pridėkite skyrių „Paleidimas“: paleisti `./paleisti.sh`, patikrinti `/health`, spalvą ir versiją keisti faile `.env` (jo į Git nekelti).
-6. Į `docs/paleidimas.md` skyrių „paleisti.sh“ įrašykite tris kodus: sėkmė 0, `PORT=5002` kodas 0, užimtas portas kodas 1.
-7. Commit'ai: `git add paleisti.sh`, `git commit -m "Pridėtas paleisti.sh"`. `git add README.md docs`, `git commit -m "Paleidimo užrašai"`. `git status` nerodo `.env`.
-8. `git push -u origin pamoka-05`. Pull Request į `main`, pavadinimas „Paleidimas lokaliai“. **Merge pull request**. `gh pr create --title "Paleidimas lokaliai" --body "paleisti.sh, .env ir testai."`, `gh pr merge --merge`.
-9. `git switch main`, `git pull`, `git branch -d pamoka-05`, `git push origin --delete pamoka-05`.
-10. **Papildomai:** `cd /tmp && ~/devops/devops-projektas/paleisti.sh`. Kodas 0, nes skriptas pats pereina į savo aplanką (`dirname`).
-11. **Pateikimas:** `./paleisti.sh` nuotrauka su `OK` ir sulietas Pull Request.
+**3.** Leisti paleisti skriptą:
+
+- `chmod +x paleisti.sh`
+
+**4.** Paleisti sėkmės atveju:
+
+- `./paleisti.sh; echo "kodas: $?"`
+- `PORT=5002 ./paleisti.sh; echo "kodas: $?"`
+- Turi būti: abi `OK: /health atsakė 200` ir kodas 0
+
+**5.** Paleisti, kai portas užimtas:
+
+- Kitame lange: `python3 -m http.server 5003`
+- `PORT=5003 ./paleisti.sh; echo "kodas: $?"`
+- Turi būti: po maždaug 20 sekundžių klaida ir kodas 1
+- Serverį sustabdyti: `Ctrl+C`
+
+**6.** Papildyti `README.md`:
+
+- `nano README.md`
+- Pridėti skyrių „Paleidimas“: paleisti `./paleisti.sh`, patikrinti `/health`, spalvą ir versiją keisti faile `.env` (jo į Git nekelti)
+
+**7.** Papildyti `docs/paleidimas.md`:
+
+- `nano docs/paleidimas.md`
+- Pridėti skyrių „paleisti.sh“ su trimis kodais: sėkmė 0, `PORT=5002` kodas 0, užimtas portas kodas 1
+
+**8.** Išsaugoti Git'e dviem commit'ais:
+
+- `git add paleisti.sh`
+- `git commit -m "Pridėtas paleisti.sh"`
+- `git add README.md docs`
+- `git commit -m "Paleidimo užrašai"`
+- `git status`
+- Turi būti: `git status` nerodo `.env`
+
+**9.** Nusiųsti šaką ir sukurti Pull Request:
+
+- `git push -u origin pamoka-05`
+- `gh pr create --title "Paleidimas lokaliai" --body "paleisti.sh, .env ir testai."`
+- `gh pr merge --merge`
+- Arba naršyklėje: pavadinimas „Paleidimas lokaliai“, tada **Merge pull request**
+
+**10.** Atnaujinti `main` ir ištrinti šaką:
+
+- `git switch main`
+- `git pull`
+- `git branch -d pamoka-05`
+- `git push origin --delete pamoka-05`
+
+**11.** **Papildomai:** paleisti iš kito aplanko:
+
+- `cd /tmp && ~/devops/devops-projektas/paleisti.sh`
+- Turi būti: kodas 0, nes skriptas pats pereina į savo aplanką (`dirname`)
+
+**12.** **Pateikimas:** `./paleisti.sh` nuotrauka su `OK` ir sulietas Pull Request.
 
 Jei užstrigote, pasižiūrėkite `paleidimas komandos.md`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

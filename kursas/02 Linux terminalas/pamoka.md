@@ -4,15 +4,17 @@ Data: 2026-11-16 (pirmadienis)
 
 ## Klasės darbas
 
-3 val. Eilė: terminalas, nauja šaka 01 projekte, skriptas, `export`, paketas, pirmas Pull Request. `ps` ir `kill` čia nepraktikuojami (jau pas Edgarą). `if`, `for` ir išėjimo kodas yra 03 pamokoje.
+Anksčiau mokėsi pas Edgarą: failų ir aplankų komandas, `chmod`, `ps` ir `kill`, `nano`, aplinkos kintamuosius, Git (`init`, `add`, `commit`, `push`). Šias komandas tik pasitikriname. Nauja: darbas WSL / Mac aplinkoje, skriptas `ataskaita.sh`, `brew` / `apt` ir pirmas Pull Request.
 
-1. Kas yra terminalas ir kad jame nėra pelės (~12 min): [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/02%20Linux%20terminalas/skaidres/skaidres.html), 1–4 skaidrės
-2. Tęsiame Git projektą, gyvai iki `git branch` (~8 min): skaidrė 5
-3. Failas, `nano` ir commit (~10 min), tada Užduotis 1 (~30 min). Joje ir `nano`: rasti, ištrinti, pataisyti. Skaidrės 6–8
-4. Pertrauka (~15 min)
-5. Skriptas eilutė po eilutės, `chmod` ir commit (~15 min), tada Užduotis 2 (~18 min): skaidrės 9–14
-6. `export`, paketas, commit (~14 min), tada Užduotis 3 (~22 min): skaidrės 15–19
-7. Pull Request (~18 min), tada Užduotis 4: skaidrės 20–23
+Prisiminsime failų komandas, `nano`, `chmod` ir aplinkos kintamuosius, o mokysimės dirbti su savo `git-bandymas` projektu: parašyti skriptą, naudoti `export`, įdiegti paketą (`brew` arba `apt`) ir atverti pirmą Pull Request.
+
+1. Kas yra terminalas ir kad jame nėra pelės: [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/02%20Linux%20terminalas/skaidres/skaidres.html), 1–4 skaidrės
+2. Tęsiame Git projektą, gyvai iki `git branch`: skaidrė 5
+3. Failas, `nano` ir commit, tada Užduotis 1. Joje ir `nano`: rasti, ištrinti, pataisyti. Skaidrės 6–8
+4. Pertrauka
+5. Skriptas eilutė po eilutės, `chmod` ir commit, tada Užduotis 2: skaidrės 9–14
+6. `export`, paketas, commit, tada Užduotis 3: skaidrės 15–19
+7. Pull Request, tada Užduotis 4: skaidrės 20–23
 8. Kita paskaita: Bash skriptai. Ten skriptas jau sprendžia: argumentas, `if`, `for`, išėjimo kodas
 
 Nuoroda: [GitHub: about pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)

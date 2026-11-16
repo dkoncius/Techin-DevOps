@@ -61,7 +61,7 @@ Nauja Git pamoka kartoja šią eilę, ne seną `git remote add` prieš `git init
 3. **Viena mintis skaidrei.** Ekrane ≤ ~40 žodžių; gilumas eina į `Pastaba:`.
 4. Komandos kodo bloke: tikros, veikiančios Mac ir Ubuntu (kaip `pamoka.md`). Išvestį žymėk „pavyzdinė išvestis“ ir nerašyk išgalvotų realių adresų ar PID kaip faktų.
 5. Atskleidimas: eilutės `+ tekstas` ir kodo blokai ```` ```bash+ ```` atsiranda paspaudus. Naudok, kai klausi ir atsakai toje pačioje skaidrėje.
-6. **Pastabos dėstytojui** (`Pastaba:` eilutės, rodomos klavišu N): laikas minutėmis, ką sakyti, ko klausti, „Dažna klaida“ iš sprendimo. Visos lietuviškai.
+6. **Pastabos dėstytojui** (`Pastaba:`, klavišas N): nuo 02 pamokos JOS NENAUDOJAMOS, viskas, ką mato studentas ir dėstytojas, yra pačioje skaidrėje. Išimtis: demonstracijos atstatymas (žr. `pamoka-formatas`, „Demonstracijos atstatymas“). Jei tekstas netelpa, skaidrę skaidyk, o ne kelk į pastabą. Skyriaus „Pastabos“ senose pamokose (01) neperrašyk be prašymo.
 7. **Kalba:** skaidrių tekstas lietuviškai; komandos, failų vardai ir terminai (commit, branch, curl, PID) lieka originalūs.
 
 ## 3a. Vaizdingumas (privaloma)
@@ -75,6 +75,20 @@ Skaidrės turi būti vaizdingos, bet **santūrios** (šviesi tema, vienas akcent
 5. **Terminalas**: komandą rodyk `bash` bloke, rezultatą `output+` bloke po paspaudimo.
 6. **Bendras vaizdas Excalidraw stiliumi** (```` ```excalidraw ````) bent vienoje skaidrėje, kai pamoka jungia kelias dalis (kas su kuo kalba, kelias, architektūra); ne daugiau nei ~8 langelių.
 7. Titulinės skaidrės eyebrow pradėk numeriu (`05 pamoka · 1 etapas`).
+
+## 3b. Demonstracijos standartas (etalonas: `kursas/02 Linux terminalas/skaidres/skaidres.md`)
+Atnaujindamas ar kurdamas pamoką, atsidaryk 02 skaidres ir kartok jų ritmą. Taisyklės išvestos iš 02 peržiūrų:
+1. **Demonstracija = užduoties kelias su kitu turiniu.** Ta pati komandų eilė, kiti vardai. Studentas iš skaidrių ir užduoties turi galėti atlikti darbą pats; kuo greičiau parodyk pagrindinį kelią.
+2. **Nekartok to paties.** Tas pats žingsnis (pvz. `git add`, `commit`, failo kūrimas) skaidrėse rodomas vieną kartą; vėliau tą patį failą naudok iš naujo (02: `labas.sh` pereina per kintamąjį, paketą, commit ir PR), o ne kurk naują pavyzdį kiekvienai temai.
+3. **Skaidrės vidus** šia tvarka: kodo blokas iškart (be ilgo įvado), po jo `output+` pavyzdinė išvestis po kiekvienos komandos, tada 1–3 trumpos `+` eilutės, ką naujo matome, ir tik pabaigoje analogija `+>`. Komandą rodyk kartu su rezultatu: po `chmod` rodyk `ls -l`, po `export` naują langą, po `brew install` `which`.
+4. **Paaiškink tik tai, kas nauja**, ir tik tai, ką studentas mato. Jokių vėliavų ar sintaksės be paaiškinimo (`-p`, `-u`, `${VAR:-x}`), bet ir jokių „kodėl“ pastraipų. Lentelė (pvz. teisių `rw-`) pakeičia aiškinimą. Jei skaidrėje minimi failai, juos įvardink (`du failai: a ir b`), ne „tie patys failai“.
+5. **Trumpi sakiniai**: viena mintis eilutei, ~100 simbolių riba, viena atskleidžiama eilutė per mintį. Analogija viena trumpa eilutė. Jei klausiama „kas per ilgi aprašymai“, trumpink, nekeisk struktūros.
+6. **Viena skaidrė = vienas žingsnių klasteris**: iki ~3–4 komandų su išvestimis. Jei išvestis netelpa arba yra du dideli blokai, skaidyk į dvi skaidres (pvz. „Kas keliaus į GitHub“ ir „Pull Request“). Antraštės neutralios ir apie veiksmą („Paleidimas ir teisės“), ne „Failas 1“, „Failas 2“. Skaidymas reiškia: perskaičiuoti skaidrių intervalus `pamoka.md`.
+7. **Prielaidos komandose.** Kiekviena skaidrė veikia iš ankstesnės būsenos: `mkdir -p scripts` prieš `nano scripts/x.sh`, `cd` kai keičiasi aplankas. Nerodyk sąlygų, kurių studentas nesukūrė (pvz. grep slaptažodžiams, jei jų nebuvo).
+8. **Procesams** (kaip kurti `.sh`, kaip veikia PR) pakanka vienos paprastos Excalidraw schemos su 3–4 langeliais ir rodyklėmis, ne animacijos ir ne daugelio skaidrių.
+9. **Paketai ir įrankiai**: diegiamas tik tai, kas iškart naudojama (`brew install bat`, `which bat`, `bat failas`); Ubuntu atvejis viena eilute (`apt`, `batcat`). Prieš įrašydamas komandą patikrink Mac ir Ubuntu, ar jos pavadinimas nesutampa su sistemine (macOS turi savo `jq`). Papildomi įrankiai keliami į užduotį.
+10. **Demonstracijos būsena.** Demo kartojama kelis kartus, todėl pamoka turi `demo-atstatyti.sh` (žr. `pamoka-formatas`); pakeitus demo, patikrink, kad skriptas ją vis tiek atstato.
+11. **Po kiekvieno skaidrių pakeitimo** perkurk HTML, perskaityk generatoriaus įspėjimus, atnaujink skaidrių numerius `pamoka.md` ir pasakyk, kad naršyklėje nepatikrinta, jei taip.
 
 ## 4. Formatas
 

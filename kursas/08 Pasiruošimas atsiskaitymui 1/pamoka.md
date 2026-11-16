@@ -4,14 +4,16 @@ Data: 2026-11-26 (ketvirtadienis)
 
 ## Klasės darbas
 
-3 val. Naujos temos nėra. 2026-11-25 paskaitos nebuvo. Tikriname tai, ką žiūrės atsiskaitymas: `paleisti.sh`, šablono repozitorija ir bent 3 sulieti Pull Request aplanke `git-bandymas`. Docker šio atsiskaitymo nevertinamas.
+Anksčiau mokėsi: 01–07 pamokų temas (Linux, Git, Bash, tinklai, projekto paleidimas, Docker pradžia). Naujų temų nebus; 2026-11-25 paskaitos nebuvo.
 
-1. Kas bus tikrinama (~15 min): [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/08%20Pasiruošimas%20atsiskaitymui%201/skaidres.html), 1–2 skaidrės
-2. Užduotis 1 (~25 min): `./paleisti.sh` kodas 0
-3. Užduotis 2 (~20 min): `git-bandymas` sulieti PR
-4. Pertrauka (~15 min)
-5. Užduotis 3 (~20 min): `.env` nėra Git'e
-6. Klausimai (~40 min): kas dar neveikia, taisome vietoje
+Prisiminsime viską nuo 01 iki 07 pamokos: pasitikrinsime `paleisti.sh`, šablono repozitoriją, `.env` ir bent 3 sulietus Pull Request aplanke `git-bandymas`. Kas neveikia, pataisysime vietoje. Docker šiame atsiskaityme nevertinamas.
+
+1. Kas bus tikrinama: [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/08%20Pasiruošimas%20atsiskaitymui%201/skaidres.html), 1–2 skaidrės
+2. Užduotis 1: `./paleisti.sh` kodas 0
+3. Užduotis 2: `git-bandymas` sulieti PR
+4. Pertrauka
+5. Užduotis 3: `.env` nėra Git'e
+6. Klausimai: kas dar neveikia, taisome vietoje
 7. Kita paskaita: Atsiskaitymas 1, 2026-11-30
 
 ## Užduotys

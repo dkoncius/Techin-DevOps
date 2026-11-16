@@ -1,4 +1,4 @@
-# 3 užduotis, sprendimas (dėstytojui): Nusiklonuokite kitur
+# 3 užduotis, sprendimas (dėstytojui): Github clone
 
 Numeriai kaip užduotyje (`3-uzduotis.md`). Kopija kuriama aplanke `devops`, šalia `git-bandymas`. Demonstracijai klonuokite į `demo-c`, ne į `git-bandymas-kopija`.
 

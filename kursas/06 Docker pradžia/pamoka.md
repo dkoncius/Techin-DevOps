@@ -4,14 +4,16 @@ Data: 2026-11-23 (pirmadienis)
 
 ## Klasės darbas
 
-3 val. Pradžioje trumpai: kodėl „pas mane veikia“ ir kuo konteineris skiriasi nuo virtualios mašinos. Likęs laikas yra `docker run`, `ps`, `logs`, `exec`, `stop`. Atskiros teorijos pamokos nėra. Projekto šablono šiai pamokai nereikia.
+Anksčiau mokėsi: 05 pamokoje paleido projektą lokaliai; pas Edgarą Docker pagrindus (`Dockerfile`, nginx). Kasdienių komandų (`logs`, `exec`, `stop`, `rm`) čia kartojame nuosekliai.
 
-1. Kodėl konteineris (~15 min): [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/06%20Docker%20pradžia/skaidres.html), 1–2 skaidrės
-2. `hello-world` (~15 min), tada Užduotis 1: skaidrė 3
-3. Serveris fone (~25 min), tada Užduotis 2: skaidrė 4. Demonstracijoje portas `8888` ir vardas `demo-web`, ne `8080` ir ne `kursas-web`
-4. Pertrauka (~15 min)
-5. Žurnalas ir `exec` (~25 min), tada Užduotis 3: skaidrė 5
-6. Stop ir rm (~20 min), tada Užduotis 4: skaidrė 6
+Prisiminsime, kaip paleidome projektą, ir Docker pagrindus pas Edgarą, o mokysimės paleisti konteinerį (`docker run`), skaityti žurnalą (`logs`), eiti į vidų (`exec`) ir sustabdyti (`stop`, `rm`).
+
+1. Kodėl konteineris: [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/06%20Docker%20pradžia/skaidres.html), 1–2 skaidrės
+2. `hello-world`, tada Užduotis 1: skaidrė 3
+3. Serveris fone, tada Užduotis 2: skaidrė 4. Demonstracijoje portas `8888` ir vardas `demo-web`, ne `8080` ir ne `kursas-web`
+4. Pertrauka
+5. Žurnalas ir `exec`, tada Užduotis 3: skaidrė 5
+6. Stop ir rm, tada Užduotis 4: skaidrė 6
 7. Kita paskaita: image ir registrai
 
 ## Užduotys

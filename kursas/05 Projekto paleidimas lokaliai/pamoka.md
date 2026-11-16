@@ -4,14 +4,16 @@ Data: 2026-11-19 (ketvirtadienis)
 
 ## Klasės darbas
 
-3 val. Skaidrėse **N** rodo pastabas. Kiekviena tema: skaidrės → jūsų demonstracija kitu pavyzdžiu → užduotis Teams'e → mokiniai daro savo. `main` neapsaugotas. Šablonas atsiranda tik šioje pamokoje. 02–04 liko `git-bandymas`.
+Anksčiau mokėsi: 02–04 pamokose dirbo `git-bandymas` aplanke; pas Karoliną skaitė Python. Šablono, Flask projekto paleidimo ir `.env` dar nematė.
 
-1. Pasitikrinimas po 04 (~8 min): `python3 -m http.server` ir `curl` kodai
-2. Šablonas ir klonas (~20 min), tada Užduotis 1: [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/05%20Projekto%20paleidimas%20lokaliai/skaidres.html), 1–3 skaidrės
-3. Paleidimas ir testai (~25 min), tada Užduotis 2: skaidrės 4–5; `./run.sh`, `/health`, `pytest`
-4. Pertrauka (~15 min)
-5. `.env` (~20 min), tada Užduotis 3: skaidrė 6
-6. `paleisti.sh` ir Pull Request (~40 min), tada Užduotis 4: skaidrės 7–9
+Prisiminsime `curl`, išėjimo kodą ir Python skaitymą, o mokysimės sukurti projektą iš šablono, paleisti jį lokaliai, paleisti testus, laikyti nustatymus `.env` faile ir parašyti `paleisti.sh`.
+
+1. Pasitikrinimas po 04: `python3 -m http.server` ir `curl` kodai
+2. Šablonas ir klonas, tada Užduotis 1: [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/05%20Projekto%20paleidimas%20lokaliai/skaidres.html), 1–3 skaidrės
+3. Paleidimas ir testai, tada Užduotis 2: skaidrės 4–5; `./run.sh`, `/health`, `pytest`
+4. Pertrauka
+5. `.env`, tada Užduotis 3: skaidrė 6
+6. `paleisti.sh` ir Pull Request, tada Užduotis 4: skaidrės 7–9
 7. Kita paskaita: Docker pradžia
 
 Nuorodos: [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template), [The Twelve-Factor App: Config](https://12factor.net/config)
