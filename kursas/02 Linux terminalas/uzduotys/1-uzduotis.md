@@ -94,11 +94,9 @@ git add uzrasai/produktai.txt
 git commit -m "Sutvarkyti produktai.txt"
 git log --oneline
 git push -u origin pamoka-02
-git switch main
-git merge pamoka-02
-git push
-git switch pamoka-02
 ```
+
+- `main` kol kas nekeičiamas: į jį šaką sulieksite 4 užduotyje per Pull Request.
 
 **13.Pateikimas:** nuotrauka po `cat produktai.txt` ir `git log --oneline`.
 

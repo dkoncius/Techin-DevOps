@@ -4,15 +4,15 @@ Data: 2026-11-16 (pirmadienis)
 
 ## Klasės darbas
 
-3 val. Skaidrėse **N** rodo pastabas. Pirma kas yra terminalas ir kad jame nėra pelės, tada tęsiame 01 projektą nauja šaka, tada skriptas, `export`, paketas ir PR. `ps` ir `kill` čia nepraktikuoja: tai jau pas Edgarą, vėl prireiks 05 (portas). `if`, `for` ir išėjimo kodas yra 04 pamokoje.
+3 val. Skaidrėse **N** rodo pastabas. Eilė: terminalas, nauja šaka 01 projekte, skriptas, `export`, paketas, pirmas Pull Request. `ps` ir `kill` čia nepraktikuojami (jau pas Edgarą). `if`, `for` ir išėjimo kodas yra 04 pamokoje.
 
 1. Kas yra terminalas ir kad jame nėra pelės (~12 min): [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/02%20Linux%20terminalas/skaidres/skaidres.html), 1–4 skaidrės
 2. Tęsiame Git projektą, gyvai iki `git branch` (~8 min): skaidrė 5
-3. Failas, `grep` ir commit (~10 min), tada Užduotis 1 (~30 min). Joje ir `nano`: rasti, ištrinti, pataisyti. Skaidrė 6
+3. Failas, `grep` ir commit (~10 min), tada Užduotis 1 (~30 min). Joje ir `nano`: rasti, ištrinti, pataisyti. Skaidrės 6–7
 4. Pertrauka (~15 min)
-5. Pirmoji skripto eilutė, tada skriptas: pirma klaida, tada `chmod` (~15 min), tada Užduotis 2 (~18 min): skaidrės 7–8
-6. `export` ir paketas (~12 min), tada Užduotis 3 (~22 min): skaidrė 9
-7. Pull Request tik iš užduoties (~18 min): skaidrės 10–11
+5. Skriptas eilutė po eilutės, `chmod` ir commit (~15 min), tada Užduotis 2 (~18 min): skaidrės 8–12
+6. `export`, paketas, commit (~14 min), tada Užduotis 3 (~22 min): skaidrės 13–16
+7. Pull Request (~18 min), tada Užduotis 4: skaidrės 17–18
 8. Kita paskaita: Bash skriptai. Ten skriptas jau sprendžia: argumentas, `if`, `for`, išėjimo kodas
 
 Nuoroda: [GitHub: about pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
@@ -27,7 +27,4 @@ Nepatikrinta šiame sujungime: naujos 1–4 užduotys iš eilės GitHub'e ir WSL
 
 ### Demonstracijos žingsniai
 
-1. `demo-a`: `git status`, šaka `demo-02`, `git branch`. Tada `juodrastis`, `pradzia.md`, `grep`, commit „Demo: pradžia“.
-2. `demo-raktas.txt` turi vieną žodį `Demo` ir uždaromas `chmod 600`. `labas.sh` prasideda `#!/usr/bin/env bash` ir ieško to žodžio su `grep -f`. Tada `./labas.sh` be teisių, `chmod +x`, išvestis į `rezultatas.txt`. Ataskaita rodo `1:# Demo`. Be rakto failo paieška neturi ko ieškoti.
-3. `export SPALVA=raudona`, naujas langas tuščias, paketas `jq`. `ps` / `kill` nedemonstruojate.
-4. Pull Request skaidrėje nedemonstruojate. Komandos yra 4 užduotyje.
+Demonstracijų komandų čia nėra: jos yra skaidrėse (`demo-a`, šaka `demo-02`, kiti vardai nei užduotyse), o kada skelbti užduotį, parašyta skaidrių `Pastaba:` (**N**). Atskiro sprendimo failo nėra: komandos ir laukiamas rezultatas yra `uzduotys/1-uzduotis.md` … `4-uzduotis.md`. Dėstytojas kasdienių užduočių netikrina, tik rodo sprendimą; tikrinimas yra tik atsiskaitymuose.

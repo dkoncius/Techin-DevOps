@@ -3,12 +3,12 @@
 - Kam terminalas, kai serveryje nėra pelės
 - Pagrindinės komandos: failai, skriptas, paketas
 - Skriptas yra išsaugota komandų eilė
-Pastaba: ~2 min. Pirma tęsiame 01 projektą kita šaka, tada komandos. Pull Request lieka 4 užduotyje. `if` ir `for` yra 04 pamoka.
+Pastaba: ~2 min. Pirma tęsiame 01 projektą kita šaka, tada komandos. Pull Request mokiniai pirmą kartą mato pamokos gale (demonstracija, tada 4 užduotis). `if` ir `for` yra 04 pamoka.
 
 === pagalvokime
 Instrukcija prasideda: „atidarykite terminalą“.
 # Kas yra terminalas?
-> Langas. Jame shell skaito jūsų eilutę ir paleidžia komandą.
++> Langas. Jame shell skaito jūsų eilutę ir paleidžia komandą.
 Pastaba: ~4 min. Be diagramos. Shell pas mus yra bash, ir Mac, ir Ubuntu. Prompt yra eilutė, kuri laukia. Jei po komandos iškart naujas prompt ir nėra teksto, dažniausiai pavyko.
 
 === tekstas | Terminale nėra pelės
@@ -44,77 +44,220 @@ git branch
 + Kodėl šaka? `main` lieka kaip po 01 pamokos. Šios dienos failai jo neliečia, kol nesujungsite.
 Pastaba: ~8 min. Tas pats aplankas, naujo repo nėra. Ne `git-bandymas`, ne `pamoka-02`. `git status` prieš šaką turi būti švarus. Commit darote kitoje skaidrėje, kai failas jau yra.
 
-=== demonstracija | Failas, paieška, commit
+=== demonstracija | nano: prieš ir po
 ```bash
-pwd
-ls
 mkdir -p juodrastis
+cd juodrastis
 nano pradzia.md
+```
++ Prieš (įklijuojate):
+```output+
+# Demo
+kriaušė 0.80
+Kriaušė 0.80
+slyva 2
+bananas 1,20
+```
++ Po (ištrinta pasikartojanti, pataisytos kainos, gale ` €`):
+```output+
+# Demo
+kriaušė 0.80 €
+slyva 2.00 €
+bananas 1.20 €
+```
++> Kaip juodraštis ant popieriaus: pirma suraitomas, tada pataisomas ir tik tada rodomas kitiems.
+Pastaba: ~6 min. Užduoties 1 žingsniai 4–10 su kitu sąrašu (ne `produktai.txt`, ne `pienas`). Įklijuoti **Cmd+V** (Mac) arba dešinysis klavišas. Ištrinti `Kriaušė 0.80`: `Ctrl+W`, `Ctrl+K`. `slyva 2` į `slyva 2.00`, kablelį į tašką, gale tarpas ir `€`. Išsaugoti `Ctrl+O`, `Enter`, `Ctrl+X` (Mac Control, ne Cmd). Po to `cat pradzia.md` rodo „po“.
+
+=== demonstracija | grep ir commit
+```bash
 grep -n "Demo" pradzia.md
 ```
 ```output+
 1:# Demo
 ```
 ```bash+
-git add pradzia.md
-git status
+cd ..
+git add juodrastis/pradzia.md
 git commit -m "Demo: pradžia"
 git log --oneline
+git push -u origin demo-02
 ```
-+ Faile tik `# Demo`. Išsaugoti `Ctrl+O`, `Enter`, `Ctrl+X` (Mac Control, ne Cmd).
-> `grep` randa eilutę. `pwd` ir `ls` tik patikrina, kur esate.
-Pastaba: ~10 min. Šaka jau `demo-02`. Ne `produktai.txt`. `mkdir` ir `grep` jie moka, čia jie ruošia commit. Paskelbkite 1 užduotį. Joje yra ir nano: rasti eilutę, ištrinti, pataisyti.
++> `grep` randa eilutę. Commit įrašo pakeitimą į istoriją, push nusiunčia į GitHub.
+Pastaba: ~4 min. Užduoties 1 žingsnis 12 be `merge`: `main` kol kas nekeičiate. Šaka jau `demo-02`. Paskelbkite 1 užduotį. Joje yra ir nano: rasti eilutę, ištrinti, pataisyti.
 
-=== tekstas | Pirmoji skripto eilutė
-@plokštelės
-+:: #! | Paleisk | Šauktukas: šitą failą vykdyti
-+:: env | Surask | `/usr/bin/env` randa `bash` ir Mac, ir Ubuntu
-+:: bash | Programa | Komandas faile skaito bash
-+ Atsiminkite tris dalis iš eilės: `#!/usr/bin/env bash`
-> Kaip užrašas ant viršelio: atidaryti su bash.
-Pastaba: ~3 min. Liepkite pasakyti garsiai: šauktukas, env, bash. Tada visa eilutė. Tai pirma failo eilutė, ne komanda prompt'e. Kodėl ne `/bin/bash`: kelias Mac ir Ubuntu gali skirtis, `env` pats suranda. Kitą skaidrę pradėkite įrašydami būtent šią eilutę į `labas.sh`.
-
-=== demonstracija | Nuo komandos iki skripto
+=== demonstracija | Žodžio failas
 ```bash
-echo Demo > ~/Desktop/devops/demo-raktas.txt
-chmod 600 ~/Desktop/devops/demo-raktas.txt
-nano labas.sh
-./labas.sh
+cd ..
+echo Demo > demo-raktas.txt
+chmod 600 demo-raktas.txt
+cat demo-raktas.txt
+ls -l demo-raktas.txt
+cd demo-a
 ```
 ```output+
-permission denied
+Demo
+-rw-------  1 vardas  staff  5 ... demo-raktas.txt
+```
++> Raktas guli už projekto ribų, todėl niekada nepateks į Git.
+Pastaba: ~4 min. Tai užduoties 2 žingsniai 3–4 su kitais vardais: ne `slaptas.txt`, ne `kava`. `demo-raktas.txt` turi vieną žodį `Demo`, tada `chmod 600`. Failas yra aplanke `devops`, vienu lygiu aukščiau už `demo-a`. Čia nėra `if` ir `for`.
+
+=== demonstracija | Tos pačios komandos terminale
+```bash
+pwd
+basename "$(pwd)"
+echo "Eilutės:"
+grep -n -f ../demo-raktas.txt juodrastis/pradzia.md
+```
+```output+
+/Users/vardas/Desktop/devops/demo-a
+demo-a
+Eilutės:
+1:# Demo
+```
++ Tos pačios komandos, kurios kitoje skaidrėje bus viename faile.
+Pastaba: ~4 min. Komandas rašote po vieną, ne faile. `pwd` ir `echo` jie jau moka. Nauja: `basename` (palieka tik paskutinę kelio dalį, `$(...)` įrašo vidinės komandos rezultatą) ir `grep -f`: žodį ima iš failo, `-n` rodo eilutės numerį, `../` yra vienas aplankas aukščiau. Kelias `/Users/vardas/...` yra pavyzdinis. Žodžio komandoje nėra, jis `demo-raktas.txt`.
+
+=== komanda | Skriptas: komandos viename faile
+Naujas failas `scripts/labas.sh`, atidaromas su `nano scripts/labas.sh`:
+```bash
+#!/usr/bin/env bash
+echo "Aplankas: $(basename "$(pwd)")"
+echo "Eilutės:"
+grep -n -f ../demo-raktas.txt juodrastis/pradzia.md
+```
++ **1.** `#!/usr/bin/env bash`: kas paleidžia failą. `env` randa `bash` ir Mac, ir Ubuntu.
++ **2.** `$(basename "$(pwd)")`: `pwd` rodo, kur esate, `basename` palieka tik aplanko vardą.
++ **3.** `echo "Eilutės:"`: užrašas ekrane prieš radinį.
++ **4.** `grep -n -f ../demo-raktas.txt ...`: `-f` žodį ima iš failo, `-n` rodo eilutės numerį, `../` yra vienas aplankas aukščiau.
++ Išsaugoti ir išeiti: `Ctrl+O`, `Enter`, `Ctrl+X`.
++> Kaip receptas: žingsniai užrašyti, o kas juos vykdo, pasako pirma eilutė.
+Pastaba: ~5 min. Tos pačios keturios komandos iš ankstesnės skaidrės, dabar viename faile. Nauja tik pirma eilutė: liepkite pasakyti garsiai šauktukas, env, bash. Kodėl ne `/bin/bash`: kelias Mac ir Ubuntu gali skirtis, `env` pats suranda. Tai užduoties 2 struktūra, tik kiti vardai. Failą sukurkite čia pat: `mkdir -p scripts`, `nano scripts/labas.sh`, įrašykite skriptą, išsaugokite. Kitoje skaidrėje jį tik paleidžiate.
+
+=== demonstracija | Paleidimas ir teisės
+```bash
+./scripts/labas.sh
+```
+```output+
+zsh: permission denied: ./scripts/labas.sh
 ```
 ```bash+
-chmod +x labas.sh
-./labas.sh > rezultatas.txt
+chmod +x scripts/labas.sh
+./scripts/labas.sh > rezultatas.txt
 cat rezultatas.txt
 ```
 ```output+
+Aplankas: demo-a
+Eilutės:
 1:# Demo
 ```
-+ Į `labas.sh` pirma `#!/usr/bin/env bash` (šauktukas, `env`, `bash`). Tada `echo` aplanko ir `grep -n -f ~/Desktop/devops/demo-raktas.txt pradzia.md`. Žodžio `Demo` skripte nėra. Ne `ataskaita.sh`.
-> Kodėl skriptas? Žodį saugo atskiras failas. Skriptas jį perskaito ir paleidžia paiešką dar kartą.
-Pastaba: ~12 min. Pirma eilutė ta, kurią ką tik išskaidėte. `demo-raktas.txt` turi vieną žodį `Demo`, tada `chmod 600`. Ne `slaptas.txt` ir ne `kava`. Tada `permission denied`, tik po to `chmod +x`. `rezultatas.txt` rodo `1:# Demo`. Be rakto failo `grep` neturi ko ieškoti. Čia nėra `if` ir `for`. Paskelbkite 2 užduotį.
++> Kaip dokumentas be „leista skaityti“ spaudo: failas yra, bet sistema jo nepaleis, kol neleisite.
+Pastaba: ~5 min. Užduoties 2 žingsniai 6–8. Skriptas jau išsaugotas ankstesnėje skaidrėje. Pirma `permission denied`, tik tada `chmod +x`. `rezultatas.txt` rodo `Aplankas: demo-a`, `Eilutės:` ir `1:# Demo`. Skriptą leiskite iš `demo-a`, nes `../` skaičiuojamas nuo ten. Be rakto failo `grep` neturi ko ieškoti.
 
-=== demonstracija | Langas ir paketas
+=== demonstracija | Į commit tik skriptas
 ```bash
-export SPALVA=raudona
-echo "SPALVA yra $SPALVA"
+git add scripts/labas.sh
+git status
+git commit -m "Demo: labas.sh"
+git log --oneline
+```
++ `rezultatas.txt` lieka „Untracked“, kaip `ataskaita.txt` užduotyje: į commit eina tik skriptas.
+Pastaba: ~3 min. Užduoties 2 žingsnis 9. `git status`: paruoštas tik `scripts/labas.sh`, `rezultatas.txt` Untracked, `demo-raktas.txt` nerodomas. Paskelbkite 2 užduotį.
+
+=== demonstracija | Kintamasis skripte
+```bash
+mkdir -p docs
+nano scripts/spalva.sh
+chmod +x scripts/spalva.sh
+./scripts/spalva.sh > docs/spalva.txt
+cat docs/spalva.txt
 ```
 ```output+
-SPALVA yra raudona
+SPALVA: nenustatyta
 ```
-+ Naujas langas, tas pats aplankas: `echo $SPALVA` tuščia. `export` liko senajame.
-+ Mac: `brew install jq`. Ubuntu: `sudo apt update`, tada `sudo apt install jq`.
-> `sudo brew` neveikia. Paketas demonstracijoje `jq`, užduotyje bus `tree`.
-Pastaba: ~12 min. `ps` ir `kill` čia nerodote: tai jau pas Edgarą, 05 vėl prireiks prie porto. Prieš 3 užduotį parodykite kitą skaidrę: jei Mac `brew` stringa, taisome ten. Pull Request lieka 4 užduotyje.
++ Į `spalva.sh` pirma `#!/usr/bin/env bash`, tada `echo "SPALVA: ${SPALVA:-nenustatyta}"`.
++> `${SPALVA:-nenustatyta}`: jei kintamasis nenustatytas, rodoma `nenustatyta`.
+Pastaba: ~5 min. Užduoties 3 žingsniai 3–6 su kitais vardais (ne `aplinka.sh`, ne `PROJEKTO_VARDAS`). Čia `permission denied` jau matyta, todėl `chmod +x` iškart.
+
+=== demonstracija | export ir naujas langas
+```bash
+export SPALVA=raudona
+./scripts/spalva.sh
+```
+```output+
+SPALVA: raudona
+```
++ Naujas langas (Mac: Cmd+N), tas pats projektas:
+```bash+
+cd ~/Desktop/devops/demo-a
+./scripts/spalva.sh
+```
+```output+
+SPALVA: nenustatyta
+```
++> Kaip lipdukas ant vieno lango: kitas langas jo nemato.
+Pastaba: ~5 min. Užduoties 3 žingsniai 7–8. Naują langą atidarykite gyvai. Senajame lange `export` vis dar galioja. Dažna klaida: `export` viename lange, skriptas kitame.
+
+=== demonstracija | Paketas ir commit
+```bash
+brew install jq
+jq --version
+which jq
+```
++ Ubuntu / WSL: `sudo apt update`, tada `sudo apt install jq`.
+```bash+
+git add scripts/spalva.sh docs
+git status
+git commit -m "Demo: spalva"
+git log --oneline
+```
++> `sudo brew` neveikia. Paketas demonstracijoje `jq`, užduotyje bus `tree`.
+Pastaba: ~6 min. Užduoties 3 žingsniai 9–11. `ps` ir `kill` čia nerodote: tai jau pas Edgarą, 05 vėl prireiks prie porto. Užduotyje `tree` rodo projekto medį; čia jo neįdiegiate, kad nesutaptų. Prieš 3 užduotį parodykite kitą skaidrę: jei Mac `brew` stringa, taisome ten.
 
 === klaida | Kas stringa
-:: | `sudo brew` | Mac `brew` be `sudo`
-:: | `/opt/homebrew` | Neįrašomas: kopijuokite `sudo chown -R` eilutę, kurią parašė brew
-:: | Naujas langas | `export` ten tuščias — taip ir turi būti
-:: | `PWD` | Rašykite `pwd`. Didžiosios raidės yra kita komanda
++:: | `sudo brew` | Mac `brew` be `sudo`
++:: | `/opt/homebrew` | Neįrašomas: kopijuokite `sudo chown -R` eilutę, kurią parašė brew
++:: | Naujas langas | `export` ten tuščias — taip ir turi būti
++:: | `PWD` | Rašykite `pwd`. Didžiosios raidės yra kita komanda
 Pastaba: ~4 min. Mac. Jei `brew` rašo `/opt/homebrew is not writable` ir `Permission denied`, po klaidos yra eilutė `sudo chown -R`, mokinio vardas ir `/opt/homebrew`. Liepkite nukopijuoti tą eilutę. `sudo brew` ne. Slaptažodžio rašant nematyti. Tada vėl `brew install`. Ilgas tekstas (`Auto-updating Homebrew`, analytics, `Downloading`, pabaigoje `Extracting`) nėra klaida: laukti, kol grįš `%`. `brew: command not found` reiškia, kad Homebrew neįdiegtas (brew.sh). Tada skelbkite 3 užduotį.
+
+=== demonstracija | Pull Request
+```bash
+git branch
+git status
+git log --oneline main..HEAD
+git diff --stat main..HEAD
+grep -rniE "password|token|secret" juodrastis scripts docs
+```
+```output+
+(tuščia: slaptažodžių nėra)
+```
+```bash+
+git push -u origin demo-02
+gh pr create --base main --title "Demo 02: pradžia ir skriptai" --body "Pirmas failas, labas.sh ir spalva.sh."
+```
+```output+
+https://github.com/<vartotojas>/demo-a/pull/1
+```
++ Atidarykite nuorodą, skiltis **Files changed**: tie patys keturi failai kaip `git diff --stat`.
++> PR yra prašymas sulieti šaką į `main`. Kol kas nors neperžiūrėjo, `main` nesikeičia.
+Pastaba: ~10 min. Pull Request pirmą kartą kurse: 01 pamokoje merge buvo vietinis, čia tas pats per GitHub su peržiūra. Rodykite kitu pavyzdžiu nei užduotyje: `demo-a`, šaka `demo-02`, tos pačios komandos kaip 4 užduoties 2–6 žingsniuose. Trys commit'ai (`Demo: pradžia`, `Demo: labas.sh`, `Demo: spalva`), keturi failai: `juodrastis/pradzia.md`, `scripts/labas.sh`, `scripts/spalva.sh`, `docs/spalva.txt`. `rezultatas.txt` neįeina. Naršyklės kelias: Compare & pull request, base `main`, compare `demo-02`. Nesakykite pirmą kartą „merge“: tai kita skaidrė.
+
+=== demonstracija | Sulieti ir sutvarkyti
+```bash
+gh pr merge --merge
+git switch main
+git pull
+git branch -d demo-02
+git push origin --delete demo-02
+git branch
+git log --oneline -5
+```
+```output+
+* main
+```
++ `git log` viršuje `Merge pull request #1 ...`, po juo trys demonstracijos commit'ai.
++> Kaip laiškas, kuris nueina į tikrą dėžutę tik po patvirtinimo: PR sulietas, tada šaką galima išmesti.
+Pastaba: ~8 min. Jei `gh` klausia „Delete the branch locally and on GitHub?“, atsakykite N: šaką trinate patys, kaip 4 užduoties 8 žingsnyje. Naršyklėje: **Create a merge commit** (ne Squash, ne Rebase), **Merge pull request**, **Confirm merge**, mygtuko **Delete branch** dar nespausti. Dažna klaida: `git branch -d` rašo „not fully merged“, nes suliejote su Squash arba Rebase (tada `git branch -D`). Paskelbkite 4 užduotį.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
