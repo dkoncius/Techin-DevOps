@@ -12,7 +12,7 @@ Data: 2026-11-16 (pirmadienis)
 4. Pertrauka (~15 min)
 5. Skriptas eilutė po eilutės, `chmod` ir commit (~15 min), tada Užduotis 2 (~18 min): skaidrės 8–12
 6. `export`, paketas, commit (~14 min), tada Užduotis 3 (~22 min): skaidrės 13–16
-7. Pull Request (~18 min), tada Užduotis 4: skaidrės 17–18
+7. Pull Request (~18 min), tada Užduotis 4: skaidrės 17–19
 8. Kita paskaita: Bash skriptai. Ten skriptas jau sprendžia: argumentas, `if`, `for`, išėjimo kodas
 
 Nuoroda: [GitHub: about pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)

@@ -58,7 +58,10 @@ Kriaušė 0.80
 slyva 2
 bananas 1,20
 ```
-+ Po (ištrinta pasikartojanti, pataisytos kainos, gale ` €`):
++ Po (ištrinta pasikartojanti, pataisytos kainos, gale ` €`), išsaugojus patikriname:
+```bash+
+cat pradzia.md
+```
 ```output+
 # Demo
 kriaušė 0.80 €
@@ -219,6 +222,24 @@ Pastaba: ~6 min. Užduoties 3 žingsniai 9–12. `ps` ir `kill` čia nerodote: t
 +:: | Naujas langas | `export` ten tuščias — taip ir turi būti
 +:: | `PWD` | Rašykite `pwd`. Didžiosios raidės yra kita komanda
 Pastaba: ~4 min. Mac. Jei `brew` rašo `/opt/homebrew is not writable` ir `Permission denied`, po klaidos yra eilutė `sudo chown -R`, mokinio vardas ir `/opt/homebrew`. Liepkite nukopijuoti tą eilutę. `sudo brew` ne. Slaptažodžio rašant nematyti. Tada vėl `brew install`. Ilgas tekstas (`Auto-updating Homebrew`, analytics, `Downloading`, pabaigoje `Extracting`) nėra klaida: laukti, kol grįš `%`. `brew: command not found` reiškia, kad Homebrew neįdiegtas (brew.sh). Tada skelbkite 3 užduotį.
+
+=== schema | Kam Pull Request, jei galima `push`?
+```excalidraw
+file: pull-request-kam
+box k1 | Be PR | 0,0 | pink
+box m1 | main | 1,0 | pink
+arrow k1 -> m1
+box k2 | Su PR | 0,1.1 | blue
+box pr | Peržiūra | 1,1.1 | orange
+box m2 | main | 2,1.1 | green
+arrow k2 -> pr
+arrow pr -> m2
+```
++ Be PR: klaida iškart patenka į `main`, kurį naudoja visi.
++ Su PR: kas nors pirma peržiūri pakeitimus ir tik tada jie patenka į `main`.
++ Nepainiokite: `git push` nusiunčia šaką, Pull Request yra prašymas GitHub'e (ne komanda), `git pull` parsisiunčia sulietą `main`.
++> Kaip straipsnis redakcijoje: pirma redaktorius perskaito, tik tada spausdina.
+Pastaba: ~3 min. Dabar jūs vieni, bet darbe PR yra norma, o vėliau (CI/CD) PR paleis automatinius testus. `push` ir PR nekonkuruoja: pirma `push` šakos, tada PR, merge, ir tik tada `git pull`. PR pavadinimas reiškia „prašau, kad `main` pasiimtų (pull) mano pakeitimus“, todėl žodis painiojamas su `git pull`. Jie `git pull` jau naudojo 1 užduotyje.
 
 === demonstracija | Pull Request
 ```bash
