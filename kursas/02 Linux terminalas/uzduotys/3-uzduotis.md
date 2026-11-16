@@ -1,43 +1,40 @@
 # 3 užduotis: Kintamasis ir paketas
 
 1. **Tikslas:** pamatyti, kad `export` galioja tik šiam langui, ir įdiegti `tree`.
-2. Nueiti į projektą, patikrinti šaką. Nukopijuokite:
+2. Eiti į projektą ir patikrinti šaką:
 
 ```bash
 cd ~/Desktop/devops/git-bandymas
 git branch
 ```
 
-- Žvaigždutė prie `pamoka-02`
+- Turi būti: žvaigždutė prie `pamoka-02`
 
-3. Atidaryti naują skriptą su `nano`.
+3. Atidaryti naują skriptą su `nano`:
 
 ```bash
 nano scripts/aplinka.sh
 ```
 
 4. Įklijuoti skriptą (**Mac: Cmd+V**). Pirma eilutė nuo pat krašto, be tarpų prieš `#!`:
-   - `${PROJEKTO_VARDAS:-nenustatyta}`: jei kintamasis nenustatytas, rodoma `nenustatyta`.
 
 ```bash
 #!/usr/bin/env bash
 echo "PROJEKTO_VARDAS: ${PROJEKTO_VARDAS:-nenustatyta}"
 ```
 
-- Išsaugokite ir išeikite: `Ctrl+O`, `Enter`, `Ctrl+X`
+- Išsaugoti ir išeiti: `Ctrl+O`, `Enter`, `Ctrl+X`
 
-5. Leisti paleisti skriptą kaip 2-užduotyje pradžioje be prieigos, paskui su:
+5. Leisti paleisti skriptą:
 
 ```bash
-scripts/aplinka.sh 
 chmod +x scripts/aplinka.sh
 ls -l scripts/aplinka.sh
-scripts/aplinka.sh 
 ```
 
-- `ls -l` rodo `-rwxr-xr-x`, yra `x`
+- Turi būti: `ls -l` eilutė prasideda `-rwxr-xr-x`
 
-6. Paleisti **be** `export`, rezultatą įrašyti į failą.
+6. Paleisti **be** `export`, rezultatą įrašyti į failą:
 
 ```bash
 mkdir -p docs
@@ -45,7 +42,7 @@ mkdir -p docs
 cat docs/aplinka.txt
 ```
 
-- `cat` rodo:
+- Turi būti:
 
 ```
 PROJEKTO_VARDAS: nenustatyta
@@ -58,29 +55,31 @@ export PROJEKTO_VARDAS=visas
 ./scripts/aplinka.sh
 ```
 
+- Turi būti:
+
 ```
 PROJEKTO_VARDAS: visas
 ```
 
-- `export` galioja tik šiame terminalo lange, kol jo neuždarote.
-
-8. Naujas terminalo langas. Patikrinti, ar kintamasis persikėlė.
-   - **Mac:** Terminal → Shell → New Window arba `Cmd+N`
+8. Atidaryti naują terminalo langą ir paleisti skriptą:
+   - **Mac:** `Cmd+N`
    - **Ubuntu:** `Ctrl+Alt+T`
-   - **WSL / Windows Terminal:** `Ctrl+Shift+T` (nauja kortelė)
+   - **WSL / Windows Terminal:** `Ctrl+Shift+T`
 
 ```bash
 cd ~/Desktop/devops/git-bandymas
 ./scripts/aplinka.sh
 ```
 
+- Turi būti:
+
 ```
 PROJEKTO_VARDAS: nenustatyta
 ```
 
-- Naujas langas kintamojo nežino, `export` liko **senajame** lange. Grįžkite į senąjį langą ir paleiskite `./scripts/aplinka.sh` dar kartą: ten vis dar `visas`.
+- Grįžkite į senąjį langą ir paleiskite `./scripts/aplinka.sh` dar kartą: ten vis dar `visas`
 
-9. Įdiegti `tree` — programą, kuri rodo aplankų medį.
+9. Įdiegti `tree`.
 
 **Mac** (nerašykite `sudo brew`):
 
@@ -88,8 +87,8 @@ PROJEKTO_VARDAS: nenustatyta
 brew install tree
 ```
 
-- Jei rašo `brew: command not found`, Homebrew neįdiegtas. Įdiekite pagal [brew.sh](https://brew.sh) instrukciją.
-- Jei neleidžia įrašyti, skaitykite, ką rašo terminalas, ir padarykite tą eilutę. `sudo brew` nerašykite.
+- Jei rašo `brew: command not found`, Homebrew neįdiegtas. Įdiekite pagal [brew.sh](https://brew.sh) instrukciją
+- Jei neleidžia įrašyti, skaitykite, ką rašo terminalas, ir padarykite tą eilutę. `sudo brew` nerašykite
 
 **Ubuntu / WSL:**
 
@@ -98,26 +97,25 @@ sudo apt update
 sudo apt install -y tree
 ```
 
-   Patikrinkite:
+10. Patikrinti, ar `tree` įdiegtas:
 
 ```bash
 tree --version
 which tree
 ```
 
-- `tree --version` rodo versiją, `which tree` rodo kelią į programą.
+- Turi būti: `tree --version` rodo versiją, `which tree` rodo kelią į programą
 
-10. Pažiūrėti projekto medį su ką tik įdiegta programa.
+11. Pažiūrėti projekto medį:
 
 ```bash
 cd ~/Desktop/devops/git-bandymas
 tree
 ```
 
-- tree
-- Matote aplankus `docs`, `scripts`, `uzrasai` ir jų failus: `aplinka.txt`, `aplinka.sh`, `ataskaita.sh`, `produktai.txt`.
+- Turi būti: aplankai `docs`, `scripts`, `uzrasai` ir jų failai `aplinka.txt`, `aplinka.sh`, `ataskaita.sh`, `produktai.txt`
 
-11. Commit. Į repozitoriją įeina skriptas ir `docs/aplinka.txt` (ten tik `nenustatyta`, be slaptų žodžių).
+12. Išsaugoti Git'e skriptą ir `docs/aplinka.txt` (ten tik `nenustatyta`):
 
 ```bash
 git add scripts/aplinka.sh docs
@@ -126,9 +124,9 @@ git commit -m "Aplinka ir paketas"
 git log --oneline
 ```
 
-- `git status`: paruošti `scripts/aplinka.sh` ir `docs/aplinka.txt`. `ataskaita.txt` iš 2 užduoties lieka „Untracked“ — taip ir turi būti.
-- `git log --oneline`: viršuje `Aplinka ir paketas`
+- Turi būti: `git status` rodo paruoštus `scripts/aplinka.sh` ir `docs/aplinka.txt`, `ataskaita.txt` lieka „Untracked“
+- Turi būti: `git log --oneline` viršuje `Aplinka ir paketas`
 
-12. **Pateikimas:**  dvi nuotraukos iš pagrindinio ir antro terminalo su užklausa ./scripts/aplinka.sh. Viename bus `PROJEKTO_VARDAS: nenustatyta`, kitame PROJEKTO_VARDAS: visas. Taip pat, ir tree galite pridėti trečia nuotrauką.
+13. **Pateikimas:** dvi nuotraukos su `./scripts/aplinka.sh`: iš naujo lango su `PROJEKTO_VARDAS: nenustatyta` ir iš pagrindinio lango su `PROJEKTO_VARDAS: visas`. Galite pridėti ir trečią nuotrauką po `tree`.
 
 Jei užstrigote, pasižiūrėkite `linux komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

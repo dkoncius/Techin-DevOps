@@ -1,7 +1,7 @@
 # 4 užduotis: Pull Request
 
 1. **Tikslas:** pateikti šios pamokos darbą per Pull Request (PR), t. y. prašymą sulieti šaką `pamoka-02` į `main`.
-2. Nueiti į projektą ir patikrinti šaką. Nukopijuokite:
+2. Eiti į projektą ir patikrinti šaką:
 
 ```bash
 cd ~/Desktop/devops/git-bandymas
@@ -9,39 +9,39 @@ git branch
 git status
 ```
 
-- Žvaigždutė prie `pamoka-02`
-- `git status` rodo „nothing added to commit“ ir „Untracked files: ataskaita.txt“. Taip ir turi būti: `ataskaita.txt` su slaptu žodžiu sąmoningai nededamas į Git (2 užduotis).
-- Jei `git status` rodo kitų pakeistų failų („Changes not staged“ ar „Changes to be committed“), pirmiausia užbaikite 1–3 užduotis.
+- Turi būti: žvaigždutė prie `pamoka-02`
+- Turi būti: `git status` rodo „nothing added to commit“ ir „Untracked files: ataskaita.txt“
+- Rodo kitus pakeistus failus („Changes not staged“ ar „Changes to be committed“)? Pirmiausia užbaikite 1–3 užduotis
 
-3. Peržiūrėti, kas keliaus į GitHub.
+3. Peržiūrėti, kas keliaus į GitHub:
 
 ```bash
 git log --oneline main..HEAD
 git diff --stat main..HEAD
 ```
 
-- `git log` rodo tris šios pamokos commit'us: `Sutvarkytas produktai.txt`, `Pridėtas ataskaita.sh`, `Aplinka ir paketas`
-- `git diff --stat` rodo keturis failus: `uzrasai/produktai.txt`, `scripts/ataskaita.sh`, `scripts/aplinka.sh`, `docs/aplinka.txt`
-- Sąraše **nėra** `slaptas.txt` (jis už projekto ribų) ir `ataskaita.txt` (lieka tik kompiuteryje)
+- Turi būti: `git log` rodo tris commit'us: `Sutvarkyti produktai.txt`, `Pridėtas ataskaita.sh`, `Aplinka ir paketas`
+- Turi būti: `git diff --stat` rodo keturis failus: `uzrasai/produktai.txt`, `scripts/ataskaita.sh`, `scripts/aplinka.sh`, `docs/aplinka.txt`
+- Sąraše nėra `slaptas.txt` ir `ataskaita.txt`
 
-4. Patikrinti, ar failuose nėra aiškių slaptažodžių ar raktų.
+4. Patikrinti, ar failuose nėra slaptažodžių ar raktų:
 
 ```bash
 grep -rniE "password|token|secret" uzrasai scripts docs
 ```
 
-- Tuščia išvestis — gerai.
-- Radote eilutę? Peržiūrėkite ją. Į PR neturi patekti slaptažodžiai ar raktai.
+- Turi būti: tuščia išvestis
+- Radote eilutę? Peržiūrėkite ją: į PR neturi patekti slaptažodžiai ar raktai
 
-5. Nusiųsti šaką į GitHub. `-u` reikia tik pirmą kartą, vėliau užtenka `git push`.
+5. Nusiųsti šaką į GitHub:
 
 ```bash
 git push -u origin pamoka-02
 git status
 ```
 
-- `git status` rodo „Your branch is up to date with 'origin/pamoka-02'“
-- Klaida dėl prisijungimo? Patikrinkite `gh auth status`, jei reikia, `gh auth login` (pasirinkite HTTPS).
+- Turi būti: `git status` rodo „Your branch is up to date with 'origin/pamoka-02'“
+- Klaida dėl prisijungimo? `gh auth status`, jei reikia, `gh auth login` (HTTPS)
 
 6. Sukurti PR iš `pamoka-02` į `main`. Pasirinkite **vieną** būdą.
 
@@ -51,7 +51,7 @@ git status
 - Spauskite **Compare & pull request** (arba Pull requests → New pull request)
 - base: `main`, compare: `pamoka-02`
 - Title: **Pamoka 02: nano, skriptai, aplinka**
-- Description: vienas sakinys, pvz., „Sutvarkytas sąrašas, ataskaitos ir aplinkos skriptai.“
+- Description: „Sutvarkytas sąrašas, ataskaitos ir aplinkos skriptai.“
 - **Create pull request**
 
 **Terminale** (jei turite `gh`):
@@ -60,15 +60,15 @@ git status
 gh pr create --base main --title "Pamoka 02: nano, skriptai, aplinka" --body "Sutvarkytas sąrašas, ataskaitos ir aplinkos skriptai."
 ```
 
-- `gh` atspausdina PR nuorodą. Atidarykite ją ir skiltyje **Files changed** peržiūrėkite tuos pačius keturis failus kaip 3 žingsnyje.
+- Turi būti: `gh` atspausdina PR nuorodą. Atidarykite ją, skiltyje **Files changed** matote tuos pačius keturis failus kaip 3 žingsnyje
 
 7. Sulieti (merge), kai peržiūrėjote pakeitimus.
 
 **Naršyklėje:**
 
-- Prie mygtuko pasirinkite **Create a merge commit** (ne Squash, ne Rebase)
+- Pasirinkite **Create a merge commit** (ne Squash, ne Rebase)
 - **Merge pull request** → **Confirm merge**
-- Mygtuko **Delete branch** dar nespauskite — šaką ištrinsite 8 žingsnyje
+- Mygtuko **Delete branch** dar nespauskite
 
 **Terminale:**
 
@@ -76,10 +76,10 @@ gh pr create --base main --title "Pamoka 02: nano, skriptai, aplinka" --body "Su
 gh pr merge --merge
 ```
 
-- Jei `gh` klausia „Delete the branch locally and on GitHub?“, atsakykite **N**.
-- PR būsena tampa **Merged** (violetinė).
+- Jei `gh` klausia „Delete the branch locally and on GitHub?“, atsakykite **N**
+- Turi būti: PR būsena **Merged** (violetinė)
 
-8. Atnaujinti vietinį `main` ir ištrinti šaką kompiuteryje ir GitHub'e.
+8. Atnaujinti `main` ir ištrinti šaką kompiuteryje ir GitHub'e:
 
 ```bash
 git switch main
@@ -90,10 +90,10 @@ git branch
 git log --oneline
 ```
 
-- `git branch` rodo tik `main`
-- `git log` viršuje `Merge pull request #...`, po juo šios pamokos commit'ai
-- `git push origin --delete` rašo „remote ref does not exist“? Šaka GitHub'e jau ištrinta automatiškai — viskas gerai.
-- `git branch -d` rašo „not fully merged“? PR suliejote su Squash arba Rebase. Patikrinkite, ar failai yra `main` (`ls scripts`), ir trinkite su `git branch -D pamoka-02`.
+- Turi būti: `git branch` rodo tik `main`
+- Turi būti: `git log` viršuje `Merge pull request #...`, po juo šios pamokos commit'ai
+- `git push origin --delete` rašo „remote ref does not exist“? Šaka jau ištrinta, viskas gerai
+- `git branch -d` rašo „not fully merged“? PR suliejote su Squash arba Rebase. Patikrinkite `ls scripts` ir trinkite su `git branch -D pamoka-02`
 
 9. **Pateikimas:** Github repozitorijos nuoroda su išskleista branches dalimi po `git branch` ir terminalas po `git log --oneline`
 

@@ -66,7 +66,7 @@ slyva 2.00 €
 bananas 1.20 €
 ```
 +> Kaip juodraštis ant popieriaus: pirma suraitomas, tada pataisomas ir tik tada rodomas kitiems.
-Pastaba: ~6 min. Užduoties 1 žingsniai 4–10 su kitu sąrašu (ne `produktai.txt`, ne `pienas`). Įklijuoti **Cmd+V** (Mac) arba dešinysis klavišas. Ištrinti `Kriaušė 0.80`: `Ctrl+W`, `Ctrl+K`. `slyva 2` į `slyva 2.00`, kablelį į tašką, gale tarpas ir `€`. Išsaugoti `Ctrl+O`, `Enter`, `Ctrl+X` (Mac Control, ne Cmd). Po to `cat pradzia.md` rodo „po“.
+Pastaba: ~6 min. Užduoties 1 žingsniai 4–8 su kitu sąrašu (ne `produktai.txt`, ne `pienas`). Įklijuoti **Cmd+V** (Mac) arba dešinysis klavišas. Ištrinti `Kriaušė 0.80`: `Ctrl+W`, `Ctrl+K`. `slyva 2` į `slyva 2.00`, kablelį į tašką, gale tarpas ir `€`. Išsaugoti `Ctrl+O`, `Enter`, `Ctrl+X` (Mac Control, ne Cmd). Po to `cat pradzia.md` rodo „po“.
 
 === demonstracija | grep ir commit
 ```bash
@@ -83,7 +83,7 @@ git log --oneline
 git push -u origin demo-02
 ```
 +> `grep` randa eilutę. Commit įrašo pakeitimą į istoriją, push nusiunčia į GitHub.
-Pastaba: ~4 min. Užduoties 1 žingsnis 12 be `merge`: `main` kol kas nekeičiate. Šaka jau `demo-02`. Paskelbkite 1 užduotį. Joje yra ir nano: rasti eilutę, ištrinti, pataisyti.
+Pastaba: ~4 min. Užduoties 1 žingsnis 9 be `merge`: `main` kol kas nekeičiate. Šaka jau `demo-02`. Paskelbkite 1 užduotį. Joje yra ir nano: rasti eilutę, ištrinti, pataisyti.
 
 === demonstracija | Žodžio failas
 ```bash
@@ -99,7 +99,7 @@ Demo
 -rw-------  1 vardas  staff  5 ... demo-raktas.txt
 ```
 +> Raktas guli už projekto ribų, todėl niekada nepateks į Git.
-Pastaba: ~4 min. Tai užduoties 2 žingsniai 3–4 su kitais vardais: ne `slaptas.txt`, ne `kava`. `demo-raktas.txt` turi vieną žodį `Demo`, tada `chmod 600`. Failas yra aplanke `devops`, vienu lygiu aukščiau už `demo-a`. Čia nėra `if` ir `for`.
+Pastaba: ~4 min. Tai užduoties 2 žingsniai 4–5 su kitais vardais: ne `slaptas.txt`, ne `kava`. `demo-raktas.txt` turi vieną žodį `Demo`, tada `chmod 600`. Failas yra aplanke `devops`, vienu lygiu aukščiau už `demo-a`. Čia nėra `if` ir `for`.
 
 === demonstracija | Tos pačios komandos terminale
 ```bash
@@ -131,7 +131,7 @@ grep -n -f ../demo-raktas.txt juodrastis/pradzia.md
 + **4.** `grep -n -f ../demo-raktas.txt ...`: `-f` žodį ima iš failo, `-n` rodo eilutės numerį, `../` yra vienas aplankas aukščiau.
 + Išsaugoti ir išeiti: `Ctrl+O`, `Enter`, `Ctrl+X`.
 +> Kaip receptas: žingsniai užrašyti, o kas juos vykdo, pasako pirma eilutė.
-Pastaba: ~5 min. Tos pačios keturios komandos iš ankstesnės skaidrės, dabar viename faile. Nauja tik pirma eilutė: liepkite pasakyti garsiai šauktukas, env, bash. Kodėl ne `/bin/bash`: kelias Mac ir Ubuntu gali skirtis, `env` pats suranda. Tai užduoties 2 struktūra, tik kiti vardai. Failą sukurkite čia pat: `mkdir -p scripts`, `nano scripts/labas.sh`, įrašykite skriptą, išsaugokite. Kitoje skaidrėje jį tik paleidžiate.
+Pastaba: ~5 min. Tos pačios keturios komandos iš ankstesnės skaidrės, dabar viename faile. Nauja tik pirma eilutė: liepkite pasakyti garsiai šauktukas, env, bash. Kodėl ne `/bin/bash`: kelias Mac ir Ubuntu gali skirtis, `env` pats suranda. Tai užduoties 2 žingsniai 6–7, tik kiti vardai. Failą sukurkite čia pat: `mkdir -p scripts`, `nano scripts/labas.sh`, įrašykite skriptą, išsaugokite. Kitoje skaidrėje jį tik paleidžiate.
 
 === demonstracija | Paleidimas ir teisės
 ```bash
@@ -151,7 +151,7 @@ Eilutės:
 1:# Demo
 ```
 +> Kaip dokumentas be „leista skaityti“ spaudo: failas yra, bet sistema jo nepaleis, kol neleisite.
-Pastaba: ~5 min. Užduoties 2 žingsniai 6–8. Skriptas jau išsaugotas ankstesnėje skaidrėje. Pirma `permission denied`, tik tada `chmod +x`. `rezultatas.txt` rodo `Aplankas: demo-a`, `Eilutės:` ir `1:# Demo`. Skriptą leiskite iš `demo-a`, nes `../` skaičiuojamas nuo ten. Be rakto failo `grep` neturi ko ieškoti.
+Pastaba: ~5 min. Užduoties 2 žingsniai 8–11. Skriptas jau išsaugotas ankstesnėje skaidrėje. Pirma `permission denied`, tik tada `chmod +x`. `rezultatas.txt` rodo `Aplankas: demo-a`, `Eilutės:` ir `1:# Demo`. Skriptą leiskite iš `demo-a`, nes `../` skaičiuojamas nuo ten. Be rakto failo `grep` neturi ko ieškoti.
 
 === demonstracija | Į commit tik skriptas
 ```bash
@@ -161,7 +161,7 @@ git commit -m "Demo: labas.sh"
 git log --oneline
 ```
 + `rezultatas.txt` lieka „Untracked“, kaip `ataskaita.txt` užduotyje: į commit eina tik skriptas.
-Pastaba: ~3 min. Užduoties 2 žingsnis 9. `git status`: paruoštas tik `scripts/labas.sh`, `rezultatas.txt` Untracked, `demo-raktas.txt` nerodomas. Paskelbkite 2 užduotį.
+Pastaba: ~3 min. Užduoties 2 žingsnis 12. `git status`: paruoštas tik `scripts/labas.sh`, `rezultatas.txt` Untracked, `demo-raktas.txt` nerodomas. Paskelbkite 2 užduotį.
 
 === demonstracija | Kintamasis skripte
 ```bash
@@ -211,7 +211,7 @@ git commit -m "Demo: spalva"
 git log --oneline
 ```
 +> `sudo brew` neveikia. Paketas demonstracijoje `jq`, užduotyje bus `tree`.
-Pastaba: ~6 min. Užduoties 3 žingsniai 9–11. `ps` ir `kill` čia nerodote: tai jau pas Edgarą, 05 vėl prireiks prie porto. Užduotyje `tree` rodo projekto medį; čia jo neįdiegiate, kad nesutaptų. Prieš 3 užduotį parodykite kitą skaidrę: jei Mac `brew` stringa, taisome ten.
+Pastaba: ~6 min. Užduoties 3 žingsniai 9–12. `ps` ir `kill` čia nerodote: tai jau pas Edgarą, 05 vėl prireiks prie porto. Užduotyje `tree` rodo projekto medį; čia jo neįdiegiate, kad nesutaptų. Prieš 3 užduotį parodykite kitą skaidrę: jei Mac `brew` stringa, taisome ten.
 
 === klaida | Kas stringa
 +:: | `sudo brew` | Mac `brew` be `sudo`
