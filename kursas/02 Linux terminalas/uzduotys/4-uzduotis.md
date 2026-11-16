@@ -20,8 +20,8 @@ git log --oneline main..HEAD
 git diff --stat main..HEAD
 ```
 
-- Turi būti: `git log` rodo tris commit'us: `Sutvarkyti produktai.txt`, `Pridėtas ataskaita.sh`, `Aplinka ir paketas`
-- Turi būti: `git diff --stat` rodo keturis failus: `uzrasai/produktai.txt`, `scripts/ataskaita.sh`, `scripts/aplinka.sh`, `docs/aplinka.txt`
+- Turi būti: `git log` rodo tris commit'us: `Sutvarkyti serveriai.txt`, `Pridėtas ataskaita.sh`, `Aplinka ir paketas`
+- Turi būti: `git diff --stat` rodo keturis failus: `uzrasai/serveriai.txt`, `scripts/ataskaita.sh`, `scripts/aplinka.sh`, `docs/aplinka.txt`
 - Sąraše nėra `slaptas.txt` ir `ataskaita.txt`
 
 4. Patikrinti, ar failuose nėra slaptažodžių ar raktų:
@@ -51,13 +51,13 @@ git status
 - Spauskite **Compare & pull request** (arba Pull requests → New pull request)
 - base: `main`, compare: `pamoka-02`
 - Title: **Pamoka 02: nano, skriptai, aplinka**
-- Description: „Sutvarkytas sąrašas, ataskaitos ir aplinkos skriptai.“
+- Description: „Sutvarkytas serveriai.txt, ataskaitos ir aplinkos skriptai.“
 - **Create pull request**
 
 **Terminale** (jei turite `gh`):
 
 ```bash
-gh pr create --base main --title "Pamoka 02: nano, skriptai, aplinka" --body "Sutvarkytas sąrašas, ataskaitos ir aplinkos skriptai."
+gh pr create --base main --title "Pamoka 02: nano, skriptai, aplinka" --body "Sutvarkytas serveriai.txt, ataskaitos ir aplinkos skriptai."
 ```
 
 - Turi būti: `gh` atspausdina PR nuorodą. Atidarykite ją, skiltyje **Files changed** matote tuos pačius keturis failus kaip 3 žingsnyje

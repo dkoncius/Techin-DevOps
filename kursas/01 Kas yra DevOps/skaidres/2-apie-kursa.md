@@ -6,7 +6,7 @@ Generuoti: `python3 -I .claude/skills/skaidres/build_deck.py "kursas/01 Kas yra 
 
 === titulinė | Apie kursą
 Pradžia · kurso apžvalga
-- Ką darysime per 80 paskaitų
+- Ką darysime per 79 paskaitas
 - Kaip mokysimės
 - Kaip vertinama ir kokie egzaminai
 Pastaba: ~1 min. Trumpai: dabar apie kursą, o DevOps temą pradėsime iškart po to.
@@ -47,13 +47,13 @@ Pastaba: ~3 min. Kiekvienas etapas remiasi ankstesniu: pirma programą paleidži
 === demonstracija | Etapai ir atsiskaitymai
 | Etapas | Pamokos | Atsiskaitymas |
 |---|---|---|
-| 1. Linux ir Git | 01–10 | 2026-11-30 |
-| 2. Docker | 11–21 | 2026-12-17 |
-| 3. GitHub Actions | 22–32 | 2027-01-20 |
-| 4. Kubernetes pagrindai | 33–45 | 2027-03-04 |
-| 5. Kubernetes praktikoje | 46–56 | 2027-03-25 |
-| 6. Azure | 57–68 | 2027-05-06 |
-| 7. Pilnas pipeline, baigiamasis projektas | 69–80 | 2027-05-27 |
+| 1. Linux ir Git | 01–09 | 2026-11-30 |
+| 2. Docker | 10–20 | 2026-12-17 |
+| 3. GitHub Actions | 21–31 | 2027-01-20 |
+| 4. Kubernetes pagrindai | 32–44 | 2027-03-04 |
+| 5. Kubernetes praktikoje | 45–55 | 2027-03-25 |
+| 6. Azure | 56–67 | 2027-05-06 |
+| 7. Pilnas pipeline, baigiamasis projektas | 68–79 | 2027-05-27 |
 Pastaba: ~2 min. Pirmų dviejų datos patvirtintos, kitos orientacinės ir gali pasikeisti (atostogos, kitų dėstytojų savaitės, duomenų bazių modulis vasarį). Pasakykite, kad apie pasikeitimus pranešite iš anksto.
 
 === tekstas | Kaip vyksta pamoka

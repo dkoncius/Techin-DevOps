@@ -1,6 +1,6 @@
 # DevOps kursas
 
-80 paskaitų po 3 valandas (17:30–20:40), 2026-11-11 – 2027-05-27. Datos nuo 2027 m. orientacinės. Dėstytojas Deividas Koncius.
+79 paskaitos po 3 valandas (17:30–20:40), 2026-11-11 – 2027-05-27. Datos nuo 2027 m. orientacinės. Dėstytojas Deividas Koncius.
 
 ## 1 etapas. Linux, Bash ir projekto paleidimas (27 val.)
 
@@ -171,4 +171,4 @@ Praktikos egzamine galima naudotis savo darbais GitHub'e. Egzaminų uždavinių 
 ## Ką žinoti dar
 
 1. Datos po 2027-01-01 skaičiuotos ir gali keistis. Duomenų bazių modulis yra 2027-02-01 – 02-19.
-2. Detali 80 pamokų lentelė: `medziaga/kurso-planas.md`.
+2. Detali 79 pamokų lentelė: `medziaga/kurso-planas.md`.

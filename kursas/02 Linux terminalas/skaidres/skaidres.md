@@ -3,7 +3,7 @@
 - Kam terminalas, kai serveryje nėra pelės
 - Pagrindinės komandos: failai, skriptas, paketas
 - Skriptas yra išsaugota komandų eilė
-Pastaba: ~2 min. Pirma tęsiame 01 projektą kita šaka, tada komandos. Pull Request mokiniai pirmą kartą mato pamokos gale (demonstracija, tada 4 užduotis). `if` ir `for` yra 04 pamoka.
+Pastaba: ~2 min. Pirma tęsiame 01 projektą kita šaka, tada komandos. Pull Request mokiniai pirmą kartą mato pamokos gale (demonstracija, tada 4 užduotis). `if` ir `for` yra 03 pamoka.
 
 === pagalvokime
 Instrukcija prasideda: „atidarykite terminalą“.
@@ -42,50 +42,58 @@ git branch
   main
 ```
 + Kodėl šaka? `main` lieka kaip po 01 pamokos. Šios dienos failai jo neliečia, kol nesujungsite.
-Pastaba: ~8 min. Tas pats aplankas, naujo repo nėra. Ne `git-bandymas`, ne `pamoka-02`. `git status` prieš šaką turi būti švarus. Commit darote kitoje skaidrėje, kai failas jau yra.
+Pastaba: ~8 min. Tas pats aplankas, naujo repo nėra. Ne `git-bandymas`, ne `pamoka-02`. `git status` prieš šaką turi būti švarus. Commit darote kitoje skaidrėje, kai failas jau yra. Prieš paskaitą: `demo-a` turi būti GitHub'e (`git remote -v` rodo `origin`, pvz. `gh repo create demo-a --private --source=. --remote=origin`, tada `git push -u origin main`), `main` švarus, šakos `demo-02` dar nėra, aplanko `juodrastis` ir `../demo-raktas.txt` nėra. Be `origin` `git push` rašo „Repository not found“. Po repeticijos viską atstato `demo-atstatyti.sh` pamokos aplanke (`kursas/02 Linux terminalas/`).
+
+=== tekstas | nano: judėti ir taisyti
+| Klavišai | Ką daro |
+|---|---|
+| Rodyklės | Juda po tekstą |
+| `Ctrl+E` | Į eilutės galą |
+| `Ctrl+A` | Į eilutės pradžią |
+| `Ctrl+W` | Ieško teksto, tada `Enter` |
+| `Ctrl+K` | Iškerpa visą eilutę |
+| `Backspace` | Ištrina raidę kairėje |
+| `Cmd+V` | Įklijuoja (Mac), Ubuntu: `Ctrl+Shift+V` |
+| `Ctrl+O`, `Enter` | Išsaugo |
+| `Ctrl+X` | Išeina iš `nano` |
+Pastaba: ~3 min. Šie klavišai bus 1 užduotyje (5–7 žingsniai). Parodykite kiekvieną trumpai gyvai tuščiame faile, ne tik skaidrėje. Mac: `Ctrl` yra Control, ne Cmd. Jei apačioje rodomas `^X`, `^` reiškia Ctrl. `Ctrl+K` iškerpa eilutę, o ne tik raidę.
 
 === demonstracija | nano: prieš ir po
 ```bash
 mkdir -p juodrastis
 cd juodrastis
-nano pradzia.md
+nano pradzia.env
 ```
-+ Prieš (įklijuojate):
++ Įklijuokite:
 ```output+
 # Demo
-kriaušė 0.80
-Kriaušė 0.80
-slyva 2
-bananas 1,20
+app_name = demo-a
+App_Name = demo-a
+log level: info
+workers 2
 ```
-+ Po (ištrinta pasikartojanti, pataisytos kainos, gale ` €`), išsaugojus patikriname:
++ Ištaisykite, kad būtų taip, išsaugokite ir patikrinkite:
 ```bash+
-cat pradzia.md
+cat pradzia.env
 ```
 ```output+
 # Demo
-kriaušė 0.80 €
-slyva 2.00 €
-bananas 1.20 €
+APP_NAME=demo-a
+LOG_LEVEL=info
+WORKERS=2
 ```
-+> Kaip juodraštis ant popieriaus: pirma suraitomas, tada pataisomas ir tik tada rodomas kitiems.
-Pastaba: ~6 min. Užduoties 1 žingsniai 4–8 su kitu sąrašu (ne `produktai.txt`, ne `pienas`). Įklijuoti **Cmd+V** (Mac) arba dešinysis klavišas. Ištrinti `Kriaušė 0.80`: `Ctrl+W`, `Ctrl+K`. `slyva 2` į `slyva 2.00`, kablelį į tašką, gale tarpas ir `€`. Išsaugoti `Ctrl+O`, `Enter`, `Ctrl+X` (Mac Control, ne Cmd). Po to `cat pradzia.md` rodo „po“.
++> Kaip juodraštis ant popieriaus: pirma surašomas, tada pataisomas ir tik tada rodomas kitiems.
+Pastaba: ~6 min. Užduoties 1 žingsniai 4–8 su kitu turiniu: demonstracijoje `pradzia.env` (programos vardas, žurnalo lygis), užduotyje `serveriai.txt` (serverių vardai ir IP). Įklijuoti **Cmd+V** (Mac). Ištrinti `app_name = demo-a`: `Ctrl+W`, `app_name`, `Enter`, `Ctrl+K`. `App_Name = demo-a`: rodyklėmis pašalinti tarpus aplink `=`, vardą didžiosiomis. `log level: info` į `LOG_LEVEL=info`, `workers 2` į `WORKERS=2`. Išsaugoti `Ctrl+O`, `Enter`, `Ctrl+X`. Tokį failą naudosime vėlesnėse pamokose: jame bus laikomi slapti serverio nustatymai. Tikros `.env` reikšmės (slaptažodžiai) į Git nedėtinos, čia tik pavyzdys. Po to `cat pradzia.env` rodo „po“.
 
-=== demonstracija | grep ir commit
+=== demonstracija | Commit ir push
 ```bash
-grep -n "Demo" pradzia.md
-```
-```output+
-1:# Demo
-```
-```bash+
 cd ..
-git add juodrastis/pradzia.md
+git add juodrastis/pradzia.env
 git commit -m "Demo: pradžia"
 git log --oneline
 git push -u origin demo-02
 ```
-+> `grep` randa eilutę. Commit įrašo pakeitimą į istoriją, push nusiunčia į GitHub.
++> Commit įrašo pakeitimą į istoriją, push nusiunčia į GitHub.
 Pastaba: ~4 min. Užduoties 1 žingsnis 9 be `merge`: `main` kol kas nekeičiate. Šaka jau `demo-02`. Paskelbkite 1 užduotį. Joje yra ir nano: rasti eilutę, ištrinti, pataisyti.
 
 === demonstracija | Žodžio failas
@@ -102,14 +110,14 @@ Demo
 -rw-------  1 vardas  staff  5 ... demo-raktas.txt
 ```
 +> Raktas guli už projekto ribų, todėl niekada nepateks į Git.
-Pastaba: ~4 min. Tai užduoties 2 žingsniai 4–5 su kitais vardais: ne `slaptas.txt`, ne `kava`. `demo-raktas.txt` turi vieną žodį `Demo`, tada `chmod 600`. Failas yra aplanke `devops`, vienu lygiu aukščiau už `demo-a`. Čia nėra `if` ir `for`.
+Pastaba: ~4 min. Tai užduoties 2 žingsniai 4–5 su kitais vardais: ne `slaptas.txt`, ne `db1`. `demo-raktas.txt` turi vieną žodį `Demo`, tada `chmod 600`. Failas yra aplanke `devops`, vienu lygiu aukščiau už `demo-a`. Čia nėra `if` ir `for`.
 
 === demonstracija | Tos pačios komandos terminale
 ```bash
 pwd
 basename "$(pwd)"
 echo "Eilutės:"
-grep -n -f ../demo-raktas.txt juodrastis/pradzia.md
+grep -n -f ../demo-raktas.txt juodrastis/pradzia.env
 ```
 ```output+
 /Users/vardas/Desktop/devops/demo-a
@@ -117,6 +125,7 @@ demo-a
 Eilutės:
 1:# Demo
 ```
++ `grep` ieško žodžio faile: `-f` žodį ima iš failo `demo-raktas.txt`, `-n` prieš radinį parašo eilutės numerį (`1:`).
 + Tos pačios komandos, kurios kitoje skaidrėje bus viename faile.
 Pastaba: ~4 min. Komandas rašote po vieną, ne faile. `pwd` ir `echo` jie jau moka. Nauja: `basename` (palieka tik paskutinę kelio dalį, `$(...)` įrašo vidinės komandos rezultatą) ir `grep -f`: žodį ima iš failo, `-n` rodo eilutės numerį, `../` yra vienas aplankas aukščiau. Kelias `/Users/vardas/...` yra pavyzdinis. Žodžio komandoje nėra, jis `demo-raktas.txt`.
 
@@ -126,7 +135,7 @@ Naujas failas `scripts/labas.sh`, atidaromas su `nano scripts/labas.sh`:
 #!/usr/bin/env bash
 echo "Aplankas: $(basename "$(pwd)")"
 echo "Eilutės:"
-grep -n -f ../demo-raktas.txt juodrastis/pradzia.md
+grep -n -f ../demo-raktas.txt juodrastis/pradzia.env
 ```
 + **1.** `#!/usr/bin/env bash`: kas paleidžia failą. `env` randa `bash` ir Mac, ir Ubuntu.
 + **2.** `$(basename "$(pwd)")`: `pwd` rodo, kur esate, `basename` palieka tik aplanko vardą.
@@ -214,7 +223,7 @@ git commit -m "Demo: spalva"
 git log --oneline
 ```
 +> `sudo brew` neveikia. Paketas demonstracijoje `jq`, užduotyje bus `tree`.
-Pastaba: ~6 min. Užduoties 3 žingsniai 9–12. `ps` ir `kill` čia nerodote: tai jau pas Edgarą, 05 vėl prireiks prie porto. Užduotyje `tree` rodo projekto medį; čia jo neįdiegiate, kad nesutaptų. Prieš 3 užduotį parodykite kitą skaidrę: jei Mac `brew` stringa, taisome ten.
+Pastaba: ~6 min. Užduoties 3 žingsniai 9–12. `ps` ir `kill` čia nerodote: tai jau pas Edgarą, 04 vėl prireiks prie porto. Užduotyje `tree` rodo projekto medį; čia jo neįdiegiate, kad nesutaptų. Prieš 3 užduotį parodykite kitą skaidrę: jei Mac `brew` stringa, taisome ten.
 
 === klaida | Kas stringa
 +:: | `sudo brew` | Mac `brew` be `sudo`
@@ -261,7 +270,7 @@ https://github.com/<vartotojas>/demo-a/pull/1
 ```
 + Atidarykite nuorodą, skiltis **Files changed**: tie patys keturi failai kaip `git diff --stat`.
 +> PR yra prašymas sulieti šaką į `main`. Kol kas nors neperžiūrėjo, `main` nesikeičia.
-Pastaba: ~10 min. Pull Request pirmą kartą kurse: 01 pamokoje merge buvo vietinis, čia tas pats per GitHub su peržiūra. Rodykite kitu pavyzdžiu nei užduotyje: `demo-a`, šaka `demo-02`, tos pačios komandos kaip 4 užduoties 2–6 žingsniuose. Trys commit'ai (`Demo: pradžia`, `Demo: labas.sh`, `Demo: spalva`), keturi failai: `juodrastis/pradzia.md`, `scripts/labas.sh`, `scripts/spalva.sh`, `docs/spalva.txt`. `rezultatas.txt` neįeina. Naršyklės kelias: Compare & pull request, base `main`, compare `demo-02`. Nesakykite pirmą kartą „merge“: tai kita skaidrė.
+Pastaba: ~10 min. Pull Request pirmą kartą kurse: 01 pamokoje merge buvo vietinis, čia tas pats per GitHub su peržiūra. Rodykite kitu pavyzdžiu nei užduotyje: `demo-a`, šaka `demo-02`, tos pačios komandos kaip 4 užduoties 2–6 žingsniuose. Trys commit'ai (`Demo: pradžia`, `Demo: labas.sh`, `Demo: spalva`), keturi failai: `juodrastis/pradzia.env`, `scripts/labas.sh`, `scripts/spalva.sh`, `docs/spalva.txt`. `rezultatas.txt` neįeina. Naršyklės kelias: Compare & pull request, base `main`, compare `demo-02`. Nesakykite pirmą kartą „merge“: tai kita skaidrė.
 
 === demonstracija | Sulieti ir sutvarkyti
 ```bash
@@ -283,7 +292,7 @@ Pastaba: ~8 min. Jei `gh` klausia „Delete the branch locally and on GitHub?“
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
 
-=== kita | 04 Bash skriptai
+=== kita | 03 Bash skriptai
 Čia skriptas tik kartoja komandas.
 - Ten jis sprendžia: argumentas, `if`, `for`, išėjimo kodas
 - `.gitignore`

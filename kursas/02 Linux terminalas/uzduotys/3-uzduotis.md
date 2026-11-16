@@ -113,7 +113,7 @@ cd ~/Desktop/devops/git-bandymas
 tree
 ```
 
-- Turi būti: aplankai `docs`, `scripts`, `uzrasai` ir jų failai `aplinka.txt`, `aplinka.sh`, `ataskaita.sh`, `produktai.txt`
+- Turi būti: aplankai `docs`, `scripts`, `uzrasai` ir jų failai `aplinka.txt`, `aplinka.sh`, `ataskaita.sh`, `serveriai.txt`
 
 12. Išsaugoti Git'e skriptą ir `docs/aplinka.txt` (ten tik `nenustatyta`):
 

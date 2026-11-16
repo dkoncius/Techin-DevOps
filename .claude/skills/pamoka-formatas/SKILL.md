@@ -1,16 +1,16 @@
 ---
 name: pamoka-formatas
-description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paskaitos 01–80) aplankuose kursas/NN .../: pamoka.md (klasės darbas, pamokos eiga) ir aplankas uzduotys/ su užduotimis ir jų sprendimais, kokybės taisyklės."
+description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paskaitos 01–79) aplankuose kursas/NN .../: pamoka.md (klasės darbas, pamokos eiga) ir aplankas uzduotys/ su užduotimis ir jų sprendimais, kokybės taisyklės."
 ---
 
-# Pamokos formatas (VH-DO, 80 paskaitų)
+# Pamokos formatas (VH-DO, 79 paskaitos)
 
 Šaltinis tiesos: `medziaga/kurso-planas.md` (kodai, pavadinimai, datos). Plano nekeisk; jei pamoka neatitinka plano, pranešk. Kalba lietuvių, sakiniai trumpi. Paskaita trunka 3 val. (17:30–20:40): ~20–30 min. teorijos, likusi dalis praktika; užduočių suma ~2–2,5 val.
 
 ## Kur kas guli
-1. Viskas apie pamoką yra viename privačiame aplanke `kursas/<NN Pavadinimas>/` (aplanko pavadinimas lygiai kaip plano 5 skyriaus stulpelyje „Aplankas“; numeracija 01–80, be savaitės kodų; atsiskaitymų aplankai yra tarp jų tame pačiame sąraše pagal numeraciją). `pamoka.md` turi klasės darbą, schemas ir dėstytojo pamokos eigą (demonstracijas). Užduotys ir jų sprendimai NEkartojami `pamoka.md`: kiekviena užduotis yra `uzduotys/N-uzduotis.md` (studentams, Teams), jos sprendimas su komandomis `uzduotys/N-uzduotis-sprendimas.md` (dėstytojui); `pamoka.md` į juos tik nurodo.
+1. Viskas apie pamoką yra viename privačiame aplanke `kursas/<NN Pavadinimas>/` (aplanko pavadinimas lygiai kaip plano 5 skyriaus stulpelyje „Aplankas“; numeracija 01–79, be savaitės kodų; atsiskaitymų aplankai yra tarp jų tame pačiame sąraše pagal numeraciją). `pamoka.md` turi klasės darbą, schemas ir dėstytojo pamokos eigą (demonstracijas). Užduotys ir jų sprendimai NEkartojami `pamoka.md`: kiekviena užduotis yra `uzduotys/N-uzduotis.md` (studentams, Teams), jos sprendimas su komandomis `uzduotys/N-uzduotis-sprendimas.md` (dėstytojui); `pamoka.md` į juos tik nurodo.
 2. Studentai užduotis gauna per Teams (dėstytojas įkelia po vieną), sprendimą mato kitos pamokos pradžioje, kai jį parodo dėstytojas. `check.sh` savitikros nėra.
-3. Atsiskaitymai (10, 21, 32, 45, 56, 68, 80): tame pačiame `kursas/<NN Atsiskaitymas N>/` aplanke su `testas.md`, `praktika.md`, `vertinimas.md`, `atsakymai.md`. Studentams duodamos tik užduotys be atsakymų.
+3. Atsiskaitymai (09, 20, 29, 42, 53, 67, 79): tame pačiame `kursas/<NN Atsiskaitymas N>/` aplanke su `testas.md`, `praktika.md`, `vertinimas.md`, `atsakymai.md`. Studentams duodamos tik užduotys be atsakymų.
 4. `kursas/README.md` yra studentų aplinkos instrukcija. Senos medžiagos, šaltiniai ir darbiniai failai yra `medziaga/` (tik skaitymui).
 5. Duomenų bazė: MySQL. Platforma: GitHub (Pull Request kai mokomasi PR). Mokinio darbo projektas: GitHub template `devops-projektas`. Senuose pavyzdžiuose (`medziaga/saltiniai/`) yra PostgreSQL: konvertuok į MySQL tik tada, kai pamoka tuos pavyzdžius naudoja.
 
@@ -83,7 +83,7 @@ description: "Naudok, kai kuri, perrašai ar tikrini DevOps kurso pamoką (paska
 5. Teorinėms pamokoms be kodo pakanka lentelės.
 6. Projekto būsenos atskiro aplanko nėra: jei pamoka keičia studento projektą, tai nurodoma sprendimų faile (kai starteris bus paskelbtas).
 
-## Atsiskaitymo pamoka (10, 21, 32, 45, 56, 68, 80)
+## Atsiskaitymo pamoka (09, 20, 29, 42, 53, 67, 79)
 1. Aplanke `kursas/<NN Atsiskaitymas N>/`: `testas.md`, `praktika.md`, `vertinimas.md`, `atsakymai.md`. Viešai tik užduotys be atsakymų.
 2. `praktika.md`: `# <NN> Praktika`, `Laikas: ~2 val.`, tikslo sakinys, `Darbai:` (vienas punktas = vienas patikrinamas darbas), `**Pateikimas:**`. Tik tai, kas mokyta to etapo pamokose.
 3. `vertinimas.md`: lentelė kriterijus | taškai | kaip tikrinama; suma ir praėjimo riba ≥ 50 %. Praktika ~60 %, testas ~40 %.

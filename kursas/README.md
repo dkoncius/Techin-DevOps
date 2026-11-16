@@ -1,6 +1,6 @@
 # DevOps kursas (VH-DO)
 
-Kursas: 80 paskaitų, kiekviena po 3 val. Kiekvienos pamokos aplanke yra vienas `pamoka.md` su klasės darbu, užduotimis, komandomis ir sprendimu. Užduotis dėstytojas skelbia Teams'e po vieną: pirma parodo gyvai, tada darote jūs. Praeitos pamokos sprendimą parodo kitos pamokos pradžioje. Kasdienių užduočių dėstytojas netikrina, vertinama atsiskaitymuose.
+Kursas: 79 paskaitos, kiekviena po 3 val. Kiekvienos pamokos aplanke yra vienas `pamoka.md` su klasės darbu, užduotimis, komandomis ir sprendimu. Užduotis dėstytojas skelbia Teams'e po vieną: pirma parodo gyvai, tada darote jūs. Praeitos pamokos sprendimą parodo kitos pamokos pradžioje. Kasdienių užduočių dėstytojas netikrina, vertinama atsiskaitymuose.
 
 ## Aplinka
 
@@ -44,7 +44,7 @@ Priežastys paprastai dvi: kompiuteryje nėra administratoriaus teisių arba iš
 
 **3. Ką daryti prieš 02 pamoką**
 
-Nuo 02 pamokos komandos išbandytos Ubuntu (WSL) ir Mac. Git Bash dalį jų paleidžia, bet ne visas (pvz. 03 pamokoje nėra `apt`), todėl tai tik laikinas sprendimas. Iki 02 pamokos išspręskite WSL vienu iš būdų:
+Nuo 02 pamokos komandos išbandytos Ubuntu (WSL) ir Mac. Git Bash dalį jų paleidžia, bet ne visas (pvz. 02 pamokoje nėra `apt`), todėl tai tik laikinas sprendimas. Iki 02 pamokos išspręskite WSL vienu iš būdų:
 
 1. Įjunkite virtualizaciją BIOS/UEFI (jei ji buvo išjungta) ir paleiskite `wsl --install` iš naujo kaip administratorius.
 2. Jei trūksta administratoriaus teisių: paprašykite kompiuterio administratoriaus įdiegti WSL su Ubuntu arba naudokite savo asmeninį kompiuterį.

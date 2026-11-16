@@ -23,7 +23,7 @@ ls
 
 ```bash
 cd ..
-echo kava > slaptas.txt
+echo db1 > slaptas.txt
 chmod 600 slaptas.txt
 ```
 
@@ -34,7 +34,7 @@ cat slaptas.txt
 ls -l slaptas.txt
 ```
 
-- Turi būti: `cat` rodo `kava`, `ls -l` eilutė prasideda `-rw-------`
+- Turi būti: `cat` rodo `db1`, `ls -l` eilutė prasideda `-rw-------`
 
 6. Grįžti į projektą ir atidaryti skriptą su `nano`:
 
@@ -49,7 +49,7 @@ nano scripts/ataskaita.sh
 #!/usr/bin/env bash
 echo "Aplankas: $(basename "$(pwd)")"
 echo "Eilutės:"
-grep -n -f ../slaptas.txt uzrasai/produktai.txt
+grep -n -f ../slaptas.txt uzrasai/serveriai.txt
 ```
 
 - Išsaugoti ir išeiti: `Ctrl+O`, `Enter`, `Ctrl+X`
@@ -82,7 +82,7 @@ ls -l scripts/ataskaita.sh
 ```
 Aplankas: git-bandymas
 Eilutės:
-4:kava 3.50 €
+2:db1 192.168.1.20
 ```
 
 11. Išvestį įrašyti į failą:

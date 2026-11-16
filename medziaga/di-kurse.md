@@ -39,11 +39,11 @@ Rezultatas rašomas į `docs/di.md` savo repozitorijoje (kad dėstytojas matytų
 ## Dėstytojui
 
 - Kiekviename etape parodyk bent vieną tikrą DI klaidą (iš lentelės) ir kaip ją pastebėti. Prieš demonstraciją išbandyk pats: nerodyk išgalvotos klaidos.
-- „Sulaužyk ir pataisyk“ pamokos (15, 28, 42): studentas įklijuoja klaidą DI ir pasako, ar siūlymas teisingas.
+- „Sulaužyk ir pataisyk“ pamokos (14, 27, 41): studentas įklijuoja klaidą DI ir pasako, ar siūlymas teisingas.
 - Pirmose pamokose (Linux, Bash, Git) DI nenaudoti sprendimui: ten formuojasi pagrindai.
 - Egzaminas: DI nebus, todėl užduotyse DI dalis neturi pakeisti paties darbo.
 
 ## Atvira
 
-- Kuriose konkrečiose pamokose įdėti pirmas DI užduotis (siūlymas: 14 Dockerfile).
+- Kuriose konkrečiose pamokose įdėti pirmas DI užduotis (siūlymas: 10 Pirmasis Dockerfile).
 - Ar `docs/di.md` reikalauti kiekviename etape, ar tik tose pamokose, kur yra DI užduotis.

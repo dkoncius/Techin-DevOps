@@ -12,7 +12,7 @@ Pamoka gali turėti kelis rinkinius: tada failai numeruojami pagal rodymo tvark�
 ## Generavimas
 
 ```
-python3 -I .claude/skills/skaidres/build_deck.py "kursas/05 Tinklų pagrindai/skaidres.md"
+python3 -I .claude/skills/skaidres/build_deck.py "kursas/04 Tinklų pagrindai/skaidres.md"
 ```
 
 Skriptas parašo `skaidres.html` šalia `skaidres.md` ir išveda skaidrių ir žingsnių skaičių bei įspėjimus (pvz. daugiau nei 14 skaidrių, trūksta antraštės). Failai skille: `build_deck.py`, `deck.css`, `deck.js`. Dizainas keičiamas tik `deck.css`, o ne atskirose pamokose; po pakeitimo perkurk visas skaidres.
