@@ -67,7 +67,7 @@ App_Name = demo-a
 log level: info
 workers 2
 ```
-+ Ištaisykite, kad būtų taip (`Ctrl+W` ieško, `Ctrl+K` ištrina eilutę, kitas taisykite rodyklėmis ir `Backspace`), išsaugokite (`Ctrl+O`, `Enter`, `Ctrl+X`) ir patikrinkite:
++ Ištaisykite pagal rezultatą, išsaugokite ir patikrinkite:
 ```bash+
 cat pradzia.env
 ```
@@ -77,7 +77,7 @@ APP_NAME=demo-a
 LOG_LEVEL=info
 WORKERS=2
 ```
-+ Tokį failą naudosime vėlesnėse pamokose: jame bus laikomi serverio nustatymai. Slaptažodžių į Git nedėkite.
++ Tokį failą naudosime vėliau serverio nustatymams.
 +> Kaip juodraštis ant popieriaus: pirma surašomas, tada pataisomas ir tik tada rodomas kitiems.
 
 === demonstracija | Commit ir push
@@ -131,7 +131,7 @@ Demo
 | `rw-` | `6` | jums | ?skaityti ir rašyti |
 | `---` | `0` | grupei | ?nieko |
 | `---` | `0` | visiems kitiems | ?nieko |
-+> Grąžinome raktą tik sau: kiti jo neatidarys, o jūs vėl galite skaityti. Raktas guli už projekto ribų, todėl niekada nepateks į Git.
++> Grąžinome raktą tik sau: kiti jo neatidarys.
 Pastaba: jei repeticijoje failas liko su `000`, `echo` nepavyks: paleiskite `demo-atstatyti.sh`.
 
 === schema | Kaip kurti shell skriptus?
@@ -160,7 +160,7 @@ grep -n -f ../demo-raktas.txt juodrastis/pradzia.env
 demo-a
 1:# Demo
 ```
-+ Dabar sukurkite aplanką `scripts` ir jame failą `labas.sh`, įklijuokite kodą ir išsaugokite (`Ctrl+O`, `Enter`, `Ctrl+X`):
++ Sukurkite skriptą ir išsaugokite:
 ```bash+
 mkdir -p scripts
 nano scripts/labas.sh
@@ -171,7 +171,7 @@ echo "Aplankas: $(basename "$(pwd)")"
 echo "Eilutės:"
 grep -n -f ../demo-raktas.txt juodrastis/pradzia.env
 ```
-+ `#!/usr/bin/env bash` nurodo, kad skriptą vykdys `bash`, todėl `./labas.sh` veikia vienodai Mac ir Ubuntu. Kitos eilutės yra tos pačios komandos, tik `echo` parašo užrašus.
++ Pirma eilutė sako, kad skriptą vykdys `bash`. Kitos eilutės yra tos pačios komandos.
 
 === demonstracija | Paleidimas ir teisės
 ```bash
@@ -202,7 +202,7 @@ git log --oneline
 + `rezultatas.txt` lieka „Untracked“, kaip `ataskaita.txt` užduotyje: į commit eina tik skriptas.
 
 === demonstracija | Kintamasis skripte
-Į skriptą `scripts/labas.sh` pridėkite vieną eilutę gale (`nano scripts/labas.sh`, įklijuokite, išsaugokite):
+Į `scripts/labas.sh` gale pridėkite vieną eilutę:
 ```bash
 echo "Spalva: ${SPALVA:-nenustatyta}"
 ```
@@ -260,8 +260,14 @@ bat scripts/labas.sh
    5   │ echo "Spalva: ${SPALVA:-nenustatyta}"
 ───────┴────────────────────────────────────────
 ```
-+ Ubuntu / WSL: `sudo apt update`, tada `sudo apt install -y bat`, o paleidžiama komanda `batcat`. Ilgas tekstas diegiant nėra klaida: laukiame, kol grįš `%`.
-+> `sudo brew` neveikia. `bat` yra kaip `cat`, tik su numeruotomis eilutėmis ir spalvomis. Užduotyje bus `tree`.
++ Ubuntu / WSL: `sudo apt install -y bat`, komanda `batcat`. Ilgas tekstas nėra klaida.
++> `bat` yra kaip `cat`, tik su numeriais. `sudo brew` neveikia.
+
+=== klaida | Kas stringa
++:: | `sudo brew` | Mac `brew` be `sudo`
++:: | `/opt/homebrew` | Neįrašomas: kopijuokite `sudo chown -R` eilutę, kurią parašė brew
++:: | Naujas langas | `export` ten tuščias — taip ir turi būti
++:: | `PWD` | Rašykite `pwd`. Didžiosios raidės yra kita komanda
 
 === demonstracija | Pakeitimas į commit
 ```bash
@@ -285,12 +291,6 @@ b649f94 Demo: pradžia
 ```
 + `rezultatas.txt` lieka „Untracked“: į commit eina tik skriptas.
 
-=== klaida | Kas stringa
-+:: | `sudo brew` | Mac `brew` be `sudo`
-+:: | `/opt/homebrew` | Neįrašomas: kopijuokite `sudo chown -R` eilutę, kurią parašė brew
-+:: | Naujas langas | `export` ten tuščias — taip ir turi būti
-+:: | `PWD` | Rašykite `pwd`. Didžiosios raidės yra kita komanda
-
 === schema | Kam Pull Request, jei galima `push`?
 ```excalidraw
 file: pull-request-kam
@@ -305,28 +305,33 @@ arrow pr -> m2
 ```
 + Be PR: klaida iškart patenka į `main`, kurį naudoja visi.
 + Su PR: kas nors pirma peržiūri pakeitimus ir tik tada jie patenka į `main`.
-+ Nepainiokite: `git push` nusiunčia šaką, Pull Request yra prašymas GitHub'e (ne komanda), `git pull` parsisiunčia sulietą `main`.
++ Nepainiokite: `push` siunčia šaką, PR yra prašymas GitHub'e, `pull` parsisiunčia `main`.
 +> Kaip straipsnis redakcijoje: pirma redaktorius perskaito, tik tada spausdina.
 
-=== demonstracija | Pull Request
+=== demonstracija | Kas keliaus į GitHub
+Šaka `demo-02` paruošta. Patikriname, kas keliaus į GitHub:
 ```bash
 git branch
 git status
 git log --oneline main..HEAD
 git diff --stat main..HEAD
-grep -rniE "password|token|secret" juodrastis scripts
 ```
 ```output+
-(tuščia: slaptažodžių nėra)
+* demo-02
+  main
 ```
-```bash+
++ `git log` rodo tris commit'us, `git diff --stat` du failus: `juodrastis/pradzia.env` ir `scripts/labas.sh`.
+
+=== demonstracija | Pull Request
+```bash
 git push -u origin demo-02
-gh pr create --base main --title "Demo 02: pradžia ir skriptai" --body "Pirmas failas ir labas.sh su kintamuoju."
+gh pr create --base main --title "Demo 02" --body "labas.sh su kintamuoju"
 ```
 ```output+
 https://github.com/<vartotojas>/demo-a/pull/1
 ```
-+ Atidarykite nuorodą, skiltis **Files changed**: tie patys du failai (`juodrastis/pradzia.env` ir `scripts/labas.sh`) kaip `git diff --stat` (GitHub'e: **Compare & pull request**, base `main`, compare `demo-02`).
++ Atidarykite nuorodą, skiltis **Files changed**. Ten du failai: `juodrastis/pradzia.env` ir `scripts/labas.sh`.
++ Arba GitHub'e spauskite **Compare & pull request**.
 +> PR yra prašymas sulieti šaką į `main`. Kol kas nors neperžiūrėjo, `main` nesikeičia.
 
 === demonstracija | Sulieti ir sutvarkyti
@@ -342,9 +347,9 @@ git log --oneline -5
 ```output+
 * main
 ```
-+ Jei `gh` klausia „Delete the branch locally and on GitHub?“, atsakykite `N`. Naršyklėje: **Create a merge commit**, **Merge pull request**, **Confirm merge**; **Delete branch** dar nespauskite.
++ Jei `gh` klausia „Delete the branch?“, atsakykite `N`. Naršyklėje: **Create a merge commit**, **Merge pull request**. **Delete branch** dar nespauskite.
 + `git log` viršuje `Merge pull request #1 ...`, po juo trys demonstracijos commit'ai.
-+> Kaip laiškas, kuris nueina į tikrą dėžutę tik po patvirtinimo: PR sulietas, tada šaką galima išmesti.
++> Kaip laiškas, kuris nueina į dėžutę tik po patvirtinimo.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas

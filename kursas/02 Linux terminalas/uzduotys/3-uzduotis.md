@@ -111,15 +111,55 @@ git log --oneline
 
 12. **Pateikimas:** dvi nuotraukos su `./scripts/ataskaita.sh`: iš naujo lango su `Projektas: nenustatyta` ir iš pagrindinio lango su `Projektas: visas`. Galite pridėti ir trečią nuotrauką po `tree`.
 
-**Papildomai (nebūtina):** įsirašykite ir išbandykite kitas programas. Mac: `brew install ...`, Ubuntu / WSL: `sudo apt install -y ...`.
+**Papildomai (nebūtina):** įsirašykite ir išbandykite dar kelias programas.
 
-| Programa | Išbandymas | Ką daro |
-|---|---|---|
-| `bat` | `bat scripts/ataskaita.sh` (Ubuntu: `batcat scripts/ataskaita.sh`) | rodo failą su eilučių numeriais ir spalvomis |
-| `htop` | `htop` (išeiti: `q`) | gyvas procesų sąrašas |
-| `cowsay` | `cowsay Labas` | karvė su burbulu |
-| `figlet` | `figlet DevOps` | didelės raidės |
+13. `bat` (kaip `cat`, tik su eilučių numeriais ir spalvomis):
 
-Patikrinti, ar programa įdiegta: `which pavadinimas` (pvz. `which htop`).
+```bash
+brew install bat
+bat scripts/ataskaita.sh
+```
+
+- Ubuntu / WSL: `sudo apt install -y bat`, tada `batcat scripts/ataskaita.sh`
+- Turi būti: skripto eilutės su numeriais
+
+14. `htop` (gyvas procesų sąrašas):
+
+```bash
+brew install htop
+htop
+```
+
+- Ubuntu / WSL: `sudo apt install -y htop`
+- Turi būti: procesų sąrašas. Išeiti: `q`
+
+15. `cowsay` (karvė su burbulu):
+
+```bash
+brew install cowsay
+cowsay Labas
+```
+
+- Ubuntu / WSL: `sudo apt install -y cowsay`
+- Turi būti: karvė su burbulu „Labas“
+
+16. `figlet` (didelės raidės):
+
+```bash
+brew install figlet
+figlet DevOps
+```
+
+- Ubuntu / WSL: `sudo apt install -y figlet`
+- Turi būti: žodis `DevOps` didelėmis raidėmis
+
+17. Patikrinti, kur įdiegtos programos:
+
+```bash
+which htop cowsay figlet
+```
+
+- Turi būti: trys keliai, pvz. `/opt/homebrew/bin/htop`
+- `bat`: Mac `which bat`, Ubuntu `which batcat`
 
 Jei užstrigote, pasižiūrėkite `linux komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

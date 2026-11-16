@@ -24,16 +24,7 @@ git diff --stat main..HEAD
 - Turi būti: `git diff --stat` rodo du failus: `uzrasai/serveriai.txt`, `scripts/ataskaita.sh`
 - Sąraše nėra `slaptas.txt` ir `ataskaita.txt`
 
-4. Patikrinti, ar failuose nėra slaptažodžių ar raktų:
-
-```bash
-grep -rniE "password|token|secret" uzrasai scripts
-```
-
-- Turi būti: tuščia išvestis
-- Radote eilutę? Peržiūrėkite ją: į PR neturi patekti slaptažodžiai ar raktai
-
-5. Nusiųsti šaką į GitHub:
+4. Nusiųsti šaką į GitHub:
 
 ```bash
 git push -u origin pamoka-02
@@ -43,7 +34,7 @@ git status
 - Turi būti: `git status` rodo „Your branch is up to date with 'origin/pamoka-02'“
 - Klaida dėl prisijungimo? `gh auth status`, jei reikia, `gh auth login` (HTTPS)
 
-6. Sukurti PR iš `pamoka-02` į `main`. Pasirinkite **vieną** būdą.
+5. Sukurti PR iš `pamoka-02` į `main`. Pasirinkite **vieną** būdą.
 
 **Naršyklėje:**
 
@@ -62,7 +53,7 @@ gh pr create --base main --title "Pamoka 02: nano, skriptai, aplinka" --body "Su
 
 - Turi būti: `gh` atspausdina PR nuorodą. Atidarykite ją, skiltyje **Files changed** matote tuos pačius du failus kaip 3 žingsnyje
 
-7. Sulieti (merge), kai peržiūrėjote pakeitimus.
+6. Sulieti (merge), kai peržiūrėjote pakeitimus.
 
 **Naršyklėje:**
 
@@ -79,7 +70,7 @@ gh pr merge --merge
 - Jei `gh` klausia „Delete the branch locally and on GitHub?“, atsakykite **N**
 - Turi būti: PR būsena **Merged** (violetinė)
 
-8. Atnaujinti `main` ir ištrinti šaką kompiuteryje ir GitHub'e:
+7. Atnaujinti `main` ir ištrinti šaką kompiuteryje ir GitHub'e:
 
 ```bash
 git switch main
@@ -95,6 +86,6 @@ git log --oneline
 - `git push origin --delete` rašo „remote ref does not exist“? Šaka jau ištrinta, viskas gerai
 - `git branch -d` rašo „not fully merged“? PR suliejote su Squash arba Rebase. Patikrinkite `ls scripts` ir trinkite su `git branch -D pamoka-02`
 
-9. **Pateikimas:** Github repozitorijos nuoroda su išskleista branches dalimi po `git branch` ir terminalas po `git log --oneline`
+8. **Pateikimas:** Github repozitorijos nuoroda su išskleista branches dalimi po `git branch` ir terminalas po `git log --oneline`
 
 Jei užstrigote, pasižiūrėkite `linux komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet). Pull Request: [About pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
