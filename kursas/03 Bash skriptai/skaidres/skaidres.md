@@ -90,27 +90,25 @@ Pastaba: ~3 min. Santrauka prieš demonstraciją. Mac Bash 3.2: be `${var,,}`, `
 :: 1 | Aplankas | `mkdir -p ~/devops/demo-bash` ir `cd`; patikrinkite `pwd`
 +:: 2 | Komandos terminale | kintamieji, argumentai, `if`, išėjimo kodas, ciklas
 +:: 3 | Skriptas | `scripts/sveikas.sh` per `nano`, `chmod +x`, paleidimas
-+:: 4 | Patikra | `bash testai/tikrinti.sh demo`, tikėtasi `7 / 7`
-+:: 5 | Sulaužykite ir sutaisykite | vienas pakeitimas, patikra parodo klaidą, sutaisote
-+:: 6 | Git | `git init`, `git add .`, `git commit`, `gh repo create`, `git push -u origin main`
-Pastaba: ~35 min. Demonstracija vyksta ne skaidrėse: ši skaidrė tik parodo planą. Atidarykite savo Notion lapą (kopija `uzduotys/bash komandos.md`), rodykite savo ekraną ir eikite skyriais 0–10; mokiniai kartu rašo savo terminaluose. Prieš `git init` visada `pwd` ir `ls`. Tik pabaigoje skelbkite 1 užduotį (joje yra visos paruošimo komandos).
++:: 4 | Sulaužykite ir sutaisykite | vienas pakeitimas, paleidžiate, matote klaidą, sutaisote
++:: 5 | Git | `git init`, `git add .`, `git commit`, `gh repo create`, `git push -u origin main`
+Pastaba: ~35 min. Demonstracija vyksta ne skaidrėse: ši skaidrė tik parodo planą. Atidarykite savo Notion lapą (kopija `uzduotys/bash komandos.md`), rodykite savo ekraną ir eikite skyriais 0–9; mokiniai kartu rašo savo terminaluose. Prieš `git init` visada `pwd` ir `ls`. Tik pabaigoje skelbkite 1 užduotį (joje yra visos paruošimo komandos).
 
 === komanda | Kaip dirbsite su užduotimis
 ```bash
-nano scripts/patikra.sh
-bash testai/tikrinti.sh 1
+nano exercises/01_greet.sh
+bash tests/check.sh 1
 ```
-- Aplanką `pamoka-03`, patikrą ir šabloną atsisiunčiate iš GitHub (1 užduotis)
+- Aplanką `bash-lesson` su pratimais ir patikra atsisiunčiate iš Teams (1 užduotis)
 - Pakeiskite kiekvieną `TODO` savo kodu
 - Komandų ieškokite `bash komandos.md` ir `git komandos.md`
 - Testas parodo, kas nepavyko ir ką tikėtasi
 - Dar neišėjo? Dokumentacija ir paieška, o po to klauskite dirbtinio intelekto
-Pastaba: ~3 min. Pagrindinė mintis: skaidrėse tik teorija, skriptus kuria mokiniai patys. Patikros skriptas `testai/tikrinti.sh` jau yra po demonstracijos. Šablonas pradžioje tuščias ir testas krenta: tai normalu. Testą paleiskite iš projekto šaknies (ten, kur yra `scripts`). Testas tikrina tekstą, klaidų kanalą ir išėjimo kodą, bet ne kaip parašyta. 2 ir 3 užduotyse tas pats su `2` ir `3`. Dirbtinio intelekto naudojimą nukreipkite: prašyti paaiškinti klaidą ar komandą, o ne parašyti visą skriptą.
+Pastaba: ~3 min. Pagrindinė mintis: skaidrėse tik teorija, skriptus rašo mokiniai patys. Pratimai yra `exercises/`, patikra `bash tests/check.sh N` (N = pratimo numeris). Pradžioje ❌ yra normalu. Testą paleiskite iš `pamoka-03` šaknies. Testas tikrina tekstą, klaidų kanalą ir išėjimo kodą, bet ne kaip parašyta. Dirbtinio intelekto naudojimą nukreipkite: prašyti paaiškinti klaidą ar komandą, o ne parašyti visą skriptą.
 
-=== tekstas | Git: ignoravimas ir atšaukimas
+=== tekstas | Git: pakeitimų atšaukimas
 | Situacija | Komanda |
 |---|---|
-| Failas neturi patekti į Git | ?Eilutė `.gitignore` |
 | Atšaukti pakeitimą faile | ?`git restore failas` |
 | Atšaukti `git add` | ?`git restore --staged failas` |
 | Ištrinti visą darbą | ?`git reset --hard` (pavojinga) |
@@ -123,13 +121,10 @@ git add b.txt
 git commit -qm "Pradinis"
 ```
 ```bash+
-echo "*.tmp" > .gitignore
-touch a.tmp
-git status --short
 echo "pakeista" >> b.txt
 git restore b.txt
 ```
-Pastaba: ~10 min. Rodoma prieš 4 užduotį. Dažna klaida: failas jau buvo `git add` ir `.gitignore` nebeveikia (`git rm --cached`).
+Pastaba: ~10 min. Rodoma prieš 4 užduotį.
 
 === klaida | Dažnos klaidos
 :: | Permission denied | Pamirštas `chmod +x`
@@ -140,7 +135,7 @@ Pastaba: ~3 min.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną. Užduotys: `patikra.sh` auga po vieną dalį (1), sąrašas ir ciklas (2), failų ir aplankų patikra (3), `.gitignore`, `git restore` ir PR (4). Pasikartojimas terminale vyksta demonstracijoje. Skriptus mokiniai rašo patys pagal aprašą; pilni skriptai tik dėstytojo `*-sprendimas.md`.
+Pastaba: Skelbkite po vieną. Užduotys: paprasti skriptai: argumentai ir `if` (1), ciklai (2), funkcija (3), `git restore` ir PR (4). Pasikartojimas terminale vyksta demonstracijoje. Skriptus mokiniai rašo patys pagal aprašą; modeliniai atsakymai yra `bash-lesson/solutions/`, mokiniams jų neduokite.
 
 === kita | Kita pamoka
 Tinklų pagrindai: IP, portai, DNS, HTTP, `curl`
