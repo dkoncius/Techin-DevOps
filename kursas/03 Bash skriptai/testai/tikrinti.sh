@@ -94,7 +94,6 @@ exp_tool() { if command -v "$1" >/dev/null 2>&1; then echo "OK      $1"; else ec
 
 # ---------- demonstracija ----------
 if [ "$N" = demo ]; then
-  echo "Demonstracija: sveikas.sh"
   run "$TMP" Ona Jonas
   has "Ona Jonas -> kodas 0, išvestyje Ona ir Jonas" 0 Ona Jonas
   run "$TMP" Ona

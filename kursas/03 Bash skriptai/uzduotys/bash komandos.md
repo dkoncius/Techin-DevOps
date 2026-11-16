@@ -1,6 +1,6 @@
 # 03 Bash skriptai: nuo komandų iki skripto
 
-**Kur dirbate:** `~/Desktop/devops/git-bandymas` · **Reikia:** Terminalas (Mac) arba WSL Ubuntu
+**Kur dirbate:** demonstracija `~/devops/demo-bash`, užduotys `~/Desktop/devops/git-bandymas` · **Reikia:** Terminalas (Mac) arba WSL Ubuntu, įdiegtas Git
 
 Eiga: kiekvieną komandą pirma išbandote terminale ir matote rezultatą, o skriptą rašote tik pabaigoje. Pavyzdžiuose kiti vardai nei užduotyse, todėl komandą reikia pritaikyti.
 
@@ -10,6 +10,7 @@ Skriptai paleidžiami su bash. Kad pavyzdžiai elgtųsi taip pat kaip skripte, t
 |---|---|
 | Mac | terminalas yra zsh, todėl parašykite `bash` (išeiti: `exit`) |
 | Ubuntu / WSL / Linux | jau yra bash, nieko rašyti nereikia |
+
 ## Ko išmoksite
 1. Naudoti kintamuosius ir argumentus.
 2. Spręsti su `if` ir skaityti išėjimo kodą.
@@ -21,6 +22,15 @@ Skriptai paleidžiami su bash. Kad pavyzdžiai elgtųsi taip pat kaip skripte, t
 8. Atlikti užduotis su šablonais ir savo patikromis.
 
 ---
+
+## 0. Pasiruošimas: demonstracijos aplankas
+Demonstracijai naudojame atskirą aplanką, kad neliestume `git-bandymas`:
+```bash
+mkdir -p ~/devops/demo-bash    # aplankas (jei jo nėra)
+cd ~/devops/demo-bash          # įeiti į jį
+pwd                            # patikra: kelias baigiasi demo-bash
+```
+Visas komandas žemiau vykdykite šiame aplanke. Git čia dar nenaudojame: jį įjungsime 10 skyriuje.
 
 ## 1. Kintamieji
 ```bash
@@ -293,7 +303,6 @@ exp_tool() { if command -v "$1" >/dev/null 2>&1; then echo "OK      $1"; else ec
 
 # ---------- demonstracija ----------
 if [ "$N" = demo ]; then
-  echo "Demonstracija: sveikas.sh"
   run "$TMP" Ona Jonas
   has "Ona Jonas -> kodas 0, išvestyje Ona ir Jonas" 0 Ona Jonas
   run "$TMP" Ona
@@ -384,7 +393,6 @@ Skriptas scripts/sveikas.sh
   ✅ pirma eilutė nurodo bash
   ✅ skriptas vykdomas (chmod +x)
   ✅ yra set -euo pipefail
-Demonstracija: sveikas.sh
   ✅ Ona Jonas -> kodas 0, išvestyje Ona ir Jonas
   ✅ Ona -> kodas 0, išvestyje Ona
   ✅ be argumento -> nieko stdout, kodas 2
@@ -409,14 +417,44 @@ Kai viskas žalia (7 / 7), išmokite skaityti ❌: sulaužykite skriptą vienu p
 Prieš kiekvieną bandymą paleiskite `bash testai/tikrinti.sh demo`, po sutaisymo vėl: turi būti `7 / 7`.
 
 ## 10. Išsaugokite Git'e
-Komandos yra `git komandos.md`. Kai patikra žalia, darbą išsaugome:
+Komandos yra `git komandos.md`. Esame demonstracijos aplanke `~/devops/demo-bash`. Kai patikra žalia, darbą išsaugome ir nusiunčiame į GitHub, kaip darėte anksčiau.
+
+Prieš pradedant patikrinkite, ar esate prisijungę prie GitHub: `gh auth status` (jei ne, `gh auth login`, kaip 01 pamokoje).
+
+**1. Paversti aplanką Git repozitorija:**
+
+Pirma patikrinkite, kur esate. `git init` ir `git add .` paveikia **visą** aplanką, todėl kelias turi baigtis `demo-bash`:
 ```bash
-git status                                # ką pakeitėte
-git add scripts testai                    # ką įtraukti
-git commit -m "Pridėtas sveikas.sh"       # išsaugoti su žinute
-git log --oneline                         # viršuje turi būti jūsų žinutė
+pwd                            # turi baigtis /devops/demo-bash, kitaip: cd ~/devops/demo-bash
+ls                             # turi būti tik scripts ir testai
 ```
-Užduotyse kiekvienas commit turi savo pavadinimą, nurodytą užduotyje.
+Jei `ls` rodo ir kitus aplankus (pavyzdžiui `git-bandymas`), esate ne ten. Nevykdykite toliau.
+```bash
+git init                       # sukuria repozitoriją šiame aplanke
+git branch -M main             # pagrindinė šaka vadinasi main
+git status --short             # ?? scripts/ ir ?? testai/ (nauji, Git jų dar nesaugo)
+```
+**2. Išsaugoti (commit):**
+```bash
+git add .                      # įtraukia visus failus
+git commit -m "Pridėtas sveikas.sh"    # išsaugo su žinute
+git log --oneline              # viena eilutė: Pridėtas sveikas.sh
+```
+**3. Nusiųsti į GitHub:**
+```bash
+gh repo create demo-bash --private --source=. --remote=origin   # sukuria GitHub repozitoriją ir prijungia origin
+git push -u origin main        # nusiunčia šaką main
+git status                     # On branch main, up to date with 'origin/main'
+```
+**4. Pakeisti ir vėl nusiųsti:**
+```bash
+echo "# demonstracija" >> scripts/sveikas.sh    # prideda eilutę failo gale
+bash testai/tikrinti.sh demo   # turi likti 7 / 7
+git add .
+git commit -m "Pridėtas komentaras"
+git push                       # pakanka tik jei 3 žingsnyje jau vykdėte git push -u origin main
+```
+Taisyklė: pirma patikra žalia, tada `git add .`, `git commit` su aiškia žinute ir `git push`. Atšaukti pakeitimą (`git restore`), ignoruoti failus (`.gitignore`) ir Pull Request mokysitės 5 užduotyje.
 
 ---
 
@@ -432,6 +470,27 @@ Užduotis skelbia dėstytojas Teams'e po vieną. Užduotys 2–4 plečia tą pat
 | 5 | `uzduotys/5-uzduotis.md` | `.gitignore`, `git restore`, Pull Request | `git status`, `git log` |
 
 5 užduotyje Bash komandų nėra: ten naudojamos tik Git komandos iš `git komandos.md`.
+
+**Kur dirbate:** užduotis darote ne `demo-bash`, o savo projekte `git-bandymas`, šakoje `pamoka-03` (ją sukuriate 1 užduotyje). Pirmą kartą paruoškite:
+```bash
+cd ~/Desktop/devops/git-bandymas    # jūsų projektas
+git status --short                  # prieš pradedant turi būti švaru
+mkdir -p testai                     # patikros skriptas (8 skyrius) bus čia
+nano testai/tikrinti.sh             # įklijuokite patikros kodą iš 8 skyriaus
+echo "testai/" >> .git/info/exclude # patikros skriptas lieka tik pas jus, į Git nepatenka
+```
+Tada `git status --short` turi būti švarus ir nerodyti `testai/`.
+
+**Git per užduotis:** po kiekvienos užduoties, kai patikra žalia:
+
+| Užduotis | Komandos | Žinutė |
+|---|---|---|
+| 2 | `git add scripts docs`, `git commit -m "..."` | `Pridėtas patikra.sh` |
+| 3 | `git add scripts docs`, `git commit -m "..."` | `Skriptas tikrina įrankių sąrašą` |
+| 4 | `git add scripts docs`, `git commit -m "..."` | `Patikra tikrina projekto failus` |
+| 5 | `.gitignore`, commit, `git push -u origin pamoka-03`, Pull Request | `Ignoruojami .log failai` |
+
+Po kiekvieno `git commit` parodykite `git log --oneline`: viršuje turi būti tos užduoties žinutė. Pull Request daroma tik 5 užduotyje.
 
 Kiekvienoje užduotyje 2–4 tas pats: naujas failas `scripts/patikra.sh`, šablonas su `TODO`, paleidžiate patikrą, taisote po vieną ❌. Prieš įklijuodami šabloną, `nano` turi būti naujas tuščias failas: jei `scripts/patikra.sh` jau yra, 3 ir 4 užduotyse papildykite jį, o ne įklijuokite iš naujo. Pradžioje ❌ yra normalu (pavyzdžiui, `Išlaikyta 3 / 8 patikrų`). Testai paleidžiami iš projekto šaknies (ten, kur yra `scripts`).
 
