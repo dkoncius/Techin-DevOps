@@ -9,7 +9,7 @@
 # Užduotyse parašyta `cd ~/Desktop/devops/git-bandymas`: išbandant rašykite git-bandymas-test.
 # Tikrasis git-bandymas neliečiamas: trinamas tik aplankas su žyma .git/test-sandbox.
 # `origin` yra vietinė repozitorija (be GitHub), todėl `gh pr create` neveiks:
-# 5 užduotyje PR pakeiskite į `git switch main && git merge pamoka-03`.
+# 4 užduotyje PR pakeiskite į `git switch main && git merge pamoka-03`.
 set -euo pipefail
 
 TARGET="${1:-$HOME/Desktop/devops/git-bandymas-test}"
@@ -74,4 +74,4 @@ echo "Paruošta: $TARGET"
 git status -sb
 git log --oneline
 echo "---"
-echo "Pradėkite nuo 03 pamokos 1 užduoties: cd $TARGET"
+echo "Pradėkite nuo lapo bash komandos.md 11 skyriaus (paruošimas, šaka pamoka-03): cd $TARGET"

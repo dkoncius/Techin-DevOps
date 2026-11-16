@@ -1,8 +1,8 @@
-# 3 užduotis, sprendimas (dėstytojui): Ciklas per įrankius
+# 3 užduotis, sprendimas (dėstytojui): Projekto failų patikra
 
-Numeriai atitinka užduoties žingsnius. Demonstracijoje kiti įrankiai (`python3`, `node`).
+Numeriai atitinka užduoties žingsnius. Demonstracijoje tikrinami kiti failai (pvz. `README.md`).
 
-**2.** Atidaryti `nano scripts/patikra.sh`. Turinys (pirmos dvi eilutės lieka, likusi dalis perrašyta):
+**2.** Atidaryti `nano scripts/patikra.sh`. Turinys:
 
 ```bash
 #!/usr/bin/env bash
@@ -13,6 +13,7 @@ if [ "$#" -gt 0 ]; then
 else
   irankiai=(git python3 curl)
 fi
+failai=(uzrasai/serveriai.txt scripts/ataskaita.sh)
 
 truksta=0
 
@@ -25,52 +26,62 @@ for irankis in "${irankiai[@]}"; do
   fi
 done
 
+for failas in "${failai[@]}"; do
+  if [ -f "$failas" ]; then
+    echo "OK      $failas"
+  else
+    echo "TRŪKSTA $failas"
+    truksta=$((truksta + 1))
+  fi
+done
+
+if [ -d docs ]; then
+  echo "OK      docs/"
+else
+  echo "TRŪKSTA docs/"
+  truksta=$((truksta + 1))
+fi
+
 if [ "$truksta" -gt 0 ]; then
   echo "Trūksta: $truksta" >&2
   exit 1
 fi
 ```
 
-**3.** Be argumentų:
+**3.** Iš projekto šaknies:
 
 ```bash
+cd ~/Desktop/devops/git-bandymas
 ./scripts/patikra.sh; echo "kodas: $?"
 ```
 
-Laukiama: `OK      git`, `OK      python3`, `OK      curl`, `kodas: 0`. Naudojamas numatytasis sąrašas (`else` šaka).
+Laukiama: šeši `OK` (trys įrankiai, du failai, `docs/`), `kodas: 0`.
 
-**4.** Su trimis argumentais:
-
-```bash
-./scripts/patikra.sh git neegzistuoja kitas; echo "kodas: $?"
-```
-
-Laukiama: `OK      git`, dvi `TRŪKSTA`, `Trūksta: 2`, `kodas: 1`. Argumentai pakeičia sąrašą, skaitiklis suskaičiuoja du trūkstamus.
-
-**5.** Tik `git`:
+**4.** Iš `docs`:
 
 ```bash
-./scripts/patikra.sh git; echo "kodas: $?"
+(cd docs && ../scripts/patikra.sh; echo "kodas: $?")
 ```
 
-Laukiama: viena `OK`, `kodas: 0`. Skaitiklis lieka 0, todėl `if` pabaigoje nevykdomas.
+Laukiama: trys įrankiai `OK`, du failai ir `docs/` kaip `TRŪKSTA`, `Trūksta: 3`, `kodas: 1`.
 
-**6.** Užrašai:
+**5.** Išvestis į failą:
 
 ```bash
-nano docs/bash.md
+./scripts/patikra.sh > docs/patikra.txt
+cat docs/patikra.txt
 ```
 
-Gale pridėti (mokinio žodžiais): be argumentų kodas 0, su `git neegzistuoja kitas` kodas 1, tik su `git` kodas 0.
+Laukiama: `cat` rodo šešias `OK` eilutes.
 
-**7.** Git:
+**6.** Git:
 
 ```bash
 git add scripts docs
-git commit -m "Skriptas tikrina įrankių sąrašą"
+git commit -m "Patikra tikrina projekto failus"
 git log --oneline
 ```
 
-Laukiama: viršuje `Skriptas tikrina įrankių sąrašą`.
+Laukiama: viršuje `Patikra tikrina projekto failus`.
 
-Dažnos klaidos: `"${irankiai[@]}"` be kabučių arba be `@`, `truksta=$truksta+1` vietoje `$(( ))`, `set -u` su neapibrėžtu `truksta`.
+Dažnos klaidos: failų sąrašas po `truksta=0` (su `set -u` nieko blogo, bet painu), `-f` vietoje `-d` aplankui, paleidimas ne iš šaknies.

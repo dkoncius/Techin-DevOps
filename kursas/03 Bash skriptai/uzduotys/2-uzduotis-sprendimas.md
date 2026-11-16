@@ -1,131 +1,76 @@
-# 2 užduotis, sprendimas (dėstytojui): Argumentas ir sąlyga
+# 2 užduotis, sprendimas (dėstytojui): Ciklas per įrankius
 
-Numeriai atitinka užduoties žingsnius. Demonstracijoje naudojamas kitas pavyzdys (įrankis `python3`, ne `git`, šaka `demo-03`).
+Numeriai atitinka užduoties žingsnius. Demonstracijoje kiti įrankiai (`python3`, `node`).
 
-**2.** Pirma skripto versija:
-
-```bash
-mkdir -p scripts
-nano scripts/patikra.sh
-```
-
-```bash
-#!/usr/bin/env bash
-irankis=git
-echo "Tikrinu: $irankis"
-if command -v "$irankis" >/dev/null 2>&1; then
-  echo "OK      $irankis"
-else
-  echo "TRŪKSTA $irankis"
-fi
-```
-
-```bash
-chmod +x scripts/patikra.sh
-./scripts/patikra.sh
-```
-
-Laukiama: `Tikrinu: git` ir `OK      git`.
-
-**3.** Argumentas vietoj pastovaus vardo (pakeista viena eilutė):
-
-```bash
-#!/usr/bin/env bash
-irankis="$1"
-echo "Tikrinu: $irankis"
-if command -v "$irankis" >/dev/null 2>&1; then
-  echo "OK      $irankis"
-else
-  echo "TRŪKSTA $irankis"
-fi
-```
-
-```bash
-./scripts/patikra.sh python3
-./scripts/patikra.sh neegzistuoja
-```
-
-Laukiama: `Tikrinu: python3` ir `OK      python3`, tada `Tikrinu: neegzistuoja` ir `TRŪKSTA neegzistuoja`.
-
-**4.** Išėjimo kodas ir `set -euo pipefail`:
+**2.** Atidaryti `nano scripts/patikra.sh`. Turinys (pirmos dvi eilutės lieka, likusi dalis perrašyta):
 
 ```bash
 #!/usr/bin/env bash
 set -euo pipefail
 
-irankis="$1"
-echo "Tikrinu: $irankis"
-if command -v "$irankis" >/dev/null 2>&1; then
-  echo "OK      $irankis"
+if [ "$#" -gt 0 ]; then
+  irankiai=("$@")
 else
-  echo "TRŪKSTA $irankis"
+  irankiai=(git python3 curl)
+fi
+
+truksta=0
+
+for irankis in "${irankiai[@]}"; do
+  if command -v "$irankis" >/dev/null 2>&1; then
+    echo "OK      $irankis"
+  else
+    echo "TRŪKSTA $irankis"
+    truksta=$((truksta + 1))
+  fi
+done
+
+if [ "$truksta" -gt 0 ]; then
+  echo "Trūksta: $truksta" >&2
   exit 1
 fi
 ```
 
-```bash
-./scripts/patikra.sh git; echo "kodas: $?"
-./scripts/patikra.sh neegzistuoja; echo "kodas: $?"
-```
-
-Laukiama: `kodas: 0`, tada `kodas: 1`.
-
-**5.** Galutinis skriptas (apsauga nuo trūkstamo argumento, `echo "Tikrinu"` ištrintas):
+**3.** Be argumentų:
 
 ```bash
-#!/usr/bin/env bash
-set -euo pipefail
-
-if [ "$#" -lt 1 ]; then
-  echo "Naudojimas: ./scripts/patikra.sh įrankis" >&2
-  exit 2
-fi
-
-irankis="$1"
-
-if command -v "$irankis" >/dev/null 2>&1; then
-  echo "OK      $irankis"
-else
-  echo "TRŪKSTA $irankis"
-  exit 1
-fi
-```
-
-**6.** Paleidimai:
-
-```bash
-./scripts/patikra.sh git; echo "kodas: $?"
-./scripts/patikra.sh neegzistuoja; echo "kodas: $?"
 ./scripts/patikra.sh; echo "kodas: $?"
 ```
 
-Laukiama:
+Laukiama: `OK      git`, `OK      python3`, `OK      curl`, `kodas: 0`. Naudojamas numatytasis sąrašas (`else` šaka).
 
-- `OK      git` ir `kodas: 0`
-- `TRŪKSTA neegzistuoja` ir `kodas: 1`
-- `Naudojimas: ./scripts/patikra.sh įrankis` ir `kodas: 2`
-
-**7.** Užrašai:
+**4.** Su trimis argumentais:
 
 ```bash
-mkdir -p docs
+./scripts/patikra.sh git neegzistuoja kitas; echo "kodas: $?"
+```
+
+Laukiama: `OK      git`, dvi `TRŪKSTA`, `Trūksta: 2`, `kodas: 1`. Argumentai pakeičia sąrašą, skaitiklis suskaičiuoja du trūkstamus.
+
+**5.** Tik `git`:
+
+```bash
+./scripts/patikra.sh git; echo "kodas: $?"
+```
+
+Laukiama: viena `OK`, `kodas: 0`. Skaitiklis lieka 0, todėl `if` pabaigoje nevykdomas.
+
+**6.** Užrašai:
+
+```bash
 nano docs/bash.md
 ```
 
-```markdown
-# Bash skriptai
+Gale pridėti (mokinio žodžiais): be argumentų kodas 0, su `git neegzistuoja kitas` kodas 1, tik su `git` kodas 0.
 
-`./scripts/patikra.sh git` baigėsi kodu 0, `neegzistuoja` kodu 1, be argumento kodu 2.
-```
-
-**8.** Git:
+**7.** Git:
 
 ```bash
 git add scripts docs
-git commit -m "Pridėtas patikra.sh"
+git commit -m "Skriptas tikrina įrankių sąrašą"
 git log --oneline
 ```
 
-Laukiama: viršuje `Pridėtas patikra.sh`.
+Laukiama: viršuje `Skriptas tikrina įrankių sąrašą`.
 
-Dažnos klaidos: tarpai aplink `[` ir `]`, `$1` be kabučių, `echo $?` po kitos komandos, pamirštas `chmod +x`, `exit` po `else` pamirštas (kodas lieka 0), `mkdir -p scripts` praleistas ir failas neišsaugotas.
+Dažnos klaidos: `"${irankiai[@]}"` be kabučių arba be `@`, `truksta=$truksta+1` vietoje `$(( ))`, `set -u` su neapibrėžtu `truksta`.

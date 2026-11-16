@@ -1,67 +1,131 @@
-# 1 užduotis, sprendimas (dėstytojui): Bash pasikartojimas
+# 1 užduotis, sprendimas (dėstytojui): Argumentas ir sąlyga
 
-Numeriai atitinka užduoties žingsnius. Tai pasikartojimas: kam nepavyksta, tą žingsnį kartu su juo išsiaiškinkite, o tada eikite toliau. Skriptas pradedamas tik 2 užduotyje.
+Numeriai atitinka užduoties žingsnius. Demonstracijoje naudojamas kitas pavyzdys (įrankis `python3`, ne `git`, šaka `demo-03`).
 
-**2.** Šaka:
+**2.** Pirma skripto versija:
 
 ```bash
-cd ~/Desktop/devops/git-bandymas
-git switch main
-git pull
-ls uzrasai scripts
-git switch -c pamoka-03
-git branch
+mkdir -p scripts
+nano scripts/patikra.sh
 ```
 
-Ką daro: `cd` nueina į projektą, `git switch main` grįžta į pagrindinę šaką, `git pull` atsisiunčia sulietus pakeitimus (čia ateina 02 pamokos darbas), `ls` parodo, ar failai atėjo, `git switch -c` sukuria naują šaką ir joje dirbama toliau, `git branch` parodo šakas.
-
-Laukiama: `ls` rodo `serveriai.txt` ir `ataskaita.sh` (02 PR sulietas), žvaigždutė prie `pamoka-03`. Jei failų nėra, mokinio 02 Pull Request nesulietas: jį reikia sulieti GitHub'e ir vėl paleisti `git pull` (tada šaką `pamoka-03` geriausia sukurti iš naujo). Dažna klaida: komandos paleistos ne `git-bandymas` aplanke.
-
-**3.** Kintamieji:
-
 ```bash
+#!/usr/bin/env bash
 irankis=git
 echo "Tikrinu: $irankis"
-irankis=python3
+if command -v "$irankis" >/dev/null 2>&1; then
+  echo "OK      $irankis"
+else
+  echo "TRŪKSTA $irankis"
+fi
+```
+
+```bash
+chmod +x scripts/patikra.sh
+./scripts/patikra.sh
+```
+
+Laukiama: `Tikrinu: git` ir `OK      git`.
+
+**3.** Argumentas vietoj pastovaus vardo (pakeista viena eilutė):
+
+```bash
+#!/usr/bin/env bash
+irankis="$1"
 echo "Tikrinu: $irankis"
+if command -v "$irankis" >/dev/null 2>&1; then
+  echo "OK      $irankis"
+else
+  echo "TRŪKSTA $irankis"
+fi
 ```
-
-Ką daro: `irankis=git` įrašo reikšmę (be tarpų aplink `=`), `$irankis` ją atspausdina, antrasis priskyrimas reikšmę pakeičia.
-
-Laukiama: `Tikrinu: git`, tada `Tikrinu: python3`. Dažna klaida: tarpai aplink `=` (`irankis = git`), tada Bash bando paleisti programą `irankis`.
-
-**4.** `command -v` ir išėjimo kodas:
 
 ```bash
-command -v "$irankis"; echo "kodas: $?"
-irankis=neegzistuoja
-command -v "$irankis"; echo "kodas: $?"
+./scripts/patikra.sh python3
+./scripts/patikra.sh neegzistuoja
 ```
 
-Ką daro: `command -v` parodo kelią iki įrankio, jei jis yra, o jei nėra, nieko neparodo ir baigiasi kodu 1. `$?` yra paskutinės komandos išėjimo kodas (0 reiškia sėkmę, kitaip klaidą). Todėl `echo "kodas: $?"` rašomas iškart po komandos per `;`: tarp jų nebūtų jokios kitos komandos, kuri perrašytų `$?`.
+Laukiama: `Tikrinu: python3` ir `OK      python3`, tada `Tikrinu: neegzistuoja` ir `TRŪKSTA neegzistuoja`.
 
-Laukiama: kelias iki `python3` ir `kodas: 0`, tada tik `kodas: 1` (kelio nėra). Šitą patį principą 2 užduotyje naudos `if`.
-
-**5.** Failai ir aplankai:
+**4.** Išėjimo kodas ir `set -euo pipefail`:
 
 ```bash
-[ -f uzrasai/serveriai.txt ]; echo "kodas: $?"
-[ -d scripts ]; echo "kodas: $?"
-[ -f nera.txt ]; echo "kodas: $?"
-[ -d nera ]; echo "kodas: $?"
+#!/usr/bin/env bash
+set -euo pipefail
+
+irankis="$1"
+echo "Tikrinu: $irankis"
+if command -v "$irankis" >/dev/null 2>&1; then
+  echo "OK      $irankis"
+else
+  echo "TRŪKSTA $irankis"
+  exit 1
+fi
 ```
-
-Ką daro: `[ -f ... ]` tikrina, ar tai failas, `[ -d ... ]`, ar tai aplankas. Rezultatą rodo tik išėjimo kodas, todėl vėl `echo "kodas: $?"` iškart po jo.
-
-Laukiama: `0`, `0`, `1`, `1`. Dažna klaida: be tarpų aplink `[` ir `]` (`[-f failas]` neveikia), arba `-f` aplankui (rodytų 1). 4 užduotyje tos pačios sąlygos bus `if` viduje.
-
-**6.** Argumentai:
 
 ```bash
-set -- ona jonas
-echo "$1" "$#"
+./scripts/patikra.sh git; echo "kodas: $?"
+./scripts/patikra.sh neegzistuoja; echo "kodas: $?"
 ```
 
-Ką daro: `set --` terminale nustato argumentus taip, lyg jie būtų paduoti skriptui. `$1` yra pirmas argumentas, `$#` yra jų skaičius.
+Laukiama: `kodas: 0`, tada `kodas: 1`.
 
-Laukiama: `ona 2`. Skripte tą patį daro argumentai komandos eilutėje (`./patikra.sh git` → `$1` yra `git`); to prireiks 2 užduotyje.
+**5.** Galutinis skriptas (apsauga nuo trūkstamo argumento, `echo "Tikrinu"` ištrintas):
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ "$#" -lt 1 ]; then
+  echo "Naudojimas: ./scripts/patikra.sh įrankis" >&2
+  exit 2
+fi
+
+irankis="$1"
+
+if command -v "$irankis" >/dev/null 2>&1; then
+  echo "OK      $irankis"
+else
+  echo "TRŪKSTA $irankis"
+  exit 1
+fi
+```
+
+**6.** Paleidimai:
+
+```bash
+./scripts/patikra.sh git; echo "kodas: $?"
+./scripts/patikra.sh neegzistuoja; echo "kodas: $?"
+./scripts/patikra.sh; echo "kodas: $?"
+```
+
+Laukiama:
+
+- `OK      git` ir `kodas: 0`
+- `TRŪKSTA neegzistuoja` ir `kodas: 1`
+- `Naudojimas: ./scripts/patikra.sh įrankis` ir `kodas: 2`
+
+**7.** Užrašai:
+
+```bash
+mkdir -p docs
+nano docs/bash.md
+```
+
+```markdown
+# Bash skriptai
+
+`./scripts/patikra.sh git` baigėsi kodu 0, `neegzistuoja` kodu 1, be argumento kodu 2.
+```
+
+**8.** Git:
+
+```bash
+git add scripts docs
+git commit -m "Pridėtas patikra.sh"
+git log --oneline
+```
+
+Laukiama: viršuje `Pridėtas patikra.sh`.
+
+Dažnos klaidos: tarpai aplink `[` ir `]`, `$1` be kabučių, `echo $?` po kitos komandos, pamirštas `chmod +x`, `exit` po `else` pamirštas (kodas lieka 0), `mkdir -p scripts` praleistas ir failas neišsaugotas.

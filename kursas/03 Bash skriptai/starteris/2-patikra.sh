@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
-# 2 užduotis: Argumentai ir išėjimo kodas
+# 2 užduotis: Ciklas per įrankius
 # Pakeiskite kiekvieną TODO savo kodu ir paleiskite: bash testai/tikrinti.sh 2
 #
-# Tikslas: ./scripts/patikra.sh git  ->  OK      git        (kodas 0)
-#          ./scripts/patikra.sh xyz  ->  TRŪKSTA xyz        (kodas 1)
-#          ./scripts/patikra.sh      ->  naudojimo žinutė   (kodas 2)
+# Tikslas:
+#   ./scripts/patikra.sh                       -> tikrina git, python3, curl
+#   ./scripts/patikra.sh git neegzistuoja kitas -> tikrina tik tuos tris
+#   Jei ko nors trūksta: klaidų kanale "Trūksta: SKAIČIUS" ir kodas 1
+set -euo pipefail
 
-# TODO 1: įjunkite griežtą režimą (set -euo pipefail)
+# TODO 1: jei yra argumentų (#), irankiai=("$@"); kitaip irankiai=(git python3 curl)
 
-# TODO 2: jei argumentų (#) yra mažiau nei 1:
-#         į klaidų kanalą (>&2) parašykite: Naudojimas: ./scripts/patikra.sh įrankis
-#         ir baikite su kodu 2
+# TODO 2: skaitiklis truksta=0
 
-# TODO 3: kintamasis irankis = pirmas argumentas ($1)
+# TODO 3: for irankis in "${irankiai[@]}"; do ... done
+#         jei įrankis yra: OK, 6 tarpai ir vardas
+#         jei nėra: TRŪKSTA, 1 tarpas ir vardas, o truksta=$((truksta + 1))
 
-# TODO 4: jei įrankis yra (command -v "$irankis" >/dev/null 2>&1):
-#           parašykite OK, 6 tarpai ir vardas
-#         kitaip:
-#           parašykite TRŪKSTA, 1 tarpas ir vardas, tada exit 1
+# TODO 4: jei truksta didesnis už 0:
+#         į klaidų kanalą parašykite: Trūksta: SKAIČIUS
+#         ir baikite su kodu 1

@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-# Automatinė užduočių 2, 3 ir 4 patikra (veikia macOS ir Linux/WSL).
+# Automatinė užduočių 1, 2 ir 3 patikra (veikia macOS ir Linux/WSL).
 #   bash testai/tikrinti.sh demo                   # tikrina demonstracijos scripts/sveikas.sh
-#   bash testai/tikrinti.sh 2                      # tikrina scripts/patikra.sh pagal 2 užduotį
+#   bash testai/tikrinti.sh 1                      # tikrina scripts/patikra.sh pagal 1 užduotį
+#   bash testai/tikrinti.sh 2
 #   bash testai/tikrinti.sh 3
-#   bash testai/tikrinti.sh 4
-#   bash testai/tikrinti.sh 2 kelias/iki/skripto   # kitas skriptas
+#   bash testai/tikrinti.sh 1 kelias/iki/skripto   # kitas skriptas
 # Paleiskite iš projekto šaknies (ten, kur yra aplankas scripts).
 
 N="${1:-}"
 case "$N" in
-  demo|2|3|4) ;;
-  *) echo "Naudojimas: bash testai/tikrinti.sh demo|2|3|4 [skriptas]" >&2; exit 2 ;;
+  demo|1|2|3) ;;
+  *) echo "Naudojimas: bash testai/tikrinti.sh demo|1|2|3 [skriptas]" >&2; exit 2 ;;
 esac
 
 if [ "$N" = demo ]; then
@@ -103,9 +103,9 @@ if [ "$N" = demo ]; then
   err_has "naudojimo žinutė eina į klaidų kanalą"
 fi
 
-# ---------- 2 užduotis ----------
-if [ "$N" = 2 ]; then
-  echo "2 užduotis: argumentai ir išėjimo kodas"
+# ---------- 1 užduotis ----------
+if [ "$N" = 1 ]; then
+  echo "1 užduotis: argumentai ir išėjimo kodas"
   run "$TMP" git
   eq "git -> OK, kodas 0" "OK      git" 0
   run "$TMP" neegzistuoja
@@ -116,9 +116,9 @@ if [ "$N" = 2 ]; then
   if grep -q 'Tikrinu' "$SCRIPT"; then bad "eilutę 'Tikrinu: ...' reikėjo ištrinti"; fi
 fi
 
-# ---------- 3 užduotis ----------
-if [ "$N" = 3 ]; then
-  echo "3 užduotis: ciklas per įrankius"
+# ---------- 2 užduotis ----------
+if [ "$N" = 2 ]; then
+  echo "2 užduotis: ciklas per įrankius"
   want=$(for t in git python3 curl; do exp_tool "$t"; done)
   code=0
   echo "$want" | grep -q TRŪKSTA && code=1
@@ -133,9 +133,9 @@ if [ "$N" = 3 ]; then
   eq "du argumentai -> abu tikrinami" $'OK      git\nOK      git' 0
 fi
 
-# ---------- 4 užduotis ----------
-if [ "$N" = 4 ]; then
-  echo "4 užduotis: projekto failų patikra"
+# ---------- 3 užduotis ----------
+if [ "$N" = 3 ]; then
+  echo "3 užduotis: projekto failų patikra"
   P="$TMP/projektas"
   mkdir -p "$P/uzrasai" "$P/scripts" "$P/docs"
   touch "$P/uzrasai/serveriai.txt" "$P/scripts/ataskaita.sh"
