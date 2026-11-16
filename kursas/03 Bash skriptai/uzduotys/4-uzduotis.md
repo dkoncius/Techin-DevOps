@@ -9,6 +9,7 @@
 - Dar viena sąlyga aplankui `docs`: jei yra, parašykite `OK      docs/`, jei ne, `TRŪKSTA docs/` ir padidinkite skaitiklį
 - Antras ciklas kartoja pirmojo principą, tik tikrina failą, ne įrankį
 - Sintaksė: `bash komandos.md`
+- Jei reikia šablono: lapas `bash komandos.md` (11 skyrius, 4 užduotis), įklijuokite jį į `nano scripts/patikra.sh`, pakeiskite `TODO` kodu; pasitikrinkite `bash testai/tikrinti.sh 4`
 - Išsaugokite failą
 
 **3.** Paleisti iš projekto šaknies ir parodyti išėjimo kodą:

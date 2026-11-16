@@ -17,6 +17,7 @@
 ```
 
 - Šį rėmą nereikia kopijuoti: tai aprašas, ką parašyti
+- Arba pradėkite nuo šablono iš lapo `bash komandos.md` (11 skyrius, 3 užduotis): ištrinkite seną turinį, įklijuokite šabloną į `nano scripts/patikra.sh`, pakeiskite `TODO` kodu; pasitikrinkite `bash testai/tikrinti.sh 3`
 - Sintaksė: `bash komandos.md` (masyvai, `for`, aritmetika, `$#`)
 - Išsaugokite failą
 

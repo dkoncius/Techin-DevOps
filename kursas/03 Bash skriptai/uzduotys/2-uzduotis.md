@@ -5,6 +5,7 @@
 **2.** Tai, ką bandėte terminale, įrašyti į skriptą ir pačiam parašyti `if`:
 
 - Sukurkite aplanką `scripts` (jei jo nėra) ir skriptą `scripts/patikra.sh` nano
+- Arba pradėkite nuo šablono iš lapo `bash komandos.md` (11 skyrius, 2 užduotis): įklijuokite jį į `nano scripts/patikra.sh`, pakeiskite `TODO` kodu; pasitikrinkite `bash testai/tikrinti.sh 2`
 - Pirma eilutė nurodo `bash`, toliau kintamasis `irankis=git` ir eilutė `Tikrinu: git`
 - Toliau pagal aprašą: jei įrankis yra, parašykite `OK` ir vardą, kitaip `TRŪKSTA` ir vardą (po `OK` paliekami 6 tarpai, kad išsilygiuotų)
 - Išsaugokite, leiskite skriptą vykdyti ir paleiskite

@@ -84,17 +84,40 @@ Pastaba: ~8 min. Jie `if` jau žino, todėl tik trumpai pakartokite ir pereikite
 command -v git; echo $?
 command -v neegzistuoja; echo $?
 ```
-Pastaba: ~5 min. Kitos programos (CI, `&&`) žiūri į kodą, o ne į tekstą.
+Pastaba: ~5 min. Kitos programos (CI, `&&`) žiūri į kodą, o ne į tekstą. Po kitos skaidrės (šablonas) paskelbkite 2 užduotį.
 
-=== komanda | Ciklas ir saugus skriptas
+=== komanda | Kaip dirbsite su užduotimis
+```bash
+nano scripts/patikra.sh
+bash testai/tikrinti.sh 2
+```
+- Šabloną rasite lape `bash komandos.md` (11 skyrius), įklijuokite į `nano`
+- Pakeiskite kiekvieną `TODO` savo kodu
+- Komandų ieškokite `bash komandos.md` ir `git komandos.md`
+- Testas parodo, kas nepavyko ir ką tikėtasi
+- Dar neišėjo? Dokumentacija ir paieška, o po to klauskite dirbtinio intelekto
+Pastaba: ~3 min. Pagrindinė mintis: skaidrėse tik bazinės komandos, skriptus kuria mokiniai patys. Patikros skriptas `testai/tikrinti.sh` jau įkeltas per demonstraciją (lapo 8 skyrius). Šablonas pradžioje tuščias ir testas krenta: tai normalu. Testą paleiskite iš projekto šaknies (ten, kur yra `scripts`). Testas tikrina tekstą, klaidų kanalą ir išėjimo kodą, bet ne kaip parašyta. 3 ir 4 užduotyse tas pats su `3` ir `4`. Dirbtinio intelekto naudojimą nukreipkite: prašyti paaiškinti klaidą ar komandą, o ne parašyti visą skriptą.
+
+=== komanda | Ciklas, masyvas ir skaitiklis
 ```bash
 for failas in *.sh; do
   echo "$failas"
 done
 ```
+- Tas pats su sąrašu: `vardai=(ona jonas)` ir `"${vardai[@]}"`
+- Skaičiavimas: `klaidu=$((klaidu + 1))`
+```bash+
+vardai=(ona jonas rasa)
+for v in "${vardai[@]}"; do
+  echo "Sveiki, $v"
+done
+kiekis=0
+kiekis=$((kiekis + 1))
+echo "$kiekis"
+```
 - `set -euo pipefail`: sustoja klaidoje, nenustatytame kintamajame ir nepavykusiame vamzdyje
 - Mac Bash 3.2: be `${var,,}`, `mapfile`, `declare -A`
-Pastaba: ~10 min. Dažna klaida: `for f in *.md`, kai failų nėra (cikle lieka pats šablonas).
+Pastaba: ~6 min. Tik bazinės dalys: masyvas, ciklas, skaičiaus didinimas. Skripto, kuris juos sujungia, neberašykite: tai užduotis 3, mokiniai kuria patys pagal aprašą, `bash komandos.md` ir šabloną. Dažna klaida: `for f in *.md`, kai failų nėra (cikle lieka pats šablonas); `"${vardai[@]}"` be kabučių ar be `@`; `kiekis=$kiekis+1` vietoj `$(( ))`.
 
 === komanda | Failų patikra
 ```bash
