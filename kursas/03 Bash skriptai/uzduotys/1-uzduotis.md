@@ -1,55 +1,33 @@
 # 1 užduotis: Argumentai ir išėjimo kodas
 
-**1.** **Tikslas:** pradėti aplinkos patikros skriptą `scripts/patikra.sh` nuo to, ką išbandėte terminale, ir žingsnis po žingsnio paversti jį skriptu, kuris tikrina įrankį pagal argumentą ir grąžina išėjimo kodą. Per 2 ir 3 užduotis jis pasidarys visos aplinkos patikra.
+**1.** **Tikslas:** užpildyti šabloną `scripts/patikra.sh`, kad skriptas tikrintų įrankį pagal argumentą ir grąžintų išėjimo kodą.
 
-**2.** Tai, ką bandėte terminale, įrašyti į skriptą ir pačiam parašyti `if`:
+**2.** Pasiruošimas:
 
-- Jei dar nepasiruošėte, atlikite lapo `bash komandos.md` 11 skyriaus paruošimą: `git-bandymas`, šaka `pamoka-03`, patikros skriptas `testai/tikrinti.sh`
-- Sukurkite aplanką `scripts` (jei jo nėra) ir skriptą `scripts/patikra.sh` nano
-- Arba pradėkite nuo šablono iš lapo `bash komandos.md` (11 skyrius, 1 užduotis): įklijuokite jį į `nano scripts/patikra.sh`, pakeiskite `TODO` kodu; pasitikrinkite `bash testai/tikrinti.sh 1`
-- Pirma eilutė nurodo `bash`, toliau kintamasis `irankis=git` ir eilutė `Tikrinu: git`
-- Toliau pagal aprašą: jei įrankis yra, parašykite `OK` ir vardą, kitaip `TRŪKSTA` ir vardą (po `OK` paliekami 6 tarpai, kad išsilygiuotų)
-- Išsaugokite, leiskite skriptą vykdyti ir paleiskite
-- Turi būti: `Tikrinu: git` ir `OK      git`
+- Mac: terminale pirma parašykite `bash` (Ubuntu / WSL nieko nereikia)
+- Atsisiųskite paruošimo skriptą ir paleiskite jį:
 
-**3.** Vietoj pastovaus vardo imti pirmą argumentą:
+```bash
+cd ~/Desktop/devops
+curl -fsSL -O https://raw.githubusercontent.com/dkoncius/Techin-DevOps/main/kursas/03%20Bash%20skriptai/starteris/paruosti.sh
+bash paruosti.sh
+cd pamoka-03
+bash testai/tikrinti.sh 1
+```
 
-- Kintamojo `irankis` reikšmė turi būti pirmas argumentas iš komandos eilutės
-- Paleiskite skriptą su `python3`, tada su `neegzistuoja`
-- Turi būti: `OK      python3`, tada `TRŪKSTA neegzistuoja`
+- Skriptas `paruosti.sh` sukuria aplanką `pamoka-03` ir atsisiunčia patikrą bei šabloną `scripts/patikra.sh`; jei norite, perskaitykite jį: `cat ~/Desktop/devops/paruosti.sh`
+- Jei `curl` rašo klaidą, patikrinkite internetą
+- Turi būti: `bash testai/tikrinti.sh 1` rodo ❌ (šablonas dar tuščias)
 
-**4.** Grąžinti išėjimo kodą:
+**3.** Užpildykite visus `TODO` faile `scripts/patikra.sh` (`nano scripts/patikra.sh`):
 
-- Antroje eilutėje įjunkite griežtą režimą (`set -euo pipefail`)
-- Kai įrankio nėra, po `TRŪKSTA` eilutės baikite skriptą su kodu 1
-- Paleiskite su `git` ir su `neegzistuoja`, po kiekvieno iškart parodykite išėjimo kodą
-- Turi būti: `OK      git` ir `kodas: 0`, tada `TRŪKSTA neegzistuoja` ir `kodas: 1`
-- Kodą rodykite iškart po paleidimo, ne po kitos komandos
+- Griežtas režimas, naudojimo žinutė į klaidų kanalą su kodu 2, kintamasis `irankis` iš pirmo argumento, `OK` arba `TRŪKSTA` su kodu 1
+- Turi būti: `bash testai/tikrinti.sh 1` rodo `Viskas gerai`
 
-**5.** Apsaugoti nuo trūkstamo argumento:
+**4.** Paleiskite ranka su `git`, su `neegzistuoja` ir be argumento, po kiekvieno iškart parodykite išėjimo kodą:
 
-- Skripto pradžioje patikrinkite, ar yra bent vienas argumentas
-- Jei nėra, į klaidų kanalą parašykite `Naudojimas: ./scripts/patikra.sh įrankis` ir baikite su kodu 2
-- Eilutę `Tikrinu: ...` ištrinkite
-- Turi būti: skriptas be argumento nebepaleidžia tikrinimo
+- Turi būti: `OK      git` ir kodas 0, `TRŪKSTA neegzistuoja` ir kodas 1, naudojimo žinutė ir kodas 2
 
-**6.** Paleisti visus tris atvejus ir po kiekvieno parodyti išėjimo kodą:
+**5.** **Pateikimas:** terminalo nuotrauka su trimis paleidimais ir kodais 0, 1, 2 bei `Viskas gerai`.
 
-- Su `git`, su `neegzistuoja`, be argumento
-- Turi būti: `OK      git` ir kodas 0
-- Turi būti: `TRŪKSTA neegzistuoja` ir kodas 1
-- Turi būti: naudojimo žinutė ir kodas 2
-
-**7.** Užrašyti rezultatą:
-
-- Sukurkite aplanką `docs` ir failą `docs/bash.md`
-- Parašykite pačiam: `./scripts/patikra.sh git` baigėsi kodu 0, `neegzistuoja` kodu 1, be argumento kodu 2
-
-**8.** Išsaugoti Git'e:
-
-- Įtraukite `scripts` ir `docs` į commit su žinute `Pridėtas patikra.sh`
-- Turi būti: `git log --oneline` viršuje `Pridėtas patikra.sh`
-
-**9.** **Pateikimas:** terminalo nuotrauka su trimis paleidimais ir kodais 0, 1 ir 2.
-
-Jei užstrigote, pasižiūrėkite `bash komandos.md` ir `git komandos.md`. Daugiau Git komandų: [Git cheat sheet](https://git-scm.com/cheat-sheet).
+Jei užstrigote, pasižiūrėkite `bash komandos.md`.

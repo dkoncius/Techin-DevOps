@@ -74,4 +74,4 @@ echo "Paruošta: $TARGET"
 git status -sb
 git log --oneline
 echo "---"
-echo "Pradėkite nuo lapo bash komandos.md 11 skyriaus (paruošimas, šaka pamoka-03): cd $TARGET"
+echo "Šis aplankas skirtas 4 užduočiai (Git): cd $TARGET"

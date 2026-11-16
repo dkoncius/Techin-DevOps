@@ -2,7 +2,9 @@
 
 Numeriai atitinka užduoties žingsnius. Demonstracijoje kiti įrankiai (`python3`, `node`).
 
-**2.** Atidaryti `nano scripts/patikra.sh`. Turinys (pirmos dvi eilutės lieka, likusi dalis perrašyta):
+**2.** Pasiruošimas: užduoties 2 žingsnis (kopija ir `curl` šablonas). Laukiama: `bash testai/tikrinti.sh 2` rodo ❌, kol neužpildyti `TODO`.
+
+**3.** Užpildytas `scripts/patikra.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -31,46 +33,18 @@ if [ "$truksta" -gt 0 ]; then
 fi
 ```
 
-**3.** Be argumentų:
+Laukiama: `bash testai/tikrinti.sh 2` rodo `Viskas gerai`.
+
+**4.** Paleidimai ranka:
 
 ```bash
 ./scripts/patikra.sh; echo "kodas: $?"
-```
-
-Laukiama: `OK      git`, `OK      python3`, `OK      curl`, `kodas: 0`. Naudojamas numatytasis sąrašas (`else` šaka).
-
-**4.** Su trimis argumentais:
-
-```bash
 ./scripts/patikra.sh git neegzistuoja kitas; echo "kodas: $?"
 ```
 
-Laukiama: `OK      git`, dvi `TRŪKSTA`, `Trūksta: 2`, `kodas: 1`. Argumentai pakeičia sąrašą, skaitiklis suskaičiuoja du trūkstamus.
+Laukiama:
 
-**5.** Tik `git`:
+- be argumentų: `OK      git`, `OK      python3`, `OK      curl`, `kodas: 0` (numatytasis sąrašas, `else` šaka)
+- su trimis argumentais: `OK      git`, dvi `TRŪKSTA`, `Trūksta: 2`, `kodas: 1`
 
-```bash
-./scripts/patikra.sh git; echo "kodas: $?"
-```
-
-Laukiama: viena `OK`, `kodas: 0`. Skaitiklis lieka 0, todėl `if` pabaigoje nevykdomas.
-
-**6.** Užrašai:
-
-```bash
-nano docs/bash.md
-```
-
-Gale pridėti (mokinio žodžiais): be argumentų kodas 0, su `git neegzistuoja kitas` kodas 1, tik su `git` kodas 0.
-
-**7.** Git:
-
-```bash
-git add scripts docs
-git commit -m "Skriptas tikrina įrankių sąrašą"
-git log --oneline
-```
-
-Laukiama: viršuje `Skriptas tikrina įrankių sąrašą`.
-
-Dažnos klaidos: `"${irankiai[@]}"` be kabučių arba be `@`, `truksta=$truksta+1` vietoje `$(( ))`, `set -u` su neapibrėžtu `truksta`.
+Dažnos klaidos: `"${irankiai[@]}"` be kabučių arba be `@`, `truksta=$truksta+1` vietoje `$(( ))`, `set -u` su neapibrėžtu `truksta`, 1 užduoties kopija neišsaugota prieš atsisiunčiant šabloną.

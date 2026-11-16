@@ -93,14 +93,14 @@ Pastaba: ~3 min. Santrauka prieš demonstraciją. Mac Bash 3.2: be `${var,,}`, `
 +:: 4 | Patikra | `bash testai/tikrinti.sh demo`, tikėtasi `7 / 7`
 +:: 5 | Sulaužykite ir sutaisykite | vienas pakeitimas, patikra parodo klaidą, sutaisote
 +:: 6 | Git | `git init`, `git add .`, `git commit`, `gh repo create`, `git push -u origin main`
-Pastaba: ~35 min. Demonstracija vyksta ne skaidrėse: ši skaidrė tik parodo planą. Atidarykite savo Notion lapą (kopija `uzduotys/bash komandos.md`), rodykite savo ekraną ir eikite skyriais 0–10; mokiniai kartu rašo savo terminaluose. Prieš `git init` visada `pwd` ir `ls`. Tik pabaigoje skelbkite 1 užduotį (lapo 11 skyrius).
+Pastaba: ~35 min. Demonstracija vyksta ne skaidrėse: ši skaidrė tik parodo planą. Atidarykite savo Notion lapą (kopija `uzduotys/bash komandos.md`), rodykite savo ekraną ir eikite skyriais 0–10; mokiniai kartu rašo savo terminaluose. Prieš `git init` visada `pwd` ir `ls`. Tik pabaigoje skelbkite 1 užduotį (joje yra visos paruošimo komandos).
 
 === komanda | Kaip dirbsite su užduotimis
 ```bash
 nano scripts/patikra.sh
 bash testai/tikrinti.sh 1
 ```
-- Šabloną rasite lape `bash komandos.md` (11 skyrius), įklijuokite į `nano`
+- Aplanką `pamoka-03`, patikrą ir šabloną atsisiunčiate iš GitHub (1 užduotis)
 - Pakeiskite kiekvieną `TODO` savo kodu
 - Komandų ieškokite `bash komandos.md` ir `git komandos.md`
 - Testas parodo, kas nepavyko ir ką tikėtasi

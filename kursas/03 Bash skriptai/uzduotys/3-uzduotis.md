@@ -1,35 +1,32 @@
 # 3 užduotis: Projekto failų patikra
 
-**1.** **Tikslas:** pačiam pridėti tam pačiam skriptui projekto failų patikrą.
+**1.** **Tikslas:** pridėti tam pačiam skriptui projekto failų ir aplanko patikrą.
 
-**2.** Atidarykite `scripts/patikra.sh` nano ir papildykite skriptą (esamo turinio netrinti):
+**2.** Pasiruošimas:
 
-- Prieš skaitiklio eilutę sukurkite sąrašą failų: `uzrasai/serveriai.txt` ir `scripts/ataskaita.sh`
-- Po ciklo per įrankius pridėkite antrą ciklą per failus: jei failas yra, parašykite `OK` ir failą, jei ne, `TRŪKSTA` ir failą, ir padidinkite skaitiklį
-- Dar viena sąlyga aplankui `docs`: jei yra, parašykite `OK      docs/`, jei ne, `TRŪKSTA docs/` ir padidinkite skaitiklį
-- Antras ciklas kartoja pirmojo principą, tik tikrina failą, ne įrankį
-- Sintaksė: `bash komandos.md`
-- Jei reikia šablono: lapas `bash komandos.md` (11 skyrius, 3 užduotis), įklijuokite jį į `nano scripts/patikra.sh`, pakeiskite `TODO` kodu; pasitikrinkite `bash testai/tikrinti.sh 3`
-- Išsaugokite failą
+- Tęskite savo `scripts/patikra.sh` iš 2 užduoties
+- Jei 2 užduotis nepavyko, atsisiųskite 3 šabloną (jame ciklas per įrankius jau parašytas):
 
-**3.** Paleisti iš projekto šaknies ir parodyti išėjimo kodą:
+```bash
+cd ~/Desktop/devops/pamoka-03
+cp scripts/patikra.sh scripts/patikra-2.sh
+curl -fsSL -o scripts/patikra.sh https://raw.githubusercontent.com/dkoncius/Techin-DevOps/main/kursas/03%20Bash%20skriptai/starteris/3-patikra.sh
+chmod +x scripts/patikra.sh
+bash testai/tikrinti.sh 3
+```
 
-- Turi būti: visi `OK`, kodas 0
+- Turi būti: `bash testai/tikrinti.sh 3` rodo ❌, kol neužpildyti `TODO`
 
-**4.** Paleisti iš aplanko `docs` ir parodyti išėjimo kodą:
+**3.** Užpildykite `TODO` faile `scripts/patikra.sh`:
 
-- Turi būti: failai `TRŪKSTA`, kodas 1. Skriptas ieško failų tame aplanke, kuriame paleistas
+- Masyvas su failais `uzrasai/serveriai.txt` ir `scripts/ataskaita.sh`, antras ciklas per failus (`-f`), patikra ar yra aplankas `docs` (`-d`); trūkstant kiekvieno padidinkite skaitiklį
+- Turi būti: `bash testai/tikrinti.sh 3` rodo `Viskas gerai`
 
-**5.** Išsaugoti išvestį į failą:
+**4.** Paleiskite ranka ir po kiekvieno parodykite išėjimo kodą:
 
-- Skripto išvestį nukreipkite į `docs/patikra.txt` ir parodykite to failo turinį
-- Turi būti: matosi `OK` eilutės
+- Iš `pamoka-03` šaknies: visi `OK`, kodas 0
+- Iš aplanko `docs`: failai `TRŪKSTA`, kodas 1 (skriptas ieško failų ten, kur paleistas)
 
-**6.** Išsaugoti Git'e:
+**5.** **Pateikimas:** terminalo nuotrauka iš šaknies (kodas 0) ir iš `docs` (kodas 1).
 
-- Įtraukite `scripts` ir `docs` į commit su žinute `Patikra tikrina projekto failus`
-- Turi būti: `git log --oneline` viršuje `Patikra tikrina projekto failus`
-
-**7.** **Pateikimas:** terminalo nuotrauka iš šaknies (kodas 0) ir iš `docs` (kodas 1).
-
-Jei užstrigote, pasižiūrėkite `bash komandos.md` ir `git komandos.md`. Daugiau Git komandų: [Git cheat sheet](https://git-scm.com/cheat-sheet).
+Jei užstrigote, pasižiūrėkite `bash komandos.md`.
