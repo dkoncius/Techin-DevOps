@@ -1,70 +1,39 @@
-# 1 užduotis: Argumentas ir sąlyga
+# 1 užduotis: Bash pasikartojimas
 
-**1.** **Tikslas:** pačiam parašyti skriptą, kuris tikrina vieną įrankį pagal argumentą ir grąžina išėjimo kodą.
+**1.** **Tikslas:** prieš rašant skriptą terminale pasikartoti tai, ką jau mokate: kintamuosius, `command -v`, išėjimo kodą ir failų bei aplankų patikrą.
 
-**2.** Atnaujinti ir sukurti šaką:
+**2.** Pasiruošimas:
 
-- `cd ~/Desktop/devops/git-bandymas`
-- `git switch main`
-- `git pull`
-- `git switch -c pamoka-03`
-- Turi būti: `git branch` rodo žvaigždutę prie `pamoka-03`
+- Eikite į projektą `git-bandymas`, perjunkite į `main` ir atsisiųskite naujausius pakeitimus
+- Patikrinkite, kad aplanke `uzrasai` yra `serveriai.txt`, o `scripts` yra `ataskaita.sh`
+- Jei jų nėra, 02 pamokos Pull Request dar nesulietas: sulieskite jį GitHub'e ir vėl atsisiųskite pakeitimus
+- Sukurkite šaką `pamoka-03`
+- Turi būti: matosi `serveriai.txt` ir `ataskaita.sh`, žvaigždutė prie `pamoka-03`
 
-**3.** Pasikartoti, ką jau mokėtės pas Edgarą (kintamasis ir `wc -l`) tiesiai terminale:
+**3.** Kintamieji:
 
-- `irankis=git`
-- `echo "Tikrinu: $irankis"`
-- `ls | wc -l`
-- Turi būti: `Tikrinu: git` ir skaičius (kiek failų ir aplankų yra šiame aplanke)
-- Toliau tą patį kintamąjį pakeisime argumentu `$1`: skriptas gaus įrankio vardą iš komandos eilutės
+- Kintamajam `irankis` priskirkite `git` ir išveskite `Tikrinu: git`
+- Kintamojo reikšmę pakeiskite į `python3` ir vėl išveskite `Tikrinu: python3`
+- Turi būti: pirma `Tikrinu: git`, tada `Tikrinu: python3`
 
-**4.** Atidaryti failą skriptui:
+**4.** Įrankio patikra ir išėjimo kodas:
 
-- `mkdir -p scripts`
-- `nano scripts/patikra.sh`
+- Su `command -v` pažiūrėkite, ar `irankis` (dabar `python3`) yra, ir iškart išveskite paskutinės komandos išėjimo kodą (`kodas: ...`)
+- Tą patį pakartokite su `irankis` reikšme `neegzistuoja`
+- Turi būti: pirmą kartą kelias iki `python3` ir `kodas: 0`, antrą kartą tik `kodas: 1`
+- Kodą rodykite iškart po komandos, ne po kitos
 
-**5.** Pačiam parašyti skriptą pagal aprašą:
+**5.** Failai ir aplankai:
 
-- Pirma eilutė: `#!/usr/bin/env bash`, antra eilutė: `set -euo pipefail`
-- Jei skriptas gavo mažiau nei vieną argumentą: į klaidų kanalą parašyti `Naudojimas: ./scripts/patikra.sh įrankis` ir baigti kodu 2
-- Jei įrankis, kurio vardas yra pirmas argumentas, yra: parašyti `OK` ir to įrankio vardą
-- Jei jo nėra: parašyti `TRŪKSTA` ir įrankio vardą, baigti kodu 1
-- Užuominos: `$#` yra argumentų skaičius, `$1` yra pirmas argumentas, `command -v ĮRANKIS >/dev/null 2>&1` baigiasi kodu 0, kai įrankis yra, `echo "..." >&2` rašo į klaidų kanalą, `exit KODAS` baigia skriptą. Žr. `bash komandos.md`
-- Išsaugoti: `Ctrl+O`, `Enter`, `Ctrl+X`
+- Su `[ -f ... ]` patikrinkite, ar yra `uzrasai/serveriai.txt`, o su `[ -d ... ]`, ar yra aplankas `scripts`, ir po kiekvieno parodykite išėjimo kodą
+- Tą patį pakartokite su failu `nera.txt` ir aplanku `nera`
+- Turi būti: esantiems `kodas: 0`, neesantiems `kodas: 1`
 
-**6.** Leisti paleisti skriptą:
+**6.** Argumentai:
 
-- `chmod +x scripts/patikra.sh`
+- Su `set -- ona jonas` nustatykite du argumentus ir išveskite pirmą argumentą bei jų skaičių
+- Turi būti: `ona` ir `2`
 
-**7.** Paleisti su `git`:
+**7.** **Pateikimas:** terminalo nuotrauka su žingsnių 3–6 rezultatais.
 
-- `./scripts/patikra.sh git; echo "kodas: $?"`
-- Turi būti: `OK      git`, kodas 0
-- `echo $?` rašykite iškart, ne po kitos komandos
-
-**8.** Paleisti su neegzistuojančiu įrankiu:
-
-- `./scripts/patikra.sh neegzistuoja; echo "kodas: $?"`
-- Turi būti: `TRŪKSTA neegzistuoja`, kodas 1
-
-**9.** Paleisti be argumento:
-
-- `./scripts/patikra.sh; echo "kodas: $?"`
-- Turi būti: žinutė klaidų kanale, kodas 2
-- Jei neveikia, palyginkite su dėstytojo parodytu sprendimu
-
-**10.** Užrašyti rezultatą:
-
-- `mkdir -p docs`
-- `nano docs/bash.md`
-- Parašyti pačiam: `./scripts/patikra.sh git` baigėsi kodu 0, `neegzistuoja` kodu 1, be argumento kodu 2
-
-**11.** Išsaugoti Git'e:
-
-- `git add scripts docs`
-- `git commit -m "Pridėtas patikra.sh"`
-- Turi būti: `git log --oneline` viršuje `Pridėtas patikra.sh`
-
-**12.** **Pateikimas:** terminalo nuotrauka su trimis paleidimais ir kodais 0, 1 ir 2.
-
-Jei užstrigote, pasižiūrėkite `bash komandos.md`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).
+Jei užstrigote, pasižiūrėkite `bash komandos.md` ir `git komandos.md`.

@@ -1,8 +1,8 @@
-# 3 užduotis, sprendimas (dėstytojui): Projekto failų patikra
+# 3 užduotis, sprendimas (dėstytojui): Ciklas per įrankius
 
-Numeriai atitinka užduoties žingsnius. Demonstracijoje tikrinamas kitas failas (pvz. `README.md`).
+Numeriai atitinka užduoties žingsnius. Demonstracijoje kiti įrankiai (`python3`, `node`).
 
-**3.** `scripts/patikra.sh`:
+**2.** Atidaryti `nano scripts/patikra.sh`. Turinys (pirmos dvi eilutės lieka, likusi dalis perrašyta):
 
 ```bash
 #!/usr/bin/env bash
@@ -13,7 +13,6 @@ if [ "$#" -gt 0 ]; then
 else
   irankiai=(git python3 curl)
 fi
-failai=(uzrasai/serveriai.txt scripts/ataskaita.sh)
 
 truksta=0
 
@@ -26,28 +25,52 @@ for irankis in "${irankiai[@]}"; do
   fi
 done
 
-for failas in "${failai[@]}"; do
-  if [ -f "$failas" ]; then
-    echo "OK      $failas"
-  else
-    echo "TRŪKSTA $failas"
-    truksta=$((truksta + 1))
-  fi
-done
-
-if [ -d docs ]; then
-  echo "OK      docs/"
-else
-  echo "TRŪKSTA docs/"
-  truksta=$((truksta + 1))
-fi
-
 if [ "$truksta" -gt 0 ]; then
   echo "Trūksta: $truksta" >&2
   exit 1
 fi
 ```
 
-**4–5.** Laukiama: iš šaknies visi `OK`, kodas 0; iš `docs` du failai ir `docs/` kaip `TRŪKSTA`, `Trūksta: 3`, kodas 1.
+**3.** Be argumentų:
 
-Dažna klaida: failų sąrašas po `truksta=0` ir `set -u`, `-f` vietoje `-d` aplankui.
+```bash
+./scripts/patikra.sh; echo "kodas: $?"
+```
+
+Laukiama: `OK      git`, `OK      python3`, `OK      curl`, `kodas: 0`. Naudojamas numatytasis sąrašas (`else` šaka).
+
+**4.** Su trimis argumentais:
+
+```bash
+./scripts/patikra.sh git neegzistuoja kitas; echo "kodas: $?"
+```
+
+Laukiama: `OK      git`, dvi `TRŪKSTA`, `Trūksta: 2`, `kodas: 1`. Argumentai pakeičia sąrašą, skaitiklis suskaičiuoja du trūkstamus.
+
+**5.** Tik `git`:
+
+```bash
+./scripts/patikra.sh git; echo "kodas: $?"
+```
+
+Laukiama: viena `OK`, `kodas: 0`. Skaitiklis lieka 0, todėl `if` pabaigoje nevykdomas.
+
+**6.** Užrašai:
+
+```bash
+nano docs/bash.md
+```
+
+Gale pridėti (mokinio žodžiais): be argumentų kodas 0, su `git neegzistuoja kitas` kodas 1, tik su `git` kodas 0.
+
+**7.** Git:
+
+```bash
+git add scripts docs
+git commit -m "Skriptas tikrina įrankių sąrašą"
+git log --oneline
+```
+
+Laukiama: viršuje `Skriptas tikrina įrankių sąrašą`.
+
+Dažnos klaidos: `"${irankiai[@]}"` be kabučių arba be `@`, `truksta=$truksta+1` vietoje `$(( ))`, `set -u` su neapibrėžtu `truksta`.

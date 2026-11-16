@@ -1,55 +1,53 @@
-# 2 užduotis: Ciklas per įrankius
+# 2 užduotis: Argumentai ir išėjimo kodas
 
-**1.** **Tikslas:** pačiam išplėsti tą patį `scripts/patikra.sh`, kad jis patikrintų įrankių sąrašą ir suskaičiuotų, kiek trūksta.
+**1.** **Tikslas:** pradėti aplinkos patikros skriptą `scripts/patikra.sh` nuo to, ką išbandėte terminale, ir žingsnis po žingsnio paversti jį skriptu, kuris tikrina įrankį pagal argumentą ir grąžina išėjimo kodą. Per 3 ir 4 užduotis jis pasidarys visos aplinkos patikra.
 
-**2.** Atidaryti skriptą:
+**2.** Tai, ką bandėte terminale, įrašyti į skriptą ir pačiam parašyti `if`:
 
-- `nano scripts/patikra.sh`
+- Sukurkite aplanką `scripts` (jei jo nėra) ir skriptą `scripts/patikra.sh` nano
+- Pirma eilutė nurodo `bash`, toliau kintamasis `irankis=git` ir eilutė `Tikrinu: git`
+- Toliau pagal aprašą: jei įrankis yra, parašykite `OK` ir vardą, kitaip `TRŪKSTA` ir vardą (po `OK` paliekami 6 tarpai, kad išsilygiuotų)
+- Išsaugokite, leiskite skriptą vykdyti ir paleiskite
+- Turi būti: `Tikrinu: git` ir `OK      git`
 
-**3.** Palikti pirmas dvi eilutes (`#!/usr/bin/env bash` ir `set -euo pipefail`), likusį turinį ištrinti ir pačiam parašyti pagal rėmą:
+**3.** Vietoj pastovaus vardo imti pirmą argumentą:
 
-```bash
-# 1. Jei yra argumentų: irankiai=("$@"). Jei nėra: irankiai=(git python3 curl)
+- Kintamojo `irankis` reikšmė turi būti pirmas argumentas iš komandos eilutės
+- Paleiskite skriptą su `python3`, tada su `neegzistuoja`
+- Turi būti: `OK      python3`, tada `TRŪKSTA neegzistuoja`
 
-truksta=0
+**4.** Grąžinti išėjimo kodą:
 
-# 2. for ciklas per "${irankiai[@]}":
-#    jei įrankis yra: OK ir vardas
-#    jei nėra: TRŪKSTA ir vardas, o truksta padidinti per 1: truksta=$((truksta + 1))
+- Antroje eilutėje įjunkite griežtą režimą (`set -euo pipefail`)
+- Kai įrankio nėra, po `TRŪKSTA` eilutės baikite skriptą su kodu 1
+- Paleiskite su `git` ir su `neegzistuoja`, po kiekvieno iškart parodykite išėjimo kodą
+- Turi būti: `OK      git` ir `kodas: 0`, tada `TRŪKSTA neegzistuoja` ir `kodas: 1`
+- Kodą rodykite iškart po paleidimo, ne po kitos komandos
 
-# 3. Jei truksta didesnis už 0: į klaidų kanalą "Trūksta: SKAIČIUS" ir exit 1
-```
+**5.** Apsaugoti nuo trūkstamo argumento:
 
-- Šį rėmą nereikia kopijuoti: tai aprašas, ką parašyti
-- Užuominos: `[ "$#" -gt 0 ]`, `for irankis in "${irankiai[@]}"; do ... done`, `[ "$truksta" -gt 0 ]`. Žr. `bash komandos.md`
-- Išsaugoti: `Ctrl+O`, `Enter`, `Ctrl+X`
+- Skripto pradžioje patikrinkite, ar yra bent vienas argumentas
+- Jei nėra, į klaidų kanalą parašykite `Naudojimas: ./scripts/patikra.sh įrankis` ir baikite su kodu 2
+- Eilutę `Tikrinu: ...` ištrinkite
+- Turi būti: skriptas be argumento nebepaleidžia tikrinimo
 
-**4.** Paleisti be argumentų:
+**6.** Paleisti visus tris atvejus ir po kiekvieno parodyti išėjimo kodą:
 
-- `./scripts/patikra.sh; echo "kodas: $?"`
-- Turi būti: trys eilutės `OK` (`git`, `python3`, `curl`), kodas 0
+- Su `git`, su `neegzistuoja`, be argumento
+- Turi būti: `OK      git` ir kodas 0
+- Turi būti: `TRŪKSTA neegzistuoja` ir kodas 1
+- Turi būti: naudojimo žinutė ir kodas 2
 
-**5.** Paleisti su trūkstamais:
+**7.** Užrašyti rezultatą:
 
-- `./scripts/patikra.sh git neegzistuoja kitas; echo "kodas: $?"`
-- Turi būti: dvi `TRŪKSTA`, klaidų kanale `Trūksta: 2`, kodas 1
-
-**6.** Paleisti tik su `git`:
-
-- `./scripts/patikra.sh git; echo "kodas: $?"`
-- Turi būti: viena `OK`, kodas 0
-
-**7.** Papildyti užrašus:
-
-- `nano docs/bash.md`
-- Gale parašyti pačiam: be argumentų kodas 0, su `git neegzistuoja kitas` kodas 1, tik su `git` kodas 0
+- Sukurkite aplanką `docs` ir failą `docs/bash.md`
+- Parašykite pačiam: `./scripts/patikra.sh git` baigėsi kodu 0, `neegzistuoja` kodu 1, be argumento kodu 2
 
 **8.** Išsaugoti Git'e:
 
-- `git add scripts docs`
-- `git commit -m "Skriptas tikrina įrankių sąrašą"`
-- Turi būti: `git log --oneline` viršuje `Skriptas tikrina įrankių sąrašą`
+- Įtraukite `scripts` ir `docs` į commit su žinute `Pridėtas patikra.sh`
+- Turi būti: `git log --oneline` viršuje `Pridėtas patikra.sh`
 
-**9.** **Pateikimas:** terminalo nuotrauka su trimis kodais 0, 1 ir 0.
+**9.** **Pateikimas:** terminalo nuotrauka su trimis paleidimais ir kodais 0, 1 ir 2.
 
-Jei užstrigote, pasižiūrėkite `bash komandos.md`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).
+Jei užstrigote, pasižiūrėkite `bash komandos.md` ir `git komandos.md`. Daugiau Git komandų: [Git cheat sheet](https://git-scm.com/cheat-sheet).

@@ -108,6 +108,19 @@ Pastaba: ~3 min. Paprašykite pateikti po vieną pavyzdį iš kasdienybės (pusl
 | 000 | ?Niekas neklauso porto |
 Pastaba: ~4 min. Kiekvienai eilutei pirma paklauskite klasės, tada paspauskite. Pabaigoje: `curl -s -o /dev/null -w "%{http_code}\n" localhost:8080/nera`.
 
+=== tekstas | Stebėsena: du skriptai
+@kelias
+:: 1 | http-kodas.sh | argumentas `$1`, `curl -w "%{http_code}"` ir `|| true`, kad `000` nenutrauktų skripto
++:: 2 | adresai.txt | eilutė: vardas ir adresas, pvz. `web1 http://localhost:5001`
++:: 3 | stebesena.sh | `while read -r vardas adresas` kiekvienam adresui paleidžia `http-kodas.sh`
++ Veikia tik `web1`, kiti serveriai išjungti:
+```output+
+web1 200
+db1 000
+app1 000
+```
+Pastaba: ~6 min. Užduotys 2 ir 3: mokiniai `http-kodas.sh` ir `stebesena.sh` rašo patys pagal aprašą (nano, `nano failas`; galima `nano`), pilni skriptai yra dėstytojo `*-sprendimas.md`. Demonstracijoje kiti pavadinimai ir portai nei užduotyje. `|| true` reikia, nes su `set -e` nepavykęs `curl` nutrauktų skriptą.
+
 === klaida | Dažnos klaidos
 :: 🔁 | Portas užimtas | Antras `python3 -m http.server 8080`. Kitam langui naudokite `8081`
 :: ⏸️ | `Ctrl+Z` | Serveris lieka fone. Naudokite `Ctrl+C` arba `kill`
@@ -116,7 +129,7 @@ Pastaba: ~3 min. Tai dažniausios klaidos iš pamokos sprendimo skyriaus.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Dabar paskelbkite pirmą užduotį Teams'e. Kiekvieną skelbkite po vieną: pirma demonstracija gyvai su kitu pavyzdžiu, tada mokiniai daro savo. Skaidrės su žingsniais skirtos rodyti, kol jie dirba.
+Pastaba: Dabar paskelbkite pirmą užduotį Teams'e. Užduotys: `python3 -m http.server` ir `curl` (1), HTTP kodai ir `http-kodas.sh` (2), portai ir `stebesena.sh` (3), DNS ir PR (4). Kiekvieną skelbkite po vieną: pirma demonstracija gyvai su kitu pavyzdžiu, tada mokiniai daro savo. Skaidrės su žingsniais skirtos rodyti, kol jie dirba.
 
 === kita | Kita pamoka | 🔑
 SSH ir raktai: darbas nuotoliniame serveryje

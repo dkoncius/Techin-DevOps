@@ -6,7 +6,7 @@ Data: 2026-11-24 (antradienis)
 
 Anksčiau mokėsi: 06 pamokoje `docker run`, `ps`, `logs`, `exec`, `stop`, `rm`. Image, tag'ų, sluoksnių ir registro dar nemokėsi.
 
-Prisiminsime konteinerių paleidimą, o mokysimės, kas yra image ir tag'as, sluoksniai ir dydis, kaip ištrinti nereikalingą image ir kaip prisijungti prie registro.
+Prisiminsime konteinerių paleidimą, o mokysimės, kas yra image ir tag'as, sluoksniai ir dydis, kaip ištrinti nereikalingą image ir kaip prisijungti prie registro. Rezultatas: pamatysite, kiek sveria `nginx` ir `alpine`, ir kodėl tag'as svarbus.
 
 1. Tag'as, tada Užduotis 1: [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/07%20Image%20ir%20registrai/skaidres.html), skaidrė 2. Demonstracijoje `httpd:2.4`, ne `nginx:1.27`
 2. Sluoksniai, tada Užduotis 2: skaidrė 3

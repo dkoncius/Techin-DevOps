@@ -39,44 +39,54 @@ Teisingų atsakymų pasiskirstymas: A 7, B 8, C 8, D 7.
 
 ## Praktika
 
-Patikrinta: `tikrinti-porta.sh` (laisvas 0, užimtas 1, be argumento, `abc` ir `70000` → 2) ir `paleisti.sh` su tikru starteriu (sėkmė, kitas portas, užimtas portas) paleisti macOS. Nepatikrinta: Ubuntu (WSL), `/status` išvedimo pridėjimas `paleisti.sh` (kitas nei 08 pamokos pavyzdys), PR ir sulietų PR skaičiavimas GitHub'e.
+Starteris sukuriamas skriptu `starteris/sukurti-starteri.sh` (klonuoja `devops-projektas-starter-template`, įdeda klaidų failus iš `starteris/failai/`, grąžina `.env` į Git). Sprendimo failai yra `starteris/sprendimas/`.
 
-### `scripts/tikrinti-porta.sh`
+Patikrinta macOS (Python 3.9, tikras šablonas): starteris neveikia taip, kaip aprašyta, o su sprendimo failais: `./paleisti.sh` duoda `OK` ir `/status` su `atsiskaitymas-1`, kodas 0; `PORT=5007` veikia; užimtas portas po 20 s duoda kodą 1; serveris po skripto sustabdytas; skriptas veikia iš kito aplanko; `stebesena.sh` rodo `negyvas 000` ir `projektas 200`; `tikrinti-porta.sh` kodai 0 ir 2. Nepatikrinta: Ubuntu (WSL), `tikrinti-porta.sh` su užimtu portu per starterį, PR sulietas GitHub'e.
 
-````bash
-#!/usr/bin/env bash
-# tikrinti-porta.sh – ar TCP portas užimtas. 0 = laisvas, 1 = užimtas, 2 = bloga įvestis.
-# Naudojimas: ./scripts/tikrinti-porta.sh 5001
-set -euo pipefail
+### Starterio klaidos
 
-if [ "$#" -ne 1 ]; then
-  echo "Naudojimas: $0 <portas>" >&2
-  exit 2
-fi
-if ! [[ "$1" =~ ^[0-9]+$ ]] || [ "$1" -lt 1 ] || [ "$1" -gt 65535 ]; then
-  echo "Portas turi būti skaičius 1–65535: $1" >&2
-  exit 2
-fi
+| Vieta | Klaida | Taisymas |
+|---|---|---|
+| `paleisti.sh` | nevykdomas (`Permission denied`) | `chmod +x paleisti.sh` |
+| `paleisti.sh` | nėra `set -euo pipefail`, `.env`, `PORT`, Python patikros, `.venv` kūrimo | pridėti, kaip 05 pamokoje |
+| `paleisti.sh` | serveris lieka veikti, nėra `trap` | `trap 'kill "$pid" ...' EXIT` |
+| `paleisti.sh` | nesėkmės atveju `exit 0`, nėra `/status` | `exit 1` į klaidų kanalą, `curl /status` |
+| `scripts/http-kodas.sh` | nėra `\|\| true`, todėl `000` atveju skriptas nukrenta | `\|\| true` prie `curl` |
+| `scripts/tikrinti-porta.sh` | nėra | parašyti patiems |
+| `.env` | yra Git'e su `APP_SECRET` | `git rm --cached .env`, `.env` į `.gitignore` |
+| `README.md` | nėra „Paleidimas“ | pridėti skyrių |
 
-if lsof -nP -iTCP:"$1" -sTCP:LISTEN >/dev/null 2>&1; then
-  echo "Portas $1 užimtas"
-  exit 1
-fi
-echo "Portas $1 laisvas"
-````
+`stebesena.sh` pats nesugedęs: jis sustoja dėl `http-kodas.sh`. Jei mokinys pataiso `stebesena.sh` su `|| true`, tai taip pat priimtina.
 
-### `paleisti.sh`
+### Sprendimo failai
 
-Pagrindas yra 05 pamokos `paleisti.sh`. Atsiskaitymui pakeičiama sėkmės dalis, kad būtų išvedamas ir `/status`:
+`starteris/sprendimas/paleisti.sh`, `scripts/http-kodas.sh`, `scripts/tikrinti-porta.sh`.
+
+Komandų eiga:
 
 ````bash
-  if [ "$kodas" = "200" ]; then
-    echo "OK: /health atsakė 200"
-    curl -s "http://localhost:$PORT/status"
-    echo
-    exit 0
-  fi
+git switch -c atsiskaitymas-1
+chmod +x paleisti.sh
+git rm --cached .env
+nano .gitignore
+nano .env
+nano paleisti.sh
+nano scripts/http-kodas.sh
+nano scripts/tikrinti-porta.sh
+chmod +x scripts/tikrinti-porta.sh
+./paleisti.sh; echo "kodas: $?"
+./scripts/stebesena.sh
+nano README.md
+nano docs/atsiskaitymas.md
+git add -A
+git status
+git commit -m "Pataisytas paleidimas ir pridėta patikra"
+git push -u origin atsiskaitymas-1
+gh pr create --title "Atsiskaitymas 1" --body "Pataisytas paleisti.sh, .env ir stebėsena."
+gh pr merge --merge
 ````
+
+Slaptažodis `APP_SECRET` liks Git istorijoje (starterio commit'e), todėl vertinama, kad `.env` nebesekamas, o ne kad istorija išvalyta.
 
 ### `docs/atsiskaitymas.md`
 
@@ -89,11 +99,10 @@ Pagrindas yra 05 pamokos `paleisti.sh`. Atsiskaitymui pakeičiama sėkmės dalis
 {"color":"green","db":"up","db_type":"sqlite","env":"local","hostname":"...","version":"atsiskaitymas-1"}
 ```
 
-(pavyzdinė išvestis; kompiuterio vardas skirsis)
-
-## Klausimai
+## Atsakymai
 
 a) 404 reiškia, kad resurso nėra (kliento klaida), o 500 reiškia serverio klaidą.
 b) `set -e` sustabdo skriptą pirmoje klaidoje, kad jis neveiktų toliau su sugedusia būsena.
 c) `.env` gali turėti slaptažodžių, o Git istorija lieka. Į Git keliamas `.env.example`.
+d) `export` nustato kintamąjį tik tam terminalo langui ir dingsta uždarius; `.env` yra failas, kuriame tie patys kintamieji saugomi ir įkeliami skripto (`set -a; . ./.env`).
 ````

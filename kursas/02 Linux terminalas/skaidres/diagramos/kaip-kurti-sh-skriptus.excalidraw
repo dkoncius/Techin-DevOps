@@ -4,7 +4,7 @@
   "source": "https://excalidraw.com",
   "elements": [
     {
-      "id": "05eb1fca92f640b7",
+      "id": "9fda66029da04d9b",
       "type": "rectangle",
       "x": 0.0,
       "y": 0.0,
@@ -30,11 +30,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "714d69fdd6234159"
+          "id": "7b0d5fe37b004805"
         },
         {
           "type": "arrow",
-          "id": "fb4ce0b39345445d"
+          "id": "5e43009c54414e30"
         }
       ],
       "updated": 1,
@@ -42,7 +42,7 @@
       "locked": false
     },
     {
-      "id": "714d69fdd6234159",
+      "id": "7b0d5fe37b004805",
       "type": "text",
       "x": 10.0,
       "y": 30.0,
@@ -72,13 +72,13 @@
       "text": "1. Išbandome\nkomandas po vieną",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "05eb1fca92f640b7",
+      "containerId": "9fda66029da04d9b",
       "originalText": "1. Išbandome\nkomandas po vieną",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "a1d701192a2046fd",
+      "id": "006e057413fc4112",
       "type": "rectangle",
       "x": 300.0,
       "y": 0.0,
@@ -104,15 +104,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "8e76c0975d0d4d62"
+          "id": "1abdb0006ca548e9"
         },
         {
           "type": "arrow",
-          "id": "fb4ce0b39345445d"
+          "id": "5e43009c54414e30"
         },
         {
           "type": "arrow",
-          "id": "66e597bb4e574bdb"
+          "id": "b1fbee69e54c4558"
         }
       ],
       "updated": 1,
@@ -120,7 +120,7 @@
       "locked": false
     },
     {
-      "id": "8e76c0975d0d4d62",
+      "id": "1abdb0006ca548e9",
       "type": "text",
       "x": 310.0,
       "y": 30.0,
@@ -150,13 +150,13 @@
       "text": "2. Sukuriame\nfailą .sh",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "a1d701192a2046fd",
+      "containerId": "006e057413fc4112",
       "originalText": "2. Sukuriame\nfailą .sh",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "754aa300bf6f4bdc",
+      "id": "37f39560a61d4ed7",
       "type": "rectangle",
       "x": 600.0,
       "y": 0.0,
@@ -182,15 +182,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "6a36d1145d624748"
+          "id": "855369234e0f46a7"
         },
         {
           "type": "arrow",
-          "id": "66e597bb4e574bdb"
+          "id": "b1fbee69e54c4558"
         },
         {
           "type": "arrow",
-          "id": "2306750866fb4637"
+          "id": "edbc2f70edc949ae"
         }
       ],
       "updated": 1,
@@ -198,7 +198,7 @@
       "locked": false
     },
     {
-      "id": "6a36d1145d624748",
+      "id": "855369234e0f46a7",
       "type": "text",
       "x": 610.0,
       "y": 30.0,
@@ -228,13 +228,13 @@
       "text": "3. Įklijuojame\nkodą ir išsaugome",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "754aa300bf6f4bdc",
+      "containerId": "37f39560a61d4ed7",
       "originalText": "3. Įklijuojame\nkodą ir išsaugome",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "6ec66b9c006e4b39",
+      "id": "753e9eb9f5f54367",
       "type": "rectangle",
       "x": 900.0,
       "y": 0.0,
@@ -260,11 +260,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "893ef12b30054dfc"
+          "id": "fea67ff183634023"
         },
         {
           "type": "arrow",
-          "id": "2306750866fb4637"
+          "id": "edbc2f70edc949ae"
         }
       ],
       "updated": 1,
@@ -272,7 +272,7 @@
       "locked": false
     },
     {
-      "id": "893ef12b30054dfc",
+      "id": "fea67ff183634023",
       "type": "text",
       "x": 910.0,
       "y": 30.0,
@@ -302,13 +302,13 @@
       "text": "4. Paleidžiame\nvienu kartu",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "6ec66b9c006e4b39",
+      "containerId": "753e9eb9f5f54367",
       "originalText": "4. Paleidžiame\nvienu kartu",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "fb4ce0b39345445d",
+      "id": "5e43009c54414e30",
       "type": "arrow",
       "x": 240.0,
       "y": 50.0,
@@ -347,12 +347,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "05eb1fca92f640b7",
+        "elementId": "9fda66029da04d9b",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "a1d701192a2046fd",
+        "elementId": "006e057413fc4112",
         "focus": 0,
         "gap": 4
       },
@@ -360,7 +360,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "66e597bb4e574bdb",
+      "id": "b1fbee69e54c4558",
       "type": "arrow",
       "x": 540.0,
       "y": 50.0,
@@ -399,12 +399,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "a1d701192a2046fd",
+        "elementId": "006e057413fc4112",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "754aa300bf6f4bdc",
+        "elementId": "37f39560a61d4ed7",
         "focus": 0,
         "gap": 4
       },
@@ -412,7 +412,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "2306750866fb4637",
+      "id": "edbc2f70edc949ae",
       "type": "arrow",
       "x": 840.0,
       "y": 50.0,
@@ -451,12 +451,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "754aa300bf6f4bdc",
+        "elementId": "37f39560a61d4ed7",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "6ec66b9c006e4b39",
+        "elementId": "753e9eb9f5f54367",
         "focus": 0,
         "gap": 4
       },

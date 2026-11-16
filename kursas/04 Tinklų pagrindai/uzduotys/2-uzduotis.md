@@ -6,7 +6,8 @@
 
 - `curl -s -o /dev/null -w "%{http_code}\n" localhost:5001/`
 - `curl -s -o /dev/null -w "%{http_code}\n" localhost:5001/nera`
-- Turi būti: pirma komanda `200`, antra `404`
+- `curl -s -o /dev/null -w "%{http_code}\n" localhost:5999`
+- Turi būti: pirma komanda `200`, antra `404`, trečia `000` (portu 5999 niekas neklauso)
 
 **3.** Atidaryti failą skriptui:
 

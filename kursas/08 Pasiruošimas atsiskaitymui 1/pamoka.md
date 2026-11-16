@@ -6,7 +6,7 @@ Data: 2026-11-26 (ketvirtadienis)
 
 Anksčiau mokėsi: 01–07 pamokų temas (Linux, Git, Bash, tinklai, projekto paleidimas, Docker pradžia). Naujų temų nebus; 2026-11-25 paskaitos nebuvo.
 
-Prisiminsime viską nuo 01 iki 07 pamokos: pasitikrinsime `paleisti.sh`, šablono repozitoriją, `.env` ir bent 3 sulietus Pull Request aplanke `git-bandymas`. Kas neveikia, pataisysime vietoje. Docker šiame atsiskaityme nevertinamas.
+Prisiminsime viską nuo 01 iki 07 pamokos: pasitikrinsime `paleisti.sh`, šablono repozitoriją, `.env` ir bent 3 sulietus Pull Request aplanke `git-bandymas`. Kas neveikia, pataisysime vietoje. Docker šiame atsiskaityme nevertinamas. Tai bendras vaizdas: nuo `git-bandymas` skriptų (`patikra.sh`, `stebesena.sh`) iki savo projekto su `paleisti.sh`.
 
 1. Kas bus tikrinama: [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/08%20Pasiruošimas%20atsiskaitymui%201/skaidres.html), 1–2 skaidrės
 2. Užduotis 1: `./paleisti.sh` kodas 0

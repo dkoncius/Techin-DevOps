@@ -1,0 +1,2 @@
+negyvas http://localhost:5999
+projektas http://localhost:5001

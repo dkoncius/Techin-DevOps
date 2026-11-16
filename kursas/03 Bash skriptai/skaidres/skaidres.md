@@ -11,6 +11,14 @@ Tą pačią komandų seką reikia paleisti dvidešimt kartų.
 > Kaip virtuvės receptas: parašai vieną kartą, o gamini kiekvieną dieną vienodai.
 Pastaba: ~3 min. Jie jau moka paprastus skriptus, todėl klauskite, ką jau yra parašę.
 
+=== tekstas | Skriptas auga po vieną dalį
+@kelias
+:: 1 | Kintamasis ir if | `irankis=python3` ir `if command -v`: tai jau moka
++:: 2 | Argumentas | vietoj `python3` imame `irankis="$1"`
++:: 3 | Išėjimo kodas | `exit 1` kai trūksta, `set -euo pipefail`
++:: 4 | Naudojimas | `if [ "$#" -lt 1 ]`, žinutė į klaidų kanalą ir `exit 2`
+Pastaba: ~4 min. Tai užduoties 2 eiga (kintamasis ir `if` pasikartoti 1 užduotyje): tą patį `scripts/patikra.sh` auginame po vieną dalį, o ne rašome iš karto. Demonstracijoje įrankis `python3`, užduotyje `git`. Skriptus rašome `nano`.
+
 === schema | Kaip skriptas nusprendžia
 ```excalidraw
 file: skripto-eiga
@@ -30,10 +38,11 @@ Pastaba: ~5 min. Pradėkite nuo vaizdo, tada kodas.
 ```bash
 mkdir -p ~/devops/demo-bash/scripts
 cd ~/devops/demo-bash
-cat > scripts/pridek.sh <<'EOS'
+nano scripts/pridek.sh
+```
+```bash+
 #!/usr/bin/env bash
 echo $(($1 + $2))
-EOS
 ```
 + `$1` pirmas argumentas, `$#` kiek jų, `"$@"` visi
 + Kintamuosius rašykite kabutėse: `"$1"`
@@ -41,18 +50,19 @@ EOS
 chmod +x scripts/pridek.sh
 ./scripts/pridek.sh 2 3
 ```
-Pastaba: ~8 min. Kitas pavyzdys nei užduotyje: `pridek.sh` sudeda du skaičius per `$(($1 + $2))`. Pakartojimas: `#!`, `chmod +x`, kintamieji.
+Pastaba: ~8 min. Kitas pavyzdys nei užduotyje: `pridek.sh` sudeda du skaičius per `$(($1 + $2))`. Antras kodo blokas yra failo turinys, rašomas nano ir išsaugomas `Ctrl+O`, `Enter`, `Ctrl+X`. Pakartojimas: `#!`, `chmod +x`, kintamieji.
 
-=== komanda | Sąlygos ir testai
+=== komanda | Sąlygos: pakartojame ir pridedame `$#`
 ```bash
-cat > pasveikink.sh <<'EOS'
+nano pasveikink.sh
+```
+```bash+
 #!/usr/bin/env bash
 if [ "$#" -lt 1 ]; then
   echo "Naudojimas: $0 <vardas>" >&2
   exit 1
 fi
 echo "Sveiki, $1!"
-EOS
 ```
 - Failui: `-e`, `-f`, `-d`; tekstui: `=`, `-z`; skaičiams: `-eq`, `-gt`, `-lt`
 - Ar komanda yra: `command -v git`
@@ -61,7 +71,7 @@ chmod +x pasveikink.sh
 ./pasveikink.sh; echo $?
 ./pasveikink.sh Ona
 ```
-Pastaba: ~15 min. Dažna klaida: trūksta tarpų aplink `[` ir `]`; `=` vietoj `-eq`; `$x` be kabučių, kai tuščias.
+Pastaba: ~8 min. Jie `if` jau žino, todėl tik trumpai pakartokite ir pereikite prie `$#`. Antras kodo blokas yra failo turinys. Dažna klaida: trūksta tarpų aplink `[` ir `]`; `=` vietoj `-eq`; `$x` be kabučių, kai tuščias.
 
 === tekstas | Išėjimo kodas
 | Kodas | Reiškia |
@@ -95,7 +105,7 @@ done
 if [ -d src ]; then echo "OK      src/"; else echo "TRŪKSTA src/"; fi
 ```
 - `-f` yra failas, `-d` yra aplankas
-Pastaba: ~5 min. Kito projekto failai (`package.json`, `README.md`): tas pats `if`, bet su `-f` ir `-d`. Dažna klaida: skriptas paleistas ne projekto šaknyje ir viskas „TRŪKSTA“; `-f` vietoj `-d` aplankui. Paskelbkite 3 užduotį.
+Pastaba: ~5 min. Kito projekto failai (`package.json`, `README.md`): tas pats `if`, bet su `-f` ir `-d`. Dažna klaida: skriptas paleistas ne projekto šaknyje ir viskas „TRŪKSTA“; `-f` vietoj `-d` aplankui. Paskelbkite 4 užduotį.
 
 === tekstas | Kas bus 05 pamokoje
 - `run.sh` ir `paleisti.sh` atsiras, kai bus šablonas
@@ -136,7 +146,7 @@ Pastaba: ~3 min.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną. Užduotys: vienas įrankis (1), sąrašas (2), failai `uzrasai/serveriai.txt` ir skriptai (3), `.gitignore` ir PR (4).
+Pastaba: Skelbkite po vieną. Užduotys: pasikartojimas terminale (1), `patikra.sh` auga po vieną dalį (2), sąrašas ir ciklas (3), failų ir aplankų patikra (4), `.gitignore`, `git restore` ir PR (5). Skriptus mokiniai rašo patys pagal aprašą; pilni skriptai tik dėstytojo `*-sprendimas.md`.
 
 === kita | Kita pamoka
 Tinklų pagrindai: IP, portai, DNS, HTTP, `curl`

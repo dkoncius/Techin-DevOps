@@ -4,9 +4,9 @@ Data: 2026-11-19 (ketvirtadienis)
 
 ## Klasės darbas
 
-Anksčiau mokėsi: 02–04 pamokose dirbo `git-bandymas` aplanke; pas Karoliną skaitė Python. Šablono, Flask projekto paleidimo ir `.env` dar nematė.
+Anksčiau mokėsi: 02–04 pamokose dirbo `git-bandymas` aplanke; pas Karoliną skaitė Python. 02 pamokoje kūrė failą su `.env` galūne ir naudojo `export`, bet `.env` nustatymams dar nenaudojo. Šablono ir Flask projekto paleidimo dar nematė.
 
-Prisiminsime `curl`, išėjimo kodą ir Python skaitymą, o mokysimės sukurti projektą iš šablono, paleisti jį lokaliai, paleisti testus, laikyti nustatymus `.env` faile ir parašyti `paleisti.sh`.
+Prisiminsime `curl`, išėjimo kodą ir Python skaitymą, o mokysimės sukurti projektą iš šablono, paleisti jį lokaliai, paleisti testus, laikyti nustatymus `.env` faile ir parašyti `paleisti.sh` po vieną dalį: paleidimas fone, `PORT`, `.env`, `trap`. Savo projektą patikrinsime ir 04 pamokos `stebesena.sh`: jūsų Flask bus `web1` su kodu `200`.
 
 1. Pasitikrinimas po 04: `python3 -m http.server` ir `curl` kodai
 2. Šablonas ir klonas, tada Užduotis 1: [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/05%20Projekto%20paleidimas%20lokaliai/skaidres.html), 1–3 skaidrės
@@ -14,13 +14,14 @@ Prisiminsime `curl`, išėjimo kodą ir Python skaitymą, o mokysimės sukurti p
 4. Pertrauka
 5. `.env`, tada Užduotis 3: skaidrė 6
 6. `paleisti.sh` ir Pull Request, tada Užduotis 4: skaidrės 7–9
-7. Kita paskaita: Docker pradžia
+7. Užduotis 5: visa grandinė be žingsnių, patys
+8. Kita paskaita: Docker pradžia
 
 Nuorodos: [Creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template), [The Twelve-Factor App: Config](https://12factor.net/config)
 
 ## Užduotys
 
-Užduotys yra `uzduotys/1-uzduotis.md` … `4-uzduotis.md`. Skelbiate Teams'e po vieną. Komandos ir `paleisti.sh` turinys yra pačiose užduotyse. Atskiro sprendimo failo nėra. Lapas: `uzduotys/paleidimas komandos.md`.
+Užduotys yra `uzduotys/1-uzduotis.md` … `5-uzduotis.md`. Skelbiate Teams'e po vieną. 4 ir 5 užduotims yra `4-uzduotis-sprendimas.md` ir `5-uzduotis-sprendimas.md` (dėstytojui). 5 užduotis yra be žingsnių, tik reikalavimai ir patikros sąrašas. Lapas: `uzduotys/paleidimas komandos.md`.
 
 ## Pamokos eiga (dėstytojui)
 

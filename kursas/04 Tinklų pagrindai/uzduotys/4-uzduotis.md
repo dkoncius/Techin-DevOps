@@ -12,7 +12,7 @@
 - `nano docs/tinklai.md`
 - Įrašyti sakinį: `/etc/hosts` yra failas, kuriame vardą ir adresą galima nurodyti ranka. Sistema jį tikrina anksčiau nei klausia DNS serverio
 
-**4.** Tame pačiame faile gale pridėti lentelę (įklijuoti tekstą žemiau, **Mac: Cmd+V**; Ubuntu / WSL: `Ctrl+Shift+V`), tada `Ctrl+O`, `Enter`, `Ctrl+X`:
+**4.** Tame pačiame faile gale pridėti lentelę (įklijuoti tekstą žemiau, **Mac: Cmd+V**; Ubuntu / WSL: `Ctrl+Shift+V`), tada išsaugoti: `Ctrl+O`, `Enter`, `Ctrl+X`:
 
 ```markdown
 | Portas | Paslauga |
@@ -31,7 +31,7 @@
 
 **6.** Išsaugoti ir nusiųsti:
 
-- `git add docs`
+- `git add docs scripts uzrasai`
 - `git commit -m "DNS ir portų lentelė"`
 - `git push -u origin pamoka-04`
 

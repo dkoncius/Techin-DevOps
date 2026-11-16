@@ -2,11 +2,11 @@
 
 **1.** **Tikslas:** pakeisti elgesį be kodo keitimo ir nepalikti `.env` Git'e.
 
-**2.** Sukurti `.env` iš pavyzdžio:
+**2.** Prisiminti 02 pamoką: `export` nustatė kintamąjį tik tam langui, o `.env` yra tie patys kintamieji, surašyti faile. Sukurti `.env` iš pavyzdžio:
 
 - `cp .env.example .env`
 - `nano .env`
-- Pakeisti `APP_COLOR` į `green` ir `APP_VERSION` į `1.2`, tada `Ctrl+O`, `Enter`, `Ctrl+X`
+- Pakeisti `APP_COLOR` į `green` ir `APP_VERSION` į `1.2`, tada išsaugoti: `Ctrl+O`, `Enter`, `Ctrl+X`
 
 **3.** Paleisti iš naujo:
 

@@ -104,7 +104,7 @@ Datos nuo 2027-01-01 orientacinės. Stulpelis „Aplankas“ yra aplankas `kursa
 | 06 | 2026-11-23 | 06 Docker pradžia | 3 val. Pradžioje „pas mane veikia“ ir VM prieš konteinerį. Toliau `run`, `ps`, `logs`, `exec`, `stop`. | parašyta |
 | 07 | 2026-11-24 | 07 Image ir registrai | Tag'as, sluoksniai, dydis. `docker login` su access token, ne slaptažodžiu. | parašyta |
 | 08 | 2026-11-26 | 08 Pasiruošimas atsiskaitymui 1 | `paleisti.sh`, šablono repo, bent 3 sulieti PR aplanke `git-bandymas`. Naujos temos nėra. 11-25 paskaitos nėra. | parašyta |
-| 09 | 2026-11-30 | 09 Atsiskaitymas 1 | Linux, Git, Bash, tinklai ir `paleisti.sh`. Trys PR yra `git-bandymas`. Docker nevertinamas. | parašyta: testas, praktika, vertinimas |
+| 09 | 2026-11-30 | 09 Atsiskaitymas 1 | Linux, Git, Bash, tinklai ir `paleisti.sh`: gautas starteris su klaidomis, kurį reikia pataisyti ir pateikti per PR. Docker nevertinamas. | parašyta: testas, praktika, vertinimas |
 | 10 | 2026-12-01 | 10 Pirmasis Dockerfile | Dockerfile projektui. | yra pagrindas iš senos 12.2; PostgreSQL pakeisti į MySQL |
 | 11 | 2026-12-02 | 11 Mažesnis image | cache, `.dockerignore`, multi-stage. | perkelta iš buvusios 15 |
 | 12 | 2026-12-03 | 12 Docker Compose | app + MySQL, volume ir tinklas šioje pamokoje. SQL nerašomas: DB modulis dar nepraėjęs. | yra pagrindas iš senos 12.3; PostgreSQL pakeisti į MySQL |

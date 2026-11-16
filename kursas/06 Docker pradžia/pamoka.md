@@ -6,7 +6,7 @@ Data: 2026-11-23 (pirmadienis)
 
 Anksčiau mokėsi: 05 pamokoje paleido projektą lokaliai; pas Edgarą Docker pagrindus (`Dockerfile`, nginx). Kasdienių komandų (`logs`, `exec`, `stop`, `rm`) čia kartojame nuosekliai.
 
-Prisiminsime, kaip paleidome projektą, ir Docker pagrindus pas Edgarą, o mokysimės paleisti konteinerį (`docker run`), skaityti žurnalą (`logs`), eiti į vidų (`exec`) ir sustabdyti (`stop`, `rm`).
+Prisiminsime, kaip paleidome projektą, ir Docker pagrindus pas Edgarą, o mokysimės paleisti konteinerį (`docker run`), skaityti žurnalą (`logs`), eiti į vidų (`exec`) ir sustabdyti (`stop`, `rm`). Pabaigoje nginx konteineryje rodysime savo puslapį naršyklėje.
 
 1. Kodėl konteineris: [skaidrės](https://raw.githack.com/dkoncius/Techin-DevOps/main/kursas/06%20Docker%20pradžia/skaidres.html), 1–2 skaidrės
 2. `hello-world`, tada Užduotis 1: skaidrė 3

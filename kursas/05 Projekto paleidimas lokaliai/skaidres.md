@@ -43,7 +43,17 @@ Pastaba: ~8 min. Jei `.venv` nėra, pirma `./run.sh`.
 cp .env.example .env
 ```
 + Pakeiskite `APP_COLOR=red` ir `APP_VERSION=9`. Paleiskite iš naujo. `git status` `.env` nerodo
++ Prisiminkite 02: `export` galiojo tik vienam langui, o `.env` yra tie patys kintamieji faile
 Pastaba: ~10 min. Kitos reikšmės nei užduotyje (`green` ir `1.2`). `.env` nekeliamas, nes jame gali būti slaptažodžių. Paskelbkite 3 užduotį.
+
+=== tekstas | paleisti.sh auga po vieną dalį
+@kelias
+:: 1 | Fone ir /health | `&`, `$!`, ciklas su `curl` ir `sleep`: tai jau moka
++:: 2 | PORT ir aplankas | `PORT="${PORT:-5001}"` ir `cd "$(dirname "$0")"`
++:: 3 | .env | viena eilutė: `set -a; . ./.env; set +a`
++:: 4 | trap | `trap '...' EXIT` sustabdo serverį, kad ir kaip baigtųsi skriptas
++:: 5 | Python ir venv | paruoštas blokas: versijos patikra ir `pip install`
+Pastaba: ~5 min. Tai užduoties 4 eiga: pirma versija rašoma pagal rėmą, kitos dalys pridedamos po vieną, kiekvienai yra paleidimas ir „Turi būti“. Python / `venv` bloką mokiniai tik įklijuoja. Skriptus rašome nano (`nano failas`); galima `nano`. Pilnas skriptas yra dėstytojo `4-uzduotis-sprendimas.md`.
 
 === demonstracija | paleisti.sh
 ```bash
@@ -51,7 +61,7 @@ Pastaba: ~10 min. Kitos reikšmės nei užduotyje (`green` ir `1.2`). `.env` nek
 echo "kodas: $?"
 ```
 + Išvestis `OK: /health atsakė 200`, kodas 0
-Pastaba: ~15 min. Skripto tekstas yra 4 užduotyje. Parodykite ir užimtą portą `5003`. Pull Request pavadinimas „Demo paleidimas“. Paskelbkite 4 užduotį.
+Pastaba: ~15 min. Skriptas auginamas 4 užduotyje, o 5 užduotis yra visa grandinė be žingsnių. Parodykite ir užimtą portą `5003`. Pull Request pavadinimas „Demo paleidimas“. Paskelbkite 4 užduotį.
 
 === klaida | Kas stringa
 +:: | Klonuotas pats šablonas | Reikia **Use this template**, tada klonuoti savo kopiją
@@ -61,6 +71,7 @@ Pastaba: ~5 min.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
+Pastaba: Skelbkite po vieną. 4 užduotyje `paleisti.sh` auga po vieną dalį. 5 užduotis yra visa grandinė be žingsnių, tik reikalavimai ir patikros sąrašas.
 
 === kita | 06 Docker pradžia
 - Kodėl „pas mane veikia“

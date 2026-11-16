@@ -34,7 +34,7 @@
 
 - `mkdir -p docs`
 - `nano docs/tinklai.md`
-- Įklijuoti tekstą žemiau (**Mac: Cmd+V**; Ubuntu / WSL: `Ctrl+Shift+V`), tada `Ctrl+O`, `Enter`, `Ctrl+X`
+- Įklijuoti tekstą žemiau (`Cmd+V` Mac, `Ctrl+Shift+V` Ubuntu / WSL), tada išsaugoti: `Ctrl+O`, `Enter`, `Ctrl+X`
 
 ```markdown
 # Tinklų pagrindai
