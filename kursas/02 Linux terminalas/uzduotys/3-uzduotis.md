@@ -10,76 +10,58 @@ git branch
 
 - Turi būti: žvaigždutė prie `pamoka-02`
 
-3. Atidaryti naują skriptą su `nano`:
+3. Atidaryti skriptą su `nano`:
 
 ```bash
-nano scripts/aplinka.sh
+nano scripts/ataskaita.sh
 ```
 
-4. Įklijuoti skriptą (**Mac: Cmd+V**). Pirma eilutė nuo pat krašto, be tarpų prieš `#!`:
+4. Rodyklėmis nueiti į failo pabaigą, paspausti `Enter` ir įklijuoti vieną eilutę (**Mac: Cmd+V**):
 
 ```bash
-#!/usr/bin/env bash
-echo "PROJEKTO_VARDAS: ${PROJEKTO_VARDAS:-nenustatyta}"
+echo "Projektas: ${PROJEKTO_VARDAS:-nenustatyta}"
 ```
 
 - Išsaugoti ir išeiti: `Ctrl+O`, `Enter`, `Ctrl+X`
 
-5. Leisti paleisti skriptą:
+5. Paleisti skriptą **be** `export`:
 
 ```bash
-chmod +x scripts/aplinka.sh
-ls -l scripts/aplinka.sh
-```
-
-- Turi būti: `ls -l` eilutė prasideda `-rwxr-xr-x`
-
-6. Paleisti **be** `export`, rezultatą įrašyti į failą:
-
-```bash
-mkdir -p docs
-./scripts/aplinka.sh > docs/aplinka.txt
-cat docs/aplinka.txt
+./scripts/ataskaita.sh
 ```
 
 - Turi būti:
 
 ```
-PROJEKTO_VARDAS: nenustatyta
+Aplankas: git-bandymas
+Eilutės:
+2:db1 192.168.1.20
+Projektas: nenustatyta
 ```
 
-7. Nustatyti kintamąjį šiam langui ir paleisti skriptą. **Šio lango neuždarykite.**
+6. Nustatyti kintamąjį šiam langui ir paleisti skriptą. **Šio lango neuždarykite.**
 
 ```bash
 export PROJEKTO_VARDAS=visas
-./scripts/aplinka.sh
+./scripts/ataskaita.sh
 ```
 
-- Turi būti:
+- Turi būti: paskutinė eilutė `Projektas: visas`
 
-```
-PROJEKTO_VARDAS: visas
-```
-
-8. Atidaryti naują terminalo langą ir paleisti skriptą:
+7. Atidaryti naują terminalo langą ir paleisti skriptą:
    - **Mac:** `Cmd+N`
    - **Ubuntu:** `Ctrl+Alt+T`
    - **WSL / Windows Terminal:** `Ctrl+Shift+T`
 
 ```bash
 cd ~/Desktop/devops/git-bandymas
-./scripts/aplinka.sh
+./scripts/ataskaita.sh
 ```
 
-- Turi būti:
+- Turi būti: paskutinė eilutė `Projektas: nenustatyta`
+- Grįžkite į senąjį langą ir paleiskite `./scripts/ataskaita.sh` dar kartą: ten vis dar `Projektas: visas`
 
-```
-PROJEKTO_VARDAS: nenustatyta
-```
-
-- Grįžkite į senąjį langą ir paleiskite `./scripts/aplinka.sh` dar kartą: ten vis dar `visas`
-
-9. Įdiegti `tree`.
+8. Įdiegti `tree`.
 
 **Mac** (nerašykite `sudo brew`):
 
@@ -97,7 +79,7 @@ sudo apt update
 sudo apt install -y tree
 ```
 
-10. Patikrinti, ar `tree` įdiegtas:
+9. Patikrinti, ar `tree` įdiegtas:
 
 ```bash
 tree --version
@@ -106,27 +88,38 @@ which tree
 
 - Turi būti: `tree --version` rodo versiją, `which tree` rodo kelią į programą
 
-11. Pažiūrėti projekto medį:
+10. Pažiūrėti projekto medį:
 
 ```bash
 cd ~/Desktop/devops/git-bandymas
 tree
 ```
 
-- Turi būti: aplankai `docs`, `scripts`, `uzrasai` ir jų failai `aplinka.txt`, `aplinka.sh`, `ataskaita.sh`, `serveriai.txt`
+- Turi būti: aplankai `scripts` ir `uzrasai`, jų failai `ataskaita.sh` ir `serveriai.txt`, o šalia failas `ataskaita.txt`
 
-12. Išsaugoti Git'e skriptą ir `docs/aplinka.txt` (ten tik `nenustatyta`):
+11. Išsaugoti Git'e pakeistą skriptą:
 
 ```bash
-git add scripts/aplinka.sh docs
+git add scripts/ataskaita.sh
 git status
-git commit -m "Aplinka ir paketas"
+git commit -m "Pridėtas projekto vardas"
 git log --oneline
 ```
 
-- Turi būti: `git status` rodo paruoštus `scripts/aplinka.sh` ir `docs/aplinka.txt`, `ataskaita.txt` lieka „Untracked“
-- Turi būti: `git log --oneline` viršuje `Aplinka ir paketas`
+- Turi būti: `git status` rodo paruoštą `scripts/ataskaita.sh`, `ataskaita.txt` lieka „Untracked“
+- Turi būti: `git log --oneline` viršuje `Pridėtas projekto vardas`
 
-13. **Pateikimas:** dvi nuotraukos su `./scripts/aplinka.sh`: iš naujo lango su `PROJEKTO_VARDAS: nenustatyta` ir iš pagrindinio lango su `PROJEKTO_VARDAS: visas`. Galite pridėti ir trečią nuotrauką po `tree`.
+12. **Pateikimas:** dvi nuotraukos su `./scripts/ataskaita.sh`: iš naujo lango su `Projektas: nenustatyta` ir iš pagrindinio lango su `Projektas: visas`. Galite pridėti ir trečią nuotrauką po `tree`.
+
+**Papildomai (nebūtina):** įsirašykite ir išbandykite kitas programas. Mac: `brew install ...`, Ubuntu / WSL: `sudo apt install -y ...`.
+
+| Programa | Išbandymas | Ką daro |
+|---|---|---|
+| `bat` | `bat scripts/ataskaita.sh` (Ubuntu: `batcat scripts/ataskaita.sh`) | rodo failą su eilučių numeriais ir spalvomis |
+| `htop` | `htop` (išeiti: `q`) | gyvas procesų sąrašas |
+| `cowsay` | `cowsay Labas` | karvė su burbulu |
+| `figlet` | `figlet DevOps` | didelės raidės |
+
+Patikrinti, ar programa įdiegta: `which pavadinimas` (pvz. `which htop`).
 
 Jei užstrigote, pasižiūrėkite `linux komandos.pdf`. Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).

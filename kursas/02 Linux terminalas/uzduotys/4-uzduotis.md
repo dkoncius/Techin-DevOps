@@ -20,14 +20,14 @@ git log --oneline main..HEAD
 git diff --stat main..HEAD
 ```
 
-- Turi būti: `git log` rodo tris commit'us: `Sutvarkyti serveriai.txt`, `Pridėtas ataskaita.sh`, `Aplinka ir paketas`
-- Turi būti: `git diff --stat` rodo keturis failus: `uzrasai/serveriai.txt`, `scripts/ataskaita.sh`, `scripts/aplinka.sh`, `docs/aplinka.txt`
+- Turi būti: `git log` rodo tris commit'us: `Sutvarkyti serveriai.txt`, `Pridėtas ataskaita.sh`, `Pridėtas projekto vardas`
+- Turi būti: `git diff --stat` rodo du failus: `uzrasai/serveriai.txt`, `scripts/ataskaita.sh`
 - Sąraše nėra `slaptas.txt` ir `ataskaita.txt`
 
 4. Patikrinti, ar failuose nėra slaptažodžių ar raktų:
 
 ```bash
-grep -rniE "password|token|secret" uzrasai scripts docs
+grep -rniE "password|token|secret" uzrasai scripts
 ```
 
 - Turi būti: tuščia išvestis
@@ -51,16 +51,16 @@ git status
 - Spauskite **Compare & pull request** (arba Pull requests → New pull request)
 - base: `main`, compare: `pamoka-02`
 - Title: **Pamoka 02: nano, skriptai, aplinka**
-- Description: „Sutvarkytas serveriai.txt, ataskaitos ir aplinkos skriptai.“
+- Description: „Sutvarkytas serveriai.txt, ataskaitos skriptas su kintamuoju.“
 - **Create pull request**
 
 **Terminale** (jei turite `gh`):
 
 ```bash
-gh pr create --base main --title "Pamoka 02: nano, skriptai, aplinka" --body "Sutvarkytas serveriai.txt, ataskaitos ir aplinkos skriptai."
+gh pr create --base main --title "Pamoka 02: nano, skriptai, aplinka" --body "Sutvarkytas serveriai.txt, ataskaitos skriptas su kintamuoju."
 ```
 
-- Turi būti: `gh` atspausdina PR nuorodą. Atidarykite ją, skiltyje **Files changed** matote tuos pačius keturis failus kaip 3 žingsnyje
+- Turi būti: `gh` atspausdina PR nuorodą. Atidarykite ją, skiltyje **Files changed** matote tuos pačius du failus kaip 3 žingsnyje
 
 7. Sulieti (merge), kai peržiūrėjote pakeitimus.
 

@@ -12,7 +12,7 @@ if [ "$#" -gt 0 ]; then
 else
   irankiai=(git python3 curl)
 fi
-failai=(uzrasai.md scripts/ataskaita.sh scripts/aplinka.sh)
+failai=(uzrasai/serveriai.txt scripts/ataskaita.sh)
 
 truksta=0
 

@@ -136,7 +136,7 @@ Pastaba: ~3 min.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną. Užduotys: vienas įrankis (1), sąrašas (2), failai `uzrasai.md` ir skriptai (3), `.gitignore` ir PR (4).
+Pastaba: Skelbkite po vieną. Užduotys: vienas įrankis (1), sąrašas (2), failai `uzrasai/serveriai.txt` ir skriptai (3), `.gitignore` ir PR (4).
 
 === kita | Kita pamoka
 Tinklų pagrindai: IP, portai, DNS, HTTP, `curl`

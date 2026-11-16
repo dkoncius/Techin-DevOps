@@ -122,7 +122,7 @@ def parse_slide(kind, title, lines, warnings, idx, deco=""):
                 meta = excalidraw_lib.parse(spec)[3]
                 slug = meta.get("file") or f"skaidre-{idx}"
                 excalidraw_lib.write_excalidraw(spec, OUT_DIR / "diagramos" / f"{slug}.excalidraw")
-                body.append(f'<div class="sketch-wrap">{excalidraw_lib.sketch_svg(spec)}</div>')
+                body.append(f'<div class="sketch-wrap">{excalidraw_lib.sketch_svg(spec, step if meta.get("anim") else None)}</div>')
             elif lang == "mermaid":
                 uses_mermaid = True
                 body.append(f'<pre class="mermaid">{src}</pre>')

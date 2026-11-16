@@ -32,6 +32,8 @@ def parse(spec):
             continue
         if line.startswith("file:"):
             meta["file"] = line.split(":", 1)[1].strip()
+        elif line.startswith("anim:"):
+            meta["anim"] = line.split(":", 1)[1].strip().lower() in ("taip", "yes", "true", "1")
         elif line.startswith("box "):
             p = [x.strip() for x in line[4:].split("|")]
             col, row = [float(v) for v in p[2].split(",")]
@@ -100,7 +102,7 @@ def wrap(text, limit=17):
 
 
 # ---------- SVG ----------
-def sketch_svg(spec):
+def sketch_svg(spec, step_base=None):
     boxes, arrows, notes, _ = parse(spec)
     rnd = random.Random(7)
     j = lambda a=2.6: rnd.uniform(-a, a)  # noqa: E731
@@ -117,6 +119,7 @@ def sketch_svg(spec):
         x, y, w, h = geom(b)
         upd(x - 8, y - 8); upd(x + w + 8, y + h + 8)
         cid = f"c{n}"
+        outer, parts = parts, []
         defs.append(f'<clipPath id="{cid}"><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="16"/></clipPath>')
         hatch = "".join(f'<line x1="{x + i - h}" y1="{y + h}" x2="{x + i}" y2="{y}"/>' for i in range(0, int(w + h), 14))
         parts.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="16" fill="{fill}" fill-opacity=".55"/>')
@@ -132,9 +135,15 @@ def sketch_svg(spec):
         y0 = y + h / 2 - (len(lines) - 1) * fs * .6 + fs * .33
         for k, ln in enumerate(lines):
             parts.append(f'<text x="{x + w / 2}" y="{y0 + k * fs * 1.2:.1f}" text-anchor="middle" font-size="{fs}" fill="#1e1e1e" font-family="{FONT}" font-weight="700">{html.escape(ln)}</text>')
+        box_parts, parts = parts, outer
+        if step_base is None:
+            parts.extend(box_parts)
+        else:
+            parts.append(f'<g class="reveal" data-step="{step_base + 1 + n}">{"".join(box_parts)}</g>')
 
     for a in arrows:
         A, B = boxes[a["a"]], boxes[a["b"]]
+        outer, parts = parts, []
         ax, ay, aw, ah = geom(A); bx, by, bw, bh = geom(B)
         acx, acy, bcx, bcy = ax + aw / 2, ay + ah / 2, bx + bw / 2, by + bh / 2
         sx, sy = edge_point(A, bcx, bcy)
@@ -147,6 +156,11 @@ def sketch_svg(spec):
             hx, hy = ex - 20 * math.cos(ang + da), ey - 20 * math.sin(ang + da)
             parts.append(f'<line x1="{ex:.1f}" y1="{ey:.1f}" x2="{hx:.1f}" y2="{hy:.1f}" stroke="{INK}" stroke-width="3.4" stroke-linecap="round"/>')
         upd(sx, sy); upd(ex, ey)
+        arrow_parts, parts = parts, outer
+        if step_base is None:
+            parts.extend(arrow_parts)
+        else:
+            parts.append(f'<g class="reveal" data-step="{step_base + 1 + list(boxes).index(a["b"])}">{"".join(arrow_parts)}</g>')
         if a["label"]:
             lx, ly = (sx + ex) / 2 - math.sin(ang) * 26, (sy + ey) / 2 + math.cos(ang) * 26
             upd(lx - 70, ly - 20); upd(lx + 70, ly + 10)

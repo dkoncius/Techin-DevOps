@@ -19,31 +19,43 @@ ls
 
 - Turi būti: `ls` sąraše yra `scripts` ir `uzrasai`
 
-4. Sukurti žodžio failą aplanke `devops` (vienu lygiu aukščiau už projektą):
+4. Sukurti žodžio failą aplanke `devops` (vienu lygiu aukščiau už projektą) ir perskaityti:
 
 ```bash
 cd ..
 echo db1 > slaptas.txt
-chmod 600 slaptas.txt
+cat slaptas.txt
 ```
 
-5. Patikrinti žodžio failą:
+- Turi būti: `cat` rodo `db1`
+
+5. Užrakinti failą ir bandyti perskaityti:
 
 ```bash
+chmod 000 slaptas.txt
+cat slaptas.txt
+```
+
+- Turi būti: `cat: slaptas.txt: Permission denied`
+
+6. Atrakinti failą (tik jūs skaitote ir rašote) ir vėl perskaityti:
+
+```bash
+chmod 600 slaptas.txt
 cat slaptas.txt
 ls -l slaptas.txt
 ```
 
 - Turi būti: `cat` rodo `db1`, `ls -l` eilutė prasideda `-rw-------`
 
-6. Grįžti į projektą ir atidaryti skriptą su `nano`:
+7. Grįžti į projektą ir atidaryti skriptą su `nano`:
 
 ```bash
 cd git-bandymas
 nano scripts/ataskaita.sh
 ```
 
-7. Įklijuoti skriptą (**Mac: Cmd+V**). Pirma eilutė nuo pat krašto, be tarpų:
+8. Įklijuoti skriptą (**Mac: Cmd+V**). Pirma eilutė nuo pat krašto, be tarpų:
 
 ```bash
 #!/usr/bin/env bash
@@ -54,7 +66,7 @@ grep -n -f ../slaptas.txt uzrasai/serveriai.txt
 
 - Išsaugoti ir išeiti: `Ctrl+O`, `Enter`, `Ctrl+X`
 
-8. Paleisti skriptą:
+9. Paleisti skriptą:
 
 ```bash
 ./scripts/ataskaita.sh
@@ -62,7 +74,7 @@ grep -n -f ../slaptas.txt uzrasai/serveriai.txt
 
 - Turi būti: `permission denied` (Ubuntu / WSL: `Permission denied`)
 
-9. Leisti paleisti skriptą:
+10. Leisti paleisti skriptą:
 
 ```bash
 chmod +x scripts/ataskaita.sh
@@ -71,7 +83,7 @@ ls -l scripts/ataskaita.sh
 
 - Turi būti: `ls -l` eilutė prasideda `-rwxr-xr-x`
 
-10. Paleisti skriptą dar kartą:
+11. Paleisti skriptą dar kartą:
 
 ```bash
 ./scripts/ataskaita.sh
@@ -85,16 +97,16 @@ Eilutės:
 2:db1 192.168.1.20
 ```
 
-11. Išvestį įrašyti į failą:
+12. Išvestį įrašyti į failą:
 
 ```bash
 ./scripts/ataskaita.sh > ataskaita.txt
 cat ataskaita.txt
 ```
 
-- Turi būti: `cat` rodo tą pačią išvestį kaip 10 žingsnyje
+- Turi būti: `cat` rodo tą pačią išvestį kaip 11 žingsnyje
 
-12. Išsaugoti Git'e tik skriptą (`ataskaita.txt` nededame):
+13. Išsaugoti Git'e tik skriptą (`ataskaita.txt` nededame):
 
 ```bash
 git add scripts/ataskaita.sh
@@ -106,6 +118,6 @@ git log --oneline
 - Turi būti: `git status` rodo paruoštą `scripts/ataskaita.sh`, `ataskaita.txt` kaip „Untracked“, `slaptas.txt` nerodomas
 - Turi būti: `git log --oneline` viršuje `Pridėtas ataskaita.sh`
 
-13. **Pateikimas:** nuotrauka po `cat ataskaita.txt` ir `git log --oneline`.
+14. **Pateikimas:** nuotrauka po `cat ataskaita.txt` ir `git log --oneline`.
 
 Jei užstrigote, pasižiūrėkite `linux komandos.pdf`. Nano klavišams: [Nano cheat sheet](https://linuxize.com/cheatsheet/nano/). Git komandoms: [Git cheat sheet](https://git-scm.com/cheat-sheet).
