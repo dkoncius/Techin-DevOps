@@ -37,7 +37,7 @@ set -euo pipefail
 
 - `chmod +x exercises/05_grade.sh`
 - Atlikti užduotį faile: `TODO`
-- Testuoti: `bash tests/check.sh 5`
+- Testuoti: `bash tests/tikrinti.sh 5`
 - Turi būti: visos patikros žalios
 
 **4.** Commit į GitHub:
@@ -48,6 +48,6 @@ git commit -m "5 užduotis: Funkcija"
 git push
 ```
 
-**5.** **Pateikimas:** nuotrauka po `bash tests/check.sh 5` ir `git log --oneline`.
+**5.** **Pateikimas:** nuotrauka po `bash tests/tikrinti.sh 5` ir `git log --oneline`.
 
 Jei užstrigote: `bash komandos.md`. Git: [cheat sheet](https://git-scm.com/cheat-sheet).

@@ -43,7 +43,7 @@ set -euo pipefail
 
 - `chmod +x exercises/06_backup.sh`
 - Atlikti užduotį faile: `TODO`
-- Testuoti: `bash tests/check.sh 6`
+- Testuoti: `bash tests/tikrinti.sh 6`
 - Turi būti: visos patikros žalios
 
 **4.** Commit į GitHub:
@@ -54,6 +54,6 @@ git commit -m "6 užduotis: Atsarginė kopija"
 git push
 ```
 
-**5.** **Pateikimas:** nuotrauka po `bash tests/check.sh 6` ir `git log --oneline`.
+**5.** **Pateikimas:** nuotrauka po `bash tests/tikrinti.sh 6` ir `git log --oneline`.
 
 Jei užstrigote: `bash komandos.md`. Git: [cheat sheet](https://git-scm.com/cheat-sheet).

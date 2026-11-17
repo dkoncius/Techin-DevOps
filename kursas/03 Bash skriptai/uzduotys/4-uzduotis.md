@@ -39,7 +39,7 @@ set -euo pipefail
 
 - `chmod +x exercises/04_file_report.sh`
 - Atlikti užduotį faile: `TODO`
-- Testuoti: `bash tests/check.sh 4`
+- Testuoti: `bash tests/tikrinti.sh 4`
 - Turi būti: visos patikros žalios
 
 **4.** Commit į GitHub:
@@ -50,6 +50,6 @@ git commit -m "4 užduotis: for ciklas"
 git push
 ```
 
-**5.** **Pateikimas:** nuotrauka po `bash tests/check.sh 4` ir `git log --oneline`.
+**5.** **Pateikimas:** nuotrauka po `bash tests/tikrinti.sh 4` ir `git log --oneline`.
 
 Jei užstrigote: `bash komandos.md`. Git: [cheat sheet](https://git-scm.com/cheat-sheet).

@@ -37,7 +37,7 @@ set -euo pipefail
 
 - `chmod +x exercises/03_countdown.sh`
 - Atlikti užduotį faile: `TODO`
-- Testuoti: `bash tests/check.sh 3`
+- Testuoti: `bash tests/tikrinti.sh 3`
 - Turi būti: visos patikros žalios
 
 **4.** Commit į GitHub:
@@ -48,6 +48,6 @@ git commit -m "3 užduotis: while ciklas"
 git push
 ```
 
-**5.** **Pateikimas:** nuotrauka po `bash tests/check.sh 3` ir `git log --oneline`.
+**5.** **Pateikimas:** nuotrauka po `bash tests/tikrinti.sh 3` ir `git log --oneline`.
 
 Jei užstrigote: `bash komandos.md`. Git: [cheat sheet](https://git-scm.com/cheat-sheet).

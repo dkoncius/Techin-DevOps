@@ -98,32 +98,12 @@ Pastaba: ~35 min. Demonstracija vyksta ne skaidrėse: ši skaidrė tik parodo pl
 ```bash
 mkdir -p exercises
 nano exercises/01_greet.sh
-bash tests/check.sh 1
+bash tests/tikrinti.sh 1
 git push
 ```
 - Aplankas → failas → įklijuoti kodą → atlikti `TODO` → testuoti → commit į GitHub
-- Iš Teams: užduoties tekstas ir `tests/check.sh`
+- Vienas `tikrinti.sh` iš Teams: demo — `testai/`, užduotys — `tests/tikrinti.sh`
 Pastaba: ~3 min. Ta pati eiga kiekvienam failui.
-
-=== tekstas | Git: pakeitimų atšaukimas
-| Situacija | Komanda |
-|---|---|
-| Atšaukti pakeitimą faile | ?`git restore failas` |
-| Atšaukti `git add` | ?`git restore --staged failas` |
-| Ištrinti visą darbą | ?`git reset --hard` (pavojinga) |
-```bash+
-mkdir -p ~/devops/demo-git
-cd ~/devops/demo-git
-git init -q
-echo "b" > b.txt
-git add b.txt
-git commit -qm "Pradinis"
-```
-```bash+
-echo "pakeista" >> b.txt
-git restore b.txt
-```
-Pastaba: ~10 min. Rodoma prieš 4 užduotį.
 
 === klaida | Dažnos klaidos
 :: | Permission denied | Pamirštas `chmod +x`
@@ -134,7 +114,7 @@ Pastaba: ~3 min.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną. Duodate `tests/check.sh`. 1–6: po vieną `.sh`, 7: Git PR. Sprendimai `bash-lesson/solutions/` — mokiniams neduokite.
+Pastaba: Skelbkite po vieną. Pamokos pradžioje Teams'e — `tikrinti.sh`. Šešios užduotys: po vieną `.sh` (1–6). Sprendimai `bash-lesson/solutions/` — mokiniams neduokite.
 
 === kita | Kita pamoka
 Tinklų pagrindai: IP, portai, DNS, HTTP, `curl`

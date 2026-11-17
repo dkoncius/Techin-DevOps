@@ -70,6 +70,14 @@ git push -q origin main
 git branch -q -d pamoka-02
 git push -q origin --delete pamoka-02
 
+# 03 pamoka: tas pats tikrinti.sh kaip mokiniams (užduotys 1–6)
+KURSAS="$(cd "$(dirname "$0")" && pwd)"
+if [ -f "$KURSAS/uzduotys/tikrinti.sh" ]; then
+  mkdir -p tests
+  cp "$KURSAS/uzduotys/tikrinti.sh" tests/tikrinti.sh
+  chmod +x tests/tikrinti.sh
+fi
+
 echo "Paruošta: $TARGET"
 git status -sb
 git log --oneline
