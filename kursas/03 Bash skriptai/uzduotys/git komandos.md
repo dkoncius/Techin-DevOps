@@ -20,7 +20,7 @@
 - `git restore FAILAS` → atšaukia pakeitimą faile (dar neįtrauktą)
 - `git add FAILAS` → įtraukia į staging
 - `git restore --staged FAILAS` → išima iš staging, failo nepaliečia
-- `git add scripts docs` → įtraukia du aplankus
+- `git add exercises` → įtraukia pratimų aplanką
 - `git commit -m "žinutė"` → išsaugo commit
 - `git log --oneline` → commit sąrašas
 - `gh pr create --title "Pavadinimas" --body "Aprašas"` → sukuria Pull Request

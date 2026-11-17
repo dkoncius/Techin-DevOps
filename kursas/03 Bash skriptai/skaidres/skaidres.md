@@ -96,15 +96,14 @@ Pastaba: ~35 min. Demonstracija vyksta ne skaidrėse: ši skaidrė tik parodo pl
 
 === komanda | Kaip dirbsite su užduotimis
 ```bash
+mkdir -p exercises
 nano exercises/01_greet.sh
 bash tests/check.sh 1
+git push
 ```
-- Aplanką `bash-lesson` su pratimais ir patikra atsisiunčiate iš Teams (1 užduotis)
-- Pakeiskite kiekvieną `TODO` savo kodu
-- Komandų ieškokite `bash komandos.md` ir `git komandos.md`
-- Testas parodo, kas nepavyko ir ką tikėtasi
-- Dar neišėjo? Dokumentacija ir paieška, o po to klauskite dirbtinio intelekto
-Pastaba: ~3 min. Pagrindinė mintis: skaidrėse tik teorija, skriptus rašo mokiniai patys. Pratimai yra `exercises/`, patikra `bash tests/check.sh N` (N = pratimo numeris). Pradžioje ❌ yra normalu. Testą paleiskite iš `pamoka-03` šaknies. Testas tikrina tekstą, klaidų kanalą ir išėjimo kodą, bet ne kaip parašyta. Dirbtinio intelekto naudojimą nukreipkite: prašyti paaiškinti klaidą ar komandą, o ne parašyti visą skriptą.
+- Aplankas → failas → įklijuoti kodą → atlikti `TODO` → testuoti → commit į GitHub
+- Iš Teams: užduoties tekstas ir `tests/check.sh`
+Pastaba: ~3 min. Ta pati eiga kiekvienam failui.
 
 === tekstas | Git: pakeitimų atšaukimas
 | Situacija | Komanda |
@@ -135,7 +134,7 @@ Pastaba: ~3 min.
 
 === uzduotys | Užduotys
 @uzduotys: auto, tik sąrašas
-Pastaba: Skelbkite po vieną. Užduotys: paprasti skriptai: argumentai ir `if` (1), ciklai (2), funkcija (3), `git restore` ir PR (4). Pasikartojimas terminale vyksta demonstracijoje. Skriptus mokiniai rašo patys pagal aprašą; modeliniai atsakymai yra `bash-lesson/solutions/`, mokiniams jų neduokite.
+Pastaba: Skelbkite po vieną. Duodate `tests/check.sh`. 1–6: po vieną `.sh`, 7: Git PR. Sprendimai `bash-lesson/solutions/` — mokiniams neduokite.
 
 === kita | Kita pamoka
 Tinklų pagrindai: IP, portai, DNS, HTTP, `curl`

@@ -18,7 +18,7 @@ Skriptai paleidžiami su bash. Kad pavyzdžiai elgtųsi taip pat kaip skripte, t
 5. Visa tai surašyti į skriptą ir paleisti.
 6. Savo darbą pasitikrinti automatiškai ir išmokti skaityti ❌.
 7. Išsaugoti darbą Git'e.
-8. Atlikti užduotis su šablonais ir savo patikromis.
+8. Atlikti užduotis: pakeisti `TODO` ir pasitikrinti su `tests/check.sh`.
 
 ---
 
@@ -525,191 +525,24 @@ git push                       # pakanka tik jei 3 žingsnyje jau vykdėte git p
 
 ```
 
-Taisyklė: pirma patikra žalia, tada `git add .`, `git commit` su aiškia žinute ir `git push`. Atšaukti pakeitimą (`git restore`), ignoruoti failus (`.gitignore`) ir Pull Request mokysitės 5 užduotyje.
+Taisyklė: pirma patikra žalia, tada `git add .`, `git commit` su aiškia žinute ir `git push`. Atšaukti pakeitimą (`git restore`), ignoruoti failus (`.gitignore`) ir Pull Request mokysitės 7 užduotyje.
 
 ---
 
 ## 11. Užduotys
 
-Užduotis skelbia dėstytojas Teams'e po vieną. Užduotys 2–4 plečia tą patį `scripts/patikra.sh`. Patikros skriptas `testai/tikrinti.sh` jau yra (8 skyrius).
+Detaliau: `uzduotys/1-uzduotis.md` … `7-uzduotis.md` (6 pratimai + Git). Iš Teams: užduoties tekstas ir `tests/check.sh`.
 
-| #   | Failas                   | Ką treniruojate                                      | Patikra                     |
-| --- | ------------------------ | ---------------------------------------------------- | --------------------------- |
-| 1   | `uzduotys/1-uzduotis.md` | kintamieji, `command -v`, `$?`, `-f`, `-d` terminale | rezultatas terminale        |
-| 2   | `uzduotys/2-uzduotis.md` | argumentas, `if`, išėjimo kodas                      | `bash testai/tikrinti.sh 2` |
-| 3   | `uzduotys/3-uzduotis.md` | masyvas, `for`, skaitiklis                           | `bash testai/tikrinti.sh 3` |
-| 4   | `uzduotys/4-uzduotis.md` | `-f`, `-d`, iš kito aplanko                          | `bash testai/tikrinti.sh 4` |
-| 5   | `uzduotys/5-uzduotis.md` | `.gitignore`, `git restore`, Pull Request            | `git status`, `git log`     |
+Kiekvienam `.sh` failui: **aplankas** → **failas** (`nano`) → **įklijuoti kodą** → **atlikti `TODO`** → **testuoti** (`bash tests/check.sh N`) → **commit į GitHub** (`git add`, `commit`, `push`).
 
-5 užduotyje Bash komandų nėra: ten naudojamos tik Git komandos iš `git komandos.md`.
+| Užd. | Failas | Patikra |
+| --- | --- | --- |
+| 1 | `01_greet.sh` | `1` |
+| 2 | `02_even_odd.sh` | `2` |
+| 3 | `03_countdown.sh` | `3` |
+| 4 | `04_file_report.sh` | `4` |
+| 5 | `05_grade.sh` | `5` |
+| 6 | `06_backup.sh` | `6` |
+| 7 | Git | `git komandos.md` |
 
-**Kur dirbate:** užduotis darote ne `demo-bash`, o savo projekte `git-bandymas`, šakoje `pamoka-03` (ją sukuriate 1 užduotyje). Pirmą kartą paruoškite:
-
-```bash
-cd ~/Desktop/devops/git-bandymas    # jūsų projektas
-git status --short                  # prieš pradedant turi būti švaru
-mkdir -p testai                     # patikros skriptas (8 skyrius) bus čia
-nano testai/tikrinti.sh             # įklijuokite patikros kodą iš 8 skyriaus
-echo "testai/" >> .git/info/exclude # patikros skriptas lieka tik pas jus, į Git nepatenka
-
-```
-
-Tada `git status --short` turi būti švarus ir nerodyti `testai/`.
-
-**Git per užduotis:** po kiekvienos užduoties, kai patikra žalia:
-
-| Užduotis | Komandos                                                           | Žinutė                            |
-| -------- | ------------------------------------------------------------------ | --------------------------------- |
-| 2        | `git add scripts docs`, `git commit -m "..."`                      | `Pridėtas patikra.sh`             |
-| 3        | `git add scripts docs`, `git commit -m "..."`                      | `Skriptas tikrina įrankių sąrašą` |
-| 4        | `git add scripts docs`, `git commit -m "..."`                      | `Patikra tikrina projekto failus` |
-| 5        | `.gitignore`, commit, `git push -u origin pamoka-03`, Pull Request | `Ignoruojami .log failai`         |
-
-Po kiekvieno `git commit` parodykite `git log --oneline`: viršuje turi būti tos užduoties žinutė. Pull Request daroma tik 5 užduotyje.
-
-Kiekvienoje užduotyje 2–4 tas pats: naujas failas `scripts/patikra.sh`, šablonas su `TODO`, paleidžiate patikrą, taisote po vieną ❌. Prieš įklijuodami šabloną, `nano` turi būti naujas tuščias failas: jei `scripts/patikra.sh` jau yra, 3 ir 4 užduotyse papildykite jį, o ne įklijuokite iš naujo. Pradžioje ❌ yra normalu (pavyzdžiui, `Išlaikyta 3 / 8 patikrų`). Testai paleidžiami iš projekto šaknies (ten, kur yra `scripts`).
-
-### 2 užduotis: šablonas ir patikra
-
-```bash
-mkdir -p scripts
-nano scripts/patikra.sh        # naujas failas: įklijuokite šabloną žemiau
-chmod +x scripts/patikra.sh    # leidžia vykdyti
-
-```
-
-```bash
-#!/usr/bin/env bash
-# 2 užduotis: Argumentai ir išėjimo kodas
-# Pakeiskite kiekvieną TODO savo kodu ir paleiskite: bash testai/tikrinti.sh 2
-#
-# Tikslas: ./scripts/patikra.sh git  ->  OK      git        (kodas 0)
-#          ./scripts/patikra.sh xyz  ->  TRŪKSTA xyz        (kodas 1)
-#          ./scripts/patikra.sh      ->  naudojimo žinutė   (kodas 2)
-
-# TODO 1: įjunkite griežtą režimą (set -euo pipefail)
-
-# TODO 2: jei argumentų (#) yra mažiau nei 1:
-#         į klaidų kanalą (>&2) parašykite: Naudojimas: ./scripts/patikra.sh įrankis
-#         ir baikite su kodu 2
-
-# TODO 3: kintamasis irankis = pirmas argumentas ($1)
-
-# TODO 4: jei įrankis yra (command -v "$irankis" >/dev/null 2>&1):
-#           parašykite OK, 6 tarpai ir vardas
-#         kitaip:
-#           parašykite TRŪKSTA, 1 tarpas ir vardas, tada exit 1
-
-```
-
-Pakeiskite kiekvieną `TODO` savo kodu, tada:
-
-```bash
-bash testai/tikrinti.sh 2      # automatinė patikra
-
-```
-
-Kai žalia, išsaugokite Git'e: `git add scripts docs`, `git commit -m "Pridėtas patikra.sh"`.
-
-### 3 užduotis: šablonas ir patikra
-
-Atidarykite `nano scripts/patikra.sh`, ištrinkite visą seną turinį (`Ctrl+K` kiekvienai eilutei) ir įklijuokite šabloną:
-
-```bash
-#!/usr/bin/env bash
-# 3 užduotis: Ciklas per įrankius
-# Pakeiskite kiekvieną TODO savo kodu ir paleiskite: bash testai/tikrinti.sh 3
-#
-# Tikslas:
-#   ./scripts/patikra.sh                       -> tikrina git, python3, curl
-#   ./scripts/patikra.sh git neegzistuoja kitas -> tikrina tik tuos tris
-#   Jei ko nors trūksta: klaidų kanale "Trūksta: SKAIČIUS" ir kodas 1
-set -euo pipefail
-
-# TODO 1: jei yra argumentų (#), irankiai=("$@"); kitaip irankiai=(git python3 curl)
-
-# TODO 2: skaitiklis truksta=0
-
-# TODO 3: for irankis in "${irankiai[@]}"; do ... done
-#         jei įrankis yra: OK, 6 tarpai ir vardas
-#         jei nėra: TRŪKSTA, 1 tarpas ir vardas, o truksta=$((truksta + 1))
-
-# TODO 4: jei truksta didesnis už 0:
-#         į klaidų kanalą parašykite: Trūksta: SKAIČIUS
-#         ir baikite su kodu 1
-
-```
-
-Pakeiskite kiekvieną `TODO` savo kodu, tada:
-
-```bash
-bash testai/tikrinti.sh 3      # automatinė patikra
-
-```
-
-Kai žalia, išsaugokite Git'e su žinute iš užduoties.
-
-### 4 užduotis: šablonas ir patikra
-
-Atidarykite `nano scripts/patikra.sh`. Jei turite 3 užduoties skriptą, papildykite jį pagal `TODO`. Jei neturite, ištrinkite visą seną turinį ir įklijuokite šabloną:
-
-```bash
-#!/usr/bin/env bash
-# 4 užduotis: Projekto failų patikra
-# Pakeiskite kiekvieną TODO savo kodu ir paleiskite: bash testai/tikrinti.sh 4
-#
-# Tikslas: be 3 užduoties įrankių patikros dar tikrina failus ir aplanką docs.
-#   Iš projekto šaknies: visi OK, kodas 0
-#   Iš aplanko docs:     failai TRŪKSTA, kodas 1
-set -euo pipefail
-
-if [ "$#" -gt 0 ]; then
-  irankiai=("$@")
-else
-  irankiai=(git python3 curl)
-fi
-
-# TODO 1: sukurkite masyvą failai su dviem failais:
-#         uzrasai/serveriai.txt ir scripts/ataskaita.sh
-
-truksta=0
-
-for irankis in "${irankiai[@]}"; do
-  if command -v "$irankis" >/dev/null 2>&1; then
-    echo "OK      $irankis"
-  else
-    echo "TRŪKSTA $irankis"
-    truksta=$((truksta + 1))
-  fi
-done
-
-# TODO 2: antras ciklas per failus (for failas in "${failai[@]}")
-#         jei failas yra (-f): OK, 6 tarpai ir failas
-#         jei nėra: TRŪKSTA, 1 tarpas ir failas, o truksta padidinkite per 1
-
-# TODO 3: ar yra aplankas docs (-d)?
-#         jei yra: OK, 6 tarpai ir docs/
-#         jei nėra: TRŪKSTA, 1 tarpas ir docs/, o truksta padidinkite per 1
-
-if [ "$truksta" -gt 0 ]; then
-  echo "Trūksta: $truksta" >&2
-  exit 1
-fi
-
-```
-
-Pakeiskite kiekvieną `TODO` savo kodu, tada:
-
-```bash
-bash testai/tikrinti.sh 4      # automatinė patikra
-
-```
-
-Kai žalia, išsaugokite Git'e su žinute iš užduoties.
-
-### Kai neišeina
-
-1. Perskaitykite testo žinutę: kas tikėtasi, kas gauta.
-2. Pažiūrėkite šio lapo skyrių ir `git komandos.md`.
-3. Dokumentacija: `man bash` arba paieška „bash if file exists“.
-4. Tada klauskite dirbtinio intelekto: prašykite paaiškinti klaidą ar komandą, ne parašyti visą skriptą.
+Bash komandos: skyriai 1–7. ❌ — skaitykite testo žinutę.
