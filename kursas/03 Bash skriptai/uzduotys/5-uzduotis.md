@@ -1,8 +1,10 @@
 # 5 užduotis: Funkcija
 
-1. **Tikslas:** pažymių skaičiuoklė su funkcija `to_grade`.
+**1.** **Tikslas:** pažymių skaičiuoklė su funkcija `to_grade`.
 
-**2.** Projektas:
+**2.** Naudokite tą patį `tikrinti.sh` skriptą (`bash tests/tikrinti.sh 5`).
+
+**3.** Projektas:
 
 ```bash
 cd ~/Desktop/devops/git-bandymas
@@ -11,36 +13,14 @@ git branch
 
 - Turi būti: žvaigždutė prie `pamoka-03`
 
-**3.** `exercises/05_grade.sh`:
-
-- Failas: `nano exercises/05_grade.sh`
-- Įklijuoti kodą:
-
-```bash
-#!/usr/bin/env bash
-# Exercise 5 – Grade calculator
-# Goal: turn a score 0-100 into a letter grade.
-#   90-100 A | 80-89 B | 70-79 C | 60-69 D | 0-59 F
-#   ./05_grade.sh 85   -> Grade: B
-#   ./05_grade.sh 120  -> "Error: ..." on stderr, exit 1
-#   ./05_grade.sh abc  -> "Error: ..." on stderr, exit 1
-# You MUST write a function called to_grade that echoes the letter.
-set -euo pipefail
-
-# TODO: write the function to_grade() { ... }
-
-# TODO: read the score from $1 and validate it (whole number, 0-100)
-
-# TODO: print "Grade: <letter>" using $(to_grade "$score")
-
-```
+4. Į exercises/05_grade.sh įsikelkite apačioje pridėta failą arba jo kopiją.
 
 - `chmod +x exercises/05_grade.sh`
-- Atlikti užduotį faile: `TODO`
+- Atlikti užduotį faile: pakeiskite kiekvieną `TODO`
 - Testuoti: `bash tests/tikrinti.sh 5`
 - Turi būti: visos patikros žalios
 
-**4.** Commit į GitHub:
+**5.** Commit į GitHub:
 
 ```bash
 git add exercises/05_grade.sh
@@ -48,6 +28,8 @@ git commit -m "5 užduotis: Funkcija"
 git push
 ```
 
-**5.** **Pateikimas:** nuotrauka po `bash tests/tikrinti.sh 5` ir `git log --oneline`.
+- Turi būti: GitHub'e matomas `05_grade.sh`
+
+**6.** **Pateikimas:** nuotrauka po `bash tests/tikrinti.sh 5` ir `git log --oneline`.
 
 Jei užstrigote: `bash komandos.md`. Git: [cheat sheet](https://git-scm.com/cheat-sheet).

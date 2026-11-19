@@ -2,19 +2,19 @@
 
 79 paskaitos po 3 valandas (17:30–20:40), 2026-11-11 – 2027-05-27. Datos nuo 2027 m. orientacinės. Dėstytojas Deividas Koncius.
 
-## 1 etapas. Linux, Bash ir projekto paleidimas (27 val.)
+## 1 etapas. Linux, Bash, patikra ir projekto paleidimas (27 val.)
 
-1.1. Kas yra DevOps ir pirmas Git kelias aplanke `git-bandymas`
-1.2. Linux terminalas: žinomas terminalas, skriptas, `export`, paketas ir pirmas Pull Request
-1.3. Bash: argumentai, sąlygos, ciklai, išėjimo kodai, `.gitignore`
-1.4. Tinklai: IP, portai, DNS, HTTP ir `curl`
-1.5. Savo projekto kopija iš šablono, paleidimas vietoje, `.env` ir `paleisti.sh`
-1.6. Docker pradžia: kodėl „pas mane veikia“, `run`, `ps`, `logs`, `exec`, `stop`
-1.7. Image: konkretus tag'as, sluoksniai, dydis, registras
-1.8. Pasiruošimas atsiskaitymui
-1.9. Atsiskaitymas: Linux, Git, Bash, tinklai ir projekto paleidimas
+1.1. Kas yra DevOps ir pirmas Git kelias aplanke git-bandymas  
+1.2. Linux terminalas: žinomas terminalas, skriptas, export, paketas ir pirmas Pull Request  
+1.3. Bash: argumentai, sąlygos, ciklai, išėjimo kodai, stdout ir stderr, .gitignore  
+1.4. Bash skripto tikrinimas: išvestis, kodas, palyginimas, sugadintas atvejis  
+1.5. Git būsenos tikrinimas: init, add, commit, push eiliškumas, git rm --cached ir patikros  
+1.6. Tinklai praktikoje: portai, HTTP kodai, curl ir patikra per curl  
+1.7. Savo projekto kopija iš šablono, paleidimas vietoje, .env, [paleisti.sh](http://paleisti.sh) ir [tikrinti.sh](http://tikrinti.sh)  
+1.8. Skriptų rašymo praktika: mažas projektas su klaidomis, savo patikra, sugadinti atvejai  
+1.9. Atsiskaitymas: projektas su klaidomis, Bash ir Git patikra, Pull Request
 
-*Šiame etape 1.2 yra viena pamoka vietoje dviejų: `pwd`, `ls`, `grep` ir `ps` tik pasitikrinami, nes tai jau išlaikyta pas Edgarą. Nauja ten yra skriptas, `export` ir pirmas Pull Request. Flask programos nerašo: 1.5 pamokoje iš paruošto šablono susikuria savo GitHub repozitoriją, ją nusiklonuoja, paleidžia ir parašo `paleisti.sh`. Ten pat trumpai randa `/health` funkciją `app.py`. SQL šiame etape nėra. Atsiskaitymas 2026-11-30 tikrina terminalą, Git, Bash, tinklus ir šį paleidimą. Docker pamokos vyksta prieš atsiskaitymą, bet į jį neįeina.*
+Šiame etape 1.2 yra viena pamoka vietoje dviejų: pwd, ls, grep ir ps tik pasitikrinami, nes tai jau išlaikyta pas Edgarą. 1.4–1.5 pamokose išmokstama patikros: paleisti, užfiksuoti išvestį ir kodą, palyginti, ir tą patį padaryti su sugadintu atveju. Iš pradžių tikrinamas Bash skriptas, paskui Git būsena. Flask programos nerašo: 1.7 pamokoje iš šablono susikuria savo repozitoriją, ją paleidžia ir parašo `paleisti.sh` bei `tikrinti.sh`. Atsiskaitymas 2026-11-30 vyksta ant projekto su klaidomis. Docker prasideda 2.1 pamokoje.
 
 ## 2 etapas. Docker ir pirmas workflow (33 val.)
 
@@ -123,7 +123,7 @@
 3. Gynimas: kelias nuo commit iki serverio, pakeitimas per Pull Request, sugadintos dalies taisymas
 4. Rezultatų apžvalga
 
-*Vertinama, ar studentas paleidžia programą su duomenų baze, sujungia testus, image ir diegimą, o gynime paaiškina tą kelią ir pataiso sugadintą dalį. Darbas individualus. Galima daryti poroje, gynimas individualus. Klasėje tam skirtos trys paskaitos: dvi darbui ir viena gynimui. Etalonas yra aplanke `kursas/Finalinis projektas/`.*
+*Vertinama, ar studentas paleidžia programą su duomenų baze, sujungia testus, image ir diegimą, o gynime paaiškina tą kelią ir pataiso sugadintą dalį. Darbas individualus. Galima daryti poroje, gynimas individualus. Klasėje tam skirtos trys paskaitos: dvi darbui ir viena gynimui. Etalonas yra aplanke* `kursas/Finalinis projektas/`*.*
 
 ## Kaip vyksta pamoka
 

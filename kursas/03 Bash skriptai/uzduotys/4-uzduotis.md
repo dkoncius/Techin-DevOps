@@ -1,8 +1,10 @@
 # 4 užduotis: for ciklas
 
-1. **Tikslas:** failų ir aplankų skaičiavimas su `for` ciklu.
+**1.** **Tikslas:** failų ir aplankų skaičiavimas su `for` ciklu.
 
-**2.** Projektas:
+**2.** Naudokite tą patį `tikrinti.sh` skriptą (`bash tests/tikrinti.sh 4`).
+
+**3.** Projektas:
 
 ```bash
 cd ~/Desktop/devops/git-bandymas
@@ -11,38 +13,14 @@ git branch
 
 - Turi būti: žvaigždutė prie `pamoka-03`
 
-**3.** `exercises/04_file_report.sh`:
-
-- Failas: `nano exercises/04_file_report.sh`
-- Įklijuoti kodą:
-
-```bash
-#!/usr/bin/env bash
-# Exercise 4 – File report
-# Goal: count files and sub-directories in a folder (default: current folder).
-#   ./04_file_report.sh some_dir  ->  Files: 3
-#                                     Directories: 1
-#   Folder doesn't exist -> "Error: ..." on stderr, exit 1
-# Hints: for item in "$dir"/*; do ... done
-#        [[ -f $item ]] = regular file, [[ -d $item ]] = directory
-set -euo pipefail
-
-# TODO: set dir to $1, or . if no argument
-
-# TODO: check that dir is a directory, otherwise error + exit 1
-
-# TODO: loop over items and count files and directories
-
-# TODO: print the two result lines
-
-```
+4. Į exercises/04_file_report.sh įsikelkite apačioje pridėta failą arba jo kopiją.
 
 - `chmod +x exercises/04_file_report.sh`
-- Atlikti užduotį faile: `TODO`
+- Atlikti užduotį faile: pakeiskite kiekvieną `TODO`
 - Testuoti: `bash tests/tikrinti.sh 4`
 - Turi būti: visos patikros žalios
 
-**4.** Commit į GitHub:
+**5.** Commit į GitHub:
 
 ```bash
 git add exercises/04_file_report.sh
@@ -50,6 +28,8 @@ git commit -m "4 užduotis: for ciklas"
 git push
 ```
 
-**5.** **Pateikimas:** nuotrauka po `bash tests/tikrinti.sh 4` ir `git log --oneline`.
+- Turi būti: GitHub'e matomas `04_file_report.sh`
+
+**6.** **Pateikimas:** nuotrauka po `bash tests/tikrinti.sh 4` ir `git log --oneline`.
 
 Jei užstrigote: `bash komandos.md`. Git: [cheat sheet](https://git-scm.com/cheat-sheet).

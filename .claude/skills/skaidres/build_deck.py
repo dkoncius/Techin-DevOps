@@ -304,7 +304,7 @@ def read_tasks(pamoka: Path):
         goal, steps = "", []
         for ln in rest.split("\n"):
             ln = ln.strip()
-            g = re.match(r"(?:\d+\. )?\*\*Tikslas:\*\*\s*(.*)", ln)
+            g = re.match(r"(?:\*\*\d+\.\*\* |\d+\. )?\*\*Tikslas:\*\*\s*(.*)", ln)
             if g:
                 goal = g.group(1)
                 continue

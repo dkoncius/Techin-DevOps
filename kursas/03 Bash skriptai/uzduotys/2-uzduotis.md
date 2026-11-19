@@ -1,8 +1,10 @@
 # 2 užduotis: if ir lyginis skaičius
 
-1. **Tikslas:** lyginis arba nelyginis skaičius su `if` ir išėjimo kodu.
+**1.** **Tikslas:** lyginis arba nelyginis skaičius su `if` ir išėjimo kodu.
 
-**2.** Projektas:
+**2.** Naudokite tą patį `tikrinti.sh` skriptą (`bash tests/tikrinti.sh 2`).
+
+**3.** Projektas:
 
 ```bash
 cd ~/Desktop/devops/git-bandymas
@@ -11,37 +13,14 @@ git branch
 
 - Turi būti: žvaigždutė prie `pamoka-03`
 
-**3.** `exercises/02_even_odd.sh`:
-
-- Failas: `nano exercises/02_even_odd.sh`
-- Įklijuoti kodą:
-
-```bash
-#!/usr/bin/env bash
-# Exercise 2 – Even or odd
-# Goal:
-#   ./02_even_odd.sh 4    -> 4 is even
-#   ./02_even_odd.sh 7    -> 7 is odd
-#   ./02_even_odd.sh      -> "Usage: ..." on stderr, exit code 1
-#   ./02_even_odd.sh abc  -> "Error: ..." on stderr, exit code 2
-# Hints: [[ $n =~ ^-?[0-9]+$ ]] checks for a whole number.
-#        (( n % 2 == 0 )) is true when n is even.
-set -euo pipefail
-
-# TODO: if there are no arguments, print usage to stderr (>&2) and exit 1
-
-# TODO: if $1 is not a number, print an error to stderr and exit 2
-
-# TODO: print "<n> is even" or "<n> is odd"
-
-```
+4. Į exercises/02_even_odd.sh įsikelkite apačioje pridėta failą arba jo kopiją.
 
 - `chmod +x exercises/02_even_odd.sh`
-- Atlikti užduotį faile: `TODO`
+- Atlikti užduotį faile: pakeiskite kiekvieną `TODO`
 - Testuoti: `bash tests/tikrinti.sh 2`
 - Turi būti: visos patikros žalios
 
-**4.** Commit į GitHub:
+**5.** Commit į GitHub:
 
 ```bash
 git add exercises/02_even_odd.sh
@@ -49,6 +28,6 @@ git commit -m "2 užduotis: if ir lyginis skaičius"
 git push
 ```
 
-**5.** **Pateikimas:** nuotrauka po `bash tests/tikrinti.sh 2` ir `git log --oneline`.
+- Turi būti: GitHub'e matomas `02_even_odd.sh`
 
-Jei užstrigote: `bash komandos.md`. Git: [cheat sheet](https://git-scm.com/cheat-sheet).
+**6.** **Pateikimas:** nuotrauka po `bash tests/tikrinti.sh 2` ir `git log --oneline`.
