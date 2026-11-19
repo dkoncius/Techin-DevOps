@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 # 3 užduotis. Pirmas testas faile (README 8–9 skyriai)
 # Tikrina scripts/patikra.sh. Paleidžiamas iš projekto šaknies:
-#   ./uzduotys/03_patikra_testas.sh
+#   ./uzduotys/3-uzduotis.sh
 # Teste nerašykite set -euo pipefail. Jei buvo FAIL — exit 1 pabaigoje (README 9).
 # Testas turi būti žalias su teisingu patikra.sh ir raudonas, kai patikra.sh sugadintas.
 
-S="${1:-./scripts/patikra.sh}"
 PASS=0
 FAIL=0
 
-echo "Testas: $S"
+echo "Testas: ./scripts/patikra.sh"
 
 # 1 patikra (pavyzdys, jau parašyta): git -> išvestyje "OK      git", kodas 0
-OUT=$("$S" git 2>/dev/null)
+OUT=$(./scripts/patikra.sh git 2>/dev/null)
 KODAS=$?
 if printf '%s\n' "$OUT" | grep -qF -- "OK      git" && [ "$KODAS" -eq 0 ]; then
   echo "  ✅ git -> OK, kodas 0"

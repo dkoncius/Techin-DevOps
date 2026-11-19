@@ -6,13 +6,11 @@
 #   3) neegzistuoja  -> išvestyje NĖRA "Trūksta:" (ši eilutė turi eiti į klaidų kanalą)
 # Su teisingu patikra.sh turi būti trys ✅. Su sugadintu kuri nors eilutė tampa ❌.
 
-S="${1:-./scripts/patikra.sh}"
-
 # 1 patikra (pavyzdys, jau parašyta)
-OUT=$("$S" git 2>/dev/null)
+OUT=$(./scripts/patikra.sh git 2>/dev/null)
 if printf '%s\n' "$OUT" | grep -qF -- "OK      git"; then echo "✅ git -> OK"; else echo "❌ git -> OK"; fi
 
-# TODO 1: paleiskite "$S" neegzistuoja, išvestis į OUT, kodas į KODAS
+# TODO 1: paleiskite ./scripts/patikra.sh neegzistuoja, išvestis į OUT, kodas į KODAS
 
 # TODO 2: patikra: KODAS lygus 1  ->  "✅ neegzistuoja -> kodas 1" arba "❌ neegzistuoja -> kodas 1"
 

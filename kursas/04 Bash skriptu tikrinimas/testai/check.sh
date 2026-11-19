@@ -103,15 +103,17 @@ sugadink skaiciuok_geras s_skaicius 's/if ! \[\[ .* \]\]; then/if false; then/'
 # ---------------------------------------------------------------- paleidimas
 # paleisk <užduoties failas> <skriptas: patikra|skaiciuok> <versija>
 #   -> U_OUT, U_ERR, U_KODAS
-# Užduotis paleidžiama iš laikino projekto su argumentu: kelias iki skripto versijos.
+# Užduotis paleidžiama iš laikino projekto; ji naudoja ./scripts/<skriptas>.sh.
 paleisk() {
   local failas=$1 skriptas=$2 versija=$3
   local p="$TMP/projektas"
   rm -rf "$p"
   mkdir -p "$p/uzrasai" "$p/scripts" "$p/docs"
   touch "$p/uzrasai/serveriai.txt" "$p/scripts/ataskaita.sh"
+  chmod +x "$p/scripts/ataskaita.sh"
   cp "$V/$versija.sh" "$p/scripts/$skriptas.sh"
-  U_OUT=$(cd "$p" && "$UZD_DIR/$failas" "$p/scripts/$skriptas.sh" 2>"$TMP/err")
+  chmod +x "$p/scripts/$skriptas.sh"
+  U_OUT=$(cd "$p" && "$UZD_DIR/$failas" 2>"$TMP/err")
   U_KODAS=$?
   U_ERR=$(cat "$TMP/err")
 }
@@ -170,7 +172,7 @@ run() { [ -z "$ONLY" ] || [ "$ONLY" = "$1" ]; }
 # ---------------------------------------------------------------- užduotys
 if run 1; then
   echo "1 užduotis – OUT ir KODAS"
-  F=01_out_kodas.sh
+  F=1-uzduotis.sh
   if bendros_patikros "$F" ne; then
     paleisk "$F" patikra patikra_geras
     WANT=$'git: kodas 0\nneegzistuoja: kodas 1\nneegzistuoja: TRŪKSTA neegzistuoja'
@@ -195,7 +197,7 @@ fi
 
 if run 2; then
   echo "2 užduotis – trys palyginimai"
-  F=02_palyginimai.sh
+  F=2-uzduotis.sh
   if bendros_patikros "$F" ne; then
     # versija | tikėtina | aprašas
     while IFS='|' read -r versija want aprasas; do
@@ -217,7 +219,7 @@ fi
 
 if run 3; then
   echo "3 užduotis – pirmas testas faile"
-  F=03_patikra_testas.sh
+  F=3-uzduotis.sh
   if bendros_patikros "$F" taip && zalias "$F" patikra; then
     if [ "$(kiek_zaliu "$U_OUT")" -ge 3 ]; then ok "bent 3 patikros"; else bad "per mažai patikrų: reikia bent 3 ✅"; fi
     pagauna "$F" patikra p_exit   "skriptas visada baigiasi kodu 0" "patikrinkite kodą su neegzistuoja: turi būti 1"
@@ -228,7 +230,7 @@ fi
 
 if run 4; then
   echo "4 užduotis – skaiciuok.sh testas"
-  F=04_skaiciuok_testas.sh
+  F=4-uzduotis.sh
   if bendros_patikros "$F" taip && zalias "$F" skaiciuok; then
     if [ "$(kiek_zaliu "$U_OUT")" -ge 4 ]; then ok "bent 4 patikros"; else bad "per mažai patikrų: reikia bent 4 ✅"; fi
     pagauna "$F" skaiciuok s_suma     "skaičiuoja a - b vietoj a + b" "patikrinkite, kad 2 3 išveda tiksliai 5"
@@ -240,7 +242,7 @@ fi
 
 if run 5; then
   echo "5 užduotis – testas visada žalias"
-  F=05_zalias_testas.sh
+  F=5-uzduotis.sh
   if bendros_patikros "$F" taip && zalias "$F" patikra; then
     pagauna "$F" patikra p_exit   "skriptas visada baigiasi kodu 0" "ar testas tikrina KODAS?"
     pagauna "$F" patikra p_neigia "OK ir TRŪKSTA sukeisti vietomis" "ar ieškote viso teksto TRŪKSTA neegzistuoja, ne tik žodžio?"
@@ -249,7 +251,7 @@ fi
 
 if run 6; then
   echo "6 užduotis ⭐ – testas raudonas, nors skriptas geras"
-  F=06_raudonas_testas.sh
+  F=6-uzduotis.sh
   if bendros_patikros "$F" taip && zalias "$F" patikra; then
     if printf '%s\n' "$U_OUT" | grep -qF 'Išlaikyta 2 / 2'; then ok "abi patikros liko"; else bad "turi likti abi patikros: Išlaikyta 2 / 2"; fi
     pagauna "$F" patikra p_exit   "skriptas visada baigiasi kodu 0" "neegzistuoja kodo patikra turi likti"

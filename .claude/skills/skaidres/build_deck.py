@@ -282,7 +282,10 @@ def read_tasks(pamoka: Path):
     [(numeris, pavadinimas, tikslas, [žingsniai])]."""
     if not pamoka.exists():
         raise SystemExit(f"Nerastas {pamoka}: reikalingas @uzduotys")
-    files = sorted((pamoka.parent / "uzduotys").glob("[0-9]*-uzduotis.md"), key=lambda p: int(p.name.split("-")[0]))
+    uz = pamoka.parent / "uzduotys"
+    files = sorted(uz.glob("[0-9]*-uzduotis.md"), key=lambda p: int(p.name.split("-")[0]))
+    if not files:
+        files = sorted(uz.glob("[0-9]*-uzduotis/*-uzduotis.md"), key=lambda p: int(p.parent.name.split("-")[0]))
     blocks = []
     if files:
         for f in files:

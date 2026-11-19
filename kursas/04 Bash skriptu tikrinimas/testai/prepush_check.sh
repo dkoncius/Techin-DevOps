@@ -14,11 +14,12 @@ bad()  { printf '\033[31m  ❌ %s\033[0m\n' "$*"; ERRORS=$((ERRORS + 1)); }
 
 # ---------------------------------------------------------------- 1. struktūra
 echo "1. Privalomi failai ir aplankai"
-for d in scripts uzduotys sprendimai testai; do
+for d in scripts uzduotys sprendimai testai uzrasai docs pavyzdziai; do
   if [ -d "$d" ]; then ok "aplankas $d/"; else bad "trūksta aplanko $d/"; fi
 done
-for f in README.md .gitignore testai/check.sh scripts/patikra.sh scripts/skaiciuok.sh \
-         uzduotys/0{1..6}_*.sh; do
+for f in README.md .gitignore testai/check.sh uzrasai/serveriai.txt scripts/patikra.sh \
+         scripts/skaiciuok.sh scripts/sveikas.sh scripts/ataskaita.sh pavyzdziai/sveikas-testas.sh \
+         uzduotys/{1..6}-uzduotis.sh; do
   if [ -f "$f" ]; then ok "$f"; else bad "trūksta failo $f"; fi
 done
 
@@ -39,7 +40,7 @@ done < <(find . -name '*.sh' -not -path './.git/*' -print0 | sort -z)
 
 # ---------------------------------------------------------------- 3. nebaigta
 echo "3. Nebaigtas darbas"
-todo=$(grep -l 'TODO' uzduotys/*.sh 2>/dev/null)
+todo=$(grep -l 'TODO' uzduotys/[0-9]*-uzduotis.sh 2>/dev/null)
 if [ -z "$todo" ]; then
   ok "uzduotys/ neliko TODO"
 else

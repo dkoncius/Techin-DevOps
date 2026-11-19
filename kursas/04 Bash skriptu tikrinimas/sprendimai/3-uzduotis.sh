@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # 3 užduotis. Pirmas testas faile
-S="${1:-./scripts/patikra.sh}"
+
 PASS=0
 FAIL=0
 
-echo "Testas: $S"
+echo "Testas: ./scripts/patikra.sh"
 
-OUT=$("$S" git 2>/dev/null)
+OUT=$(./scripts/patikra.sh git 2>/dev/null)
 KODAS=$?
 if printf '%s\n' "$OUT" | grep -qF -- "OK      git" && [ "$KODAS" -eq 0 ]; then
   echo "  ✅ git -> OK, kodas 0"
@@ -17,7 +17,7 @@ else
   FAIL=$((FAIL + 1))
 fi
 
-OUT=$("$S" neegzistuoja 2>/dev/null)
+OUT=$(./scripts/patikra.sh neegzistuoja 2>/dev/null)
 KODAS=$?
 if printf '%s\n' "$OUT" | grep -qF -- "TRŪKSTA neegzistuoja" && [ "$KODAS" -eq 1 ]; then
   echo "  ✅ neegzistuoja -> TRŪKSTA, kodas 1"

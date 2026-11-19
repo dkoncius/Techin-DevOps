@@ -8,11 +8,10 @@
 # Testas turi būti žalias su teisingu skaiciuok.sh ir raudonas, kai jis sugadintas
 # (neteisinga suma, blogas kodas, klaida ne klaidų kanale, netikrinamas skaičius).
 
-S="${1:-./scripts/skaiciuok.sh}"
 PASS=0
 FAIL=0
 
-echo "Testas: $S"
+echo "Testas: ./scripts/skaiciuok.sh"
 
 # TODO 1: 2 3 -> išvestis lygi 5 ir kodas 0
 

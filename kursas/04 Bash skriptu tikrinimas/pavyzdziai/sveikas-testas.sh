@@ -2,14 +2,13 @@
 # Testas scripts/sveikas.sh
 #   ./pavyzdziai/sveikas-testas.sh
 
-S=./scripts/sveikas.sh
 PASS=0
 FAIL=0
 
-echo "Testas: $S"
+echo "Testas: ./scripts/sveikas.sh"
 
 # 1. Du vardai
-OUT=$("$S" Ona Jonas 2>/dev/null)
+OUT=$(./scripts/sveikas.sh Ona Jonas 2>/dev/null)
 KODAS=$?
 if [ "$OUT" = $'Sveiki, Ona\nSveiki, Jonas\nPasveikinta: 2' ] && [ "$KODAS" -eq 0 ]; then
   echo "  ✅ Ona Jonas -> du pasveikinimai, kodas 0"
@@ -21,7 +20,7 @@ else
 fi
 
 # 2. Be argumento
-OUT=$("$S" 2>/dev/null)
+OUT=$(./scripts/sveikas.sh 2>/dev/null)
 KODAS=$?
 if [ -z "$OUT" ] && [ "$KODAS" -eq 2 ]; then
   echo "  ✅ be argumento -> išvestis tuščia, kodas 2"

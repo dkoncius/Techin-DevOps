@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
-# 6 užduotis ⭐. Testas raudonas: sprendimas
-# Dvi klaidos:
-#   1. "OK git" su vienu tarpu, o skriptas rašo "OK      git" (šeši tarpai).
-#   2. echo "paleista..." stovėjo tarp komandos ir KODAS=$?, todėl KODAS buvo echo kodas (0).
+# 6 užduotis — žingsnius žiūrėkite Teams (uzduotys/6-uzduotis.md).
+# patikra.sh geras, bet testas raudonas — raskite dvi klaidas, patikrų neištrinkite.
 
-S="${1:-./scripts/patikra.sh}"
 PASS=0
 FAIL=0
 
-OUT=$("$S" git 2>/dev/null)
-if printf '%s\n' "$OUT" | grep -qF -- "OK      git"; then
+OUT=$(./scripts/patikra.sh git 2>/dev/null)
+if printf '%s\n' "$OUT" | grep -qF -- "OK git"; then
   echo "  ✅ git -> OK"
   PASS=$((PASS + 1))
 else
@@ -17,9 +14,9 @@ else
   FAIL=$((FAIL + 1))
 fi
 
-OUT=$("$S" neegzistuoja 2>/dev/null)
-KODAS=$?
+OUT=$(./scripts/patikra.sh neegzistuoja 2>/dev/null)
 echo "paleista: neegzistuoja"
+KODAS=$?
 if [ "$KODAS" -eq 1 ]; then
   echo "  ✅ neegzistuoja -> kodas 1"
   PASS=$((PASS + 1))

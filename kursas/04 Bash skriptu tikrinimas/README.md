@@ -17,6 +17,20 @@ Po šios pamokos mokėsite:
 
 Visi pavyzdžiai paleidžiami iš šio aplanko šaknies. 1–7 skyriuose viskas rašoma terminale.
 
+**Kaip gaunate failus:** vieną kartą — starteris (Git / ZIP) be `sprendimai/` ir be `pamoka.md`:
+
+| Aplankas / failas | Paskirtis |
+|---|---|
+| `README.md`, `.gitignore` | gidas ir Git |
+| `scripts/` | tikrinami skriptai (`patikra.sh`, `sveikas.sh`, …) |
+| `pavyzdziai/` | pavyzdinis testas |
+| `testai/` | `check.sh`, `prepush_check.sh` |
+| `uzrasai/serveriai.txt` | reikalingas `patikra.sh` |
+| `docs/` | reikalingas `patikra.sh` (gali būti tuščias) |
+| `uzduotys/N-uzduotis.sh` | užduočių šablonai su `TODO` (6 skriptai) |
+
+Užduočių **aprašas** (`uzduotys/N-uzduotis.md`) ateina per Teams po vieną; starteryje jų nėra.
+
 ```bash
 pwd                              # .../bash-tikrinimas
 echo $0                          # bash arba -bash
@@ -135,7 +149,7 @@ Turi būti: trys ✅, `Išlaikyta 3 / 3` ir `kodas: 0`.
 
 Kiekviena patikra turi tą pačią formą:
 ```bash
-OUT=$("$S" Ona Jonas 2>/dev/null)                 # 1. paleisti
+OUT=$(./scripts/sveikas.sh Ona Jonas 2>/dev/null)  # 1. paleisti
 KODAS=$?                                               # 2. užfiksuoti
 if [ "$OUT" = $'...' ] && [ "$KODAS" -eq 0 ]; then     # 3. palyginti
   echo "  ✅ aprašas"
@@ -182,7 +196,7 @@ Testas saugomas kartu su skriptu: kas parsisiųs repozitoriją, galės iškart p
 ---
 
 ## Užduotys
-Pradiniai failai yra `uzduotys/`. Atsidarykite kiekvieną, perskaitykite komentarą viršuje ir pakeiskite `TODO` eilutes.
+Kiekviena užduotis: `uzduotys/N-uzduotis.sh` (užpildykite `TODO`), aprašas Teams'e iš `N-uzduotis.md`. Tikrinkite `./testai/check.sh N`.
 
 | # | Failas | Ką treniruojate | Privaloma |
 |---|---|---|---|

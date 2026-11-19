@@ -4,7 +4,7 @@
   "source": "https://excalidraw.com",
   "elements": [
     {
-      "id": "b8fa45ac3eb64a9e",
+      "id": "d3e164379e194b33",
       "type": "rectangle",
       "x": 0.0,
       "y": 0.0,
@@ -30,11 +30,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "b2a2332639cb48d8"
+          "id": "fe534452c02349ed"
         },
         {
           "type": "arrow",
-          "id": "23e11bc67f604e77"
+          "id": "3ff9426e439c466e"
         }
       ],
       "updated": 1,
@@ -42,7 +42,7 @@
       "locked": false
     },
     {
-      "id": "b2a2332639cb48d8",
+      "id": "fe534452c02349ed",
       "type": "text",
       "x": 10.0,
       "y": 30.0,
@@ -72,13 +72,13 @@
       "text": "1. Paleisti\n./skriptas",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "b8fa45ac3eb64a9e",
+      "containerId": "d3e164379e194b33",
       "originalText": "1. Paleisti\n./skriptas",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "aaad942dad814ecf",
+      "id": "a6b0c4bc90524707",
       "type": "rectangle",
       "x": 300.0,
       "y": 0.0,
@@ -104,15 +104,15 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "e0291a4fb59a498c"
+          "id": "b654c1efdd854c03"
         },
         {
           "type": "arrow",
-          "id": "23e11bc67f604e77"
+          "id": "3ff9426e439c466e"
         },
         {
           "type": "arrow",
-          "id": "b2a6c0c18abc455c"
+          "id": "e2eae487d2054f68"
         }
       ],
       "updated": 1,
@@ -120,7 +120,7 @@
       "locked": false
     },
     {
-      "id": "e0291a4fb59a498c",
+      "id": "b654c1efdd854c03",
       "type": "text",
       "x": 310.0,
       "y": 30.0,
@@ -150,13 +150,13 @@
       "text": "2. Užfiksuoti\nOUT ir KODAS",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "aaad942dad814ecf",
+      "containerId": "a6b0c4bc90524707",
       "originalText": "2. Užfiksuoti\nOUT ir KODAS",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "4b4c107434fa4b4b",
+      "id": "1c2f7a149b95406f",
       "type": "rectangle",
       "x": 600.0,
       "y": 0.0,
@@ -182,11 +182,11 @@
       "boundElements": [
         {
           "type": "text",
-          "id": "46b7d44fa56646c2"
+          "id": "11237e06fd594645"
         },
         {
           "type": "arrow",
-          "id": "b2a6c0c18abc455c"
+          "id": "e2eae487d2054f68"
         }
       ],
       "updated": 1,
@@ -194,7 +194,7 @@
       "locked": false
     },
     {
-      "id": "46b7d44fa56646c2",
+      "id": "11237e06fd594645",
       "type": "text",
       "x": 610.0,
       "y": 30.0,
@@ -224,13 +224,13 @@
       "text": "3. Palyginti\nif [ ... ]",
       "textAlign": "center",
       "verticalAlign": "middle",
-      "containerId": "4b4c107434fa4b4b",
+      "containerId": "1c2f7a149b95406f",
       "originalText": "3. Palyginti\nif [ ... ]",
       "autoResize": true,
       "lineHeight": 1.25
     },
     {
-      "id": "23e11bc67f604e77",
+      "id": "3ff9426e439c466e",
       "type": "arrow",
       "x": 240.0,
       "y": 50.0,
@@ -269,12 +269,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "b8fa45ac3eb64a9e",
+        "elementId": "d3e164379e194b33",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "aaad942dad814ecf",
+        "elementId": "a6b0c4bc90524707",
         "focus": 0,
         "gap": 4
       },
@@ -282,7 +282,7 @@
       "endArrowhead": "arrow"
     },
     {
-      "id": "b2a6c0c18abc455c",
+      "id": "e2eae487d2054f68",
       "type": "arrow",
       "x": 540.0,
       "y": 50.0,
@@ -321,12 +321,12 @@
       ],
       "lastCommittedPoint": null,
       "startBinding": {
-        "elementId": "aaad942dad814ecf",
+        "elementId": "a6b0c4bc90524707",
         "focus": 0,
         "gap": 4
       },
       "endBinding": {
-        "elementId": "4b4c107434fa4b4b",
+        "elementId": "1c2f7a149b95406f",
         "focus": 0,
         "gap": 4
       },
