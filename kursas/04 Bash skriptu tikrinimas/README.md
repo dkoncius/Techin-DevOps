@@ -8,7 +8,9 @@
 | Mac | jei `echo $0` rodo `zsh`, įeikite: `bash` (išeiti: `exit`) |
 
 ## Ko išmoksite
+
 Po šios pamokos mokėsite:
+
 1. Skripto išvestį ir išėjimo kodą įrašyti į kintamuosius.
 2. Palyginti, ką skriptas parašė, su tuo, ką turėjo parašyti.
 3. Parašyti testą: skriptą, kuris tikrina kitą skriptą.
@@ -53,20 +55,25 @@ Jei redaguojate failą viename aplanke, o paleidžiate kitame, pakeitimų nematy
 Testas yra tiesiog skriptas, kuris kelis kartus paleidžia kitą skriptą ir palygina rezultatus.
 
 ## 2. Išvestis į kintamąjį
+
 ```bash
 OUT=$(./scripts/sveikas.sh Ona)   # ekrane nieko
 echo "$OUT"                          # Sveiki, Ona
                                      # Pasveikinta: 1
 ```
+
 `$(...)` paleidžia komandą ir viską, ką ji parašė, įrašo į kintamąjį. `echo "$OUT"` rašykite su kabutėmis, kitaip eilutės susilieja.
 
 ## 3. Išėjimo kodas
+
 ```bash
 OUT=$(./scripts/sveikas.sh Ona)
 KODAS=$?
 echo "kodas: $KODAS"                 # kodas: 0
 ```
+
 `$?` keičiasi po **kiekvienos** komandos, todėl `KODAS=$?` rašykite iškart po tikrinamos komandos:
+
 ```bash
 OUT=$(./scripts/sveikas.sh)       # kodas 2
 echo "paleista"                      # dabar $? jau echo kodas
@@ -82,6 +89,7 @@ echo "kodas: $KODAS"                 # kodas: 0  (blogai!)
 | 127 | komanda nerasta (`command not found`) |
 
 ## 4. Kodėl klaida vis tiek matoma
+
 ```bash
 OUT=$(./scripts/sveikas.sh)       # ekrane: Naudojimas: ./scripts/sveikas.sh vardas...
 KODAS=$?
@@ -97,14 +105,49 @@ echo "kodas: $KODAS"                 # kodas: 2
 Todėl `Naudojimas: ...` matote ekrane, o `OUT` tuščias. Jei po `OUT=$(...)` ekrane matote ką nors netikėto (pvz., `command not found`), skripte yra klaida.
 
 ## 5. Klaidą paslėpti
+
 ```bash
 OUT=$(./scripts/sveikas.sh 2>/dev/null)   # ekrane nieko
 KODAS=$?
 echo "kodas: $KODAS"                         # kodas: 2
 ```
+
 `2>/dev/null` klaidų kanalą (2) išmeta. Teste taip darome, kad ekrane matytųsi tik ✅ ir ❌. Klaida niekur nedingsta: ją rodo kodas.
 
+**Pavyzdys su** `patikra.sh` **(1 užduotis).** Pirmiausia paleiskite ranka ir pažiūrėkite, ką skriptas rašo (03 pamoka):
+
+```bash
+./scripts/patikra.sh git; echo "kodas: $?"
+./scripts/patikra.sh neegzistuoja; echo "kodas: $?"
+```
+
+Antrajame atvejyje stdout gali turėti kelias eilutes (pvz. `TRŪKSTA neegzistuoja`), o į stderr eina `Trūksta: 1` — užduotyje stderr paslėpkite.
+
+Tas pats užfiksuota kintamuosiuose ir išvesta formatu, kurio tikisi 1 užduotis:
+
+```bash
+OUT=$(./scripts/patikra.sh git 2>/dev/null)
+KODAS=$?
+echo "git: kodas $KODAS"
+
+OUT=$(./scripts/patikra.sh neegzistuoja 2>/dev/null)
+KODAS=$?
+echo "neegzistuoja: kodas $KODAS"
+echo "neegzistuoja: $(printf '%s\n' "$OUT" | head -n 1)"
+```
+
+Turi būti trys eilutės (ekrane neturi būti `Trūksta:`):
+
+```text
+git: kodas 0
+neegzistuoja: kodas 1
+neegzistuoja: TRŪKSTA neegzistuoja
+```
+
+Kodėl `head`: `OUT` gali turėti **kelias eilutes** (visą stdout), o 1 užduotyje trečioje eilutėje reikia parodyti tik **pirmą** (pvz. `TRŪKSTA neegzistuoja`, ne visas sąrašas). Komanda `head -n 1` iš teksto, kuris ateina per `|` (vamzdelį), palieka **tik pirmą eilutę**. `printf '%s\n' "$OUT"` padaro, kad kiekviena `OUT` eilutė būtų atskira — tada `head` jas skaičiuoja teisingai.
+
 ## 6. Palyginti išvestį
+
 ```bash
 OUT=$(./scripts/sveikas.sh Ona)
 # tiksliai lygu ($'...\n...' = tekstas iš kelių eilučių)
@@ -128,6 +171,7 @@ if ! printf '%s\n' "$OUT" | grep -qF -- "Naudojimas"; then echo "✅"; else echo
 `grep -q` nieko nerodo, tik grąžina kodą. `-F`: tekstas ieškomas toks, koks yra.
 
 ## 7. Palyginti kodą
+
 ```bash
 ./scripts/sveikas.sh 2>/dev/null
 KODAS=$?
@@ -138,16 +182,21 @@ OUT=$(./scripts/sveikas.sh Ona)
 KODAS=$?
 if [ "$OUT" = $'Sveiki, Ona\nPasveikinta: 1' ] && [ "$KODAS" -eq 0 ]; then echo "✅"; else echo "❌"; fi
 ```
+
 Skaičiams `-eq`, tekstui `=`.
 
 ## 8. Pirmas testas faile
+
 Pavyzdys yra `pavyzdziai/sveikas-testas.sh`. Atsidarykite jį ir paleiskite:
+
 ```bash
 ./pavyzdziai/sveikas-testas.sh; echo "kodas: $?"
 ```
+
 Turi būti: trys ✅, `Išlaikyta 3 / 3` ir `kodas: 0`.
 
 Kiekviena patikra turi tą pačią formą:
+
 ```bash
 OUT=$(./scripts/sveikas.sh Ona Jonas 2>/dev/null)  # 1. paleisti
 KODAS=$?                                               # 2. užfiksuoti
@@ -160,7 +209,9 @@ else
   FAIL=$((FAIL + 1))
 fi
 ```
+
 Pabaigoje:
+
 ```bash
 echo "Išlaikyta $PASS / $((PASS + FAIL))"
 if [ "$FAIL" -gt 0 ]; then
@@ -173,6 +224,7 @@ fi
 Teste nerašykite `set -euo pipefail` — kitaip testas sustoja ties pirmu paleidimu, kuris grąžina ne 0. Jei buvo ❌, pabaigoje būtinai `exit 1`, kitaip išorinis kodas lieka 0.
 
 ## 10. Ar testas pagauna klaidą?
+
 Testas, kuris niekada nebūna raudonas, nieko netikrina. Sugadinkite skriptą vienu pakeitimu, paleiskite testą, tada grąžinkite failą su `git restore`.
 
 | Ką pakeisti `scripts/sveikas.sh` | Kas turi būti ❌ |
@@ -188,14 +240,17 @@ nano scripts/sveikas.sh                  # vienas pakeitimas
 git restore scripts/sveikas.sh           # grąžina paskutinę commit versiją
 ./pavyzdziai/sveikas-testas.sh        # vėl 3 / 3
 ```
+
 Jei testas lieka žalias, o skriptas veikia blogai, testui trūksta patikros.
 
 ## 11. Testas saugomas Git'e
+
 Testas saugomas kartu su skriptu: kas parsisiųs repozitoriją, galės iškart patikrinti, ar skriptas veikia. Taisyklė: pirma testas žalias, tada `git add`, `git commit`, `git push`.
 
 ---
 
 ## Užduotys
+
 Kiekviena užduotis: `uzduotys/N-uzduotis.sh` (užpildykite `TODO`), aprašas Teams'e iš `N-uzduotis.md`. Tikrinkite `./testai/check.sh N`.
 
 | # | Failas | Ką treniruojate | Privaloma |
@@ -208,16 +263,19 @@ Kiekviena užduotis: `uzduotys/N-uzduotis.sh` (užpildykite `TODO`), aprašas Te
 | 6 ⭐ | `06_raudonas_testas.sh` | testas raudonas, nors skriptas geras | jei spėjate |
 
 1–2 užduotys tikrina `scripts/patikra.sh` (03 pamokos skriptas). Pirma paleiskite jį ranka:
+
 ```bash
 ./scripts/patikra.sh git; echo "kodas: $?"
 ./scripts/patikra.sh neegzistuoja; echo "kodas: $?"
 ```
 
 ### Patikrinkite atsakymus
+
 ```bash
 ./testai/check.sh            # visos užduotys
 ./testai/check.sh 3          # tik 3 užduotis
 ```
+
 Kiekviena patikra rodo ✅ arba ❌ ir ko buvo tikėtasi.
 
 3–6 užduotyse tikrintuvas tikrina jūsų **testą**: paleidžia jį su teisingu skriptu (turi būti žalias) ir su sugadintais (turi būti raudonas).
@@ -246,11 +304,15 @@ Tada terminale ranka pakartokite tą patį paleidimą: `OUT=$(...)`, `echo "$OUT
 ---
 
 ## Prieš push į Git
+
 Paleiskite patikrą prieš push:
+
 ```bash
 ./testai/prepush_check.sh
 ```
+
 Ji tikrina, kad:
+
 - yra visi privalomi failai ir aplankai,
 - kiekvienas `.sh` turi shebang, yra vykdomas ir be sintaksės klaidų,
 - užduotyse neliko `TODO` (tik įspėjimas),
@@ -259,6 +321,7 @@ Ji tikrina, kad:
 - aplankas yra Git repozitorija ir turi ką kelti.
 
 Tada:
+
 ```bash
 git add .
 git commit -m "04 pamokos užduotys"
@@ -266,6 +329,7 @@ git push
 ```
 
 ### Pirmą kartą su šiuo aplanku?
+
 ```bash
 git init
 git add .
